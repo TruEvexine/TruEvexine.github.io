@@ -1,14 +1,10 @@
-footer {
-    border-top: 1px solid #d6d6d6;
-    color: #222;
-    background-color: #f0f0f0;
-    padding: 28px max(20px, calc((100% - 1100px) / 2));
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 0;
-    width: 100%;
-    text-align: left;
+.footer-content {
+display: flex;
+align-items: stretch;
+justify-content: center;
+gap: 0;
+width: 100%;
+text-align: left;
 }
 
 .copyright {
@@ -45,8 +41,8 @@ footer {
 }
 
 @media (max-width: 640px) {
-    footer {
-        flex-direction: column;
+    .footer-content {
+        flex-direction: row;
         gap: 24px;
     }
 
