@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Estilos específicos para la página Index
+   ========================================================================== */
+
+body {
+    background-color: #fff;
+}
+
+/* Contenedor y cuerpo principal para index */
+.main {
+    padding: 40px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
