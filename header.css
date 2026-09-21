@@ -3,7 +3,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    color: #222;
     background-color: #f0f0f0;
+}
+
+.logo-section h1 {
+    margin: 0;
 }
 
 .logo-section {
@@ -29,6 +34,11 @@
 
 .navbar ul li a {
     text-decoration: none;
-    color: #333;
+    color: #222;
     font-weight: bold;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a:focus {
+    color: #0066cc;
 }

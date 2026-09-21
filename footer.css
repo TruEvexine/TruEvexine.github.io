@@ -1,4 +1,5 @@
 footer {
+    color: #222;
     background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
@@ -21,7 +22,12 @@ footer {
 }
 
 .contact-info a {
-    color: #333;
+    color: #222;
     text-decoration: none;
     font-weight: bold;
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+    color: #0066cc;
 }
