@@ -2,33 +2,68 @@
    Estilos específicos para la página Index
    ========================================================================== */
 
+.oswald-titles {
+             font-family: "Oswald", sans-serif;
+             font-optical-sizing: auto;
+             font-weight: 500;
+             font-style: normal;
+         }
+
+.arimo-texto {
+            font-family: "Arimo", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
 
 body {
-    background-color: #fff;
+
 }
 
 /* Contenedor y cuerpo principal para index */
 .main {
-    padding: 40px 20px;
+    padding: 40px 0px;
     align-items: flex-start;
     justify-content: center;
     text-align: center;
 
 }
+
+
+.main p{
+    color: #F3F4F6;
+    font-size: 1.2rem;
+    font-family: 'Arimo', sans-serif;
+    text-align: justify;
+
+}
+
 .main h1{
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 3rem;
+
+    color: #F3F4F6;
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
-    font-family: 'Arial', sans-serif;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+
+
     letter-spacing: 2px;
     text-transform: uppercase;
 
 }
+
+.welcome-section h1 {
+    margin: 0;
+}
+
+.welcome-section .PortWord {
+    margin-top: 8px;
+    font-size: 5.5rem;
+    font-family: 'Arial', sans-serif;
+}
+
 .main h2{
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -36,7 +71,7 @@ body {
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
-    font-family: 'Arial', sans-serif;
+
     margin-top: 50px;
     margin-bottom: 30px;
     letter-spacing: 2px;
@@ -47,13 +82,33 @@ body {
     padding: 20px;
     margin: 0 auto;
     font-size: 1.2rem;
-        color: white;
+        color: #F3F4F6;
+        font-family: 'Arimo', sans-serif;
+        align-content: center;
+       text-align: center;
+
+
 }
 .welcome-section {
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
     padding: 20px;
+
+
+
+
+
+    background-color: #1D2D44;
+
+
+}
+.main {
+    background-color: #0D0E15;
+    padding: 40px 0px;
+}
+
+
+.about-me h2{
+    font-family: 'Oswald', sans-serif;
 }
 .meWrapper{
     display: flex;
@@ -89,8 +144,45 @@ body {
 
 }
 
+
+
 .about-me {
 
     flex:1;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.about-me h2 {
+    margin-top: 0px;
+    color: #F3F4F6;
+}
+.about-me-content {
+    text-align: justify;
+    max-width: 600px;
+    margin: auto;
+    margin-top: -20px;
+}
+
+section.skills-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.skills-section h2 {
+    color: #F3F4F6;
+}
+.skills-section p {
+    color: #F3F4F6;
 }
 
