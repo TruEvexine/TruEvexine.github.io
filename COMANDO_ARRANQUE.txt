@@ -1,1 +1,6 @@
 live-server --port=8080
+---Paleta de colores---
+#1D2D44
+#F3F4F6
+#0D0E15
+#10B981
