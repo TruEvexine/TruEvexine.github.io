@@ -9,3 +9,16 @@
 /dataSources/
 /dataSources.local.xml
 /assets/
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.iws
+out/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+.env
+# Logs y temporales
+*.log
