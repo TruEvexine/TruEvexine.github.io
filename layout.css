@@ -46,3 +46,30 @@ footer[data-layout="footer"] {
     flex-shrink: 0;
     margin-top: auto;
 }
+
+.reveal-ready .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+    will-change: opacity, transform;
+}
+
+.reveal-ready .scroll-reveal[data-reveal-direction="up"] {
+    transform: translateY(-24px);
+}
+
+.reveal-ready .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-ready .scroll-reveal,
+    .reveal-ready .scroll-reveal[data-reveal-direction="up"],
+    .reveal-ready .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+}

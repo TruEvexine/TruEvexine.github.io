@@ -1,6 +1,37 @@
 live-server --port=8080
+
 ---Paleta de colores---
 #1D2D44
 #F3F4F6
 #0D0E15
 #10B981
+
+---Agregar texto a layout.js---
+Para agregar un texto nuevo:
+1.
+Escribe el texto inicial en inglés dentro del HTML.
+2.
+Añade un identificador data-i18n al elemento:
+<h2 data-i18n="projects.title">My Projects</h2>
+3.
+Agrega las dos versiones en layout.js, dentro de translations:
+en: {
+    "projects.title": "My Projects"
+},
+
+es: {
+    "projects.title": "Mis proyectos"
+}
+Cuando el usuario cambie el idioma, el script busca todos los elementos con data-i18n y reemplaza su contenido.
+Para textos que contienen etiquetas HTML, como <strong>, usa data-i18n-html:
+<p data-i18n-html="projects.description">
+    <strong>Frontend:</strong> HTML, CSS and JavaScript.
+</p>
+Y en layout.js:
+en: {
+    "projects.description": "<strong>Frontend:</strong> HTML, CSS and JavaScript."
+},
+
+es: {
+    "projects.description": "<strong>Frontend:</strong> HTML, CSS y JavaScript."
+}

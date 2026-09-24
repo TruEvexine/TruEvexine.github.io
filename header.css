@@ -64,8 +64,32 @@
     font-weight: bold;
     transition: color 0.3s ease;
 }
+.navbar ul li button {
+    text-decoration: none;
+    color: #F3F4F6;
+    font-family: 'Oswald', sans-serif;
+   
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
 .navbar ul li a:hover,
 .navbar ul li a:focus {
     color: #10B981;
+}
+
+.navbar button {
+    border: 1px solid #F3F4F6;
+    border-radius: 999px;
+    padding: 5px 10px;
+    color: #F3F4F6;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.navbar button:hover,
+.navbar button:focus-visible {
+    color: #10B981;
+    border-color: #10B981;
 }
