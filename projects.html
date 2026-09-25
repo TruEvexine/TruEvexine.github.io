@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="layout.js" defer></script>
+</head>
+<body>
+    <header data-layout="header"></header>
+
+    <main class="projects-main">
+        <h1 class="projects-title" data-i18n="projects.title">My Projects</h1>
+        
+        <div class="projects-grid scroll-reveal">
+            <!-- Project Card 1 -->
+            <article class="project-card scroll-reveal" data-project-id="1">
+                <div class="card-content">
+                    <div class="card-media">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title" data-i18n="projects.project1">SIN GUARDAR Videogame</h2>
+                        <p class="card-excerpt" data-i18n="projects.project1Description">A first version of a cosmic horror visual novel with decision-making, developed in JavaFX as an individual university project.</p>
+                        <button class="card-expand-btn" data-i18n="projects.readMore">Read more</button>
+                    </div>
+                </div>
+                <div class="card-full-content" style="display: none;">
+                    <h2 class="full-title" data-i18n="projects.project1">SIN GUARDAR</h2>
+                    <div class="full-media">
+                        <iframe width="800" height="450" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="full-description">
+                        
+                        <p data-i18n="projects.sin-guardar-intro">SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.</p>
+
+                        <p data-i18n="projects.sin-guardar-version">This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.</p>
+
+
+                            <strong data-i18n-html="sin-guardar-concept">Concept</strong>
+                        <p data-i18n-html="sin-guardar-concept-content">
+
+                            The story follows Víctor Corona, an illustrator who receives a manuscript titled 'Chronicle of the Man Who Never Occurred'. The book's content begins to describe events from his own life, leading him to Curucutarán, Michoacán, where he begins to discover that the reality around him doesn't work as it should.
+
+                            The concept uses horror not only through supernatural creatures or situations, but through narrative and visual elements that progressively break the player's perception of what is happening. The title itself, SIN GUARDAR (Unsaved), has a narrative function within the project: it refers both to game progress and to the protagonist's inability to keep intact his identity, his reality, and his own history.</p>
+
+
+                        <strong data-i18n-html="sin-guardar-jugability">Gameplay and Systems</strong>
+
+                        <p data-i18n-html="sin-guardar-jugability-content">The project is built around decision-making. The story is divided into different scenes and narrative nodes, where the player can choose between different actions that modify the course of the game. One of the main systems is Erosion, a value that increases or decreases depending on the decisions made. Besides functioning as a progress variable, Erosion modifies the narrative and visual presentation of the game. As it increases, the narrative voice changes, visual alterations appear, and some dialogues begin to behave differently. In this way, the game state not only determines what happens in the story, but also how that story is presented to the player. The design includes 22 decision nodes and three active endings, including different routes and a secret ending directly related to the interaction between player and game. A save and load system was also implemented, allowing to preserve the story state, Erosion, and decisions made.</p>
+
+                        <strong data-i18n-html="sin-guardar-development">Technical Development</strong>
+
+                        <p data-i18n-html="sin-guardar-development-content">The video game was developed using Java 17 and Java Swing, with Maven as the project build system. The architecture was organized through different components to separate game responsibilities. Among them are scene management, global game state, narrative data, decisions, save system, interface, and audio playback. The project uses a structure based on a state machine, where each scene functions as a state and a manager controls transitions between them. To preserve game information, a global state is used that stores variables like Erosion, current node, and different narrative indicators. Dialogues, scenes, and decisions are stored as structured data, allowing the system to determine what content to show and which scene to advance after each choice. The interface also includes specific elements for the narrative experience, such as the dialogue box, decision panels, pause menu, and a visible Erosion bar during the game.</p>
+
+                        <strong data-i18n-html="sin-guardar-art">Art and Presentation</strong>
+
+                        <p data-i18n-html="sin-guardar-art-content">The visual aspect was designed specifically to work with a resolution of 1920 x 1080 pixels, using separate backgrounds, characters, objects, and interface elements. The artistic direction seeks to combine a graphic novel aesthetic with cosmic horror elements and liminal spaces. The intention is not to constantly show explicit creatures, but to use incorrect details, absence of information, strange proportions, impossible lighting, and progressive alterations of the environment to generate discomfort. The visual system also contemplates different variants of scenes depending on the Erosion level. In this way, the same scenario can present color, lighting, and composition changes when the player's state reaches certain levels.</p>
+
+                        <strong data-i18n-html="sin-guardar-audio">Audio</strong>
+
+                        <p data-i18n-html="sin-guardar-audio-content">The game incorporates ambient music and sound effects in WAV format through the audio system included in Java. The music changes according to the story context and is mainly used to reinforce the atmosphere of each scenario. Sound effects accompany specific events, transitions, and important narrative moments.</p>
+
+                        <strong data-i18n-html="sin-guardar-objective">Project Objective</strong>
+
+                        <p data-i18n-html="sin-guardar-objective-content">The main objective of this first version was to integrate programming, narrative, interface, art, and audio within a single interactive experience, using Java as the main technology. More than just developing a story with choices, the project seeks to experiment with the possibility that player decisions affect both narrative content and the way the game itself presents itself. This version represents the functional base of the project and serves as a starting point for future iterations, content improvements, visual polish, and expansion of its systems.</p>
+
+
+
+
+                    </div>
+                </div>
+            </article>
+
+            <!--
+            <article class="project-card" data-project-id="2">
+                <div class="card-content">
+                    <div class="card-media">
+                        <img src="assets/project-placeholder.jpg" alt="Project 2" class="card-image">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Project Title 2</h2>
+                        <p class="card-excerpt">Brief description of the project goes here...</p>
+                        <button class="card-expand-btn">Read more</button>
+                    </div>
+                </div>
+                <div class="card-full-content" style="display: none;">
+                    <h2 class="full-title">Project Title 2</h2>
+                    <div class="full-media">
+                        <div class="gallery">
+                            <img src="assets/project-placeholder.jpg" alt="Project image 1">
+                        </div>
+                    </div>
+                    <div class="full-description">
+                        <p>Full description of the project goes here...</p>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="project-card" data-project-id="3">
+                <div class="card-content">
+                    <div class="card-media">
+                        <img src="assets/project-placeholder.jpg" alt="Project 3" class="card-image">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Project Title 3</h2>
+                        <p class="card-excerpt">Brief description of the project goes here...</p>
+                        <button class="card-expand-btn">Read more</button>
+                    </div>
+                </div>
+                <div class="card-full-content" style="display: none;">
+                    <h2 class="full-title">Project Title 3</h2>
+                    <div class="full-media">
+                        <div class="gallery">
+                            <img src="assets/project-placeholder.jpg" alt="Project image 1">
+                        </div>
+                    </div>
+                    <div class="full-description">
+                        <p>Full description of the project goes here...</p>
+                    </div>
+                </div>
+            </article>
+            -->
+
+
+        </div>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div class="project-modal" id="projectModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-content">
+            <div class="modal-media"></div>
+            <div class="modal-text"></div>
+        </div>
+    </div>
+
+    <footer data-layout="footer"></footer>
+
+    <script src="projects.js" defer></script>
+</body>
+</html>
