@@ -79,7 +79,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function initGallery() {
-        const galleryImages = modalMedia.querySelectorAll('.gallery img');
+        const slider = modalMedia.querySelector('.media-slider');
+        if (slider) {
+            const slides = slider.querySelectorAll('.slide');
+            const prevBtn = slider.querySelector('.slider-arrow.prev');
+            const nextBtn = slider.querySelector('.slider-arrow.next');
+            const currentCounter = slider.querySelector('.current-slide');
+            const totalCounter = slider.querySelector('.total-slides');
+
+            if (slides.length <= 1) {
+                if (prevBtn) prevBtn.style.display = 'none';
+                if (nextBtn) nextBtn.style.display = 'none';
+                if (slider.querySelector('.slider-counter')) {
+                    slider.querySelector('.slider-counter').style.display = 'none';
+                }
+            } else {
+                let currentIndex = 0;
+                if (totalCounter) totalCounter.textContent = slides.length;
+
+                function showSlide(index) {
+                    if (index < 0) {
+                        currentIndex = slides.length - 1;
+                    } else if (index >= slides.length) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex = index;
+                    }
+
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === currentIndex);
+                    });
+
+                    if (currentCounter) {
+                        currentCounter.textContent = currentIndex + 1;
+                    }
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        showSlide(currentIndex - 1);
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        showSlide(currentIndex + 1);
+                    });
+                }
+            }
+        }
+
+        const galleryImages = modalMedia.querySelectorAll('.gallery img, .media-slider .slide img');
         
         galleryImages.forEach(img => {
             img.addEventListener('click', function() {

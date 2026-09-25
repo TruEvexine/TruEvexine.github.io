@@ -35,10 +35,38 @@
                 <div class="card-full-content" style="display: none;">
                     <h2 class="full-title" data-i18n="projects.project1">SIN GUARDAR</h2>
                     <div class="full-media">
-                        <iframe width="800" height="450" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="media-slider">
+                            <div class="slider-track">
+                                <!-- Slide 1: Video de YouTube -->
+                                <div class="slide active">
+                                    <iframe width="800" height="450" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+
+                                <!-- Slide 2: Imagen 1 -->
+                                <div class="slide">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar.jpeg" alt="Captura de pantalla 1">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar2.jpeg" alt="Captura de pantalla 2">
+                                </div>
+
+                                <div class="slide">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar3.jpeg" alt="Captura de pantalla 3">
+                                </div>
+                            </div>
+
+
+                            <button type="button" class="slider-arrow prev" aria-label="Anterior">&#10094;</button>
+                            <button type="button" class="slider-arrow next" aria-label="Siguiente">&#10095;</button>
+
+
+                            <div class="slider-counter">
+                                <span class="current-slide">1</span> / <span class="total-slides">3</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="full-description">
-                        
+
                         <p data-i18n="projects.sin-guardar-intro">SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.</p>
 
                         <p data-i18n="projects.sin-guardar-version">This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.</p>
