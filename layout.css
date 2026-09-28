@@ -73,3 +73,27 @@ footer[data-layout="footer"] {
         will-change: auto;
     }
 }
+
+@media (max-width: 768px) {
+    main,
+    .main {
+        padding: 0 16px;
+    }
+
+    header,
+    header[data-layout="header"] {
+        min-height: 50px;
+    }
+
+    footer,
+    footer[data-layout="footer"] {
+        min-height: 100px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    main,
+    .main {
+        padding: 0 24px;
+    }
+}

@@ -224,6 +224,20 @@ function initLanguageToggle() {
     });
 }
 
+function initHamburgerMenu() {
+    var hamburger = document.querySelector('.hamburger-menu');
+    var navbar = document.querySelector('.navbar');
+
+    if (hamburger && navbar) {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navbar.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
         scrollDirection = window.scrollY >= previousScrollY ? "down" : "up";
@@ -234,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadLayouts()
         .then(() => {
             initLanguageToggle();
+            initHamburgerMenu();
             applyTranslations();
         })
         .catch((error) => {

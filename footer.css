@@ -64,6 +64,7 @@ footer {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    overflow-wrap: anywhere;
 }
 
 .contact-info a:hover,
@@ -89,5 +90,40 @@ footer {
     .contact-info {
         padding: 0;
         border-left: 0;
+    }
+
+    .footer-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .footer-content {
+        gap: 16px;
+    }
+
+    .copyright,
+    .contact-info {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 16px;
+    }
+
+    .copyright h2,
+    .contact-info h2 {
+        font-size: 1.1rem;
+    }
+
+    .copyright p,
+    .contact-info p {
+        font-size: 0.85rem;
     }
 }
