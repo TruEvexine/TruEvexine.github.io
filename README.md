@@ -1,7 +1,13 @@
-- 👋 Hi, I’m @Evexine
-- 👀 I’m interested in make my own projects...
-- 🌱 I’m currently learning Java, c++, HTML,and others ...
-- 💞️ I’m looking to collaborate on anything, I really want to learn everything I can...
-- ⚡ Fun fact: Well I love to playing RDR2 and a lot of other games  ...
+# Rogelio Emmanuel Ceja — Portfolio
 
-For more info check my Portfolio!
+Personal portfolio of a Systems Engineering student at UVAQ who builds websites and narrative games.
+
+**Live:** https://truevexine.github.io
+
+- **Pages:** Home, Profile (tech stack + education), Projects, Contact
+- **Stack:** HTML, CSS and vanilla JavaScript, with no build step
+- **Languages:** English / Spanish toggle (texts live in `layout.js`)
+
+Run locally with `live-server --port=8080` (header and footer are loaded with `fetch`, so a local server is required).
+
+Tech logos in `assets/icons` come from [Devicon](https://devicon.dev) (MIT).

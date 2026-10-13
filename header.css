@@ -1,44 +1,36 @@
-.oswald-titles {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+/* Header sticky: siempre visible en escritorio; en móvil se oculta al bajar y vuelve al subir */
+header[data-layout="header"] {
+    background-color: #0D0E15;
+    border-bottom: 1px solid transparent;
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.arimo-texto {
-    font-family: "Arimo", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+header[data-layout="header"].is-scrolled {
+    background-color: rgba(13, 14, 21, 0.82);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom-color: rgba(243, 244, 246, 0.08);
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
+    width: min(100%, 1200px);
     height: 60px;
-
-    background-color: #0D0E15;
-}
-
-.logo-section h1 {
-    margin: 0px 5px;
-    padding: 0;
-    line-height: 1;
-    font-family: 'Oswald', sans-serif;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
 .logo-section {
     color: #F3F4F6;
-    flex: 1;
-    margin-left: 50px;
-}
-
-.navbar {
-    flex: 1;
-    text-align: center;
-
-
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .navbar ul {
@@ -46,46 +38,50 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-
-}
-
-.navbar ul li {
-    margin: 0 15px;
-
-
+    align-items: center;
+    gap: 28px;
 }
 
 .navbar ul li a {
+    position: relative;
     text-decoration: none;
     color: #F3F4F6;
     font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
-.navbar ul li button {
-    text-decoration: none;
-    color: #F3F4F6;
-    font-family: 'Oswald', sans-serif;
-   
-    font-weight: bold;
-    transition: color 0.3s ease;
+
+.navbar ul li a[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 2px;
+    background: #10B981;
 }
 
 .navbar ul li a:hover,
-.navbar ul li a:focus {
+.navbar ul li a:focus-visible,
+.logo-section:hover,
+.logo-section:focus-visible {
     color: #10B981;
 }
 
 .navbar button {
+    min-height: 36px;
     border: 1px solid #F3F4F6;
     border-radius: 999px;
-    padding: 5px 10px;
+    padding: 6px 14px;
     color: #F3F4F6;
     background: transparent;
-    font: inherit;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .navbar button:hover,
@@ -97,15 +93,15 @@
 .hamburger-menu {
     display: none;
     flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 24px;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    margin-right: -8px;
+    padding: 10px;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
-    margin-right: 20px;
-    z-index: 1001;
 }
 
 .hamburger-menu span {
@@ -113,11 +109,11 @@
     height: 3px;
     background: #F3F4F6;
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
 .hamburger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -125,65 +121,89 @@
 }
 
 .hamburger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
+    header[data-layout="header"].is-hidden {
+        transform: translateY(-100%);
+    }
+
+    .header-container {
+        padding: 0 20px;
+    }
+
+    .logo-section {
+        font-size: 1.25rem;
+    }
+
     .hamburger-menu {
         display: flex;
     }
 
+    /* El menú cuelga del header sticky, así siempre queda pegado a él */
     .navbar {
-        position: fixed;
-        top: 60px;
+        position: absolute;
+        top: 100%;
         left: 0;
         width: 100%;
         background: #0D0E15;
-        padding: 20px 0;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 1000;
+        border-bottom: 1px solid rgba(243, 244, 246, 0.08);
+        padding: 12px 0 24px;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s;
     }
 
     .navbar.active {
-        transform: translateX(0);
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .navbar ul {
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        gap: 4px;
     }
 
-    .navbar ul li {
-        margin: 0;
+    .navbar ul li a {
+        display: block;
+        padding: 10px 24px;
+        font-size: 1.3rem;
     }
 
-    .navbar ul li a,
-    .navbar ul li button {
-        font-size: 1.2rem;
+    .navbar ul li a[aria-current="page"]::after {
+        left: 24px;
+        right: 24px;
+        bottom: 4px;
     }
 
-    .logo-section {
-        margin-left: 20px;
-    }
-
-    .logo-section h1 {
-        font-size: 1.2rem;
+    .navbar button {
+        min-height: 44px;
+        margin-top: 8px;
+        padding: 8px 20px;
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .navbar ul li a,
-    .navbar ul li button {
-        font-size: 1.3rem;
+    .header-container {
+        padding: 0 24px;
     }
 
-    .navbar ul li {
-        margin: 0 10px;
+    .navbar ul {
+        gap: 20px;
     }
 
-    .logo-section {
-        margin-left: 30px;
+    .navbar ul li a {
+        font-size: 1.15rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    header[data-layout="header"],
+    .navbar,
+    .hamburger-menu span {
+        transition: none;
     }
 }

@@ -2,6 +2,15 @@
    Estilos generales de vista de página (Layout General)
    ========================================================================== */
 
+/* Fuente de títulos, declarada una sola vez para todas las páginas */
+@font-face {
+    font-family: 'MiFuentePersonalizada';
+    src: url('https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/Extension-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -9,21 +18,27 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: #222;
-    background-color: #fff;
+    font-family: 'Arimo', Arial, sans-serif;
+    color: #F3F4F6;
+    background-color: #0D0E15;
 }
 
-/* Espacio reservado para Header */
+img {
+    max-width: 100%;
+}
+
+/* Header siempre presente (las reglas de ocultar/compactar están en header.css) */
 header,
 header[data-layout="header"] {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
     min-height: 60px;
     flex-shrink: 0;
@@ -45,6 +60,42 @@ footer[data-layout="footer"] {
     min-height: 120px;
     flex-shrink: 0;
     margin-top: auto;
+}
+
+/* Botones/enlaces de acción compartidos */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 22px;
+    border: 1px solid rgba(243, 244, 246, 0.35);
+    border-radius: 999px;
+    color: #F3F4F6;
+    background: transparent;
+    font-family: 'Arimo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    color: #10B981;
+    border-color: #10B981;
+}
+
+.btn-primary {
+    background-color: #10B981;
+    border-color: #10B981;
+    color: #0D0E15;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background-color: transparent;
 }
 
 .reveal-ready .scroll-reveal {
@@ -72,28 +123,15 @@ footer[data-layout="footer"] {
         transition: none;
         will-change: auto;
     }
+
+    .btn {
+        transition: none;
+    }
 }
 
 @media (max-width: 768px) {
-    main,
-    .main {
-        padding: 0 16px;
-    }
-
-    header,
-    header[data-layout="header"] {
-        min-height: 50px;
-    }
-
     footer,
     footer[data-layout="footer"] {
         min-height: 100px;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    main,
-    .main {
-        padding: 0 24px;
     }
 }

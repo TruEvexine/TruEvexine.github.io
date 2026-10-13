@@ -6,16 +6,17 @@ const layouts = {
 const translations = {
     en: {
         "nav.home": "Home",
+        "nav.profile": "Profile",
         "nav.projects": "Projects",
         "nav.contact": "Contact",
         "language.switch": "Español",
-        "footer.copyright": "Copyright",
+        "footer.copyright": "Rogelio Emmanuel Ceja",
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. All rights reserved.",
         "footer.contact": "Contact Information",
         "footer.email": "Contact:",
         "footer.github": "GitHub:",
         "footer.linkedin": "LinkedIn:",
-        "contact.documentTitle": "Contact",
+        "contact.documentTitle": "Contact — Rogelio Ceja",
         "contact.eyebrow": "LET'S CONNECT",
         "contact.title": "Get in touch",
         "contact.intro": "Have a project in mind, an opportunity, or just want to say hello? Reach out through any of these channels.",
@@ -25,32 +26,45 @@ const translations = {
         "contact.linkedinDescription": "Let's connect professionally.",
         "contact.emailAction": "Send me an email",
         "contact.profileAction": "View profile",
+        "index.documentTitle": "Rogelio Ceja — Portfolio",
+        "profile.documentTitle": "Profile — Rogelio Ceja",
+        "projects.documentTitle": "Projects — Rogelio Ceja",
         "welcome.title": "Welcome to my",
         "welcome.portfolio": "Portfolio",
-        "welcome.message": "Feel free to explore my work and get in touch if you have any questions or opportunities 😊",
+        "welcome.message": "Systems Engineering student building websites and narrative games.",
+        "welcome.ctaProjects": "See my projects",
+        "welcome.ctaContact": "Get in touch",
         "about.title": "About Me",
-        "about.intro": "I'm Rogelio Emmanuel Ceja Acosta. I'm currently in my 5th semester of Systems Engineering. This portfolio offers a brief glimpse into my personality and interests.",
-        "about.developer": "I am a passionate web developer with a strong focus on creating engaging and user-friendly websites. With a background in HTML, CSS, and JavaScript, I enjoy turning ideas into functional and visually appealing digital experiences.",
-        "about.gaming": "Gaming is a big part of my life, and I particularly enjoy immersive experiences. I'm a huge fan of the Resident Evil series for its tension and story, as well as the adventurous world of Pokémon.",
+        "about.intro": "I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I turn ideas into websites that are clear, fast and pleasant to use.",
+        "about.gaming": "I'm a gamer at heart: Resident Evil taught me tension, Pokémon taught me adventure. That's why I also build stories you can play.",
+        "about.cta": "My skills & education",
+        "profile.title": "Profile",
+        "profile.intro": "The tools I build with and where I'm learning to master them.",
+        "profile.stackTitle": "Tech stack",
+        "profile.groupLanguages": "Languages",
+        "profile.groupWeb": "Web",
+        "profile.groupData": "Databases",
+        "profile.groupCloud": "Cloud & DevOps",
+        "profile.groupTools": "Version control",
+        "profile.also": "Also: Scrum · Kanban · TCP/IP networking · SSL/TLS · Microsoft Office",
+        "profile.howTitle": "How I work",
+        "profile.problemTitle": "Problem solving",
+        "profile.problem": "I debug until I find the real cause, not just the symptom.",
+        "profile.teamTitle": "Teamwork",
+        "profile.team": "Agile teams, side by side with designers and product owners.",
+        "profile.commTitle": "Clear communication",
+        "profile.comm": "I explain technical decisions in plain language.",
+        "profile.learnTitle": "Fast learner",
+        "profile.learn": "New language or framework? I pick it up quickly.",
+        "profile.leadTitle": "Leadership",
+        "profile.lead": "I like helping my teammates get unstuck and keep moving.",
         "education.title": "Education",
-        "education.description": "Currently pursuing a Bachelor's degree in Systems Engineering at the University Vasco de Quiroga (UVAQ).",
-        "skills.title": "My Skills",
-        "skills.abilities": "Abilities",
-        "skills.software-development": "<strong>Software Development:</strong> Java, Python, C#, JavaScript (React, Node.js).",
-        "skills.software": "<strong>Software:</strong> Microsoft Office Suite.",
-        "skills.databases": "<strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, SQL query optimization.",
-        "skills.infrastructure": "<strong>Infrastructure and Cloud:</strong> AWS (EC2, S3), Docker, Kubernetes, CI/CD (Jenkins).",
-        "skills.methodologies": "<strong>Methodologies and Tools:</strong> Scrum, Kanban, Git, GitHub.",
-        "skills.networks": "<strong>Networks and Security:</strong> TCP/IP network configuration, SSL/TLS security protocols.",
-        "skills.soft": "Soft Skills",
-        "skills.problem-solving": "<strong>Problem Solving:</strong> Analytical ability to debug complex code and diagnose system issues.",
-        "skills.leadership": "<strong>Leadership:</strong> Ability to lead and mentor junior developers in a team environment.",
-        "skills.teamwork": "<strong>Teamwork:</strong> Effective collaboration in agile development teams with designers and Product Owners.",
-        "skills.communication": "<strong>Technical Communication:</strong> Ability to explain software architecture to clients or non-technical departments.",
-        "skills.adaptability": "<strong>Adaptability:</strong> Rapid self-learning to master new languages, frameworks, and technological tools.",
+        "education.degree": "B.S. in Systems Engineering",
+        "education.school": "Universidad Vasco de Quiroga (UVAQ)",
+        "education.status": "In progress · 5th semester",
         "projects.title": "My Projects",
-        "projects.project1": "SIN GUARDAR Videogame",
-        "projects.project1Description": "A first version of a cosmic horror visual novel with decision-making, developed in JavaFX as an individual university project. Explore the gameplay and discover how player decisions, the Erosion system, and narrative interact to transform the experience.",
+        "projects.project1": "SIN GUARDAR — Narrative game in Java",
+        "projects.project1Description": "A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX.",
         "projects.project1Button": "View more",
         "projects.sin-guardar-intro": "SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.",
@@ -59,7 +73,7 @@ const translations = {
         "sin-guardar-jugability": "Gameplay and Systems",
         "sin-guardar-jugability-content": "The project is built around decision-making. The story is divided into different scenes and narrative nodes, where the player can choose between different actions that modify the course of the game. One of the main systems is Erosion, a value that increases or decreases depending on the decisions made. Besides functioning as a progress variable, Erosion modifies the narrative and visual presentation of the game. As it increases, the narrative voice changes, visual alterations appear, and some dialogues begin to behave differently. In this way, the game state not only determines what happens in the story, but also how that story is presented to the player. The design includes 22 decision nodes and three active endings, including different routes and a secret ending directly related to the interaction between player and game. A save and load system was also implemented, allowing to preserve the story state, Erosion, and decisions made.",
         "sin-guardar-development": "Technical Development",
-        "sin-guardar-development-content": "The video game was developed using Java 17 and Java Swing, with Maven as the project build system. The architecture was organized through different components to separate game responsibilities. Among them are scene management, global game state, narrative data, decisions, save system, interface, and audio playback. The project uses a structure based on a state machine, where each scene functions as a state and a manager controls transitions between them. To preserve game information, a global state is used that stores variables like Erosion, current node, and different narrative indicators. Dialogues, scenes, and decisions are stored as structured data, allowing the system to determine what content to show and which scene to advance after each choice. The interface also includes specific elements for the narrative experience, such as the dialogue box, decision panels, pause menu, and a visible Erosion bar during the game.",
+        "sin-guardar-development-content": "The video game was developed in Java 17: it started with Java Swing and was later migrated to JavaFX, with Maven as the project build system. The architecture was organized through different components to separate game responsibilities. Among them are scene management, global game state, narrative data, decisions, save system, interface, and audio playback. The project uses a structure based on a state machine, where each scene functions as a state and a manager controls transitions between them. To preserve game information, a global state is used that stores variables like Erosion, current node, and different narrative indicators. Dialogues, scenes, and decisions are stored as structured data, allowing the system to determine what content to show and which scene to advance after each choice. The interface also includes specific elements for the narrative experience, such as the dialogue box, decision panels, pause menu, and a visible Erosion bar during the game.",
         "sin-guardar-art": "Art and Presentation",
         "sin-guardar-art-content": "The visual aspect was designed specifically to work with a resolution of 1920 x 1080 pixels, using separate backgrounds, characters, objects, and interface elements. The artistic direction seeks to combine a graphic novel aesthetic with cosmic horror elements and liminal spaces. The intention is not to constantly show explicit creatures, but to use incorrect details, absence of information, strange proportions, impossible lighting, and progressive alterations of the environment to generate discomfort. The visual system also contemplates different variants of scenes depending on the Erosion level. In this way, the same scenario can present color, lighting, and composition changes when the player's state reaches certain levels.",
         "sin-guardar-audio": "Audio",
@@ -70,16 +84,17 @@ const translations = {
     },
     es: {
         "nav.home": "Inicio",
+        "nav.profile": "Perfil",
         "nav.projects": "Proyectos",
         "nav.contact": "Contacto",
         "language.switch": "English",
-        "footer.copyright": "Derechos de autor",
+        "footer.copyright": "Rogelio Emmanuel Ceja",
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. Todos los derechos reservados.",
         "footer.contact": "Información de contacto",
         "footer.email": "Correo:",
         "footer.github": "GitHub:",
         "footer.linkedin": "LinkedIn:",
-        "contact.documentTitle": "Contacto",
+        "contact.documentTitle": "Contacto — Rogelio Ceja",
         "contact.eyebrow": "PONGÁMONOS EN CONTACTO",
         "contact.title": "Hablemos",
         "contact.intro": "¿Tienes un proyecto en mente, una oportunidad o simplemente quieres saludar? Puedes escribirme por cualquiera de estos medios.",
@@ -89,32 +104,45 @@ const translations = {
         "contact.linkedinDescription": "Conectemos profesionalmente.",
         "contact.emailAction": "Enviarme un correo",
         "contact.profileAction": "Ver perfil",
+        "index.documentTitle": "Rogelio Ceja — Portafolio",
+        "profile.documentTitle": "Perfil — Rogelio Ceja",
+        "projects.documentTitle": "Proyectos — Rogelio Ceja",
         "welcome.title": "Bienvenido a mi",
         "welcome.portfolio": "Portafolio",
-        "welcome.message": "Explora mi trabajo y ponte en contacto si tienes alguna pregunta u oportunidad 😊",
+        "welcome.message": "Estudiante de Ingeniería en Sistemas que crea sitios web y videojuegos narrativos.",
+        "welcome.ctaProjects": "Ver mis proyectos",
+        "welcome.ctaContact": "Contáctame",
         "about.title": "Sobre mí",
-        "about.intro": "Soy Rogelio Emmanuel Ceja Acosta. Actualmente curso el quinto semestre de Ingeniería en Sistemas. Este portfolio ofrece una breve mirada a mi personalidad e intereses.",
-        "about.developer": "Soy un desarrollador web apasionado, enfocado en crear sitios atractivos y fáciles de usar. Gracias a mi experiencia con HTML, CSS y JavaScript, disfruto convertir ideas en experiencias digitales funcionales y visualmente atractivas.",
-        "about.gaming": "Los videojuegos son una parte importante de mi vida y disfruto especialmente las experiencias inmersivas. Soy un gran fan de la serie Resident Evil por su tensión e historia, así como del aventurero mundo de Pokémon.",
-        "education.title": "Educación",
-        "education.description": "Actualmente curso la Licenciatura en Ingeniería en Sistemas en la Universidad Vasco de Quiroga (UVAQ).",
-        "skills.title": "Mis habilidades",
-        "skills.abilities": "Habilidades técnicas",
-        "skills.software-development": "<strong>Desarrollo de software:</strong> Java, Python, C#, JavaScript (React, Node.js).",
-        "skills.software": "<strong>Software:</strong> Microsoft Office Suite.",
-        "skills.databases": "<strong>Bases de datos:</strong> PostgreSQL, MySQL, MongoDB, optimización de consultas SQL.",
-        "skills.infrastructure": "<strong>Infraestructura y nube:</strong> AWS (EC2, S3), Docker, Kubernetes, CI/CD (Jenkins).",
-        "skills.methodologies": "<strong>Metodologías y herramientas:</strong> Scrum, Kanban, Git, GitHub.",
-        "skills.networks": "<strong>Redes y seguridad:</strong> Configuración de redes TCP/IP, protocolos de seguridad SSL/TLS.",
-        "skills.soft": "Habilidades blandas",
-        "skills.problem-solving": "<strong>Resolución de problemas:</strong> Capacidad analítica para depurar código complejo y diagnosticar problemas de sistemas.",
-        "skills.leadership": "<strong>Liderazgo:</strong> Capacidad para dirigir y orientar a desarrolladores junior en un entorno de equipo.",
-        "skills.teamwork": "<strong>Trabajo en equipo:</strong> Colaboración eficaz en equipos ágiles de desarrollo con diseñadores y Product Owners.",
-        "skills.communication": "<strong>Comunicación técnica:</strong> Capacidad para explicar la arquitectura de software a clientes o departamentos no técnicos.",
-        "skills.adaptability": "<strong>Adaptabilidad:</strong> Aprendizaje autónomo rápido para dominar nuevos lenguajes, frameworks y herramientas tecnológicas.",
+        "about.intro": "Soy Rogelio, estudiante de quinto semestre de Ingeniería en Sistemas en la UVAQ. Convierto ideas en sitios web claros, rápidos y agradables de usar.",
+        "about.gaming": "Soy gamer de corazón: Resident Evil me enseñó la tensión y Pokémon, la aventura. Por eso también creo historias que se juegan.",
+        "about.cta": "Mis habilidades y formación",
+        "profile.title": "Perfil",
+        "profile.intro": "Las herramientas con las que construyo y dónde estoy aprendiendo a dominarlas.",
+        "profile.stackTitle": "Stack técnico",
+        "profile.groupLanguages": "Lenguajes",
+        "profile.groupWeb": "Web",
+        "profile.groupData": "Bases de datos",
+        "profile.groupCloud": "Nube y DevOps",
+        "profile.groupTools": "Control de versiones",
+        "profile.also": "También: Scrum · Kanban · Redes TCP/IP · SSL/TLS · Microsoft Office",
+        "profile.howTitle": "Cómo trabajo",
+        "profile.problemTitle": "Resolución de problemas",
+        "profile.problem": "Depuro hasta encontrar la causa real, no solo el síntoma.",
+        "profile.teamTitle": "Trabajo en equipo",
+        "profile.team": "Equipos ágiles, codo a codo con diseño y producto.",
+        "profile.commTitle": "Comunicación clara",
+        "profile.comm": "Explico decisiones técnicas en lenguaje sencillo.",
+        "profile.learnTitle": "Aprendo rápido",
+        "profile.learn": "¿Un lenguaje o framework nuevo? Lo domino en poco tiempo.",
+        "profile.leadTitle": "Liderazgo",
+        "profile.lead": "Me gusta ayudar a mi equipo a destrabarse y seguir avanzando.",
+        "education.title": "Formación",
+        "education.degree": "Ingeniería en Sistemas",
+        "education.school": "Universidad Vasco de Quiroga (UVAQ)",
+        "education.status": "En curso · 5.º semestre",
         "projects.title": "Mis Proyectos",
-        "projects.project1": "Videojuego  SIN GUARDAR",
-        "projects.project1Description": "Una primera versión de una visual novel de horror cósmico y toma de decisiones, desarrollada en Java Fx como proyecto universitario individual. Explora el gameplay y descubre cómo las decisiones del jugador, el sistema de Erosión y la narrativa interactúan para transformar la experiencia.",
+        "projects.project1": "SIN GUARDAR — Videojuego narrativo en Java",
+        "projects.project1Description": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y hasta la forma en que se ve el juego. Proyecto universitario individual en Java: empezó en Swing y se terminó en JavaFX.",
         "projects.project1Button": "Ver más",
         "projects.sin-guardar-intro": "SIN GUARDAR es un videojuego narrativo de horror cósmico y metanarrativa desarrollado como proyecto universitario individual para la materia de Estructura de Datos en la Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "Esta versión corresponde a la primera versión funcional del proyecto, cuyo objetivo fue desarrollar una experiencia narrativa interactiva en la que las decisiones del jugador tuvieran consecuencias sobre el desarrollo de la historia y sobre la propia presentación del juego.",
@@ -123,7 +151,7 @@ const translations = {
         "sin-guardar-jugability": "Jugabilidad y sistemas",
         "sin-guardar-jugability-content": "El proyecto está construido alrededor de la toma de decisiones. La historia se divide en diferentes escenas y nodos narrativos, donde el jugador puede elegir entre distintas acciones que modifican el recorrido de la partida. Uno de los sistemas principales es la Erosión, un valor que aumenta o disminuye dependiendo de las decisiones tomadas. Además de funcionar como una variable de progreso, la Erosión modifica la presentación narrativa y visual del juego. A medida que aumenta, cambia la voz narrativa, aparecen alteraciones visuales y algunos diálogos comienzan a comportarse de manera diferente. De esta forma, el estado de la partida no solamente determina qué ocurre en la historia, sino también cómo se presenta esa historia al jugador. El diseño contempla 22 nodos de decisión y tres finales activos, incluyendo rutas diferentes y un final secreto relacionado directamente con la interacción entre el jugador y el juego. También se implementó un sistema de guardado y carga de partidas, permitiendo conservar el estado de la historia, la Erosión y las decisiones realizadas.",
         "sin-guardar-development": "Desarrollo técnico",
-        "sin-guardar-development-content": "El videojuego fue desarrollado utilizando Java 17 y Java Swing, con Maven como sistema de construcción del proyecto. La arquitectura se organizó mediante diferentes componentes para separar las responsabilidades del juego. Entre ellos se encuentran el manejo de escenas, el estado global de la partida, los datos narrativos, las decisiones, el sistema de guardado, la interfaz y la reproducción de audio. El proyecto utiliza una estructura basada en una máquina de estados, donde cada escena funciona como un estado y un administrador controla las transiciones entre ellas. Para conservar la información de la partida se utiliza un estado global que almacena variables como la Erosión, el nodo actual y los diferentes indicadores narrativos. Los diálogos, escenas y decisiones se almacenan como datos estructurados, permitiendo que el sistema determine qué contenido mostrar y a qué escena avanzar después de cada elección. La interfaz también cuenta con elementos específicos para la experiencia narrativa, como el cuadro de diálogo, paneles de decisiones, menú de pausa y una barra de Erosión visible durante el juego.",
+        "sin-guardar-development-content": "El videojuego fue desarrollado en Java 17: comenzó con Java Swing y después se migró a JavaFX, con Maven como sistema de construcción del proyecto. La arquitectura se organizó mediante diferentes componentes para separar las responsabilidades del juego. Entre ellos se encuentran el manejo de escenas, el estado global de la partida, los datos narrativos, las decisiones, el sistema de guardado, la interfaz y la reproducción de audio. El proyecto utiliza una estructura basada en una máquina de estados, donde cada escena funciona como un estado y un administrador controla las transiciones entre ellas. Para conservar la información de la partida se utiliza un estado global que almacena variables como la Erosión, el nodo actual y los diferentes indicadores narrativos. Los diálogos, escenas y decisiones se almacenan como datos estructurados, permitiendo que el sistema determine qué contenido mostrar y a qué escena avanzar después de cada elección. La interfaz también cuenta con elementos específicos para la experiencia narrativa, como el cuadro de diálogo, paneles de decisiones, menú de pausa y una barra de Erosión visible durante el juego.",
         "sin-guardar-art": "Arte y presentación",
         "sin-guardar-art-content": "El apartado visual fue diseñado específicamente para funcionar con una resolución de 1920 x 1080 píxeles, utilizando fondos, personajes, objetos y elementos de interfaz separados. La dirección artística busca combinar una estética de novela gráfica con elementos de horror cósmico y espacios liminales. La intención no es mostrar constantemente criaturas explícitas, sino utilizar detalles incorrectos, ausencia de información, proporciones extrañas, iluminación imposible y alteraciones progresivas del entorno para generar incomodidad. El sistema visual también contempla diferentes variantes de las escenas dependiendo del nivel de Erosión. De esta manera, un mismo escenario puede presentar cambios de color, iluminación y composición cuando el estado del jugador alcanza determinados niveles.",
         "sin-guardar-audio": "Audio",
@@ -225,34 +253,62 @@ function initLanguageToggle() {
 }
 
 function initHamburgerMenu() {
-    var hamburger = document.querySelector('.hamburger-menu');
-    var navbar = document.querySelector('.navbar');
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navbar = document.querySelector('.navbar');
+    if (!hamburger || !navbar) return;
 
-    if (hamburger && navbar) {
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            navbar.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
+    const setOpen = (open) => {
+        navbar.classList.toggle('active', open);
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+    };
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setOpen(!navbar.classList.contains('active'));
+    });
+    navbar.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+    });
+}
+
+function markCurrentPage() {
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navbar a').forEach((link) => {
+        if (link.getAttribute('href') === page) link.setAttribute('aria-current', 'page');
+    });
+}
+
+// Header: fondo difuminado al hacer scroll; en móvil (CSS) se oculta al bajar y vuelve al subir
+function onScroll() {
+    const y = window.scrollY;
+    if (Math.abs(y - previousScrollY) < 4) return; // ignora el rebote del scroll en móviles
+    scrollDirection = y > previousScrollY ? "down" : "up";
+    previousScrollY = y;
+
+    const header = document.querySelector('header[data-layout="header"]');
+    const menuOpen = document.querySelector('.navbar.active');
+    header.classList.toggle('is-scrolled', y > 8);
+    header.classList.toggle('is-hidden', scrollDirection === "down" && y > 120 && !menuOpen);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    window.addEventListener("scroll", () => {
-        scrollDirection = window.scrollY >= previousScrollY ? "down" : "up";
-        previousScrollY = window.scrollY;
-    }, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    applyTranslations(); // traduce el contenido antes de que llegue el header, evita el parpadeo de idioma
     initScrollReveal();
     document.documentElement.classList.add("reveal-ready");
     loadLayouts()
         .then(() => {
             initLanguageToggle();
             initHamburgerMenu();
+            markCurrentPage();
             applyTranslations();
         })
         .catch((error) => {
-            console.error("No se pudieron cargar los elementos compartidos:", error);
             console.error("No se pudieron cargar los elementos compartidos:", error);
         });
 });
