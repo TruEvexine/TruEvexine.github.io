@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="projects.documentTitle">Projects — Rogelio Ceja</title>
-    <meta name="description" content="Projects by Rogelio Emmanuel Ceja: SIN GUARDAR, a cosmic horror narrative game in Java.">
+    <meta name="description" content="SIN GUARDAR, a cosmic horror narrative game built in Java, and other projects by Rogelio Emmanuel Ceja.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <link rel="canonical" href="https://truevexine.github.io/projects.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="Projects — Rogelio Ceja">
+    <meta property="og:description" content="SIN GUARDAR, a cosmic horror narrative game built in Java, and other projects by Rogelio Emmanuel Ceja.">
+    <meta property="og:url" content="https://truevexine.github.io/projects.html">
+    <meta property="og:image" content="https://truevexine.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +33,12 @@
     <main class="projects-main">
         <h1 class="projects-title" data-i18n="projects.title">My Projects</h1>
         
-        <div class="projects-grid scroll-reveal">
+        <div class="projects-grid">
             <!-- Project Card 1 -->
             <article class="project-card scroll-reveal" data-project-id="1">
                 <div class="card-content">
                     <div class="card-media">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="SIN GUARDAR gameplay video" data-i18n-attr="title:projects.videoTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="card-text">
                         <h2 class="card-title" data-i18n="projects.project1">SIN GUARDAR — Narrative game in Java</h2>
@@ -41,25 +53,25 @@
                             <div class="slider-track">
                                 <!-- Slide 1: Video de YouTube -->
                                 <div class="slide active">
-                                    <iframe width="800" height="450" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <iframe width="800" height="450" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="SIN GUARDAR gameplay video" data-i18n-attr="title:projects.videoTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 </div>
 
                                 <!-- Slide 2: Imagen 1 -->
                                 <div class="slide">
-                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar.jpeg" alt="SIN GUARDAR screenshot 1">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar.jpeg" alt="SIN GUARDAR screenshot 1" data-i18n-attr="alt:projects.shot1" loading="lazy">
                                 </div>
                                 <div class="slide">
-                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar2.jpeg" alt="SIN GUARDAR screenshot 2">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar2.jpeg" alt="SIN GUARDAR screenshot 2" data-i18n-attr="alt:projects.shot2" loading="lazy">
                                 </div>
 
                                 <div class="slide">
-                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar3.jpeg" alt="SIN GUARDAR screenshot 3">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar3.jpeg" alt="SIN GUARDAR screenshot 3" data-i18n-attr="alt:projects.shot3" loading="lazy">
                                 </div>
                             </div>
 
 
-                            <button type="button" class="slider-arrow prev" aria-label="Previous">&#10094;</button>
-                            <button type="button" class="slider-arrow next" aria-label="Next">&#10095;</button>
+                            <button type="button" class="slider-arrow prev" aria-label="Previous" data-i18n-attr="aria-label:ui.prev">&#10094;</button>
+                            <button type="button" class="slider-arrow next" aria-label="Next" data-i18n-attr="aria-label:ui.next">&#10095;</button>
 
 
                             <div class="slider-counter">
@@ -165,8 +177,8 @@
     </main>
 
     <!-- Modal Overlay -->
-    <div class="project-modal" id="projectModal">
-        <button type="button" class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button type="button" class="modal-close" id="modalClose" aria-label="Close" data-i18n-attr="aria-label:ui.close">&times;</button>
         <div class="modal-content">
             <div class="modal-media"></div>
             <div class="modal-text"></div>

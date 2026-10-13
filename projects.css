@@ -4,7 +4,6 @@
 
 .projects-main {
     background-color: #0D0E15;
-    min-height: 100vh;
     padding: 0 20px 40px;
 }
 
@@ -452,8 +451,7 @@
 
     .modal-close {
         top: 20px;
-        right: auto;
-        left: 20px;
+        right: 20px;
     }
 }
 

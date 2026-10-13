@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="index.documentTitle">Rogelio Ceja — Portfolio</title>
-    <meta name="description" content="Portfolio of Rogelio Emmanuel Ceja, Systems Engineering student building websites and narrative games.">
-    <meta property="og:title" content="Rogelio Ceja — Portfolio">
-    <meta property="og:description" content="Systems Engineering student building websites and narrative games.">
-    <meta property="og:image" content="https://truevexine.github.io/assets/YO.webp">
+    <meta name="description" content="Systems Engineering student building websites and narrative games. Projects, skills and contact.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <link rel="canonical" href="https://truevexine.github.io/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="Rogelio Ceja — Portfolio">
+    <meta property="og:description" content="Systems Engineering student building websites and narrative games. Projects, skills and contact.">
+    <meta property="og:url" content="https://truevexine.github.io/">
+    <meta property="og:image" content="https://truevexine.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +26,21 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <script src="layout.js" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rogelio Emmanuel Ceja Acosta",
+        "url": "https://truevexine.github.io/",
+        "image": "https://truevexine.github.io/assets/og-image.jpg",
+        "jobTitle": "Systems Engineering student",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Vasco de Quiroga" },
+        "sameAs": [
+            "https://github.com/TruEvexine",
+            "https://www.linkedin.com/in/rogelio-emmanuel-ceja-acosta-6aa659231/"
+        ]
+    }
+    </script>
 </head>
 <body>
     <header data-layout="header"></header>
@@ -25,8 +48,10 @@
     <main class="main">
 
         <div class="welcome-section">
-            <h1 data-i18n="welcome.title">Welcome to my</h1>
-            <h1 class="PortWord" data-i18n="welcome.portfolio">Portfolio</h1>
+            <h1>
+                <span data-i18n="welcome.title">Welcome to my</span>
+                <span class="PortWord" data-i18n="welcome.portfolio">Portfolio</span>
+            </h1>
             <p data-i18n="welcome.message">Systems Engineering student building websites and narrative games.</p>
             <div class="welcome-actions">
                 <a class="btn btn-primary" href="projects.html" data-i18n="welcome.ctaProjects">See my projects</a>
@@ -59,7 +84,7 @@
 
                     <section class="project1">
                         <div class="projectContent">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="SIN GUARDAR — gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="SIN GUARDAR gameplay video" data-i18n-attr="title:projects.videoTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>
 
                         </div>
                         <div class="projectText scroll-reveal">
