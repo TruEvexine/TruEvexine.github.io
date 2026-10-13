@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalMedia = modal.querySelector('.modal-media');
     const modalText = modal.querySelector('.modal-text');
     const projectCards = document.querySelectorAll('.project-card');
+    let lastFocused = null;
 
     projectCards.forEach(card => {
         card.addEventListener('click', function(e) {
@@ -25,14 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
+        if (e.key !== 'Escape') return;
+        const lightbox = document.querySelector('.lightbox');
+        if (lightbox) lightbox.click();
+        else if (modal.classList.contains('active')) closeModal();
     });
 
     function openModal(card) {
         const fullContent = card.querySelector('.card-full-content');
         const fullTitle = fullContent.querySelector('.full-title').cloneNode(true);
+        fullTitle.id = 'modalTitle';
         const fullMedia = fullContent.querySelector('.full-media').cloneNode(true);
         const fullDescription = fullContent.querySelector('.full-description').cloneNode(true);
 
@@ -43,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
         modalText.appendChild(fullTitle);
         modalText.appendChild(fullDescription);
 
-        applyTranslationsToModal();
-
+        lastFocused = document.activeElement;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        modalClose.focus();
 
         initGallery();
     }
@@ -54,28 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
         
         setTimeout(() => {
             modalMedia.innerHTML = '';
             modalText.innerHTML = '';
         }, 300);
-    }
-
-    function applyTranslationsToModal() {
-        const currentLanguage = localStorage.getItem("portfolio-language") || "en";
-        
-        const translations = window.translations || {};
-        const dictionary = translations[currentLanguage] || translations['en'] || {};
-
-        modalText.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.dataset.i18n;
-            if (dictionary[key]) element.textContent = dictionary[key];
-        });
-
-        modalText.querySelectorAll('[data-i18n-html]').forEach(element => {
-            const key = element.dataset.i18nHtml;
-            if (dictionary[key]) element.innerHTML = dictionary[key];
-        });
     }
 
     function initGallery() {
@@ -182,21 +169,5 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    document.addEventListener('languageChanged', applyTranslationsToCards);
 });
 
-function applyTranslationsToCards() {
-    const currentLanguage = localStorage.getItem("portfolio-language") || "en";
-    const translations = window.translations || {};
-    const dictionary = translations[currentLanguage] || translations['en'] || {};
-
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.dataset.i18n;
-        if (dictionary[key]) element.textContent = dictionary[key];
-    });
-
-    document.querySelectorAll('[data-i18n-html]').forEach(element => {
-        const key = element.dataset.i18nHtml;
-        if (dictionary[key]) element.innerHTML = dictionary[key];
-    });
-}

@@ -6,6 +6,15 @@ const layouts = {
 const translations = {
     en: {
         "nav.home": "Home",
+        "ui.menu": "Menu",
+        "ui.close": "Close",
+        "ui.prev": "Previous",
+        "ui.next": "Next",
+        "projects.shot1": "SIN GUARDAR screenshot 1",
+        "projects.shot2": "SIN GUARDAR screenshot 2",
+        "projects.shot3": "SIN GUARDAR screenshot 3",
+        "projects.videoTitle": "SIN GUARDAR gameplay video",
+        "education.photoAlt": "Rogelio at Universidad Vasco de Quiroga",
         "nav.profile": "Profile",
         "nav.projects": "Projects",
         "nav.contact": "Contact",
@@ -13,7 +22,7 @@ const translations = {
         "footer.copyright": "Rogelio Emmanuel Ceja",
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. All rights reserved.",
         "footer.contact": "Contact Information",
-        "footer.email": "Contact:",
+        "footer.email": "Email:",
         "footer.github": "GitHub:",
         "footer.linkedin": "LinkedIn:",
         "contact.documentTitle": "Contact — Rogelio Ceja",
@@ -44,9 +53,8 @@ const translations = {
         "profile.groupLanguages": "Languages",
         "profile.groupWeb": "Web",
         "profile.groupData": "Databases",
-        "profile.groupCloud": "Cloud & DevOps",
-        "profile.groupTools": "Version control",
-        "profile.also": "Also: Scrum · Kanban · TCP/IP networking · SSL/TLS · Microsoft Office",
+        "profile.groupTools": "Tools",
+        "profile.also": "Also: Java Swing · JavaFX · Scrum · Kanban · TCP/IP networking · Microsoft Office",
         "profile.howTitle": "How I work",
         "profile.problemTitle": "Problem solving",
         "profile.problem": "I debug until I find the real cause, not just the symptom.",
@@ -84,6 +92,15 @@ const translations = {
     },
     es: {
         "nav.home": "Inicio",
+        "ui.menu": "Menú",
+        "ui.close": "Cerrar",
+        "ui.prev": "Anterior",
+        "ui.next": "Siguiente",
+        "projects.shot1": "Captura de SIN GUARDAR 1",
+        "projects.shot2": "Captura de SIN GUARDAR 2",
+        "projects.shot3": "Captura de SIN GUARDAR 3",
+        "projects.videoTitle": "Video de gameplay de SIN GUARDAR",
+        "education.photoAlt": "Rogelio en la Universidad Vasco de Quiroga",
         "nav.profile": "Perfil",
         "nav.projects": "Proyectos",
         "nav.contact": "Contacto",
@@ -122,9 +139,8 @@ const translations = {
         "profile.groupLanguages": "Lenguajes",
         "profile.groupWeb": "Web",
         "profile.groupData": "Bases de datos",
-        "profile.groupCloud": "Nube y DevOps",
-        "profile.groupTools": "Control de versiones",
-        "profile.also": "También: Scrum · Kanban · Redes TCP/IP · SSL/TLS · Microsoft Office",
+        "profile.groupTools": "Herramientas",
+        "profile.also": "También: Java Swing · JavaFX · Scrum · Kanban · Redes TCP/IP · Microsoft Office",
         "profile.howTitle": "Cómo trabajo",
         "profile.problemTitle": "Resolución de problemas",
         "profile.problem": "Depuro hasta encontrar la causa real, no solo el síntoma.",
@@ -233,6 +249,14 @@ function applyTranslations() {
     document.querySelectorAll("[data-i18n-html]").forEach((element) => {
         const key = element.dataset.i18nHtml;
         if (dictionary[key]) element.innerHTML = dictionary[key];
+    });
+
+    // Atributos traducibles, formato: data-i18n-attr="aria-label:ui.close; alt:clave"
+    document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+        element.dataset.i18nAttr.split(";").forEach((pair) => {
+            const [attr, key] = pair.split(":").map((part) => part.trim());
+            if (dictionary[key]) element.setAttribute(attr, dictionary[key]);
+        });
     });
 
     document.querySelectorAll("[data-language-toggle]").forEach((button) => {

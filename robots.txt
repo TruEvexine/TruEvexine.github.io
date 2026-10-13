@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://truevexine.github.io/sitemap.xml
