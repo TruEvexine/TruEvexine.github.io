@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title data-i18n="index.documentTitle">Rogelio Ceja — Portfolio</title>
+    <meta name="description" content="Portfolio of Rogelio Emmanuel Ceja, Systems Engineering student building websites and narrative games.">
+    <meta property="og:title" content="Rogelio Ceja — Portfolio">
+    <meta property="og:description" content="Systems Engineering student building websites and narrative games.">
+    <meta property="og:image" content="https://truevexine.github.io/assets/YO.webp">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -21,61 +27,25 @@
         <div class="welcome-section">
             <h1 data-i18n="welcome.title">Welcome to my</h1>
             <h1 class="PortWord" data-i18n="welcome.portfolio">Portfolio</h1>
-            <p data-i18n="welcome.message">Feel free to explore my work and get in touch if you have any questions or opportunities 😊</p>
+            <p data-i18n="welcome.message">Systems Engineering student building websites and narrative games.</p>
+            <div class="welcome-actions">
+                <a class="btn btn-primary" href="projects.html" data-i18n="welcome.ctaProjects">See my projects</a>
+                <a class="btn" href="contact.html" data-i18n="welcome.ctaContact">Get in touch</a>
+            </div>
         </div>
 
 
         <section class="meWrapper scroll-reveal">
             <div class="me-image">
-                <img src="assets/YO.webp" alt="Rogelio Emmanuel Ceja">
+                <img src="assets/YO.webp" alt="Rogelio Emmanuel Ceja" width="1133" height="690">
             </div>
             <div class="about-me">
                 <h2 data-i18n="about.title">About Me</h2>
                 <div class="about-me-content">
-                    <p data-i18n="about.intro">I'm Rogelio Emmanuel Ceja Acosta. I'm currently in my 5th semester of Systems Engineering. This portfolio offers a brief glimpse into my personality and interests.</p>
-                    <p data-i18n="about.developer">I am a passionate web developer with a strong focus on creating engaging and user-friendly websites. With a background in HTML, CSS, and JavaScript, I enjoy turning ideas into functional and visually appealing digital experiences.</p>
-                    <p data-i18n="about.gaming">Gaming is a big part of my life, and I particularly enjoy immersive experiences. I'm a huge fan of the Resident Evil series for its tension and story, as well as the adventurous world of Pokémon.</p>
+                    <p data-i18n="about.intro">I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I turn ideas into websites that are clear, fast and pleasant to use.</p>
+                    <p data-i18n="about.gaming">I'm a gamer at heart: Resident Evil taught me tension, Pokémon taught me adventure. That's why I also build stories you can play.</p>
                 </div>
-            </div>
-
-        </section>
-
-        <section class="biWrapper">
-            <div class="education-section scroll-reveal">
-                <h2 data-i18n="education.title">Education</h2>
-                <div class="education-content">
-                    <p data-i18n="education.description">Currently pursuing a Bachelor's degree in Systems Engineering at the University Vasco de Quiroga (UVAQ).</p>
-                    <div class="education-image">
-                        <img src="assets/me-at-uvaq.png" alt="University Vasco de Quiroga">
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-section scroll-reveal">
-                <h2 data-i18n="skills.title">My Skills</h2>
-
-                <article class="hard-skills">
-                    <h3 data-i18n="skills.abilities">Abilities</h3>
-                    <ul>
-                        <li data-i18n-html="skills.software-development"><strong>Software Development:</strong> Java, Python, C#, JavaScript (React, Node.js).</li>
-                        <li data-i18n-html="skills.software"><strong>Software:</strong> Microsoft Office Suite.</li>
-                        <li data-i18n-html="skills.databases"><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, SQL query optimization.</li>
-                        <li data-i18n-html="skills.infrastructure"><strong>Infrastructure and Cloud:</strong> AWS (EC2, S3), Docker, Kubernetes, CI/CD (Jenkins).</li>
-                        <li data-i18n-html="skills.methodologies"><strong>Methodologies and Tools:</strong> Scrum, Kanban, Git, GitHub.</li>
-                        <li data-i18n-html="skills.networks"><strong>Networks and Security:</strong> TCP/IP network configuration, SSL/TLS security protocols.</li>
-                    </ul>
-                </article>
-
-                <article class="soft-skills">
-                    <h3 data-i18n="skills.soft">Soft Skills</h3>
-                    <ul>
-                        <li data-i18n-html="skills.problem-solving"><strong>Problem Solving:</strong> Analytical ability to debug complex code and diagnose system issues.</li>
-                        <li data-i18n-html="skills.leadership"><strong>Leadership:</strong> Ability to lead and mentor junior developers in a team environment.</li>
-                        <li data-i18n-html="skills.teamwork"><strong>Teamwork:</strong> Effective collaboration in agile development teams with designers and Product Owners.</li>
-                        <li data-i18n-html="skills.communication"><strong>Technical Communication:</strong> Ability to explain software architecture to clients or non-technical departments.</li>
-                        <li data-i18n-html="skills.adaptability"><strong>Adaptability:</strong> Rapid self-learning to master new languages, frameworks, and technological tools.</li>
-                    </ul>
-                </article>
+                <a class="btn" href="profile.html" data-i18n="about.cta">My skills &amp; education</a>
             </div>
         </section>
 
@@ -89,30 +59,21 @@
 
                     <section class="project1">
                         <div class="projectContent">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="SIN GUARDAR — gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>
 
                         </div>
                         <div class="projectText scroll-reveal">
-                            <h3 data-i18n="projects.project1">SIN GUARDAR — Narrative Game in Java</h3>
-                            <p data-i18n="projects.project1Description">A first version of a cosmic horror visual novel with decision-making, developed in JavaFX as an individual university project. Explore the gameplay and discover how player decisions, the Erosion system, and narrative interact to transform the experience.</p>
+                            <h3 data-i18n="projects.project1">SIN GUARDAR — Narrative game in Java</h3>
+                            <p data-i18n="projects.project1Description">A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX.</p>
                             <a href="projects.html" class="project-button" data-i18n="projects.project1Button">View more</a>
 
                         </div>
 
                     </section>
 
-
-
-
-
-
-
                 </div>
             </div>
         </section>
-
-
-
 
     </main>
 

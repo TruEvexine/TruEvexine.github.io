@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="profile.documentTitle">Profile — Rogelio Ceja</title>
+    <meta name="description" content="Tech stack, working style and education of Rogelio Emmanuel Ceja, Systems Engineering student.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="layout.js" defer></script>
+</head>
+<body>
+    <header data-layout="header"></header>
+
+    <main class="profile-main">
+        <div class="profile-hero">
+            <h1 data-i18n="profile.title">Profile</h1>
+            <p data-i18n="profile.intro">The tools I build with and where I'm learning to master them.</p>
+        </div>
+
+        <!-- Stack técnico: logos oficiales guardados en assets/icons (Devicon, MIT) -->
+        <section class="profile-section scroll-reveal" aria-labelledby="stack-title">
+            <h2 id="stack-title" data-i18n="profile.stackTitle">Tech stack</h2>
+
+            <div class="stack-group">
+                <h3 data-i18n="profile.groupLanguages">Languages</h3>
+                <ul class="stack-list">
+                    <li><span class="stack-logo"><img src="assets/icons/java.svg" alt="" width="40" height="40"></span>Java</li>
+                    <li><span class="stack-logo"><img src="assets/icons/python.svg" alt="" width="40" height="40"></span>Python</li>
+                    <li><span class="stack-logo"><img src="assets/icons/csharp.svg" alt="" width="40" height="40"></span>C#</li>
+                    <li><span class="stack-logo"><img src="assets/icons/javascript.svg" alt="" width="40" height="40"></span>JavaScript</li>
+                </ul>
+            </div>
+
+            <div class="stack-group">
+                <h3 data-i18n="profile.groupWeb">Web</h3>
+                <ul class="stack-list">
+                    <li><span class="stack-logo"><img src="assets/icons/html5.svg" alt="" width="40" height="40"></span>HTML</li>
+                    <li><span class="stack-logo"><img src="assets/icons/css3.svg" alt="" width="40" height="40"></span>CSS</li>
+                    <li><span class="stack-logo"><img src="assets/icons/react.svg" alt="" width="40" height="40"></span>React</li>
+                    <li><span class="stack-logo"><img src="assets/icons/nodejs.svg" alt="" width="40" height="40"></span>Node.js</li>
+                </ul>
+            </div>
+
+            <div class="stack-group">
+                <h3 data-i18n="profile.groupData">Databases</h3>
+                <ul class="stack-list">
+                    <li><span class="stack-logo"><img src="assets/icons/postgresql.svg" alt="" width="40" height="40"></span>PostgreSQL</li>
+                    <li><span class="stack-logo"><img src="assets/icons/mysql.svg" alt="" width="40" height="40"></span>MySQL</li>
+                    <li><span class="stack-logo"><img src="assets/icons/mongodb.svg" alt="" width="40" height="40"></span>MongoDB</li>
+                </ul>
+            </div>
+
+            <div class="stack-group">
+                <h3 data-i18n="profile.groupCloud">Cloud &amp; DevOps</h3>
+                <ul class="stack-list">
+                    <li><span class="stack-logo"><img src="assets/icons/aws.svg" alt="" width="40" height="40"></span>AWS</li>
+                    <li><span class="stack-logo"><img src="assets/icons/docker.svg" alt="" width="40" height="40"></span>Docker</li>
+                    <li><span class="stack-logo"><img src="assets/icons/kubernetes.svg" alt="" width="40" height="40"></span>Kubernetes</li>
+                    <li><span class="stack-logo"><img src="assets/icons/jenkins.svg" alt="" width="40" height="40"></span>Jenkins</li>
+                </ul>
+            </div>
+
+            <div class="stack-group">
+                <h3 data-i18n="profile.groupTools">Version control</h3>
+                <ul class="stack-list">
+                    <li><span class="stack-logo"><img src="assets/icons/git.svg" alt="" width="40" height="40"></span>Git</li>
+                    <li><span class="stack-logo"><img src="assets/icons/github.svg" alt="" width="40" height="40"></span>GitHub</li>
+                </ul>
+            </div>
+
+            <p class="stack-also" data-i18n="profile.also">Also: Scrum · Kanban · TCP/IP networking · SSL/TLS · Microsoft Office</p>
+        </section>
+
+        <section class="profile-section scroll-reveal" aria-labelledby="how-title">
+            <h2 id="how-title" data-i18n="profile.howTitle">How I work</h2>
+            <ul class="traits">
+                <li>
+                    <h3 data-i18n="profile.problemTitle">Problem solving</h3>
+                    <p data-i18n="profile.problem">I debug until I find the real cause, not just the symptom.</p>
+                </li>
+                <li>
+                    <h3 data-i18n="profile.teamTitle">Teamwork</h3>
+                    <p data-i18n="profile.team">Agile teams, side by side with designers and product owners.</p>
+                </li>
+                <li>
+                    <h3 data-i18n="profile.commTitle">Clear communication</h3>
+                    <p data-i18n="profile.comm">I explain technical decisions in plain language.</p>
+                </li>
+                <li>
+                    <h3 data-i18n="profile.learnTitle">Fast learner</h3>
+                    <p data-i18n="profile.learn">New language or framework? I pick it up quickly.</p>
+                </li>
+                <li>
+                    <h3 data-i18n="profile.leadTitle">Leadership</h3>
+                    <p data-i18n="profile.lead">I like helping my teammates get unstuck and keep moving.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="profile-section scroll-reveal" aria-labelledby="edu-title">
+            <h2 id="edu-title" data-i18n="education.title">Education</h2>
+            <article class="edu-card">
+                <img src="assets/me-at-uvaq.webp" alt="Rogelio at Universidad Vasco de Quiroga" width="1503" height="848" loading="lazy">
+                <div class="edu-text">
+                    <h3 data-i18n="education.degree">B.S. in Systems Engineering</h3>
+                    <p data-i18n="education.school">Universidad Vasco de Quiroga (UVAQ)</p>
+                    <span class="edu-status" data-i18n="education.status">In progress · 5th semester</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>

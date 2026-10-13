@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Estilos específicos para la página Perfil (skills + educación)
+   ========================================================================== */
+
+.profile-main {
+    background-color: #0D0E15;
+    padding-bottom: 72px;
+}
+
+/* Banda de título, mismo lenguaje que Proyectos */
+.profile-hero {
+    padding: clamp(36px, 7vh, 64px) 24px;
+    background-color: #1D2D44;
+    text-align: center;
+}
+
+.profile-hero h1 {
+    margin: 0;
+    color: #F3F4F6;
+    font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.profile-hero p {
+    max-width: 520px;
+    margin: 14px auto 0;
+    color: #D1D5DB;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.profile-section {
+    width: min(100%, 1000px);
+    margin: 64px auto 0;
+    padding: 0 32px;
+}
+
+.profile-section h2 {
+    margin: 0 0 28px;
+    color: #F3F4F6;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+/* ---------- Stack ---------- */
+.stack-group {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(243, 244, 246, 0.1);
+}
+
+.stack-group h3 {
+    margin: 0;
+    color: #10B981;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stack-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 76px;
+    color: #D1D5DB;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Fondo claro para que todos los logos oficiales (incluso los oscuros) se lean igual */
+.stack-logo {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #F3F4F6;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stack-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.stack-list li:hover .stack-logo {
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 2px #10B981;
+}
+
+.stack-also {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(243, 244, 246, 0.1);
+    color: #9CA3AF;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ---------- Cómo trabajo ---------- */
+.traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.traits li {
+    padding: 22px 24px;
+    border: 1px solid rgba(243, 244, 246, 0.12);
+    border-radius: 16px;
+    background: rgba(29, 45, 68, 0.45);
+}
+
+.traits h3 {
+    margin: 0 0 8px;
+    color: #F3F4F6;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.traits p {
+    margin: 0;
+    color: #D1D5DB;
+    line-height: 1.55;
+}
+
+/* ---------- Educación ---------- */
+.edu-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(243, 244, 246, 0.12);
+    border-radius: 20px;
+    background: #1D2D44;
+}
+
+.edu-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: 70% 30%;
+}
+
+.edu-text {
+    padding: 32px;
+}
+
+.edu-text h3 {
+    margin: 0 0 8px;
+    color: #F3F4F6;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.2;
+}
+
+.edu-text p {
+    margin: 0 0 20px;
+    color: #D1D5DB;
+    font-size: 1.1rem;
+}
+
+.edu-status {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    border-radius: 999px;
+    color: #10B981;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 768px) {
+    .profile-section {
+        margin-top: 48px;
+        padding: 0 20px;
+    }
+
+    .stack-group {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .stack-list {
+        gap: 16px;
+    }
+
+    .stack-list li {
+        width: 68px;
+        font-size: 0.82rem;
+    }
+
+    .stack-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+    }
+
+    .stack-logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .edu-card {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-text {
+        padding: 24px;
+    }
+
+    .edu-text h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stack-logo {
+        transition: none;
+    }
+
+    .stack-list li:hover .stack-logo {
+        transform: none;
+    }
+}

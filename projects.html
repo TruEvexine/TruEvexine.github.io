@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title data-i18n="projects.documentTitle">Projects — Rogelio Ceja</title>
+    <meta name="description" content="Projects by Rogelio Emmanuel Ceja: SIN GUARDAR, a cosmic horror narrative game in Java.">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -27,9 +29,9 @@
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="card-text">
-                        <h2 class="card-title" data-i18n="projects.project1">SIN GUARDAR Videogame</h2>
-                        <p class="card-excerpt" data-i18n="projects.project1Description">A first version of a cosmic horror visual novel with decision-making, developed in JavaFX as an individual university project.</p>
-                        <button class="card-expand-btn" data-i18n="projects.readMore">Read more</button>
+                        <h2 class="card-title" data-i18n="projects.project1">SIN GUARDAR — Narrative game in Java</h2>
+                        <p class="card-excerpt" data-i18n="projects.project1Description">A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX.</p>
+                        <button type="button" class="card-expand-btn" data-i18n="projects.readMore">Read more</button>
                     </div>
                 </div>
                 <div class="card-full-content" style="display: none;">
@@ -44,20 +46,20 @@
 
                                 <!-- Slide 2: Imagen 1 -->
                                 <div class="slide">
-                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar.jpeg" alt="Captura de pantalla 1">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar.jpeg" alt="SIN GUARDAR screenshot 1">
                                 </div>
                                 <div class="slide">
-                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar2.jpeg" alt="Captura de pantalla 2">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar2.jpeg" alt="SIN GUARDAR screenshot 2">
                                 </div>
 
                                 <div class="slide">
-                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar3.jpeg" alt="Captura de pantalla 3">
+                                    <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar3.jpeg" alt="SIN GUARDAR screenshot 3">
                                 </div>
                             </div>
 
 
-                            <button type="button" class="slider-arrow prev" aria-label="Anterior">&#10094;</button>
-                            <button type="button" class="slider-arrow next" aria-label="Siguiente">&#10095;</button>
+                            <button type="button" class="slider-arrow prev" aria-label="Previous">&#10094;</button>
+                            <button type="button" class="slider-arrow next" aria-label="Next">&#10095;</button>
 
 
                             <div class="slider-counter">
@@ -86,7 +88,7 @@
 
                         <strong data-i18n-html="sin-guardar-development">Technical Development</strong>
 
-                        <p data-i18n-html="sin-guardar-development-content">The video game was developed using Java 17 and Java Swing, with Maven as the project build system. The architecture was organized through different components to separate game responsibilities. Among them are scene management, global game state, narrative data, decisions, save system, interface, and audio playback. The project uses a structure based on a state machine, where each scene functions as a state and a manager controls transitions between them. To preserve game information, a global state is used that stores variables like Erosion, current node, and different narrative indicators. Dialogues, scenes, and decisions are stored as structured data, allowing the system to determine what content to show and which scene to advance after each choice. The interface also includes specific elements for the narrative experience, such as the dialogue box, decision panels, pause menu, and a visible Erosion bar during the game.</p>
+                        <p data-i18n-html="sin-guardar-development-content">The video game was developed in Java 17: it started with Java Swing and was later migrated to JavaFX, with Maven as the project build system. The architecture was organized through different components to separate game responsibilities. Among them are scene management, global game state, narrative data, decisions, save system, interface, and audio playback. The project uses a structure based on a state machine, where each scene functions as a state and a manager controls transitions between them. To preserve game information, a global state is used that stores variables like Erosion, current node, and different narrative indicators. Dialogues, scenes, and decisions are stored as structured data, allowing the system to determine what content to show and which scene to advance after each choice. The interface also includes specific elements for the narrative experience, such as the dialogue box, decision panels, pause menu, and a visible Erosion bar during the game.</p>
 
                         <strong data-i18n-html="sin-guardar-art">Art and Presentation</strong>
 
@@ -116,7 +118,7 @@
                     <div class="card-text">
                         <h2 class="card-title">Project Title 2</h2>
                         <p class="card-excerpt">Brief description of the project goes here...</p>
-                        <button class="card-expand-btn">Read more</button>
+                        <button type="button" class="card-expand-btn">Read more</button>
                     </div>
                 </div>
                 <div class="card-full-content" style="display: none;">
@@ -141,7 +143,7 @@
                     <div class="card-text">
                         <h2 class="card-title">Project Title 3</h2>
                         <p class="card-excerpt">Brief description of the project goes here...</p>
-                        <button class="card-expand-btn">Read more</button>
+                        <button type="button" class="card-expand-btn">Read more</button>
                     </div>
                 </div>
                 <div class="card-full-content" style="display: none;">
@@ -164,7 +166,7 @@
 
     <!-- Modal Overlay -->
     <div class="project-modal" id="projectModal">
-        <button class="modal-close" id="modalClose">&times;</button>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Close">&times;</button>
         <div class="modal-content">
             <div class="modal-media"></div>
             <div class="modal-text"></div>

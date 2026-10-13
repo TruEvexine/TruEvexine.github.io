@@ -2,32 +2,10 @@
    Estilos específicos para la página Projects
    ========================================================================== */
 
-@font-face {
-    font-family: 'MiFuentePersonalizada';
-    src: url('https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/Extension-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-.oswald-titles {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.arimo-texto {
-    font-family: "Arimo", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
 .projects-main {
     background-color: #0D0E15;
     min-height: 100vh;
-    padding: 40px 20px 24px;
+    padding: 0 20px 40px;
 }
 
 .projects-title {
@@ -112,7 +90,7 @@
 }
 
 .card-media {
-    width: 90%;
+    width: 100%;
     aspect-ratio: 16/9;
     border-radius: 12px;
     overflow: hidden;
@@ -351,19 +329,19 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .projects-main {
-        padding: 28px 12px 20px;
+        padding: 0 20px 20px;
     }
 
     .projects-title {
-        width: calc(100% + 24px);
-        margin: 0 0 24px -12px;
+        width: calc(100% + 40px);
+        margin: 0 0 24px -20px;
         font-size: 2rem;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 30px;
-        padding: 0 16px;
+        padding: 0;
     }
 
     .project-modal {
@@ -390,8 +368,7 @@
 
     .full-description {
         font-size: 1rem;
-        text-align: justify-all;
-
+        
     }
 }
 
