@@ -35,3 +35,19 @@ en: {
 es: {
     "projects.description": "<strong>Frontend:</strong> HTML, CSS y JavaScript."
 }
+---Notas añadidas---
+Esta carpeta empieza con "_" para que GitHub Pages (Jekyll) NO la publique en el sitio.
+El repo es público, así que sigue visible en GitHub.
+
+Atributos traducibles (aria-label, alt, href, title...):
+<img alt="Texto EN" data-i18n-attr="alt:clave">
+Varios a la vez: data-i18n-attr="aria-label:clave1; title:clave2"
+
+Skeleton de una imagen o video: envolverlo en un contenedor con aspect-ratio y la clase "skel":
+<div class="skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError"><img ...></div>
+
+Video de YouTube que carga al tocarlo: <button class="yt-facade" data-yt="ID_DEL_VIDEO">miniatura + .yt-play</button>
+
+Nuevo proyecto: copiar la tarjeta .project-feature en projects.html y crear su página
+a partir de sin-guardar.html (usa project.css y project.js). La clase "erosion-card"
+es el guiño exclusivo de SIN GUARDAR; cada proyecto puede tener el suyo.

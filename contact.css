@@ -14,15 +14,6 @@
     background-color: #1D2D44;
 }
 
-.contact-eyebrow {
-    margin: 0 0 12px;
-    color: #10B981;
-    font-family: 'Arimo', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-}
-
 .contact-panel h1 {
     margin: 0;
     color: #F3F4F6;
@@ -43,8 +34,8 @@
 
 .contact-options {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: min(calc(100% - 48px), 1100px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(calc(100% - 48px), 1000px);
     margin: 40px auto 0;
     gap: 24px;
     text-align: left;
@@ -69,14 +60,17 @@
     transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
 }
 
-.contact-option:hover,
-.contact-option:focus-visible {
+.contact-link:hover,
+.contact-link:focus-visible {
     transform: translateY(-5px);
     border-color: rgba(16, 185, 129, 0.65);
     outline: none;
 }
 
 .contact-option-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: #10B981;
     font-family: 'Oswald', sans-serif;
     font-size: 1.1rem;
@@ -88,7 +82,6 @@
 .contact-option-value {
     max-width: 100%;
     margin-top: 14px;
-    overflow-wrap: anywhere;
     font-family: 'Oswald', sans-serif;
     font-size: clamp(1.15rem, 2vw, 1.5rem);
     font-weight: 600;
@@ -110,9 +103,24 @@
     font-weight: 700;
 }
 
-.contact-option:hover .contact-option-action,
-.contact-option:focus-visible .contact-option-action {
+.contact-link:hover .contact-option-action,
+.contact-link:focus-visible .contact-option-action {
     color: #10B981;
+}
+
+.contact-hero .availability {
+    margin-bottom: 18px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.contact-actions .btn {
+    font-size: 0.95rem;
 }
 
 @media (max-width: 800px) {
@@ -124,13 +132,6 @@
 
     .contact-option {
         padding: 24px;
-    }
-}
-
-@media (min-width: 801px) and (max-width: 1024px) {
-    .contact-options {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 800px;
     }
 }
 
@@ -160,6 +161,10 @@
         font-size: 1rem;
     }
 
+    .contact-actions .btn {
+        flex: 1 1 100%;
+    }
+
     .contact-option-value {
         font-size: clamp(1rem, 3vw, 1.3rem);
     }
@@ -174,8 +179,8 @@
         transition: none;
     }
 
-    .contact-option:hover,
-    .contact-option:focus-visible {
+    .contact-link:hover,
+    .contact-link:focus-visible {
         transform: none;
     }
 }
