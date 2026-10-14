@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin CV — Rogelio Ceja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0D0E15">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js" defer></script>
+</head>
+<body>
+    <!-- Acceso: el "inicio de sesión" es un token personal de GitHub con permiso de escritura
+         sobre este repositorio. Sin ese token, esta página no puede leer ni guardar nada privado. -->
+    <main class="login" id="login">
+        <form class="login-card" id="login-form">
+            <p class="login-eyebrow">Panel privado</p>
+            <h1>Editar mi CV</h1>
+            <label class="field">
+                <span>Token de GitHub</span>
+                <input type="password" id="token" autocomplete="off" required placeholder="github_pat_…">
+            </label>
+            <label class="check">
+                <input type="checkbox" id="remember">
+                <span>Recordar en este dispositivo</span>
+            </label>
+            <button class="btn btn-primary" type="submit" id="login-btn">Entrar</button>
+            <p class="login-error" id="login-error" role="alert"></p>
+            <details class="login-help">
+                <summary>¿Cómo creo el token?</summary>
+                <ol>
+                    <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub → Fine-grained tokens</a>.</li>
+                    <li>En <b>Repository access</b> elige <b>Only select repositories</b> → <b>TruEvexine.github.io</b>.</li>
+                    <li>En <b>Permissions → Contents</b> elige <b>Read and write</b>.</li>
+                    <li>Genera el token y pégalo aquí. Solo sirve para este repositorio.</li>
+                </ol>
+            </details>
+        </form>
+    </main>
+
+    <div class="app" id="app" hidden>
+        <header class="app-bar">
+            <div>
+                <strong>Editor de CV</strong>
+                <span class="app-status" id="status" role="status">Sin cambios</span>
+            </div>
+            <div class="app-actions">
+                <a class="btn" href="cv.html" target="_blank" rel="noopener">Ver CV público</a>
+                <button class="btn" type="button" id="discard">Descartar</button>
+                <button class="btn btn-primary" type="button" id="save">Guardar</button>
+                <button class="btn btn-ghost" type="button" id="logout">Salir</button>
+            </div>
+        </header>
+
+        <div class="app-tabs" role="tablist">
+            <button type="button" role="tab" aria-selected="true" data-tab="edit">Editar</button>
+            <button type="button" role="tab" aria-selected="false" data-tab="preview">Vista previa</button>
+        </div>
+
+        <div class="app-body">
+            <form class="editor" id="editor" data-pane="edit" autocomplete="off"></form>
+
+            <section class="preview" data-pane="preview">
+                <div class="preview-bar">
+                    <div class="segmented" role="group" aria-label="Plantilla">
+                        <button type="button" data-preview-template="visual" aria-pressed="true">Visual</button>
+                        <button type="button" data-preview-template="harvard" aria-pressed="false">Harvard</button>
+                    </div>
+                    <div class="segmented" role="group" aria-label="Idioma">
+                        <button type="button" data-preview-lang="es" aria-pressed="true">ES</button>
+                        <button type="button" data-preview-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                </div>
+                <iframe id="preview" title="Vista previa del CV" src="cv.html?embed=1"></iframe>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

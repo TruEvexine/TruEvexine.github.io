@@ -1,0 +1,59 @@
+# Regenera los PDF del CV cada vez que cambia su contenido o su diseño
+# (por ejemplo, al guardar desde admin.html).
+name: CV PDFs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - cv/cv.json
+      - cv.html
+      - cv.css
+      - cv.js
+      - _dev/render-cv.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: cv-pdf
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Generar PDFs
+        run: node _dev/render-cv.mjs
+
+      - name: Guardar PDFs si cambiaron
+        run: |
+          git add assets/cv/*.pdf
+          if git diff --cached --quiet; then
+            echo "Los PDF ya estaban al día."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update CV PDFs"
+          git push
+
+      # Los commits hechos por esta Action no disparan GitHub Pages por sí solos
+      - name: Publicar el sitio
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"

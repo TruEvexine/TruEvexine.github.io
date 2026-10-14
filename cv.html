@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="cv.documentTitle">CV — Rogelio Ceja</title>
+    <meta name="description" content="CV of Rogelio Emmanuel Ceja Acosta, Computer Systems Engineering student at UVAQ. Download it in Harvard (ATS) or visual format, in English or Spanish.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <link rel="canonical" href="https://truevexine.github.io/cv.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="CV — Rogelio Ceja">
+    <meta property="og:description" content="CV of Rogelio Emmanuel Ceja Acosta, Computer Systems Engineering student at UVAQ. Download it in Harvard (ATS) or visual format, in English or Spanish.">
+    <meta property="og:url" content="https://truevexine.github.io/cv.html">
+    <meta property="og:image" content="https://truevexine.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="cv.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="layout.js" defer></script>
+    <script src="cv.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
+    <header data-layout="header"></header>
+
+    <main class="cv-main" id="main">
+        <div class="cv-hero">
+            <h1>CV</h1>
+            <p data-i18n="cv.intro">Choose the format you prefer and download it as PDF. The language follows the site toggle.</p>
+            <div class="cv-toolbar">
+                <div class="segmented" role="group" aria-label="Format" data-i18n-attr="aria-label:cv.format">
+                    <button type="button" data-cv-template="visual" aria-pressed="true" data-i18n="cv.visual">Visual</button>
+                    <button type="button" data-cv-template="harvard" aria-pressed="false" data-i18n="cv.harvard">Harvard (ATS)</button>
+                </div>
+                <a class="btn btn-primary" data-cv-download href="assets/cv/Rogelio-Ceja-CV-Visual-EN.pdf" download><span data-i18n="cv.download">Download PDF</span></a>
+            </div>
+            <p class="cv-note" data-i18n="cv.note">Harvard is plain text, ideal for applicant tracking systems.</p>
+        </div>
+
+        <div class="cv-stage">
+            <div class="cv-scale">
+                <div id="cv-paper" class="paper skel"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>

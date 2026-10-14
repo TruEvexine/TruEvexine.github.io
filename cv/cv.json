@@ -1,0 +1,130 @@
+{
+  "updated": "2026-10-13",
+  "person": {
+    "name": "Rogelio Emmanuel Ceja Acosta",
+    "title": {
+      "es": "Estudiante de Ingeniería en Sistemas Computacionales",
+      "en": "Computer Systems Engineering Student"
+    },
+    "location": {
+      "es": "Morelia, Michoacán, México",
+      "en": "Morelia, Michoacán, Mexico"
+    },
+    "email": "rogelioemmanuelceja@gmail.com",
+    "phone": "+52 452 341 2556",
+    "website": "truevexine.github.io",
+    "linkedin": "linkedin.com/in/rogelio-emmanuel-ceja-acosta-6aa659231",
+    "github": "github.com/TruEvexine",
+    "photo": "assets/cv/photo.jpg"
+  },
+  "summary": {
+    "es": "Estudiante de Ingeniería en Sistemas Computacionales con una base sólida en programación, orientado al desarrollo backend y con conocimientos de frontend. Disponible para prácticas profesionales y colaboraciones.",
+    "en": "Computer Systems Engineering student with a solid programming foundation, focused on backend development with frontend knowledge. Open to internships and collaborations."
+  },
+  "education": [
+    {
+      "school": "Universidad Vasco de Quiroga (UVAQ)",
+      "place": { "es": "Morelia, Michoacán", "en": "Morelia, Michoacán" },
+      "degree": {
+        "es": "Ingeniería en Sistemas Computacionales y Seguridad Informática",
+        "en": "B.S. in Computer Systems Engineering and Information Security"
+      },
+      "start": "2024-08",
+      "end": "",
+      "details": {
+        "es": ["Promedio: 9.3/10 · Egreso estimado: 2028"],
+        "en": ["GPA: 9.3/10 · Expected graduation: 2028"]
+      }
+    },
+    {
+      "school": "Colegio Casa del Niño",
+      "place": { "es": "Uruapan, Michoacán", "en": "Uruapan, Michoacán" },
+      "degree": {
+        "es": "Bachillerato Físico-Matemático",
+        "en": "High School Diploma, Physics and Mathematics track"
+      },
+      "start": "2023-08",
+      "end": "2024-07",
+      "details": { "es": [], "en": [] }
+    }
+  ],
+  "projects": [
+    {
+      "name": { "es": "Project Vissionary: SaaS de gestión", "en": "Project Vissionary: management SaaS" },
+      "date": "2026-06",
+      "stack": ["Java", "APIs", "SQL", "HTML"],
+      "link": "",
+      "bullets": {
+        "es": [
+          "Desarrollé en Java un SaaS para gestionar clientes, dispositivos, inventario y tareas, con conexión a base de datos, consumo de APIs e interfaz en HTML.",
+          "Implementé gestión de roles (trabajador y administrador) con permisos y accesos que el administrador puede configurar.",
+          "Creé un módulo para ejecutar chequeos y pruebas en otros dispositivos mediante código QR, app instalada o depuración por USB.",
+          "Integré WhatsApp para enviar alertas, cotizaciones y atención personalizada automatizada con IA.",
+          "Desarrollé un generador de facturas, recibos y cotizaciones en PDF con plantillas personalizables."
+        ],
+        "en": [
+          "Built a Java SaaS to manage clients, devices, inventory and tasks, with database integration, third-party APIs and an HTML interface.",
+          "Implemented role management (staff and admin) with permissions and access levels the admin can configure.",
+          "Created a module to run checks and tests on other devices via QR code, an installed app or USB debugging.",
+          "Integrated WhatsApp to send alerts, quotes and AI-automated personalized support.",
+          "Developed a PDF generator for invoices, receipts and quotes with customizable templates."
+        ]
+      }
+    },
+    {
+      "name": { "es": "SIN GUARDAR: videojuego narrativo", "en": "SIN GUARDAR: narrative game" },
+      "date": "2026-05",
+      "stack": ["Java 17", "Swing", "JavaFX", "Maven"],
+      "link": "truevexine.github.io/sin-guardar.html",
+      "bullets": {
+        "es": [
+          "Desarrollé en Java un videojuego de horror cósmico con 22 nodos de decisión, 3 finales (uno secreto) y un sistema de Erosión que altera la narrativa y lo visual.",
+          "Implementé árboles hash para la toma de decisiones y un sistema de coordenadas que ubica los assets según la resolución de pantalla.",
+          "Programé guardado y carga de partidas, y opciones para personalizar la experiencia del jugador."
+        ],
+        "en": [
+          "Built a cosmic horror decision-driven game in Java with 22 decision nodes, 3 endings (one secret) and an Erosion system that alters narration and visuals.",
+          "Implemented hash trees for decision-making and a coordinate system that places assets according to screen resolution.",
+          "Programmed save/load and options to customize the player experience."
+        ]
+      }
+    },
+    {
+      "name": { "es": "Reproductor de música Hi-Res", "en": "Hi-Res music player" },
+      "date": "2026-04",
+      "stack": ["Java", "Swing"],
+      "link": "",
+      "bullets": {
+        "es": [
+          "Desarrollé en Java Swing un reproductor de audio de alta resolución para archivos .flac y .wav.",
+          "Leí los metadatos de cada archivo para mostrar portada, título, artista, álbum, duración y tamaño."
+        ],
+        "en": [
+          "Built a high-resolution audio player in Java Swing for .flac and .wav files.",
+          "Read each file's metadata to display cover art, title, artist, album, duration and file size."
+        ]
+      }
+    }
+  ],
+  "skills": [
+    { "group": { "es": "Lenguajes", "en": "Languages" }, "items": ["Java", "C++", "JavaScript"] },
+    { "group": { "es": "Web", "en": "Web" }, "items": ["HTML", "CSS"] },
+    { "group": { "es": "Bases de datos", "en": "Databases" }, "items": ["PostgreSQL", "MySQL"] },
+    { "group": { "es": "Herramientas", "en": "Tools" }, "items": ["Git", "GitHub", "Maven", "Java Swing", "JavaFX"] }
+  ],
+  "languages": [
+    { "name": { "es": "Español", "en": "Spanish" }, "level": { "es": "Nativo", "en": "Native" } },
+    { "name": { "es": "Inglés", "en": "English" }, "level": { "es": "Avanzado", "en": "Advanced" } },
+    { "name": { "es": "Italiano", "en": "Italian" }, "level": { "es": "Básico", "en": "Basic" } },
+    { "name": { "es": "Alemán", "en": "German" }, "level": { "es": "Principiante", "en": "Beginner" } }
+  ],
+  "certifications": [
+    { "name": { "es": "Curso Inmersión en IA", "en": "AI Immersion Course" }, "issuer": "", "year": "2025" },
+    { "name": { "es": "Diplomado Introducción a la Física Cuántica", "en": "Diploma in Introduction to Quantum Physics" }, "issuer": "", "year": "2025" },
+    { "name": { "es": "Introducción a las Tecnologías Emergentes", "en": "Introduction to Emerging Technologies" }, "issuer": "", "year": "2024" }
+  ],
+  "interests": {
+    "es": ["Videojuegos", "Música", "Básquetbol y ejercicio al aire libre", "Hardware", "Mundo automotor", "Coleccionables y sneakers"],
+    "en": ["Video games", "Music", "Basketball and outdoor training", "Computer hardware", "Cars", "Collectibles and sneakers"]
+  }
+}
