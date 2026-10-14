@@ -357,6 +357,7 @@ footer[data-layout="footer"]:empty::before {
 .icon-github { --icon: url('assets/ui/github.svg'); }
 .icon-linkedin { --icon: url('assets/ui/linkedin.svg'); }
 .icon-copy { --icon: url('assets/ui/copy.svg'); }
+.icon-web { --icon: url('assets/ui/web.svg'); }
 
 .icon-links {
     display: flex;

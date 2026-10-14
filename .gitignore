@@ -22,4 +22,4 @@ Thumbs.db
 .env
 # Logs y temporales
 *.log
-.junie
+.junienode_modules/

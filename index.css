@@ -110,7 +110,10 @@
     line-height: 1.65;
 }
 
-.about-body .btn {
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-top: 8px;
 }
 
