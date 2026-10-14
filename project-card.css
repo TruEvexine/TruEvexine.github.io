@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Tarjeta de proyecto destacada (Inicio y Proyectos)
+   Video/galería a un lado de la información; en móvil, uno sobre otro.
+   ========================================================================== */
+
+.project-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+    width: min(100% - 48px, 1100px);
+    margin: 0 auto;
+    padding: clamp(16px, 2vw, 24px);
+    border: 1px solid rgba(243, 244, 246, 0.1);
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(29, 45, 68, 0.7), rgba(13, 14, 21, 0.4));
+    text-align: left;
+}
+
+.project-feature-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.project-feature-media .yt-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.project-feature-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 8px 8px 8px 0;
+}
+
+.project-meta {
+    margin: 0;
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-status {
+    color: #FBBF24;
+}
+
+.project-feature-title {
+    margin: 0;
+    color: #F3F4F6;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.project-feature-body > p:not(.project-meta) {
+    margin: 0;
+    color: #D1D5DB;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Tarjeta "próximo proyecto": honesta mientras llegan más */
+.project-next {
+    display: grid;
+    place-items: center;
+    gap: 6px;
+    width: min(100% - 48px, 1100px);
+    margin: 24px auto 0;
+    padding: 32px 24px;
+    border: 1px dashed rgba(243, 244, 246, 0.2);
+    border-radius: 24px;
+    color: #9CA3AF;
+    text-align: center;
+}
+
+.project-next h2 {
+    margin: 0;
+    color: #D1D5DB;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+}
+
+.project-next p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Guiño de "Erosión" (solo en la tarjeta de SIN GUARDAR)
+   Al pasar el cursor o enfocar: el título se distorsiona un instante, el
+   video recibe líneas de escaneo y la barra de Erosión del juego se llena.
+   ========================================================================== */
+.erosion-scan {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: repeating-linear-gradient(0deg, rgba(13, 14, 21, 0.35) 0 2px, transparent 2px 4px);
+    mix-blend-mode: multiply;
+    transition: opacity 0.4s ease;
+}
+
+.project-feature-media:has(iframe) .erosion-scan {
+    display: none;
+}
+
+.erosion-meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 260px;
+    color: #6B7280;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.erosion-bar {
+    flex: 1;
+    height: 4px;
+    border-radius: 4px;
+    background: rgba(243, 244, 246, 0.1);
+    overflow: hidden;
+}
+
+.erosion-bar > span {
+    display: block;
+    width: 8%;
+    height: 100%;
+    background: linear-gradient(90deg, #10B981, #EF4444);
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes erode {
+    0%   { text-shadow: none; transform: none; }
+    15%  { text-shadow: -3px 0 rgba(239, 68, 68, 0.75), 3px 0 rgba(16, 185, 129, 0.75); transform: translateX(-2px) skewX(-4deg); }
+    30%  { text-shadow: 2px 0 rgba(239, 68, 68, 0.75), -2px 0 rgba(16, 185, 129, 0.75); transform: translateX(2px); }
+    45%  { text-shadow: none; transform: none; opacity: 0.85; }
+    60%  { text-shadow: -1px 0 rgba(239, 68, 68, 0.6), 1px 0 rgba(16, 185, 129, 0.6); transform: translateX(-1px) skewX(2deg); opacity: 1; }
+    100% { text-shadow: -1px 0 rgba(239, 68, 68, 0.35), 1px 0 rgba(16, 185, 129, 0.35); transform: none; }
+}
+
+.erosion-card:hover .erosion-title,
+.erosion-card:focus-within .erosion-title {
+    animation: erode 0.7s steps(1, end) forwards;
+}
+
+.erosion-card:hover .erosion-scan,
+.erosion-card:focus-within .erosion-scan {
+    opacity: 1;
+}
+
+.erosion-card:hover .erosion-bar > span,
+.erosion-card:focus-within .erosion-bar > span {
+    width: 64%;
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 860px) {
+    .project-feature {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(100% - 40px, 640px);
+    }
+
+    .project-feature-body {
+        padding: 4px;
+    }
+
+    .project-next {
+        width: min(100% - 40px, 640px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .erosion-card:hover .erosion-title,
+    .erosion-card:focus-within .erosion-title {
+        animation: none;
+    }
+
+    .erosion-scan,
+    .erosion-bar > span {
+        transition: none;
+    }
+}

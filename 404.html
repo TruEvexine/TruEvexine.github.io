@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="nf.documentTitle">Page not found — Rogelio Ceja</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0D0E15">
+    <!-- Rutas absolutas: GitHub Pages sirve esta página en cualquier URL inexistente -->
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/layout.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+    <script src="/layout.js" defer></script>
+    <style>
+        .nf {
+            display: grid;
+            place-items: center;
+            align-content: center;
+            gap: 16px;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .nf-code {
+            margin: 0;
+            color: #1D2D44;
+            font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
+            font-size: clamp(6rem, 22vw, 11rem);
+            line-height: 1;
+            text-shadow: -3px 0 rgba(239, 68, 68, 0.45), 3px 0 rgba(16, 185, 129, 0.45);
+        }
+
+        .nf h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nf p {
+            max-width: 440px;
+            margin: 0 0 8px;
+            color: #D1D5DB;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
+    <header data-layout="header"></header>
+
+    <main class="nf" id="main">
+        <p class="nf-code" aria-hidden="true">404</p>
+        <h1 data-i18n="nf.title">This page wasn't saved</h1>
+        <p data-i18n="nf.text">The link may be broken or the page has moved.</p>
+        <a class="btn btn-primary" href="/index.html" data-i18n="nf.home">Back to home</a>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>

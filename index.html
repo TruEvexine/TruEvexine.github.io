@@ -19,11 +19,14 @@
     <meta name="theme-color" content="#0D0E15">
     <meta name="google-site-verification" content="E84hWpVJFajAgo6Bxzcccn655DV0ZTRi_GmCu3vh0LA">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script>document.documentElement.classList.add("js")</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="project-card.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <script src="layout.js" defer></script>
@@ -35,6 +38,7 @@
         "url": "https://truevexine.github.io/",
         "image": "https://truevexine.github.io/assets/og-image.jpg",
         "jobTitle": "Systems Engineering student",
+        "telephone": "+52 452 341 2556",
         "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Vasco de Quiroga" },
         "sameAs": [
             "https://github.com/TruEvexine",
@@ -44,61 +48,61 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
     <header data-layout="header"></header>
 
-    <main class="main">
+    <main class="main" id="main">
 
-        <div class="welcome-section">
-            <h1>
-                <span data-i18n="welcome.title">Welcome to my</span>
-                <span class="PortWord" data-i18n="welcome.portfolio">Portfolio</span>
-            </h1>
-            <p data-i18n="welcome.message">Systems Engineering student building websites and narrative games.</p>
-            <div class="welcome-actions">
-                <a class="btn btn-primary" href="projects.html" data-i18n="welcome.ctaProjects">See my projects</a>
-                <a class="btn" href="contact.html" data-i18n="welcome.ctaContact">Get in touch</a>
-            </div>
-        </div>
-
-
-        <section class="meWrapper scroll-reveal">
-            <div class="me-image">
-                <img src="assets/YO.webp" alt="Rogelio Emmanuel Ceja" width="1133" height="690">
-            </div>
-            <div class="about-me">
-                <h2 data-i18n="about.title">About Me</h2>
-                <div class="about-me-content">
-                    <p data-i18n="about.intro">I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I turn ideas into websites that are clear, fast and pleasant to use.</p>
-                    <p data-i18n="about.gaming">I'm a gamer at heart: Resident Evil taught me tension, Pokémon taught me adventure. That's why I also build stories you can play.</p>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="availability" data-i18n="availability">Open to internships &amp; collaborations</p>
+                <h1>Rogelio Ceja</h1>
+                <p class="hero-role" data-i18n="hero.role">Systems Engineering student · Web &amp; narrative game developer</p>
+                <p class="hero-copy" data-i18n="hero.text">I build websites that are clear and fast, and stories you can play.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="projects.html" data-i18n="welcome.ctaProjects">See my projects</a>
+                    <a class="btn" href="contact.html" data-i18n="welcome.ctaContact">Get in touch</a>
                 </div>
+                <ul class="icon-links">
+                    <li><a href="https://github.com/TruEvexine" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><span class="icon icon-github"></span></a></li>
+                    <li><a href="https://www.linkedin.com/in/rogelio-emmanuel-ceja-acosta-6aa659231/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin"></span></a></li>
+                    <li><a href="https://wa.me/524523412556" data-i18n-attr="href:ui.waLink" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><span class="icon icon-whatsapp"></span></a></li>
+                    <li><a href="mailto:rogelioemmanuelceja@gmail.com" aria-label="Email"><span class="icon icon-mail"></span></a></li>
+                </ul>
+            </div>
+            <div class="hero-photo skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                <img src="assets/YO.webp" alt="Portrait of Rogelio Emmanuel Ceja" data-i18n-attr="alt:hero.photoAlt" width="1133" height="690" fetchpriority="high">
+            </div>
+        </section>
+
+        <section class="about scroll-reveal">
+            <h2 data-i18n="about.title">About Me</h2>
+            <div class="about-body">
+                <p data-i18n="about.intro">I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I care about the details that make a site feel clear, fast and easy to use.</p>
+                <p data-i18n="about.gaming">I'm a gamer at heart: Resident Evil taught me tension, Pokémon taught me adventure. That's why I also build stories you can play.</p>
                 <a class="btn" href="profile.html" data-i18n="about.cta">My skills &amp; education</a>
             </div>
         </section>
 
-
-        <section class="projects">
-            <div class="projectsInfo scroll-reveal">
+        <section class="projects scroll-reveal">
             <h2 data-i18n="projects.title">My Projects</h2>
-
-
-                <div class="projectsGrid">
-
-                    <section class="project1">
-                        <div class="projectContent">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/x4OkNthPtdE?si=4l5LRYiSAxpwHy-4&amp;start=1" title="SIN GUARDAR gameplay video" data-i18n-attr="title:projects.videoTitle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>
-
-                        </div>
-                        <div class="projectText scroll-reveal">
-                            <h3 data-i18n="projects.project1">SIN GUARDAR — Narrative game in Java</h3>
-                            <p data-i18n="projects.project1Description">A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX.</p>
-                            <a href="projects.html" class="project-button" data-i18n="projects.project1Button">View more</a>
-
-                        </div>
-
-                    </section>
-
+            <article class="project-feature erosion-card">
+                <div class="project-feature-media skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                    <button type="button" class="yt-facade" data-yt="x4OkNthPtdE" data-start="1" aria-label="Play the SIN GUARDAR gameplay video" data-i18n-attr="aria-label:ui.playVideo">
+                        <img src="https://i.ytimg.com/vi/x4OkNthPtdE/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/x4OkNthPtdE/hqdefault.jpg" alt="" width="1280" height="720" loading="lazy">
+                        <span class="yt-play" aria-hidden="true"></span>
+                    </button>
+                    <span class="erosion-scan" aria-hidden="true"></span>
                 </div>
-            </div>
+                <div class="project-feature-body">
+                    <p class="project-meta"><span data-i18n="projects.featured">Featured project</span> · <span class="project-status" data-i18n="projects.status">In development</span></p>
+                    <h3 class="project-feature-title erosion-title" data-i18n="projects.project1">SIN GUARDAR — Narrative game in Java</h3>
+                    <p data-i18n="projects.project1Description">A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX.</p>
+                    <ul class="chips"><li>Java 17</li><li>JavaFX</li><li>Swing</li><li>Maven</li></ul>
+                    <a class="btn btn-primary" href="sin-guardar.html" data-i18n="projects.caseStudy">Read the case study</a>
+                    <div class="erosion-meter" aria-hidden="true"><span data-i18n="projects.erosion">Erosion</span><span class="erosion-bar"><span></span></span></div>
+                </div>
+            </article>
         </section>
 
     </main>

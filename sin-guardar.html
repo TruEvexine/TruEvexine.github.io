@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="sg.documentTitle">SIN GUARDAR — Case study · Rogelio Ceja</title>
+    <meta name="description" content="SIN GUARDAR: a cosmic horror narrative game in Java by Rogelio Emmanuel Ceja. 22 decision nodes, 3 endings and an Erosion system that changes how the game looks.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <link rel="canonical" href="https://truevexine.github.io/sin-guardar.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="SIN GUARDAR — Case study">
+    <meta property="og:description" content="SIN GUARDAR: a cosmic horror narrative game in Java by Rogelio Emmanuel Ceja. 22 decision nodes, 3 endings and an Erosion system that changes how the game looks.">
+    <meta property="og:url" content="https://truevexine.github.io/sin-guardar.html">
+    <meta property="og:image" content="https://i.ytimg.com/vi/x4OkNthPtdE/hqdefault.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="project-card.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="layout.js" defer></script>
+    <script src="project.js" defer></script>
+</head>
+<body data-nav="projects.html">
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
+    <header data-layout="header"></header>
+
+    <main class="case" id="main">
+        <div class="case-hero">
+            <a class="case-back" href="projects.html">← <span data-i18n="sg.back">All projects</span></a>
+            <p class="case-eyebrow" data-i18n="sg.eyebrow">Case study · Solo university project</p>
+            <h1 class="case-title">SIN GUARDAR</h1>
+            <p class="case-tagline" data-i18n="sg.tagline">A cosmic horror visual novel where your choices change the story and how the game looks.</p>
+            <div class="case-tags">
+                <span class="project-status" data-i18n="projects.status">In development</span>
+                <ul class="chips"><li>Java 17</li><li>JavaFX</li><li>Swing</li><li>Maven</li></ul>
+            </div>
+        </div>
+
+        <div class="case-grid">
+            <!-- Columna de medios: video y galería siempre a un lado de la información -->
+            <div class="case-media">
+                <div class="slider" role="region" aria-roledescription="carousel" aria-label="SIN GUARDAR gallery" data-i18n-attr="aria-label:ui.gallery" tabindex="0">
+                    <div class="slider-track">
+                        <div class="slide skel is-active" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                            <button type="button" class="yt-facade" data-yt="x4OkNthPtdE" data-start="1" aria-label="Play the SIN GUARDAR gameplay video" data-i18n-attr="aria-label:ui.playVideo">
+                                <img src="https://i.ytimg.com/vi/x4OkNthPtdE/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/x4OkNthPtdE/hqdefault.jpg" alt="" width="1280" height="720" fetchpriority="high">
+                                <span class="yt-play" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar.jpeg" alt="SIN GUARDAR screenshot 1" data-i18n-attr="alt:projects.shot1" width="1920" height="1080" loading="lazy">
+                        </div>
+                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar2.jpeg" alt="SIN GUARDAR screenshot 2" data-i18n-attr="alt:projects.shot2" width="1920" height="1080" loading="lazy">
+                        </div>
+                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/yo-sin-guardar3.jpeg" alt="SIN GUARDAR screenshot 3" data-i18n-attr="alt:projects.shot3" width="1920" height="1080" loading="lazy">
+                        </div>
+                    </div>
+                    <span class="erosion-scan" aria-hidden="true"></span>
+                    <button type="button" class="slider-arrow prev" aria-label="Previous" data-i18n-attr="aria-label:ui.prev">&#10094;</button>
+                    <button type="button" class="slider-arrow next" aria-label="Next" data-i18n-attr="aria-label:ui.next">&#10095;</button>
+                    <p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">4</span></p>
+                </div>
+                <div class="slider-dots" aria-hidden="true"></div>
+
+                <div class="case-erosion" aria-hidden="true">
+                    <div class="case-erosion-head">
+                        <span data-i18n="projects.erosion">Erosion</span>
+                        <span class="case-erosion-value">0%</span>
+                    </div>
+                    <div class="erosion-bar"><span></span></div>
+                    <p class="case-erosion-hint" data-i18n="sg.erosionHint">Rises as you read</p>
+                    <p class="case-erosion-end" data-i18n="sg.erosionEnd">Progress not saved…</p>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <p class="case-lead" data-i18n="projects.sin-guardar-intro">SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.</p>
+
+                <h2 data-i18n="sg.factsTitle">At a glance</h2>
+                <ul class="case-stats">
+                    <li><strong>22</strong><span data-i18n="sg.statNodes">decision nodes</span></li>
+                    <li><strong>3</strong><span data-i18n="sg.statEndings">endings, one secret</span></li>
+                    <li><strong>1920×1080</strong><span data-i18n="sg.statRes">custom art resolution</span></li>
+                    <li><strong>Java 17</strong><span data-i18n="sg.statJava">Swing → JavaFX · Maven</span></li>
+                </ul>
+
+                <h2 data-i18n="sg.detailsTitle">Behind the game</h2>
+                <details open>
+                    <summary data-i18n-html="sin-guardar-concept">Concept</summary>
+                    <p data-i18n-html="sin-guardar-concept-content">The story follows Víctor Corona, an illustrator who receives a manuscript titled 'Chronicle of the Man Who Never Occurred'. The book's content begins to describe events from his own life, leading him to Curucutarán, Michoacán, where he begins to discover that the reality around him doesn't work as it should. The concept uses horror not only through supernatural creatures or situations, but through narrative and visual elements that progressively break the player's perception of what is happening. The title itself, SIN GUARDAR (Unsaved), has a narrative function within the project: it refers both to game progress and to the protagonist's inability to keep intact his identity, his reality, and his own history.</p>
+                </details>
+                <details>
+                    <summary data-i18n-html="sin-guardar-jugability">Gameplay and Systems</summary>
+                    <p data-i18n-html="sin-guardar-jugability-content">The project is built around decision-making. The story is divided into different scenes and narrative nodes, where the player can choose between different actions that modify the course of the game. One of the main systems is Erosion, a value that increases or decreases depending on the decisions made. Besides functioning as a progress variable, Erosion modifies the narrative and visual presentation of the game. As it increases, the narrative voice changes, visual alterations appear, and some dialogues begin to behave differently. In this way, the game state not only determines what happens in the story, but also how that story is presented to the player. The design includes 22 decision nodes and three active endings, including different routes and a secret ending directly related to the interaction between player and game. A save and load system was also implemented, allowing to preserve the story state, Erosion, and decisions made.</p>
+                </details>
+                <details>
+                    <summary data-i18n-html="sin-guardar-development">Technical Development</summary>
+                    <p data-i18n-html="sin-guardar-development-content">The video game was developed in Java 17: it started with Java Swing and was later migrated to JavaFX, with Maven as the project build system. The architecture was organized through different components to separate game responsibilities. Among them are scene management, global game state, narrative data, decisions, save system, interface, and audio playback. The project uses a structure based on a state machine, where each scene functions as a state and a manager controls transitions between them. To preserve game information, a global state is used that stores variables like Erosion, current node, and different narrative indicators. Dialogues, scenes, and decisions are stored as structured data, allowing the system to determine what content to show and which scene to advance after each choice. The interface also includes specific elements for the narrative experience, such as the dialogue box, decision panels, pause menu, and a visible Erosion bar during the game.</p>
+                </details>
+                <details>
+                    <summary data-i18n-html="sin-guardar-art">Art and Presentation</summary>
+                    <p data-i18n-html="sin-guardar-art-content">The visual aspect was designed specifically to work with a resolution of 1920 x 1080 pixels, using separate backgrounds, characters, objects, and interface elements. The artistic direction seeks to combine a graphic novel aesthetic with cosmic horror elements and liminal spaces. The intention is not to constantly show explicit creatures, but to use incorrect details, absence of information, strange proportions, impossible lighting, and progressive alterations of the environment to generate discomfort. The visual system also contemplates different variants of scenes depending on the Erosion level. In this way, the same scenario can present color, lighting, and composition changes when the player's state reaches certain levels.</p>
+                </details>
+                <details>
+                    <summary data-i18n-html="sin-guardar-audio">Audio</summary>
+                    <p data-i18n-html="sin-guardar-audio-content">The game incorporates ambient music and sound effects in WAV format through the audio system included in Java. The music changes according to the story context and is mainly used to reinforce the atmosphere of each scenario. Sound effects accompany specific events, transitions, and important narrative moments.</p>
+                </details>
+                <details>
+                    <summary data-i18n-html="sin-guardar-objective">Project Objective</summary>
+                    <p data-i18n="projects.sin-guardar-version">This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.</p>
+                    <p data-i18n-html="sin-guardar-objective-content">The main objective of this first version was to integrate programming, narrative, interface, art, and audio within a single interactive experience, using Java as the main technology. More than just developing a story with choices, the project seeks to experiment with the possibility that player decisions affect both narrative content and the way the game itself presents itself. This version represents the functional base of the project and serves as a starting point for future iterations, content improvements, visual polish, and expansion of its systems.</p>
+                </details>
+
+                <aside class="case-invest">
+                    <h2 data-i18n="sg.investTitle">Help bring it to stores</h2>
+                    <p data-i18n="sg.invest">SIN GUARDAR is being polished for a store release. If you'd like to support or invest in its development, I'd love to talk.</p>
+                    <div class="case-invest-actions">
+                        <a class="btn btn-primary" href="contact.html" data-i18n="sg.investCta">Let's talk</a>
+                        <a class="btn" href="https://wa.me/524523412556" data-i18n-attr="href:ui.waLink" target="_blank" rel="noopener noreferrer"><span class="icon icon-whatsapp"></span><span data-i18n="ui.whatsapp">Message on WhatsApp</span></a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>

@@ -4,84 +4,82 @@
 
 .main {
     background-color: #0D0E15;
-    padding: 0 0 40px;
-    text-align: center;
-}
-
-.main p {
-    color: #F3F4F6;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    font-family: 'Arimo', sans-serif;
-}
-
-.main h1 {
-    margin: 0;
-    color: #F3F4F6;
-    font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1.2;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    padding: 0 0 64px;
 }
 
 .main h2 {
-    margin: 0 0 24px;
+    margin: 0 0 28px;
     color: #F3F4F6;
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     line-height: 1.1;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-/* ---------- Hero ---------- */
-.welcome-section {
-    width: 100%;
-    padding: clamp(40px, 8vh, 72px) 24px;
-    background-color: #1D2D44;
+/* ---------- Hero: quién soy, qué hago y cómo contactarme ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: clamp(32px, 6vw, 80px);
+    padding: clamp(48px, 9vh, 96px) max(24px, calc((100% - 1100px) / 2));
+    background: linear-gradient(160deg, #1D2D44 0%, #16233A 60%, #0D0E15 100%);
 }
 
-.welcome-section .PortWord {
-    display: block;
-    margin-top: 8px;
-    font-size: clamp(4rem, 10vw, 6.25rem);
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    min-width: 0;
 }
 
-.welcome-section p {
-    max-width: 620px;
-    margin: 16px auto 0;
+.hero h1 {
+    margin: 4px 0 0;
+    color: #F3F4F6;
+    font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-role {
+    margin: 0;
+    color: #10B981;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.hero-copy {
+    max-width: 520px;
+    margin: 0;
     color: #D1D5DB;
+    font-size: 1.15rem;
+    line-height: 1.6;
 }
 
-.welcome-actions {
+.hero-actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 12px;
-    margin-top: 28px;
+    margin-top: 8px;
 }
 
-/* ---------- Sobre mí ---------- */
-.meWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(32px, 5vw, 72px);
-    width: min(100%, 1100px);
-    margin: 64px auto 24px;
-    padding: 0 32px;
-}
-
-.me-image {
-    flex: 0 1 440px;
+.hero-photo {
+    width: 100%;
+    max-width: 420px;
+    justify-self: end;
     aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 16px;
+    border-radius: 24px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
-.me-image img {
+.hero-photo img {
     display: block;
     width: 100%;
     height: 100%;
@@ -89,172 +87,72 @@
     object-position: center;
 }
 
-.about-me {
-    flex: 1 1 0;
-    min-width: 0;
+/* ---------- Sobre mí ---------- */
+.about {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(24px, 5vw, 72px);
+    width: min(100% - 48px, 1100px);
+    margin: 80px auto 0;
+}
+
+.about-body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
+    gap: 16px;
 }
 
-.about-me-content {
-    max-width: 520px;
-    margin-bottom: 24px;
+.about-body p {
+    margin: 0;
+    color: #F3F4F6;
+    font-size: 1.15rem;
+    line-height: 1.65;
 }
 
-.about-me-content p {
-    margin: 0 0 16px;
+.about-body .btn {
+    margin-top: 8px;
 }
 
 /* ---------- Proyecto destacado ---------- */
 .projects {
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 48px;
-}
-
-.project1 {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-    align-items: center;
-    gap: clamp(32px, 5vw, 72px);
-    width: min(100%, 1100px);
-    margin: 0 auto;
-    padding: 16px 32px 40px;
-}
-
-.projectContent {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #1D2D44;
-}
-
-.projectContent iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.projectText {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.projects h3 {
-    margin: 0 0 12px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.6rem;
-    color: #F3F4F6;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.projects p {
-    margin: 0 0 20px;
-    color: #D1D5DB;
-    font-size: 1.1rem;
-}
-
-.projects .project-button {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    background-color: #1D2D44;
-    color: #F3F4F6;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-family: 'Arimo', sans-serif;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.projects .project-button:hover,
-.projects .project-button:focus-visible {
-    color: #10B981;
-}
-
-/* ---------- Tablet ---------- */
-@media (max-width: 1024px) {
-    .meWrapper,
-    .project1 {
-        padding-left: 24px;
-        padding-right: 24px;
-        gap: 32px;
-    }
+    margin-top: 88px;
+    text-align: center;
 }
 
 /* ---------- Móvil ---------- */
-@media (max-width: 768px) {
-    .main h1 {
-        font-size: 2rem;
+@media (max-width: 860px) {
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 40px 20px 48px;
     }
 
-    .main h2 {
-        font-size: 1.9rem;
-        margin-bottom: 16px;
+    /* La foto va arriba y contenida para que el texto aparezca pronto */
+    .hero-photo {
+        order: -1;
+        justify-self: start;
+        max-width: 160px;
+        border-radius: 20px;
     }
 
-    .main p {
+    .about {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(100% - 40px, 640px);
+        margin-top: 56px;
+        gap: 0;
+    }
+
+    .about-body p {
         font-size: 1.05rem;
     }
 
-    .welcome-section .PortWord {
-        font-size: clamp(2.8rem, 13vw, 4rem);
-    }
-
-    .meWrapper {
-        flex-direction: column;
-        gap: 24px;
-        margin-top: 40px;
-        padding: 0 20px;
-    }
-
-    /* Foto más contenida para que el texto aparezca pronto */
-    .me-image {
-        flex: none;
-        width: min(100%, 320px);
-        aspect-ratio: 4 / 3;
-    }
-
-    .about-me {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-    }
-
     .projects {
-        padding-top: 32px;
-    }
-
-    .project1 {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-        padding: 8px 20px 24px;
-    }
-
-    .projects h3 {
-        font-size: 1.35rem;
-    }
-
-    .projects p {
-        font-size: 1rem;
+        margin-top: 64px;
     }
 }
 
 @media (max-width: 480px) {
-    .welcome-actions .btn {
+    .hero-actions .btn {
         flex: 1 1 100%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .projects .project-button {
-        transition: none;
     }
 }

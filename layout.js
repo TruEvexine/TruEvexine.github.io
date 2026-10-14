@@ -1,19 +1,60 @@
+// Rutas absolutas para que también funcionen desde 404.html en cualquier URL
 const layouts = {
-    header: "header.html",
-    footer: "footer.html"
+    header: "/header.html",
+    footer: "/footer.html"
 };
 
 const translations = {
     en: {
         "nav.home": "Home",
+        "ui.skip": "Skip to content",
+        "ui.copied": "Copied!",
+        "ui.copyEmail": "Copy email",
+        "ui.copyPhone": "Copy number",
+        "ui.whatsapp": "Message on WhatsApp",
+        "ui.waLink": "https://wa.me/524523412556?text=Hi%20Rogelio%2C%20I%20saw%20your%20portfolio",
+        "ui.mediaError": "Image unavailable",
+        "ui.playVideo": "Play the SIN GUARDAR gameplay video",
+        "ui.gallery": "SIN GUARDAR gallery",
+        "availability": "Open to internships & collaborations",
+        "hero.role": "Systems Engineering student · Web & narrative game developer",
+        "hero.text": "I build websites that are clear and fast, and stories you can play.",
+        "hero.photoAlt": "Portrait of Rogelio Emmanuel Ceja",
+        "projects.intro": "Things I've built, from idea to working version.",
+        "projects.featured": "Featured project",
+        "projects.status": "In development",
+        "projects.caseStudy": "Read the case study",
+        "projects.erosion": "Erosion",
+        "projects.next": "Next project in progress",
+        "projects.nextText": "New projects are on the way. Check back soon.",
+        "sg.documentTitle": "SIN GUARDAR — Case study · Rogelio Ceja",
+        "sg.back": "All projects",
+        "sg.eyebrow": "Case study · Solo university project",
+        "sg.tagline": "A cosmic horror visual novel where your choices change the story and how the game looks.",
+        "sg.factsTitle": "At a glance",
+        "sg.statNodes": "decision nodes",
+        "sg.statEndings": "endings, one secret",
+        "sg.statRes": "custom art resolution",
+        "sg.statJava": "Swing → JavaFX · Maven",
+        "sg.detailsTitle": "Behind the game",
+        "sg.erosionHint": "Rises as you read",
+        "sg.erosionEnd": "Progress not saved…",
+        "sg.investTitle": "Help bring it to stores",
+        "sg.invest": "SIN GUARDAR is being polished for a store release. If you'd like to support or invest in its development, I'd love to talk.",
+        "sg.investCta": "Let's talk",
+        "nf.documentTitle": "Page not found — Rogelio Ceja",
+        "nf.title": "This page wasn't saved",
+        "nf.text": "The link may be broken or the page has moved.",
+        "nf.home": "Back to home",
+        "contact.phoneTitle": "Phone · WhatsApp",
+        "contact.phoneDescription": "For quick questions or to set up a call.",
+        "footer.phone": "WhatsApp:",
         "ui.menu": "Menu",
-        "ui.close": "Close",
         "ui.prev": "Previous",
         "ui.next": "Next",
         "projects.shot1": "SIN GUARDAR screenshot 1",
         "projects.shot2": "SIN GUARDAR screenshot 2",
         "projects.shot3": "SIN GUARDAR screenshot 3",
-        "projects.videoTitle": "SIN GUARDAR gameplay video",
         "education.photoAlt": "Rogelio at Universidad Vasco de Quiroga",
         "nav.profile": "Profile",
         "nav.projects": "Projects",
@@ -26,7 +67,6 @@ const translations = {
         "footer.github": "GitHub:",
         "footer.linkedin": "LinkedIn:",
         "contact.documentTitle": "Contact — Rogelio Ceja",
-        "contact.eyebrow": "LET'S CONNECT",
         "contact.title": "Get in touch",
         "contact.intro": "Have a project in mind, an opportunity, or just want to say hello? Reach out through any of these channels.",
         "contact.emailTitle": "Email",
@@ -38,13 +78,10 @@ const translations = {
         "index.documentTitle": "Rogelio Ceja — Portfolio",
         "profile.documentTitle": "Profile — Rogelio Ceja",
         "projects.documentTitle": "Projects — Rogelio Ceja",
-        "welcome.title": "Welcome to my",
-        "welcome.portfolio": "Portfolio",
-        "welcome.message": "Systems Engineering student building websites and narrative games.",
         "welcome.ctaProjects": "See my projects",
         "welcome.ctaContact": "Get in touch",
         "about.title": "About Me",
-        "about.intro": "I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I turn ideas into websites that are clear, fast and pleasant to use.",
+        "about.intro": "I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I care about the details that make a site feel clear, fast and easy to use.",
         "about.gaming": "I'm a gamer at heart: Resident Evil taught me tension, Pokémon taught me adventure. That's why I also build stories you can play.",
         "about.cta": "My skills & education",
         "profile.title": "Profile",
@@ -73,7 +110,6 @@ const translations = {
         "projects.title": "My Projects",
         "projects.project1": "SIN GUARDAR — Narrative game in Java",
         "projects.project1Description": "A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX.",
-        "projects.project1Button": "View more",
         "projects.sin-guardar-intro": "SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.",
         "sin-guardar-concept": "Concept",
@@ -88,18 +124,57 @@ const translations = {
         "sin-guardar-audio-content": "The game incorporates ambient music and sound effects in WAV format through the audio system included in Java. The music changes according to the story context and is mainly used to reinforce the atmosphere of each scenario. Sound effects accompany specific events, transitions, and important narrative moments.",
         "sin-guardar-objective": "Project Objective",
         "sin-guardar-objective-content": "The main objective of this first version was to integrate programming, narrative, interface, art, and audio within a single interactive experience, using Java as the main technology. More than just developing a story with choices, the project seeks to experiment with the possibility that player decisions affect both narrative content and the way the game itself presents itself. This version represents the functional base of the project and serves as a starting point for future iterations, content improvements, visual polish, and expansion of its systems.",
-        "projects.readMore": "Read more"
     },
     es: {
         "nav.home": "Inicio",
+        "ui.skip": "Saltar al contenido",
+        "ui.copied": "¡Copiado!",
+        "ui.copyEmail": "Copiar correo",
+        "ui.copyPhone": "Copiar número",
+        "ui.whatsapp": "Escribir por WhatsApp",
+        "ui.waLink": "https://wa.me/524523412556?text=Hola%20Rogelio%2C%20vi%20tu%20portafolio",
+        "ui.mediaError": "Imagen no disponible",
+        "ui.playVideo": "Reproducir el video de gameplay de SIN GUARDAR",
+        "ui.gallery": "Galería de SIN GUARDAR",
+        "availability": "Disponible para prácticas y colaboraciones",
+        "hero.role": "Estudiante de Ingeniería en Sistemas · Desarrollo web y videojuegos narrativos",
+        "hero.text": "Construyo sitios web claros y rápidos, e historias que se juegan.",
+        "hero.photoAlt": "Retrato de Rogelio Emmanuel Ceja",
+        "projects.intro": "Lo que he construido, de la idea a la versión funcional.",
+        "projects.featured": "Proyecto destacado",
+        "projects.status": "En desarrollo",
+        "projects.caseStudy": "Ver el caso completo",
+        "projects.erosion": "Erosión",
+        "projects.next": "Siguiente proyecto en camino",
+        "projects.nextText": "Pronto subiré nuevos proyectos.",
+        "sg.documentTitle": "SIN GUARDAR — Caso de estudio · Rogelio Ceja",
+        "sg.back": "Todos los proyectos",
+        "sg.eyebrow": "Caso de estudio · Proyecto universitario individual",
+        "sg.tagline": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y cómo se ve el juego.",
+        "sg.factsTitle": "En resumen",
+        "sg.statNodes": "nodos de decisión",
+        "sg.statEndings": "finales, uno secreto",
+        "sg.statRes": "resolución del arte propio",
+        "sg.statJava": "Swing → JavaFX · Maven",
+        "sg.detailsTitle": "Detrás del juego",
+        "sg.erosionHint": "Aumenta mientras lees",
+        "sg.erosionEnd": "Progreso sin guardar…",
+        "sg.investTitle": "Ayúdame a llevarlo a tiendas",
+        "sg.invest": "SIN GUARDAR se está puliendo para publicarse en tiendas. Si te interesa apoyar o invertir en su desarrollo, me encantaría platicarlo.",
+        "sg.investCta": "Hablemos",
+        "nf.documentTitle": "Página no encontrada — Rogelio Ceja",
+        "nf.title": "Esta página no se guardó",
+        "nf.text": "Puede que el enlace esté roto o que la página se haya movido.",
+        "nf.home": "Volver al inicio",
+        "contact.phoneTitle": "Teléfono · WhatsApp",
+        "contact.phoneDescription": "Para dudas rápidas o para agendar una llamada.",
+        "footer.phone": "WhatsApp:",
         "ui.menu": "Menú",
-        "ui.close": "Cerrar",
         "ui.prev": "Anterior",
         "ui.next": "Siguiente",
         "projects.shot1": "Captura de SIN GUARDAR 1",
         "projects.shot2": "Captura de SIN GUARDAR 2",
         "projects.shot3": "Captura de SIN GUARDAR 3",
-        "projects.videoTitle": "Video de gameplay de SIN GUARDAR",
         "education.photoAlt": "Rogelio en la Universidad Vasco de Quiroga",
         "nav.profile": "Perfil",
         "nav.projects": "Proyectos",
@@ -112,7 +187,6 @@ const translations = {
         "footer.github": "GitHub:",
         "footer.linkedin": "LinkedIn:",
         "contact.documentTitle": "Contacto — Rogelio Ceja",
-        "contact.eyebrow": "PONGÁMONOS EN CONTACTO",
         "contact.title": "Hablemos",
         "contact.intro": "¿Tienes un proyecto en mente, una oportunidad o simplemente quieres saludar? Puedes escribirme por cualquiera de estos medios.",
         "contact.emailTitle": "Correo electrónico",
@@ -124,13 +198,10 @@ const translations = {
         "index.documentTitle": "Rogelio Ceja — Portafolio",
         "profile.documentTitle": "Perfil — Rogelio Ceja",
         "projects.documentTitle": "Proyectos — Rogelio Ceja",
-        "welcome.title": "Bienvenido a mi",
-        "welcome.portfolio": "Portafolio",
-        "welcome.message": "Estudiante de Ingeniería en Sistemas que crea sitios web y videojuegos narrativos.",
         "welcome.ctaProjects": "Ver mis proyectos",
         "welcome.ctaContact": "Contáctame",
         "about.title": "Sobre mí",
-        "about.intro": "Soy Rogelio, estudiante de quinto semestre de Ingeniería en Sistemas en la UVAQ. Convierto ideas en sitios web claros, rápidos y agradables de usar.",
+        "about.intro": "Soy Rogelio, estudiante de quinto semestre de Ingeniería en Sistemas en la UVAQ. Me importan los detalles que hacen que un sitio se sienta claro, rápido y fácil de usar.",
         "about.gaming": "Soy gamer de corazón: Resident Evil me enseñó la tensión y Pokémon, la aventura. Por eso también creo historias que se juegan.",
         "about.cta": "Mis habilidades y formación",
         "profile.title": "Perfil",
@@ -159,7 +230,6 @@ const translations = {
         "projects.title": "Mis Proyectos",
         "projects.project1": "SIN GUARDAR — Videojuego narrativo en Java",
         "projects.project1Description": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y hasta la forma en que se ve el juego. Proyecto universitario individual en Java: empezó en Swing y se terminó en JavaFX.",
-        "projects.project1Button": "Ver más",
         "projects.sin-guardar-intro": "SIN GUARDAR es un videojuego narrativo de horror cósmico y metanarrativa desarrollado como proyecto universitario individual para la materia de Estructura de Datos en la Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "Esta versión corresponde a la primera versión funcional del proyecto, cuyo objetivo fue desarrollar una experiencia narrativa interactiva en la que las decisiones del jugador tuvieran consecuencias sobre el desarrollo de la historia y sobre la propia presentación del juego.",
         "sin-guardar-concept": "Concepto",
@@ -174,13 +244,14 @@ const translations = {
         "sin-guardar-audio-content": "El juego incorpora música ambiental y efectos de sonido en formato WAV mediante el sistema de audio incluido en Java. La música cambia según el contexto de la historia y se utiliza principalmente para reforzar la atmósfera de cada escenario. Los efectos de sonido acompañan eventos específicos, transiciones y momentos narrativos importantes.",
         "sin-guardar-objective": "Objetivo del proyecto",
         "sin-guardar-objective-content": "El objetivo principal de esta primera versión fue integrar programación, narrativa, interfaz, arte y audio dentro de una misma experiencia interactiva, utilizando Java como tecnología principal. Más que desarrollar únicamente una historia con elecciones, el proyecto busca experimentar con la posibilidad de que las decisiones del jugador afecten tanto al contenido narrativo como a la forma en que el propio juego se presenta. Esta versión representa la base funcional del proyecto y sirve como punto de partida para futuras iteraciones, mejoras de contenido, pulido visual y expansión de sus sistemas.",
-        "projects.readMore": "Leer más"
     }
 };
 
 window.translations = translations;
 
-let currentLanguage = localStorage.getItem("portfolio-language") || "en";
+// Idioma: el que eligió el visitante; si es su primera visita, el de su navegador
+let currentLanguage = localStorage.getItem("portfolio-language")
+    || ((navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en");
 let scrollDirection = "down";
 let previousScrollY = window.scrollY;
 
@@ -301,9 +372,77 @@ function initHamburgerMenu() {
 }
 
 function markCurrentPage() {
-    const page = location.pathname.split('/').pop() || 'index.html';
+    // Una página de proyecto puede marcar "Proyectos" con <body data-nav="projects.html">
+    const page = document.body.dataset.nav || location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.navbar a').forEach((link) => {
-        if (link.getAttribute('href') === page) link.setAttribute('aria-current', 'page');
+        if (link.getAttribute('href').replace(/^\//, '') === page) link.setAttribute('aria-current', 'page');
+    });
+}
+
+// Skeletons: cada .skel brilla hasta que su imagen o iframe termina de cargar
+function watchSkeleton(container) {
+    const media = container.querySelector('iframe') || container.querySelector('img');
+    if (!media) return;
+    container.classList.remove('is-loaded', 'is-error');
+
+    const done = () => container.classList.add('is-loaded');
+    const fail = () => {
+        // Miniatura de YouTube en alta: si no existe, usa la estándar
+        if (media.dataset.fallback && media.src !== media.dataset.fallback) {
+            media.src = media.dataset.fallback;
+            return;
+        }
+        container.classList.add('is-error');
+    };
+
+    if (media.tagName === 'IMG' && media.complete) {
+        media.naturalWidth > 0 ? done() : fail();
+    }
+    media.addEventListener('load', done);
+    media.addEventListener('error', fail);
+}
+
+function initSkeletons() {
+    document.querySelectorAll('.skel').forEach(watchSkeleton);
+}
+
+// Video: se muestra la miniatura y el reproductor de YouTube solo se carga al tocarla
+function initYouTubeFacades() {
+    document.querySelectorAll('.yt-facade[data-yt]').forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.yt}?autoplay=1&enablejsapi=1&start=${button.dataset.start || 0}`;
+            iframe.title = button.getAttribute('aria-label');
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.allowFullscreen = true;
+            iframe.className = 'yt-frame';
+            const container = button.parentElement;
+            button.replaceWith(iframe);
+            watchSkeleton(container);
+            iframe.focus();
+        });
+    });
+}
+
+// Botones "Copiar": copian data-copy y confirman durante 2 s
+function initCopyButtons() {
+    document.querySelectorAll('[data-copy]').forEach((button) => {
+        button.addEventListener('click', async () => {
+            const label = button.querySelector('[data-i18n]');
+            try {
+                await navigator.clipboard.writeText(button.dataset.copy);
+            } catch {
+                window.prompt('', button.dataset.copy); // navegadores sin acceso al portapapeles
+                return;
+            }
+            label.textContent = translations[currentLanguage]['ui.copied'];
+            clearTimeout(button.copyTimer);
+            button.copyTimer = setTimeout(() => {
+                label.textContent = translations[currentLanguage][label.dataset.i18n];
+            }, 2000);
+        });
     });
 }
 
@@ -323,6 +462,9 @@ function onScroll() {
 document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     applyTranslations(); // traduce el contenido antes de que llegue el header, evita el parpadeo de idioma
+    initSkeletons();
+    initYouTubeFacades();
+    initCopyButtons();
     initScrollReveal();
     document.documentElement.classList.add("reveal-ready");
     loadLayouts()

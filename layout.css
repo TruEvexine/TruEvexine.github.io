@@ -135,3 +135,327 @@ footer[data-layout="footer"] {
         min-height: 100px;
     }
 }
+
+/* ==========================================================================
+   Accesibilidad: saltar al contenido
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    left: 16px;
+    top: -60px;
+    z-index: 200;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #10B981;
+    color: #0D0E15;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+/* ==========================================================================
+   Skeletons
+   - Todo contenedor de medios tiene aspect-ratio fijo: el skeleton ocupa
+     exactamente el lugar final y no hay saltos de layout.
+   - .skel = contenedor que muestra el brillo hasta que su <img>/<iframe>
+     carga (layout.js agrega .is-loaded o .is-error).
+   ========================================================================== */
+:root {
+    --skel-base: #1A2333;
+    --skel-shine: #253147;
+}
+
+@keyframes skel-shimmer {
+    from { background-position: 150% 0; }
+    to { background-position: -50% 0; }
+}
+
+.skel,
+.skel-line {
+    background-color: var(--skel-base);
+    background-image: linear-gradient(100deg, transparent 30%, var(--skel-shine) 50%, transparent 70%);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: skel-shimmer 1.4s ease-in-out infinite;
+}
+
+.skel {
+    position: relative;
+    overflow: hidden;
+}
+
+/* El medio aparece suave encima del skeleton cuando termina de cargar */
+.js .skel img,
+.js .skel iframe {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.skel.is-loaded {
+    animation: none;
+    background-image: none;
+}
+
+.js .skel.is-loaded img,
+.js .skel.is-loaded iframe {
+    opacity: 1;
+}
+
+/* Si un medio no carga, el skeleton se detiene y deja un aviso discreto */
+.skel.is-error {
+    animation: none;
+    background-image: none;
+}
+
+.skel.is-error::after {
+    content: attr(data-error);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    color: #6B7280;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Header y footer se cargan con fetch: mientras llegan se dibuja su silueta.
+   ::before = bloques fijos en su posición final; ::after = brillo que los recorre. */
+header[data-layout="header"]:empty,
+footer[data-layout="footer"]:empty {
+    position: relative;
+}
+
+header[data-layout="header"]:empty::before,
+footer[data-layout="footer"]:empty::before {
+    content: '';
+    display: block;
+    width: min(100% - 40px, 1136px);
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+
+header[data-layout="header"]:empty::after,
+footer[data-layout="footer"]:empty::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: skel-shimmer 1.4s ease-in-out infinite;
+}
+
+header[data-layout="header"]:empty::before {
+    height: 60px;
+    /* nombre a la izquierda; 4 enlaces y el botón de idioma a la derecha */
+    background-image:
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base));
+    background-size: 260px 22px, 54px 16px, 54px 16px, 64px 16px, 60px 16px, 90px 34px;
+    background-position: 0 50%, calc(100% - 394px) 50%, calc(100% - 312px) 50%, calc(100% - 220px) 50%, calc(100% - 132px) 50%, 100% 50%;
+}
+
+footer[data-layout="footer"]:empty {
+    background-color: #1D2D44;
+}
+
+footer[data-layout="footer"]:empty::before {
+    height: 160px;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
+        linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)),
+        linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
+        linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06));
+    background-size: 260px 22px, 320px 14px, 240px 22px, 300px 70px;
+    background-position: 22% 30px, 20% 64px, 78% 30px, 80% 64px;
+}
+
+@media (max-width: 768px) {
+    header[data-layout="header"]:empty::before {
+        /* nombre + botón de menú */
+        background-size: 190px 20px, 0 0, 0 0, 0 0, 0 0, 30px 22px;
+        background-position: 0 50%, 0 0, 0 0, 0 0, 0 0, 100% 50%;
+    }
+
+    footer[data-layout="footer"]:empty::before {
+        height: 260px;
+        background-size: 220px 20px, 280px 14px, 220px 20px, 260px 80px;
+        background-position: 50% 24px, 50% 56px, 50% 120px, 50% 152px;
+    }
+}
+
+/* ==========================================================================
+   Piezas compartidas: insignia de disponibilidad, chips e iconos
+   ========================================================================== */
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 12px;
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.08);
+    color: #A7F3D0;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.availability::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+    animation: availability-pulse 2.4s ease-out infinite;
+}
+
+@keyframes availability-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+    70%, 100% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chips li {
+    padding: 5px 12px;
+    border: 1px solid rgba(243, 244, 246, 0.16);
+    border-radius: 999px;
+    color: #D1D5DB;
+    font-size: 0.85rem;
+}
+
+/* Iconos monocromos: el SVG funciona como máscara y toma el color del texto */
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
+
+.icon-mail { --icon: url('assets/ui/mail.svg'); }
+.icon-phone { --icon: url('assets/ui/phone.svg'); }
+.icon-whatsapp { --icon: url('assets/ui/whatsapp.svg'); }
+.icon-github { --icon: url('assets/ui/github.svg'); }
+.icon-linkedin { --icon: url('assets/ui/linkedin.svg'); }
+.icon-copy { --icon: url('assets/ui/copy.svg'); }
+
+.icon-links {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.icon-links a {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(243, 244, 246, 0.2);
+    border-radius: 50%;
+    color: #F3F4F6;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-links a:hover,
+.icon-links a:focus-visible {
+    color: #10B981;
+    border-color: #10B981;
+}
+
+.btn .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+/* ==========================================================================
+   Video de YouTube que solo se carga al tocarlo (miniatura + botón play)
+   ========================================================================== */
+.yt-facade {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    border-radius: inherit;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.yt-facade img,
+.yt-facade iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+.yt-facade .yt-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 72px;
+    height: 72px;
+    margin: -36px 0 0 -36px;
+    border-radius: 50%;
+    background: rgba(13, 14, 21, 0.75);
+    border: 2px solid rgba(243, 244, 246, 0.85);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.yt-facade .yt-play::after {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 21px;
+    border-style: solid;
+    border-width: 14px 0 14px 22px;
+    border-color: transparent transparent transparent #F3F4F6;
+}
+
+.yt-facade:hover .yt-play,
+.yt-facade:focus-visible .yt-play {
+    transform: scale(1.08);
+    background: #10B981;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skel,
+    .skel-line,
+    header[data-layout="header"]:empty::after,
+    footer[data-layout="footer"]:empty::after,
+    .availability::before {
+        animation: none;
+    }
+
+    .js .skel img,
+    .js .skel iframe,
+    .icon-links a,
+    .yt-facade .yt-play {
+        transition: none;
+    }
+}

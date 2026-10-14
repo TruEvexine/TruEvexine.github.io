@@ -18,6 +18,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script>document.documentElement.classList.add("js")</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -28,9 +30,10 @@
     <script src="layout.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
     <header data-layout="header"></header>
 
-    <main class="profile-main">
+    <main class="profile-main" id="main">
         <div class="profile-hero">
             <h1 data-i18n="profile.title">Profile</h1>
             <p data-i18n="profile.intro">The tools I build with and where I'm learning to master them.</p>
@@ -110,7 +113,9 @@
         <section class="profile-section scroll-reveal" aria-labelledby="edu-title">
             <h2 id="edu-title" data-i18n="education.title">Education</h2>
             <article class="edu-card">
-                <img src="assets/me-at-uvaq.webp" alt="Rogelio at Universidad Vasco de Quiroga" data-i18n-attr="alt:education.photoAlt" width="1503" height="848" loading="lazy">
+                <div class="edu-media skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                    <img src="assets/me-at-uvaq.webp" alt="Rogelio at Universidad Vasco de Quiroga" data-i18n-attr="alt:education.photoAlt" width="1503" height="848" loading="lazy">
+                </div>
                 <div class="edu-text">
                     <h3 data-i18n="education.degree">B.S. in Systems Engineering</h3>
                     <p data-i18n="education.school">Universidad Vasco de Quiroga (UVAQ)</p>
