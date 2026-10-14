@@ -33,17 +33,22 @@
     align-items: flex-start;
     gap: 18px;
     min-width: 0;
+    container-type: inline-size; /* el nombre se mide contra este ancho */
 }
 
+/* Nombre en una sola línea: con esta fuente "ROGELIO CEJA" mide ~9.2em,
+   así que 9cqi (≈1/11 del ancho disponible) siempre cabe con margen */
 .hero h1 {
-    margin: 4px 0 0;
+    margin: 0;
     color: #F3F4F6;
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
-    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    font-size: 2rem;
+    font-size: min(3.6rem, 9cqi);
     font-weight: bold;
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: 1px;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .hero-role {
@@ -130,12 +135,27 @@
         padding: 40px 20px 48px;
     }
 
-    /* La foto va arriba y contenida para que el texto aparezca pronto */
+    /* Móvil: todo centrado. Foto → nombre → rol → disponibilidad → texto → botones */
     .hero-photo {
         order: -1;
-        justify-self: start;
-        max-width: 160px;
-        border-radius: 20px;
+        justify-self: center;
+        max-width: 200px;
+        border-radius: 24px;
+    }
+
+    .hero-text {
+        align-items: center;
+        gap: 14px;
+        text-align: center;
+    }
+
+    .hero-actions,
+    .hero .icon-links {
+        justify-content: center;
+    }
+
+    .hero-actions {
+        width: 100%;
     }
 
     .about {
