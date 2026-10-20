@@ -119,9 +119,23 @@ Sitio chico y sin datos de usuarios: auditoría corta, sobre el sitio nuevo.
 Trabajo de un archivo a la vez; al terminar cada fase, `npm run verify` y avisar a Rogelio. Los precios de la tabla se tocan solo
 en `precios.ts`.
 
+## Estado (19 de octubre de 2026)
+
+El sitio se quedó estático (HTML, CSS y JavaScript, sin Astro) y se publica como Worker con assets estáticos de Cloudflare;
+`wrangler.jsonc` y `_headers` viven en el repo. Por eso las fases 1 y 2 no se hicieron como estaban escritas.
+
+| # | Estado | Nota |
+|---|---|---|
+| 1 | Cambiada | Fuentes e imágenes ya son locales; sin Astro |
+| 2 | Cambiada | Idiomas con `layout.js` y `localStorage`; URLs limpias (`/cotizar`, `/privacidad`) |
+| 3 | Hecha | Cotizador con pruebas en verde (`npm test`, `npm run verify`) |
+| 4 | Hecha | Auditoría cerrada: sin recursos externos, CSP estricta en `_headers`, axe en 0 en todas las páginas, página de privacidad, sitemap y Open Graph. `innerHTML` se acepta: solo recibe archivos y textos propios |
+| 5 | Hecha | Dominio en Cloudflare, `www` redirige con 301, GitHub Pages apagado |
+| 6 | Hecha | Web_Quoter privado; borrarlo no antes de 30 días después (contando desde el 19 de octubre, el 18 de noviembre de 2026) si todo sigue bien |
+
 ## Pendientes de Rogelio
 
-- Confirmar con su contador que mostrar el precio con IVA incluido es lo correcto en su régimen.
-- Elegir el idioma por defecto (recomendado: español).
+- ~~Confirmar con su contador que mostrar el precio con IVA incluido es lo correcto en su régimen.~~ Hecho.
+- ~~Elegir el idioma por defecto.~~ Hecho.
 - Número de WhatsApp de trabajo: hasta tenerlo, el personal queda en la constante de `contacto.ts`.
 - Confirmar la licencia de la fuente "Extension".
