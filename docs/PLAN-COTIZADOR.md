@@ -137,5 +137,5 @@ El sitio se quedó estático (HTML, CSS y JavaScript, sin Astro) y se publica co
 
 - ~~Confirmar con su contador que mostrar el precio con IVA incluido es lo correcto en su régimen.~~ Hecho.
 - ~~Elegir el idioma por defecto.~~ Hecho.
-- Número de WhatsApp de trabajo: hasta tenerlo, el personal queda en la constante de `contacto.ts`.
-- Confirmar la licencia de la fuente "Extension".
+- ~~Número de WhatsApp de trabajo.~~ Cerrado: se usa el número personal.
+- ~~Confirmar la licencia de la fuente "Extension".~~ Cerrado.
