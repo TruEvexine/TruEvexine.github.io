@@ -22,4 +22,6 @@ Thumbs.db
 .env
 # Logs y temporales
 *.log
-.junienode_modules/
+.junie/
+node_modules/
+.impeccable/
