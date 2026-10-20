@@ -76,8 +76,27 @@ const translations = {
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. All rights reserved.",
         "privacy.documentTitle": "Privacy — Rogelio Ceja",
         "privacy.title": "Privacy",
-        "privacy.body": "This site has no accounts, no cookies and no analytics, and it doesn't collect or store your data on any server. The only thing saved is your language choice, in your own browser. The quote calculator works entirely on your device. If you write to me by email or WhatsApp, the message goes through those providers and reaches me with whatever you decide to include. The gameplay video loads from YouTube only when you press play.",
-        "privacy.contact": "Questions? Get in touch",
+        "privacy.intro": "Short version: I don't collect your data. Here is exactly what happens when you use this site.",
+        "privacy.updated": "Last updated: October 2026",
+        "privacy.factsLabel": "Summary",
+        "privacy.detailsLabel": "Details",
+        "privacy.fact1": "cookies",
+        "privacy.fact2": "accounts",
+        "privacy.fact3": "analytics tools",
+        "privacy.fact4": "forms that send your data",
+        "privacy.c1.title": "What is saved",
+        "privacy.c1.body": "Only your language choice (English or Spanish), in your own browser. It never leaves your device and you can erase it by clearing the site data.",
+        "privacy.c2.title": "Quote calculator",
+        "privacy.c2.body": "The numbers are calculated on your device. Nothing you pick is sent to me or stored: it only becomes a message if you decide to open it in WhatsApp.",
+        "privacy.c3.title": "Email and WhatsApp",
+        "privacy.c3.body": "If you write to me, the message goes through your email provider or WhatsApp and reaches me with whatever you decide to include. Their own privacy policies apply.",
+        "privacy.c4.title": "Gameplay video",
+        "privacy.c4.body": "The SIN GUARDAR video loads from YouTube only when you press play, using its privacy-enhanced mode. Until then, YouTube receives nothing from you.",
+        "privacy.c5.title": "Hosting",
+        "privacy.c5.body": "Like any host, Cloudflare processes technical data of each visit, such as the IP address, to deliver and protect the site. I don't use that data to track you.",
+        "privacy.c6.title": "Questions",
+        "privacy.c6.body": "Want to know more, or ask me to delete a message you sent me? Write to me.",
+        "privacy.contact": "Get in touch",
         "footer.privacy": "Privacy",
         "footer.contact": "Contact Information",
         "footer.email": "Email:",
@@ -213,8 +232,27 @@ const translations = {
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. Todos los derechos reservados.",
         "privacy.documentTitle": "Privacidad — Rogelio Ceja",
         "privacy.title": "Privacidad",
-        "privacy.body": "Este sitio no tiene cuentas, cookies ni analíticas, y no recoge ni guarda tus datos en ningún servidor. Lo único que se guarda es tu elección de idioma, en tu propio navegador. El cotizador funciona por completo en tu dispositivo. Si me escribes por correo o WhatsApp, el mensaje pasa por esos proveedores y me llega con lo que tú decidas incluir. El video del juego se carga desde YouTube solo cuando le das reproducir.",
-        "privacy.contact": "¿Dudas? Escríbeme",
+        "privacy.intro": "Versión corta: no recojo tus datos. Aquí está exactamente qué pasa cuando usas este sitio.",
+        "privacy.updated": "Última actualización: octubre de 2026",
+        "privacy.factsLabel": "Resumen",
+        "privacy.detailsLabel": "Detalles",
+        "privacy.fact1": "cookies",
+        "privacy.fact2": "cuentas",
+        "privacy.fact3": "herramientas de analítica",
+        "privacy.fact4": "formularios que envíen tus datos",
+        "privacy.c1.title": "Qué se guarda",
+        "privacy.c1.body": "Solo tu elección de idioma (español o inglés), en tu propio navegador. No sale de tu dispositivo y la puedes borrar limpiando los datos del sitio.",
+        "privacy.c2.title": "Cotizador",
+        "privacy.c2.body": "Los números se calculan en tu dispositivo. Nada de lo que eliges se me envía ni se guarda: solo se vuelve un mensaje si decides abrirlo en WhatsApp.",
+        "privacy.c3.title": "Correo y WhatsApp",
+        "privacy.c3.body": "Si me escribes, el mensaje pasa por tu proveedor de correo o por WhatsApp y me llega con lo que tú decidas incluir. Aplican las políticas de privacidad de cada uno.",
+        "privacy.c4.title": "Video del juego",
+        "privacy.c4.body": "El video de SIN GUARDAR se carga desde YouTube solo cuando le das reproducir, en su modo de privacidad mejorada. Hasta entonces, YouTube no recibe nada tuyo.",
+        "privacy.c5.title": "Hosting",
+        "privacy.c5.body": "Como cualquier hosting, Cloudflare procesa datos técnicos de cada visita, como la dirección IP, para entregar y proteger el sitio. Yo no uso esos datos para rastrearte.",
+        "privacy.c6.title": "Dudas",
+        "privacy.c6.body": "¿Quieres saber más o pedirme que borre un mensaje que me enviaste? Escríbeme.",
+        "privacy.contact": "Escríbeme",
         "footer.privacy": "Privacidad",
         "footer.contact": "Información de contacto",
         "footer.email": "Correo:",
@@ -322,24 +360,33 @@ function initScrollReveal() {
         return;
     }
 
-    const observer = new IntersectionObserver(
+    // Dos observadores con histéresis: aparece 10% dentro de la pantalla y se oculta al salir por completo.
+    // Con uno solo, el desplazamiento del propio efecto (translateY de 24px) la sacaba y la metía del
+    // umbral una y otra vez, y la sección parpadeaba aun estando a la vista.
+    const showObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.dataset.revealDirection = scrollDirection;
-                    entry.target.classList.add("is-visible");
-                } else {
-                    entry.target.classList.remove("is-visible");
-                }
+                if (!entry.isIntersecting) return;
+                entry.target.dataset.revealDirection = scrollDirection;
+                entry.target.classList.add("is-visible");
             });
         },
-        {
-            threshold: 0.2,
-            rootMargin: "-10% 0px"
-        }
+        { rootMargin: "-10% 0px" }
     );
 
-    elements.forEach((element) => observer.observe(element));
+    const hideObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) entry.target.classList.remove("is-visible");
+            });
+        },
+        { rootMargin: "0px" }
+    );
+
+    elements.forEach((element) => {
+        showObserver.observe(element);
+        hideObserver.observe(element);
+    });
 }
 
 function applyTranslations() {

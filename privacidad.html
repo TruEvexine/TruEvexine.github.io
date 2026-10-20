@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="privacy.documentTitle">Privacy — Rogelio Ceja</title>
-    <meta name="description" content="This site stores no personal data: no accounts, no cookies, no analytics.">
+    <meta name="description" content="This site has no accounts, no cookies and no analytics, and it doesn't store your data on any server.">
     <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
     <link rel="canonical" href="https://rogelioemmanuel.com/privacidad.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Rogelio Ceja">
     <meta property="og:title" content="Privacy — Rogelio Ceja">
-    <meta property="og:description" content="This site stores no personal data: no accounts, no cookies, no analytics.">
+    <meta property="og:description" content="This site has no accounts, no cookies and no analytics, and it doesn't store your data on any server.">
     <meta property="og:url" content="https://rogelioemmanuel.com/privacidad.html">
     <meta property="og:image" content="https://rogelioemmanuel.com/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -31,10 +31,45 @@
     <header data-layout="header"></header>
 
     <main class="privacy-main" id="main">
-        <section class="privacy-panel" aria-labelledby="privacy-title">
+        <div class="privacy-hero">
             <h1 id="privacy-title" data-i18n="privacy.title">Privacy</h1>
-            <p data-i18n="privacy.body">This site has no accounts, no cookies and no analytics, and it doesn't collect or store your data on any server. The only thing saved is your language choice, in your own browser. The quote calculator works entirely on your device. If you write to me by email or WhatsApp, the message goes through those providers and reaches me with whatever you decide to include. The gameplay video loads from YouTube only when you press play.</p>
-            <p><a href="contact.html" data-i18n="privacy.contact">Questions? Get in touch</a></p>
+            <p class="privacy-intro" data-i18n="privacy.intro">Short version: I don't collect your data. Here is exactly what happens when you use this site.</p>
+            <p class="privacy-updated" data-i18n="privacy.updated">Last updated: October 2026</p>
+        </div>
+
+        <ul class="privacy-facts" aria-label="Summary" data-i18n-attr="aria-label:privacy.factsLabel">
+            <li><strong>0</strong><span data-i18n="privacy.fact1">cookies</span></li>
+            <li><strong>0</strong><span data-i18n="privacy.fact2">accounts</span></li>
+            <li><strong>0</strong><span data-i18n="privacy.fact3">analytics tools</span></li>
+            <li><strong>0</strong><span data-i18n="privacy.fact4">forms that send your data</span></li>
+        </ul>
+
+        <section class="privacy-grid" aria-label="Details" data-i18n-attr="aria-label:privacy.detailsLabel">
+            <article class="privacy-card">
+                <h2 data-i18n="privacy.c1.title">What is saved</h2>
+                <p data-i18n="privacy.c1.body">Only your language choice (English or Spanish), in your own browser. It never leaves your device and you can erase it by clearing the site data.</p>
+            </article>
+            <article class="privacy-card">
+                <h2 data-i18n="privacy.c2.title">Quote calculator</h2>
+                <p data-i18n="privacy.c2.body">The numbers are calculated on your device. Nothing you pick is sent to me or stored: it only becomes a message if you decide to open it in WhatsApp.</p>
+            </article>
+            <article class="privacy-card">
+                <h2 data-i18n="privacy.c3.title">Email and WhatsApp</h2>
+                <p data-i18n="privacy.c3.body">If you write to me, the message goes through your email provider or WhatsApp and reaches me with whatever you decide to include. Their own privacy policies apply.</p>
+            </article>
+            <article class="privacy-card">
+                <h2 data-i18n="privacy.c4.title">Gameplay video</h2>
+                <p data-i18n="privacy.c4.body">The SIN GUARDAR video loads from YouTube only when you press play, using its privacy-enhanced mode. Until then, YouTube receives nothing from you.</p>
+            </article>
+            <article class="privacy-card">
+                <h2 data-i18n="privacy.c5.title">Hosting</h2>
+                <p data-i18n="privacy.c5.body">Like any host, Cloudflare processes technical data of each visit, such as the IP address, to deliver and protect the site. I don't use that data to track you.</p>
+            </article>
+            <article class="privacy-card">
+                <h2 data-i18n="privacy.c6.title">Questions</h2>
+                <p data-i18n="privacy.c6.body">Want to know more, or ask me to delete a message you sent me? Write to me.</p>
+                <a class="btn btn-primary" href="contact.html" data-i18n="privacy.contact">Get in touch</a>
+            </article>
         </section>
     </main>
 
