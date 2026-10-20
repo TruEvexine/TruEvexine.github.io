@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="quote.documentTitle">Cotizador de páginas web en Morelia | Rogelio Ceja</title>
+    <meta name="description" content="Cotiza la página web de tu negocio en Morelia en minutos: elige tu paquete, agrega extras y mira el total con IVA incluido. Sin registro.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <link rel="canonical" href="https://rogelioemmanuel.com/cotizar.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="Cotizador de páginas web en Morelia | Rogelio Ceja">
+    <meta property="og:description" content="Cotiza la página web de tu negocio en Morelia en minutos: elige tu paquete, agrega extras y mira el total con IVA incluido. Sin registro.">
+    <meta property="og:url" content="https://rogelioemmanuel.com/cotizar.html">
+    <meta property="og:image" content="https://rogelioemmanuel.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="cotizar.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="layout.js" defer></script>
+    <script src="cotizar-textos.js" defer></script>
+    <script type="module" src="cotizador.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://rogelioemmanuel.com/cotizar.html",
+                "url": "https://rogelioemmanuel.com/cotizar.html",
+                "name": "Cotizador de páginas web en Morelia",
+                "inLanguage": ["es-MX", "en"],
+                "isPartOf": { "@type": "WebSite", "name": "Rogelio Ceja", "url": "https://rogelioemmanuel.com/" },
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://rogelioemmanuel.com/" },
+                        { "@type": "ListItem", "position": 2, "name": "Cotizador", "item": "https://rogelioemmanuel.com/cotizar.html" }
+                    ]
+                }
+            },
+            {
+                "@type": "ProfessionalService",
+                "name": "Rogelio Ceja — Desarrollo web",
+                "url": "https://rogelioemmanuel.com/",
+                "image": "https://rogelioemmanuel.com/assets/og-image.jpg",
+                "areaServed": { "@type": "City", "name": "Morelia, Michoacán, México" },
+                "knowsAbout": ["Diseño de páginas web", "SEO local", "Sitios web para negocios"],
+                "founder": { "@type": "Person", "name": "Rogelio Emmanuel Ceja Acosta", "alternateName": ["Rogelio Ceja", "TruEvexine"] }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Saltar al contenido</a>
+    <header data-layout="header"></header>
+
+    <main class="quote-main" id="main">
+        <section class="quote-hero" aria-labelledby="quote-title">
+            <h1 id="quote-title" data-i18n="quote.title">Cotiza tu página web</h1>
+            <p class="quote-intro" data-i18n="quote.intro">Responde tres cosas y mira cuánto costaría el sitio de tu negocio, con IVA incluido. Sin registrarte y sin dejar tus datos.</p>
+            <ul class="chips quote-chips">
+                <li data-i18n="quote.chip.vat">IVA incluido</li>
+                <li data-i18n="quote.chip.noSignup">Sin registro</li>
+                <li data-i18n="quote.chip.whatsapp">Respuesta por WhatsApp</li>
+            </ul>
+        </section>
+
+        <div class="quote-body">
+            <form class="quote-form" id="quote-form" novalidate>
+                <fieldset class="quote-step">
+                    <legend><h2 data-i18n="quote.step1">¿Qué tipo de negocio tienes?</h2></legend>
+                    <div class="choice-grid choice-grid-3">
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="negocio" value="barberia">
+                            <span class="choice-body">
+                                <span class="choice-title" data-i18n="quote.biz.barberia">Barbería o salón</span>
+                                <span class="choice-hint" data-i18n="quote.biz.barberiaHint">Barbería, salón, spa, estética</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="negocio" value="consultorio">
+                            <span class="choice-body">
+                                <span class="choice-title" data-i18n="quote.biz.consultorio">Consultorio o salud</span>
+                                <span class="choice-hint" data-i18n="quote.biz.consultorioHint">Consultorio, clínica, terapia</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="negocio" value="restaurante">
+                            <span class="choice-body">
+                                <span class="choice-title" data-i18n="quote.biz.restaurante">Restaurante o cafetería</span>
+                                <span class="choice-hint" data-i18n="quote.biz.restauranteHint">Restaurante, cafetería, food truck</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="negocio" value="comercio">
+                            <span class="choice-body">
+                                <span class="choice-title" data-i18n="quote.biz.comercio">Tienda o comercio</span>
+                                <span class="choice-hint" data-i18n="quote.biz.comercioHint">Tienda, boutique, negocio local</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="negocio" value="servicios">
+                            <span class="choice-body">
+                                <span class="choice-title" data-i18n="quote.biz.servicios">Servicios u oficios</span>
+                                <span class="choice-hint" data-i18n="quote.biz.serviciosHint">Plomería, fotografía, jardinería, etc.</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="negocio" value="otro">
+                            <span class="choice-body">
+                                <span class="choice-title" data-i18n="quote.biz.otro">Otro</span>
+                                <span class="choice-hint" data-i18n="quote.biz.otroHint">Algo distinto: lo adaptamos</span>
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="quote-step">
+                    <legend><h2 data-i18n="quote.step2">Elige tu paquete</h2></legend>
+                    <div class="choice-grid choice-grid-2">
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="paquete" value="esencial">
+                            <span class="choice-body">
+                                <span class="choice-tag" data-tag="esencial" data-i18n="quote.recommended" hidden>Recomendado para ti</span>
+                                <span class="choice-title" data-i18n="quote.pkg.esencial">Esencial</span>
+                                <span class="choice-price"><span data-price="paquetes.esencial"></span> <span class="choice-note" data-i18n="quote.vatIncluded">IVA incluido</span></span>
+                                <span class="choice-hint" data-i18n="quote.pkg.esencialDesc">Tu presencia en línea: inicio, galería, nosotros y contacto, en español e inglés.</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="paquete" value="profesional" checked>
+                            <span class="choice-body">
+                                <span class="choice-tag" data-tag="profesional" data-i18n="quote.recommended" hidden>Recomendado para ti</span>
+                                <span class="choice-title" data-i18n="quote.pkg.profesional">Profesional</span>
+                                <span class="choice-price"><span data-price="paquetes.profesional"></span> <span class="choice-note" data-i18n="quote.vatIncluded">IVA incluido</span></span>
+                                <span class="choice-hint" data-i18n="quote.pkg.profesionalDesc">Hasta 6 páginas y SEO básico para que te encuentren en Google.</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="paquete" value="especializado">
+                            <span class="choice-body">
+                                <span class="choice-tag" data-tag="especializado" data-i18n="quote.recommended" hidden>Recomendado para ti</span>
+                                <span class="choice-title" data-i18n="quote.pkg.especializado">Especializado</span>
+                                <span class="choice-price"><span data-price="paquetes.especializado"></span> <span class="choice-note" data-i18n="quote.vatIncluded">IVA incluido</span></span>
+                                <span class="choice-hint" data-i18n="quote.pkg.especializadoDesc">Agenda en línea, panel, reseñas, clientes y números de tu negocio. Incluye kit NFC y QR básico.</span>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input class="choice-input" type="radio" name="paquete" value="medida">
+                            <span class="choice-body">
+                                <span class="choice-tag" data-tag="medida" data-i18n="quote.recommended" hidden>Recomendado para ti</span>
+                                <span class="choice-title" data-i18n="quote.pkg.medida">A la medida</span>
+                                <span class="choice-hint" data-i18n="quote.pkg.medidaDesc">Algo que no cabe en un paquete. Se cotiza por hora.</span>
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="quote-step" id="extras-step">
+                    <legend><h2 data-i18n="quote.step3">Agrega lo que necesites</h2></legend>
+                    <div class="extras">
+                        <label class="extra">
+                            <input class="choice-input" type="checkbox" name="cuidado" checked>
+                            <span class="extra-body">
+                                <span class="extra-title" data-i18n="quote.extra.cuidado">Cuidado mensual</span>
+                                <span class="extra-hint" data-i18n="quote.extra.cuidadoHint">Tu sitio siempre al día y con alguien a quien escribirle.</span>
+                            </span>
+                            <span class="extra-price"><span data-price-cuidado></span> <span class="choice-note" data-i18n="quote.perMonth">al mes</span></span>
+                        </label>
+                        <label class="extra">
+                            <input class="choice-input" type="checkbox" name="seoArranque">
+                            <span class="extra-body">
+                                <span class="extra-title" data-i18n="quote.extra.seoArranque">SEO local: arranque</span>
+                                <span class="extra-hint" data-i18n="quote.extra.seoArranqueHint">Para aparecer cuando te busquen en tu ciudad. Se paga una sola vez.</span>
+                            </span>
+                            <span class="extra-price"><span data-price="seoArranque"></span> <span class="choice-note" data-i18n="quote.once">pago único</span></span>
+                        </label>
+                        <label class="extra">
+                            <input class="choice-input" type="checkbox" name="seoContinuo">
+                            <span class="extra-body">
+                                <span class="extra-title" data-i18n="quote.extra.seoContinuo">SEO continuo</span>
+                                <span class="extra-hint" data-i18n="quote.extra.seoContinuoHint">Seguimiento y mejoras cada mes.</span>
+                            </span>
+                            <span class="extra-price"><span data-price="seoContinuo"></span> <span class="choice-note" data-i18n="quote.perMonth">al mes</span></span>
+                        </label>
+                        <label class="extra">
+                            <input class="choice-input" type="checkbox" name="whatsapp">
+                            <span class="extra-body">
+                                <span class="extra-title" data-i18n="quote.extra.whatsapp">WhatsApp automático</span>
+                                <span class="extra-hint" data-i18n="quote.extra.whatsappHint">Respuestas y recordatorios solos. Los mensajes los pagas directo a Meta.</span>
+                            </span>
+                            <span class="extra-price"><span data-price="whatsappInstalacion"></span> <span class="choice-note" data-i18n="quote.once">pago único</span> <span class="choice-note" data-i18n="quote.plus">más</span> <span data-price="whatsappCuota"></span> <span class="choice-note" data-i18n="quote.perMonth">al mes</span></span>
+                        </label>
+                        <label class="extra" id="extra-kit">
+                            <input class="choice-input" type="checkbox" name="kitNfc">
+                            <span class="extra-body">
+                                <span class="extra-title" data-i18n="quote.extra.kitNfc">Kit NFC y QR Local</span>
+                                <span class="extra-hint" data-i18n="quote.extra.kitNfcHint">Una tarjeta y un código que llevan a tu sitio con un toque.</span>
+                            </span>
+                            <span class="extra-price"><span data-price="kitNfc"></span> <span class="choice-note" data-i18n="quote.once">pago único</span></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button class="btn btn-primary quote-submit" type="submit" data-i18n="quote.submit">Ver mi cotización</button>
+            </form>
+
+            <section class="quote-result" id="quote-result" aria-labelledby="result-title" tabindex="-1" hidden>
+                <h2 id="result-title" data-i18n="quote.result.title">Tu cotización estimada</h2>
+                <p class="quote-package" id="result-package"></p>
+
+                <div class="quote-totals" id="result-totals">
+                    <div class="quote-total">
+                        <span class="quote-total-label" data-i18n="quote.result.once">Pago único</span>
+                        <strong class="quote-total-value" id="total-once"></strong>
+                        <span class="quote-total-note" id="note-once"></span>
+                    </div>
+                    <div class="quote-total">
+                        <span class="quote-total-label" data-i18n="quote.result.monthly">Mensualidad</span>
+                        <strong class="quote-total-value" id="total-monthly"></strong>
+                        <span class="quote-total-note" id="note-monthly"></span>
+                    </div>
+                </div>
+
+                <div class="quote-custom" id="result-custom" hidden>
+                    <h3 data-i18n="quote.custom.title">Un proyecto a la medida</h3>
+                    <p data-i18n="quote.custom.text">Esto no cabe en un paquete, y está bien. Lo cotizo por hora para que pagues solo lo que necesitas. Cuéntame qué tienes en mente.</p>
+                    <p class="quote-total-label" data-i18n="quote.custom.rate">Tarifa de referencia por hora</p>
+                    <strong class="quote-total-value" id="total-hour"></strong>
+                    <span class="quote-total-note" data-i18n="quote.vatIncluded">IVA incluido</span>
+                </div>
+
+                <div id="result-detail">
+                    <h3 data-i18n="quote.result.detail">Lo que elegiste</h3>
+                    <ul class="quote-lines" id="result-lines"></ul>
+                </div>
+
+                <p class="quote-legend" id="result-legend"></p>
+
+                <div class="quote-next">
+                    <h2 data-i18n="quote.next.title">Ya tienes la cifra. Ahora hazla real.</h2>
+
+                    <fieldset class="quote-fields">
+                        <legend data-i18n="quote.next.fieldsTitle">Para que te responda por tu nombre (opcional)</legend>
+                        <div class="field-row">
+                            <label class="field"><span data-i18n="quote.field.name">Tu nombre</span>
+                                <input type="text" id="field-name" maxlength="60" autocomplete="name"></label>
+                            <label class="field"><span data-i18n="quote.field.business">Nombre de tu negocio</span>
+                                <input type="text" id="field-business" maxlength="80" autocomplete="organization"></label>
+                            <label class="field"><span data-i18n="quote.field.city">Ciudad</span>
+                                <input type="text" id="field-city" maxlength="60" autocomplete="address-level2"></label>
+                        </div>
+                        <label class="field"><span data-i18n="quote.field.note">¿Algo que deba saber?</span>
+                            <textarea id="field-note" rows="3" maxlength="300"></textarea></label>
+                        <p class="quote-hint" data-i18n="quote.next.fieldsNote">No se guarda nada: esto solo se agrega al mensaje que tú envías.</p>
+                    </fieldset>
+
+                    <div class="quote-real">
+                        <h3 data-i18n="quote.next.realTitle">Hacerlo realidad</h3>
+                        <p data-i18n="quote.next.realText">Me llega tu cotización con todo lo que elegiste y te respondo con la formal por escrito.</p>
+                        <a class="btn btn-primary" id="action-whatsapp" href="#" target="_blank" rel="noopener noreferrer"><span class="icon icon-whatsapp"></span><span data-i18n="quote.next.whatsapp">Pedir cotización formal por WhatsApp</span></a>
+                    </div>
+
+                    <div class="quote-more">
+                        <h3 data-i18n="quote.next.emailTitle">Prefiero escribirlo con calma</h3>
+                        <div class="quote-actions">
+                            <a class="btn" id="action-email" href="#"><span class="icon icon-mail"></span><span data-i18n="quote.next.email">Enviar por correo</span></a>
+                            <button class="btn" type="button" id="action-copy"><span class="icon icon-copy"></span><span id="action-copy-label" data-i18n="quote.next.copy" aria-live="polite">Copiar resumen</span></button>
+                        </div>
+                        <div class="quote-actions">
+                            <button class="btn" type="button" id="action-edit" data-i18n="quote.next.edit">Cambiar algo</button>
+                            <button class="btn" type="button" id="action-reset" data-i18n="quote.next.reset">Empezar de cero</button>
+                        </div>
+                    </div>
+
+                    <p class="quote-hint" data-i18n="quote.next.privacy">Tu mensaje se arma en tu dispositivo y lo envías tú. No guardo tus datos.</p>
+                </div>
+            </section>
+
+            <section class="quote-about" aria-labelledby="about-title">
+                <h2 id="about-title" data-i18n="quote.about.title">Qué incluye cada paquete</h2>
+                <p data-i18n="quote.about.text">Cada paquete es un sitio hecho a la medida de tu negocio, rápido en el celular y listo para que te encuentren en Google. Elige el que se parezca más a lo que necesitas y ajusta con extras.</p>
+            </section>
+
+            <section class="quote-faq" aria-labelledby="faq-title">
+                <h2 id="faq-title" data-i18n="quote.faq.title">Preguntas frecuentes</h2>
+                <details>
+                    <summary data-i18n="quote.faq.q1">¿Los precios incluyen IVA?</summary>
+                    <p data-i18n="quote.faq.a1">Sí. El total que ves ya trae el IVA y debajo aparece el desglose.</p>
+                </details>
+                <details>
+                    <summary data-i18n="quote.faq.q2">¿Esta cotización es una oferta?</summary>
+                    <p id="faq-validity">Es un estimado informativo. La cotización formal se entrega por escrito.</p>
+                </details>
+                <details>
+                    <summary data-i18n="quote.faq.q3">¿Qué pasa con los mensajes del WhatsApp automático?</summary>
+                    <p data-i18n="quote.faq.a3">La cuota mensual cubre el servicio; los mensajes los pagas directamente a Meta según su tarifa.</p>
+                </details>
+                <details>
+                    <summary data-i18n="quote.faq.q4">¿Guardan mis datos?</summary>
+                    <p data-i18n="quote.faq.a4">No. El cotizador no guarda nada ni usa formularios con servidor: el mensaje se arma en tu dispositivo y tú decides si lo envías.</p>
+                </details>
+                <details>
+                    <summary data-i18n="quote.faq.q5">¿Y si mi proyecto no encaja en un paquete?</summary>
+                    <p data-i18n="quote.faq.a5">Elige "A la medida": se cotiza por hora y lo platicamos por WhatsApp o correo.</p>
+                </details>
+            </section>
+        </div>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>

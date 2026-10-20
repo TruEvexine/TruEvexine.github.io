@@ -1,0 +1,581 @@
+/* ==========================================================================
+   Cotizador (cotizar.html). Los colores y tipografías salen de los tokens de layout.css.
+   ========================================================================== */
+
+[hidden] {
+    display: none !important;
+}
+
+.quote-main {
+    background-color: var(--bg-page);
+    padding: 0 0 72px;
+}
+
+/* ---------- Portada ---------- */
+.quote-hero {
+    padding: clamp(32px, 6vh, 64px) 24px;
+    background-color: var(--bg-surface);
+    text-align: center;
+}
+
+.quote-hero h1 {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.quote-intro {
+    max-width: 640px;
+    margin: 20px auto 0;
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.7;
+}
+
+.quote-chips {
+    justify-content: center;
+    margin-top: 22px;
+}
+
+/* ---------- Estructura ---------- */
+.quote-body {
+    width: min(100% - 48px, 920px);
+    margin: 0 auto;
+}
+
+.quote-step {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.quote-step + .quote-step {
+    margin-top: 48px;
+}
+
+.quote-step legend {
+    padding: 0;
+}
+
+.quote-form {
+    padding-top: 48px;
+}
+
+.quote-body h2 {
+    margin: 0 0 20px;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-heading);
+    text-transform: uppercase;
+}
+
+.quote-body h3 {
+    margin: 0 0 8px;
+    color: var(--brand-accent);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* ---------- Opciones (tipo de negocio y paquete) ---------- */
+.choice-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.choice-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.choice-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.choice,
+.extra {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    background: var(--surface-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.choice:hover,
+.extra:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+}
+
+/* El control real cubre toda la tarjeta: se puede tocar y enfocar con teclado */
+.choice-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.choice:has(.choice-input:checked),
+.extra:has(.choice-input:checked) {
+    border-color: var(--brand-accent);
+    background: var(--brand-accent-tint);
+}
+
+.choice:has(.choice-input:focus-visible),
+.extra:has(.choice-input:focus-visible) {
+    outline: 3px solid var(--brand-accent);
+    outline-offset: 3px;
+}
+
+/* Marca de selección dibujada con CSS */
+.choice::after,
+.extra::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-subtle);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.extra::before {
+    top: 50%;
+    right: auto;
+    left: 18px;
+    margin-top: -11px;
+    border-radius: 6px;
+}
+
+.choice:has(.choice-input:checked)::after {
+    border-color: var(--brand-accent);
+    background: radial-gradient(circle, var(--brand-accent) 0 5px, transparent 6px);
+}
+
+.extra:has(.choice-input:checked)::before {
+    border-color: var(--brand-accent);
+    background: var(--brand-accent) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M3 8.5l3.2 3.2L13 5%27 fill=%27none%27 stroke=%27%230D0E15%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+
+.choice-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    padding: 20px 52px 20px 22px;
+    pointer-events: none;
+}
+
+.choice-tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: var(--radius-chip);
+    background: var(--brand-accent);
+    color: var(--text-on-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.choice-title {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.choice-price {
+    color: var(--brand-accent-soft);
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.choice-note {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.choice-hint {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ---------- Extras ---------- */
+.extras {
+    display: grid;
+    gap: 12px;
+}
+
+.extra {
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px 16px 56px;
+}
+
+.extra-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    pointer-events: none;
+}
+
+.extra-title {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.extra-hint {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.extra-price {
+    flex-shrink: 0;
+    max-width: 14rem;
+    color: var(--brand-accent-soft);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+}
+
+.extra.is-included {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.quote-submit {
+    margin-top: 36px;
+    min-height: 52px;
+    padding: 12px 36px;
+    font-size: 1.1rem;
+}
+
+/* ---------- Resultado ---------- */
+.quote-result {
+    margin-top: 48px;
+    padding: clamp(24px, 4vw, 40px);
+    border: 1px solid var(--brand-accent);
+    border-radius: var(--radius-card);
+    background: linear-gradient(160deg, var(--bg-surface) 0%, var(--bg-page) 100%);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.quote-result:focus {
+    outline: none;
+}
+
+.quote-package {
+    margin: -8px 0 24px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.quote-totals {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.quote-total {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quote-total-label {
+    margin: 0;
+    color: var(--brand-accent);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.quote-total-value {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+}
+
+.quote-total-note {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.quote-custom {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.quote-custom p {
+    margin: 0 0 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+#result-detail {
+    margin-top: 28px;
+}
+
+.quote-lines {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.quote-lines li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--text-primary);
+}
+
+.quote-lines .line-price {
+    color: var(--text-secondary);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.quote-legend {
+    margin: 24px 0 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* ---------- Siguientes pasos ---------- */
+.quote-next {
+    margin-top: 40px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.quote-fields {
+    min-width: 0;
+    margin: 0 0 32px;
+    padding: 0;
+    border: 0;
+}
+
+.quote-fields legend {
+    padding: 0;
+    margin-bottom: 14px;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-inner);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    resize: vertical;
+    caret-color: var(--brand-accent);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+    outline: 3px solid var(--brand-accent);
+    outline-offset: 2px;
+}
+
+.quote-hint {
+    margin: 12px 0 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.quote-real {
+    padding: 24px;
+    border-radius: var(--radius-card);
+    background: var(--brand-accent-tint);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+}
+
+.quote-real p {
+    max-width: 52ch;
+    margin: 0 0 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.quote-more {
+    margin-top: 28px;
+}
+
+.quote-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* ---------- Texto de apoyo y preguntas ---------- */
+.quote-about,
+.quote-faq {
+    margin-top: 72px;
+}
+
+.quote-about p {
+    max-width: 68ch;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.quote-faq details {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.quote-faq summary {
+    padding: 16px 0;
+    color: var(--text-primary);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.quote-faq summary:focus-visible {
+    outline: 3px solid var(--brand-accent);
+    outline-offset: 2px;
+}
+
+.quote-faq details p {
+    max-width: 68ch;
+    margin: 0 0 18px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+::selection {
+    background: var(--brand-accent);
+    color: var(--text-on-accent);
+}
+
+/* ---------- Pantallas chicas ---------- */
+@media (max-width: 800px) {
+    .choice-grid-3,
+    .choice-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .field-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .quote-body {
+        width: min(100% - 32px, 920px);
+    }
+
+    .choice-grid-3,
+    .choice-grid-2,
+    .quote-totals {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .extra {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .extra-price {
+        max-width: none;
+        text-align: left;
+    }
+
+    .quote-actions .btn,
+    .quote-real .btn,
+    .quote-submit {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .quote-lines li {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .quote-lines .line-price {
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .choice,
+    .extra {
+        transition: none;
+    }
+}
+
+/* Pulso corto cuando el total cambia */
+.quote-total-value.is-updated {
+    animation: total-pop 0.5s ease-out;
+}
+
+@keyframes total-pop {
+    0% { transform: translateY(6px); opacity: 0.4; color: #10B981; }
+    100% { transform: none; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quote-total-value.is-updated {
+        animation: none;
+    }
+}

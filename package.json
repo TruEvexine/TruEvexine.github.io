@@ -1,0 +1,10 @@
+{
+  "name": "truevexine-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Portafolio estático. Sin dependencias: solo scripts de verificación del cotizador.",
+  "scripts": {
+    "test": "node --test _dev/tests/*.test.js",
+    "verify": "node _dev/verify.mjs"
+  }
+}
