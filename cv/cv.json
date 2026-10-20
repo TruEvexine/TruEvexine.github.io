@@ -75,7 +75,7 @@
       "name": { "es": "SIN GUARDAR: videojuego narrativo", "en": "SIN GUARDAR: narrative game" },
       "date": "2026-05",
       "stack": ["Java 17", "Swing", "JavaFX", "Maven"],
-      "link": "rogelioemmanuel.com/sin-guardar.html",
+      "link": "rogelioemmanuel.com/sin-guardar",
       "bullets": {
         "es": [
           "Desarrollé en Java un videojuego de horror cósmico con 22 nodos de decisión, 3 finales (uno secreto) y un sistema de Erosión que altera la narrativa y lo visual.",

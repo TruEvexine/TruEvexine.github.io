@@ -140,7 +140,7 @@ export function armarMensaje({ folio, seleccion, resultado, datos, idioma }) {
     if (datos.nota) contacto.push(`Comentarios: ${datos.nota}`);
     if (contacto.length) filas.push('', ...contacto);
 
-    filas.push('', `Estimado informativo de ${SITIO.replace('https://', '')}/cotizar.html, vigencia ${VIGENCIA_DIAS} días. Idioma del visitante: ${idioma === 'en' ? 'inglés' : 'español'}.`);
+    filas.push('', `Estimado informativo de ${SITIO.replace('https://', '')}/cotizar, vigencia ${VIGENCIA_DIAS} días. Idioma del visitante: ${idioma === 'en' ? 'inglés' : 'español'}.`);
     return filas.join('\n');
 }
 

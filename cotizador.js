@@ -255,7 +255,7 @@ function agregarOfertasSeo() {
         '@context': 'https://schema.org',
         '@type': 'OfferCatalog',
         name: 'Paquetes de páginas web',
-        url: `${SITIO}/cotizar.html`,
+        url: `${SITIO}/cotizar`,
         itemListElement: ['esencial', 'profesional', 'especializado'].map((p) =>
             oferta(`Paquete ${p.charAt(0).toUpperCase()}${p.slice(1)}`, PRECIOS.paquetes[p])),
     };

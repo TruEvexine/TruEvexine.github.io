@@ -1,7 +1,7 @@
-// Rutas absolutas para que también funcionen desde 404.html en cualquier URL
+// Rutas absolutas para que también funcionen desde la página 404 en cualquier URL
 const layouts = {
-    header: "/header.html",
-    footer: "/footer.html"
+    header: "/header",
+    footer: "/footer"
 };
 
 const translations = {
@@ -428,12 +428,21 @@ function initLanguageToggle() {
     });
 }
 
+// Nombre de página sin barras ni .html, para que "/cv" y "/cv.html" cuenten igual (la portada es "index")
+function pageName(path) {
+    return path.split(/[?#]/)[0].replace(/^\/|\/$/g, '').replace(/\.html$/, '') || 'index';
+}
+
+function currentPage() {
+    return pageName(location.pathname);
+}
+
 // Botón flotante al cotizador: aparece al pasar la portada y no estorba en Contacto ni en el propio cotizador
 function initQuoteFab() {
     const fab = document.querySelector(".quote-fab");
     if (!fab) return;
-    const page = location.pathname.split("/").pop();
-    if (page === "contact.html" || page === "cotizar.html") {
+    const page = currentPage();
+    if (page === "contact" || page === "cotizar") {
         fab.hidden = true;
         return;
     }
@@ -467,10 +476,10 @@ function initHamburgerMenu() {
 }
 
 function markCurrentPage() {
-    // Una página de proyecto puede marcar "Proyectos" con <body data-nav="projects.html">
-    const page = document.body.dataset.nav || location.pathname.split('/').pop() || 'index.html';
+    // Una página de proyecto puede marcar "Proyectos" con <body data-nav="projects">
+    const page = document.body.dataset.nav || currentPage();
     document.querySelectorAll('.navbar a').forEach((link) => {
-        if (link.getAttribute('href').replace(/^\//, '') === page) link.setAttribute('aria-current', 'page');
+        if (pageName(link.getAttribute('href')) === page) link.setAttribute('aria-current', 'page');
     });
 }
 

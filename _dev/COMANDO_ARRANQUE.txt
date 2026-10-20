@@ -1,4 +1,4 @@
-live-server --port=8080
+npx wrangler dev   (sirve el sitio igual que Cloudflare, con URLs limpias como /cotizar)
 
 ---Paleta de colores---
 #1D2D44

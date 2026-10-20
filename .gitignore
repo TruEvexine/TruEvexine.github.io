@@ -25,3 +25,5 @@ Thumbs.db
 .junie/
 node_modules/
 .impeccable/
+
+.wrangler/

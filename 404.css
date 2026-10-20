@@ -49,3 +49,7 @@
         animation: none;
     }
 }
+
+.nf .nf-code::before {
+    content: attr(data-code);
+}

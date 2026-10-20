@@ -9,3 +9,7 @@ _dev
 docs
 README.md
 CNAME
+.wrangler
+.idea
+.impeccable
+.junie
