@@ -95,10 +95,21 @@
 /* ---------- Sobre mí ---------- */
 .about {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(max-content, 0.5fr) minmax(0, 1.5fr);
     gap: clamp(24px, 5vw, 72px);
     width: min(100% - 48px, 1100px);
     margin: 80px auto 0;
+}
+
+/* Filete de acento: ancla el título y hace que el espacio bajo él se lea como intencional */
+.about h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-top: 16px;
+    border-radius: 2px;
+    background: #10B981;
 }
 
 .about-body {
@@ -109,6 +120,7 @@
 }
 
 .about-body p {
+    max-width: 65ch;
     margin: 0;
     color: #F3F4F6;
     font-size: 1.15rem;

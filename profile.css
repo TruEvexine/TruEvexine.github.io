@@ -120,7 +120,7 @@
 /* ---------- Cómo trabajo ---------- */
 .traits {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 16px;
     margin: 0;
     padding: 0;
@@ -128,10 +128,46 @@
 }
 
 .traits li {
+    grid-column: span 2;
     padding: 22px 24px;
     border: 1px solid rgba(243, 244, 246, 0.12);
     border-radius: var(--radius-card);
     background: rgba(29, 45, 68, 0.45);
+}
+
+/* Segunda fila de dos tarjetas: centrada bajo la primera */
+.traits li:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.traits li:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+@media (max-width: 860px) {
+    .traits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .traits li,
+    .traits li:nth-child(4),
+    .traits li:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .traits li:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 560px) {
+    .traits {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .traits li:last-child {
+        grid-column: auto;
+    }
 }
 
 .traits h3 {
