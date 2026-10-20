@@ -12,7 +12,7 @@
     },
     "email": "rogelioemmanuelceja@gmail.com",
     "phone": "+52 452 341 2556",
-    "website": "truevexine.github.io",
+    "website": "rogelioemmanuel.com",
     "linkedin": "linkedin.com/in/rogelio-emmanuel-ceja-acosta-6aa659231",
     "github": "github.com/TruEvexine",
     "photo": "assets/cv/photo.jpg"
@@ -75,7 +75,7 @@
       "name": { "es": "SIN GUARDAR: videojuego narrativo", "en": "SIN GUARDAR: narrative game" },
       "date": "2026-05",
       "stack": ["Java 17", "Swing", "JavaFX", "Maven"],
-      "link": "truevexine.github.io/sin-guardar.html",
+      "link": "rogelioemmanuel.com/sin-guardar.html",
       "bullets": {
         "es": [
           "Desarrollé en Java un videojuego de horror cósmico con 22 nodos de decisión, 3 finales (uno secreto) y un sistema de Erosión que altera la narrativa y lo visual.",

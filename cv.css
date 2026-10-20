@@ -28,7 +28,7 @@
     color: #F3F4F6;
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4rem);
-    letter-spacing: 2px;
+    letter-spacing: var(--tracking-display);
     line-height: 1.1;
     text-transform: uppercase;
 }
@@ -366,7 +366,7 @@
 
 .v-stack {
     margin: 1px 0 3px;
-    color: #059669;
+    color: #047857;
     font-size: 8.5pt;
     font-weight: 700;
 }

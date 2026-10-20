@@ -19,6 +19,7 @@
     color: #F3F4F6;
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(2.8rem, 7vw, 5rem);
+    letter-spacing: var(--tracking-display);
     line-height: 1.1;
     text-transform: uppercase;
 }
@@ -48,13 +49,8 @@
     align-items: flex-start;
     padding: 28px;
     border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 18px;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.04)
-    );
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-card);
+    background: var(--surface-card);
     color: #F3F4F6;
     text-decoration: none;
     transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
@@ -64,7 +60,29 @@
 .contact-link:focus-visible {
     transform: translateY(-5px);
     border-color: rgba(16, 185, 129, 0.65);
-    outline: none;
+}
+
+.contact-link:focus-visible {
+    outline: 3px solid #10B981;
+    outline-offset: 3px;
+}
+
+/* Jerarquía: correo y teléfono son los canales principales; GitHub y LinkedIn, secundarios */
+.contact-option:not(.contact-link):not(.contact-quote) .contact-option-value {
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+.contact-link {
+    padding: 22px 28px;
+}
+
+.contact-link .contact-option-value {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.contact-link .contact-option-action {
+    margin-top: 18px;
 }
 
 .contact-option-label {
@@ -73,10 +91,8 @@
     gap: 8px;
     color: #10B981;
     font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .contact-option-value {
@@ -106,6 +122,11 @@
 .contact-link:hover .contact-option-action,
 .contact-link:focus-visible .contact-option-action {
     color: #10B981;
+}
+
+.contact-quote {
+    grid-column: 1 / -1;
+    border-color: rgba(16, 185, 129, 0.45);
 }
 
 .contact-hero .availability {

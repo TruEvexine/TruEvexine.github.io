@@ -1,0 +1,31 @@
+.privacy-main {
+    background-color: #0D0E15;
+    padding: clamp(40px, 8vh, 88px) 24px 72px;
+}
+
+.privacy-panel {
+    width: min(100%, 680px);
+    margin: 0 auto;
+}
+
+.privacy-panel h1 {
+    margin: 0 0 24px;
+    color: #F3F4F6;
+    font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.privacy-panel p {
+    margin: 0 0 20px;
+    color: #D1D5DB;
+    font-family: 'Arimo', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.privacy-panel a {
+    color: #10B981;
+}

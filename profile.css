@@ -19,7 +19,7 @@
     color: #F3F4F6;
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4rem);
-    letter-spacing: 2px;
+    letter-spacing: var(--tracking-display);
     line-height: 1.1;
     text-transform: uppercase;
 }
@@ -43,7 +43,7 @@
     color: #F3F4F6;
     font-family: 'Oswald', sans-serif;
     font-size: clamp(1.9rem, 3.5vw, 2.6rem);
-    letter-spacing: 2px;
+    letter-spacing: var(--tracking-heading);
     line-height: 1.1;
     text-transform: uppercase;
 }
@@ -62,10 +62,8 @@
     margin: 0;
     color: #10B981;
     font-family: 'Oswald', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .stack-list {
@@ -94,7 +92,7 @@
     place-items: center;
     width: 64px;
     height: 64px;
-    border-radius: 16px;
+    border-radius: var(--radius-inner);
     background: #F3F4F6;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -132,7 +130,7 @@
 .traits li {
     padding: 22px 24px;
     border: 1px solid rgba(243, 244, 246, 0.12);
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     background: rgba(29, 45, 68, 0.45);
 }
 
@@ -157,7 +155,7 @@
     align-items: center;
     overflow: hidden;
     border: 1px solid rgba(243, 244, 246, 0.12);
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     background: #1D2D44;
 }
 
@@ -197,7 +195,7 @@
     display: inline-block;
     padding: 6px 14px;
     border: 1px solid rgba(16, 185, 129, 0.5);
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     color: #10B981;
     font-size: 0.9rem;
     font-weight: 700;
@@ -227,7 +225,7 @@
     .stack-logo {
         width: 56px;
         height: 56px;
-        border-radius: 14px;
+        border-radius: var(--radius-inner);
     }
 
     .stack-logo img {

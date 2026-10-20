@@ -17,6 +17,11 @@ const translations = {
         "cv.note": "Harvard is plain text, ideal for applicant tracking systems.",
         "about.cv": "View my CV",
         "ui.skip": "Skip to content",
+        "quote.fab": "Price your site",
+        "contact.quoteTitle": "Quote calculator",
+        "contact.quoteValue": "Price your website",
+        "contact.quoteDescription": "Own a business in Morelia? Build your quote in a couple of minutes, VAT included.",
+        "contact.quoteAction": "Get a quote",
         "ui.copied": "Copied!",
         "ui.copyEmail": "Copy email",
         "ui.copyPhone": "Copy number",
@@ -30,7 +35,6 @@ const translations = {
         "hero.text": "I build websites that are clear and fast, and stories you can play.",
         "hero.photoAlt": "Portrait of Rogelio Emmanuel Ceja",
         "projects.intro": "Things I've built, from idea to working version.",
-        "projects.featured": "Featured project",
         "projects.status": "In development",
         "projects.caseStudy": "Read the case study",
         "projects.erosion": "Erosion",
@@ -38,7 +42,6 @@ const translations = {
         "projects.nextText": "New projects are on the way. Check back soon.",
         "sg.documentTitle": "SIN GUARDAR — Case study · Rogelio Ceja",
         "sg.back": "All projects",
-        "sg.eyebrow": "Case study · Solo university project",
         "sg.tagline": "A cosmic horror visual novel where your choices change the story and how the game looks.",
         "sg.factsTitle": "At a glance",
         "sg.statNodes": "decision nodes",
@@ -71,6 +74,11 @@ const translations = {
         "language.switch": "Español",
         "footer.copyright": "Rogelio Emmanuel Ceja",
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. All rights reserved.",
+        "privacy.documentTitle": "Privacy — Rogelio Ceja",
+        "privacy.title": "Privacy",
+        "privacy.body": "This site has no accounts, no cookies and no analytics, and it doesn't collect or store your data on any server. The only thing saved is your language choice, in your own browser. The quote calculator works entirely on your device. If you write to me by email or WhatsApp, the message goes through those providers and reaches me with whatever you decide to include. The gameplay video loads from YouTube only when you press play.",
+        "privacy.contact": "Questions? Get in touch",
+        "footer.privacy": "Privacy",
         "footer.contact": "Contact Information",
         "footer.email": "Email:",
         "footer.github": "GitHub:",
@@ -146,6 +154,11 @@ const translations = {
         "cv.note": "Harvard es texto plano, ideal para los sistemas de reclutamiento (ATS).",
         "about.cv": "Ver mi CV",
         "ui.skip": "Saltar al contenido",
+        "quote.fab": "Cotiza tu sitio",
+        "contact.quoteTitle": "Cotizador",
+        "contact.quoteValue": "Cotiza tu sitio web",
+        "contact.quoteDescription": "¿Tienes un negocio en Morelia? Arma tu cotización en un par de minutos, con IVA incluido.",
+        "contact.quoteAction": "Cotizar mi sitio",
         "ui.copied": "¡Copiado!",
         "ui.copyEmail": "Copiar correo",
         "ui.copyPhone": "Copiar número",
@@ -159,7 +172,6 @@ const translations = {
         "hero.text": "Construyo sitios web claros y rápidos, e historias que se juegan.",
         "hero.photoAlt": "Retrato de Rogelio Emmanuel Ceja",
         "projects.intro": "Lo que he construido, de la idea a la versión funcional.",
-        "projects.featured": "Proyecto destacado",
         "projects.status": "En desarrollo",
         "projects.caseStudy": "Ver el caso completo",
         "projects.erosion": "Erosión",
@@ -167,7 +179,6 @@ const translations = {
         "projects.nextText": "Pronto subiré nuevos proyectos.",
         "sg.documentTitle": "SIN GUARDAR — Caso de estudio · Rogelio Ceja",
         "sg.back": "Todos los proyectos",
-        "sg.eyebrow": "Caso de estudio · Proyecto universitario individual",
         "sg.tagline": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y cómo se ve el juego.",
         "sg.factsTitle": "En resumen",
         "sg.statNodes": "nodos de decisión",
@@ -200,6 +211,11 @@ const translations = {
         "language.switch": "English",
         "footer.copyright": "Rogelio Emmanuel Ceja",
         "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. Todos los derechos reservados.",
+        "privacy.documentTitle": "Privacidad — Rogelio Ceja",
+        "privacy.title": "Privacidad",
+        "privacy.body": "Este sitio no tiene cuentas, cookies ni analíticas, y no recoge ni guarda tus datos en ningún servidor. Lo único que se guarda es tu elección de idioma, en tu propio navegador. El cotizador funciona por completo en tu dispositivo. Si me escribes por correo o WhatsApp, el mensaje pasa por esos proveedores y me llega con lo que tú decidas incluir. El video del juego se carga desde YouTube solo cuando le das reproducir.",
+        "privacy.contact": "¿Dudas? Escríbeme",
+        "footer.privacy": "Privacidad",
         "footer.contact": "Información de contacto",
         "footer.email": "Correo:",
         "footer.github": "GitHub:",
@@ -365,6 +381,20 @@ function initLanguageToggle() {
     });
 }
 
+// Botón flotante al cotizador: aparece al pasar la portada y no estorba en Contacto ni en el propio cotizador
+function initQuoteFab() {
+    const fab = document.querySelector(".quote-fab");
+    if (!fab) return;
+    const page = location.pathname.split("/").pop();
+    if (page === "contact.html" || page === "cotizar.html") {
+        fab.hidden = true;
+        return;
+    }
+    const update = () => fab.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.6);
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+}
+
 function initHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navbar = document.querySelector('.navbar');
@@ -456,9 +486,11 @@ function initCopyButtons() {
                 return;
             }
             label.textContent = translations[currentLanguage]['ui.copied'];
+            button.classList.add('is-copied');
             clearTimeout(button.copyTimer);
             button.copyTimer = setTimeout(() => {
                 label.textContent = translations[currentLanguage][label.dataset.i18n];
+                button.classList.remove('is-copied');
             }, 2000);
         });
     });
@@ -489,6 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
             initLanguageToggle();
             initHamburgerMenu();
+            initQuoteFab();
             markCurrentPage();
             applyTranslations();
         })

@@ -120,7 +120,7 @@
                 <li><span>${esc([tr(c.name), c.issuer].filter(Boolean).join(' · '))}</span><span class="v-date">${esc(c.year)}</span></li>`).join('');
             return `
                 <article class="cv cv-visual">
-                    <aside class="v-side">
+                    <div class="v-side">
                         ${p.photo ? `<img class="v-photo" src="${esc(p.photo)}" alt="">` : ''}
                         <h1>${esc(p.name)}</h1>
                         <p class="v-title">${esc(tr(p.title))}</p>
@@ -129,7 +129,7 @@
                         <section><h2>${T.skillsShort}</h2>${skills}</section>
                         <section><h2>${T.languages}</h2><ul class="v-langs">${langs}</ul></section>
                         <section><h2>${T.interests}</h2><ul class="v-interests">${list(data.interests).map((i) => `<li>${esc(i)}</li>`).join('')}</ul></section>
-                    </aside>
+                    </div>
                     <div class="v-main">
                         <section class="v-summary"><h2>${T.profile}</h2><p>${esc(tr(data.summary))}</p></section>
                         <section><h2>${T.projects}</h2>${projects}</section>

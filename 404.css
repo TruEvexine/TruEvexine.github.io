@@ -1,0 +1,51 @@
+.nf {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 16px;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.nf .nf-code {
+    margin: 0;
+    color: #1D2D44;
+    font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
+    font-size: clamp(6rem, 22vw, 11rem);
+    line-height: 1;
+    text-shadow: -3px 0 rgba(239, 68, 68, 0.45), 3px 0 rgba(16, 185, 129, 0.45);
+}
+
+.nf h1 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nf p {
+    max-width: 440px;
+    margin: 0 0 8px;
+    color: #D1D5DB;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* El 404 "pierde" su guardado un instante, como la Erosión de SIN GUARDAR */
+.nf .nf-code {
+    animation: nf-glitch 5s steps(1) infinite;
+}
+
+@keyframes nf-glitch {
+    0%, 92%, 100% { transform: none; text-shadow: -3px 0 rgba(239, 68, 68, 0.45), 3px 0 rgba(16, 185, 129, 0.45); }
+    93% { transform: translateX(-4px); text-shadow: -9px 0 rgba(239, 68, 68, 0.6), 9px 0 rgba(16, 185, 129, 0.6); }
+    95% { transform: translateX(5px) skewX(-6deg); text-shadow: 7px 0 rgba(239, 68, 68, 0.6), -7px 0 rgba(16, 185, 129, 0.6); }
+    97% { transform: translateX(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nf .nf-code {
+        animation: none;
+    }
+}

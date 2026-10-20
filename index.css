@@ -13,7 +13,7 @@
     font-family: 'Oswald', sans-serif;
     font-size: clamp(2rem, 4vw, 2.8rem);
     line-height: 1.1;
-    letter-spacing: 2px;
+    letter-spacing: var(--tracking-heading);
     text-transform: uppercase;
 }
 
@@ -46,7 +46,7 @@
     font-size: min(3.6rem, 9cqi);
     font-weight: bold;
     line-height: 1.05;
-    letter-spacing: 1px;
+    letter-spacing: var(--tracking-display);
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -80,7 +80,7 @@
     max-width: 420px;
     justify-self: end;
     aspect-ratio: 1;
-    border-radius: 24px;
+    border-radius: var(--radius-card);
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
@@ -140,7 +140,7 @@
         order: -1;
         justify-self: center;
         max-width: 200px;
-        border-radius: 24px;
+        border-radius: var(--radius-card);
     }
 
     .hero-text {

@@ -2,7 +2,7 @@
 
 Personal portfolio of a Systems Engineering student at UVAQ who builds websites and narrative games.
 
-**Live:** https://truevexine.github.io
+**Live:** https://rogelioemmanuel.com
 
 - **Pages:** Home, Profile (tech stack + education), Projects, SIN GUARDAR case study, Contact, 404
 - **Stack:** HTML, CSS and vanilla JavaScript, with no build step

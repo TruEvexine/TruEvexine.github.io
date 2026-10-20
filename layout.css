@@ -2,10 +2,51 @@
    Estilos generales de vista de página (Layout General)
    ========================================================================== */
 
+/* Fuentes propias: el sitio no llama a Google Fonts */
+@font-face {
+    font-family: 'Arimo';
+    src: url('assets/fonts/arimo-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arimo';
+    src: url('assets/fonts/arimo-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('assets/fonts/oswald-latin-500-normal.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('assets/fonts/oswald-latin-600-normal.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('assets/fonts/oswald-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Fuente de títulos, declarada una sola vez para todas las páginas */
 @font-face {
     font-family: 'MiFuentePersonalizada';
-    src: url('https://aohjbypblsalgivnaecd.supabase.co/storage/v1/object/public/product-images/Extension-Regular.ttf') format('truetype');
+    src: url('assets/fonts/extension-regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -166,6 +207,42 @@ footer[data-layout="footer"] {
 :root {
     --skel-base: #1A2333;
     --skel-shine: #253147;
+
+    /* Tokens de diseño (los usan el cotizador y el botón flotante) */
+    --bg-page: #0D0E15;
+    --bg-surface: #1D2D44;
+    --text-primary: #F3F4F6;
+    --text-secondary: #D1D5DB;
+    --text-muted: #9CA3AF;
+    --text-on-accent: #0D0E15;
+    --brand-accent: #10B981;
+    --brand-accent-soft: #A7F3D0;
+    --brand-accent-tint: rgba(16, 185, 129, 0.1);
+    --border-subtle: rgba(243, 244, 246, 0.16);
+    --border-card: rgba(255, 255, 255, 0.14);
+    --font-body: 'Arimo', Arial, sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+    --font-display: 'MiFuentePersonalizada', 'Oswald', sans-serif;
+
+    /* Tracking de títulos: H1 en la fuente display, H2 en Oswald */
+    --tracking-display: 1px;
+    --tracking-heading: 2px;
+
+    /* Radios: botones en píldora; tarjetas, medios y etiquetas con radio propio */
+    --radius-card: 16px;
+    --radius-inner: 12px;
+    --radius-chip: 8px;
+
+    /* Superficie de tarjeta: plana, sin degradado */
+    --surface-card: rgba(29, 45, 68, 0.45);
+}
+
+h1, h2, h3 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
 }
 
 @keyframes skel-shimmer {
@@ -217,7 +294,7 @@ footer[data-layout="footer"] {
     display: grid;
     place-items: center;
     padding: 16px;
-    color: #6B7280;
+    color: #9CA3AF;
     font-size: 0.9rem;
     text-align: center;
 }
@@ -301,7 +378,7 @@ footer[data-layout="footer"]:empty::before {
     gap: 10px;
     padding: 6px 14px 6px 12px;
     border: 1px solid rgba(16, 185, 129, 0.45);
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     background: rgba(16, 185, 129, 0.08);
     color: #A7F3D0;
     font-size: 0.9rem;
@@ -314,13 +391,6 @@ footer[data-layout="footer"]:empty::before {
     height: 8px;
     border-radius: 50%;
     background: #10B981;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-    animation: availability-pulse 2.4s ease-out infinite;
-}
-
-@keyframes availability-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
-    70%, 100% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
 }
 
 .chips {
@@ -335,7 +405,7 @@ footer[data-layout="footer"]:empty::before {
 .chips li {
     padding: 5px 12px;
     border: 1px solid rgba(243, 244, 246, 0.16);
-    border-radius: 999px;
+    border-radius: var(--radius-chip);
     color: #D1D5DB;
     font-size: 0.85rem;
 }
@@ -358,6 +428,7 @@ footer[data-layout="footer"]:empty::before {
 .icon-linkedin { --icon: url('assets/ui/linkedin.svg'); }
 .icon-copy { --icon: url('assets/ui/copy.svg'); }
 .icon-web { --icon: url('assets/ui/web.svg'); }
+.icon-arrow { --icon: url('assets/ui/arrow.svg'); }
 
 .icon-links {
     display: flex;
@@ -448,8 +519,7 @@ footer[data-layout="footer"]:empty::before {
     .skel,
     .skel-line,
     header[data-layout="header"]:empty::after,
-    footer[data-layout="footer"]:empty::after,
-    .availability::before {
+    footer[data-layout="footer"]:empty::after {
         animation: none;
     }
 
@@ -459,4 +529,10 @@ footer[data-layout="footer"]:empty::before {
     .yt-facade .yt-play {
         transition: none;
     }
+}
+
+/* Confirmación al copiar: el botón se pone verde mientras dice "Copiado" */
+.btn.is-copied {
+    color: #10B981;
+    border-color: #10B981;
 }

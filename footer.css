@@ -45,6 +45,7 @@ footer {
     margin: 5px 0;
 }
 
+.copyright a,
 .contact-info a {
     color: #F3F4F6;
     text-decoration: none;
@@ -53,6 +54,8 @@ footer {
     overflow-wrap: anywhere;
 }
 
+.copyright a:hover,
+.copyright a:focus,
 .contact-info a:hover,
 .contact-info a:focus {
     color: #10B981;
@@ -111,5 +114,81 @@ footer {
     .copyright p,
     .contact-info p {
         font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   Botón flotante al cotizador: aparece al pasar la portada
+   ========================================================================== */
+.quote-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background-color: var(--brand-accent);
+    color: var(--text-on-accent);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+    /* Oculto sin salir del orden de tabulación: al enfocarlo con teclado aparece */
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+.quote-fab.is-visible,
+.quote-fab:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.quote-fab:hover {
+    background-color: var(--brand-accent-soft);
+}
+
+.quote-fab:focus-visible {
+    outline: 3px solid var(--text-primary);
+    outline-offset: 3px;
+}
+
+.quote-fab .icon {
+    width: 18px;
+    height: 18px;
+}
+
+.quote-fab[hidden],
+.cv-print .quote-fab,
+.cv-embed .quote-fab {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .quote-fab {
+        right: 14px;
+        bottom: 14px;
+        padding: 10px 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quote-fab {
+        transition: none;
+        transform: none;
+    }
+}
+
+@media print {
+    .quote-fab {
+        display: none;
     }
 }
