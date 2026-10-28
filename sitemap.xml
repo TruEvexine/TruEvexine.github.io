@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://rogelioemmanuel.com/</loc><lastmod>2026-10-17</lastmod></url>
-    <url><loc>https://rogelioemmanuel.com/profile</loc><lastmod>2026-10-17</lastmod></url>
-    <url><loc>https://rogelioemmanuel.com/projects</loc><lastmod>2026-10-17</lastmod></url>
-    <url><loc>https://rogelioemmanuel.com/sin-guardar</loc><lastmod>2026-10-17</lastmod></url>
-    <url><loc>https://rogelioemmanuel.com/cv</loc><lastmod>2026-10-17</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url><loc>https://rogelioemmanuel.com/</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/"/></url>
+    <url><loc>https://rogelioemmanuel.com/profile</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/profile"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/profile"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/profile"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/profile</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/profile"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/profile"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/profile"/></url>
+    <url><loc>https://rogelioemmanuel.com/projects</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/projects"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/projects"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/projects"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/projects</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/projects"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/projects"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/projects"/></url>
+    <url><loc>https://rogelioemmanuel.com/sin-guardar</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/sin-guardar"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/sin-guardar"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/sin-guardar"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/sin-guardar</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/sin-guardar"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/sin-guardar"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/sin-guardar"/></url>
+    <url><loc>https://rogelioemmanuel.com/project-miralta</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/project-miralta"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/project-miralta"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/project-miralta"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/project-miralta</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/project-miralta"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/project-miralta"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/project-miralta"/></url>
+    <url><loc>https://rogelioemmanuel.com/cv</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/cv"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/cv"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/cv"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/cv</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/cv"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/cv"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/cv"/></url>
+    <url><loc>https://rogelioemmanuel.com/contact</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/contact"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/contact"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/contact"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/contact</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/contact"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/contact"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/contact"/></url>
+    <url><loc>https://rogelioemmanuel.com/privacidad</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/privacidad"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/privacidad"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/privacidad"/></url>
+    <url><loc>https://rogelioemmanuel.com/es/privacidad</loc><lastmod>2026-10-28</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/privacidad"/><xhtml:link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/privacidad"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/privacidad"/></url>
     <url><loc>https://rogelioemmanuel.com/cotizar</loc><lastmod>2026-10-19</lastmod></url>
-    <url><loc>https://rogelioemmanuel.com/contact</loc><lastmod>2026-10-17</lastmod></url>
-    <url><loc>https://rogelioemmanuel.com/privacidad</loc><lastmod>2026-10-19</lastmod></url>
 </urlset>

@@ -1,0 +1,395 @@
+/* ==========================================================================
+   Project Miralta: Radio Miralta y panel de carga del apagón
+   Copian la interfaz del juego (papel crema, tinta, sombra dura y Patrick
+   Hand). Patrick Hand se usa solo aquí, en ningún otro lugar del sitio.
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Patrick Hand';
+    src: url('assets/fonts/patrick-hand-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+.mr-radio,
+.mr-panel,
+.mr-resultado {
+    --mr-papel: #F4EFE0;
+    --mr-tinta: #2B2F33;
+    --mr-sombra: #8E9AA0;
+    --mr-on: #B9DDA1;
+    --mr-off: #CFC8B3;
+    --mr-alerta: #C9F27A;
+    color: var(--mr-tinta);
+    font-family: 'Patrick Hand', 'Arimo', sans-serif;
+}
+
+/* Botones del juego: borde de tinta, esquinas de 10 px y sombra dura */
+.mr-switch,
+.mr-confirmar,
+.mr-reintentar,
+.mr-radio-next {
+    min-height: 44px;
+    padding: 4px 16px;
+    border: 2px solid var(--mr-tinta);
+    border-radius: 10px;
+    background: var(--mr-papel);
+    color: var(--mr-tinta);
+    font: inherit;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mr-confirmar,
+.mr-reintentar,
+.mr-radio-next {
+    box-shadow: 3px 3px 0 var(--mr-sombra);
+}
+
+.mr-confirmar:not(:disabled):hover,
+.mr-reintentar:hover,
+.mr-radio-next:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--mr-sombra);
+}
+
+.mr-confirmar:not(:disabled):active,
+.mr-reintentar:active,
+.mr-radio-next:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--mr-sombra);
+}
+
+.mr-radio :focus-visible,
+.mr-panel :focus-visible,
+.mr-resultado :focus-visible {
+    outline: 3px solid #10B981;
+    outline-offset: 3px;
+}
+
+/* ---------- Radio Miralta ---------- */
+.mr-radio {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.mr-radio-set {
+    flex: none;
+    width: 112px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    transform-origin: 50% 100%;
+}
+
+.mr-radio-set img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* La radio vibra un poco mientras habla */
+@keyframes mr-habla {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-2deg); }
+    75% { transform: rotate(2deg); }
+}
+
+.mr-radio.is-talking .mr-radio-set {
+    animation: mr-habla 0.35s ease-in-out infinite;
+}
+
+.mr-radio-set:hover {
+    transform: rotate(-3deg);
+}
+
+.mr-globo {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    padding: 12px 16px 14px;
+    border: 2px solid var(--mr-tinta);
+    border-radius: 14px;
+    background: var(--mr-papel);
+    box-shadow: 4px 4px 0 var(--mr-sombra);
+}
+
+/* Pico del globo hacia la radio */
+.mr-globo::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: 22px;
+    width: 16px;
+    height: 16px;
+    border-left: 2px solid var(--mr-tinta);
+    border-bottom: 2px solid var(--mr-tinta);
+    background: var(--mr-papel);
+    transform: rotate(45deg);
+}
+
+.mr-radio-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px 12px;
+    margin: 0 0 4px;
+    color: #8A4F2A;
+    font-size: 1.05rem;
+}
+
+.mr-radio-when {
+    color: #5B6166;
+}
+
+.mr-radio-text {
+    min-height: 4.05em;
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+    line-height: 1.35;
+}
+
+.mr-radio-next {
+    min-height: 36px;
+    padding: 2px 14px;
+    font-size: 1.05rem;
+}
+
+.mr-radio-count {
+    color: #5B6166;
+}
+
+/* ---------- Panel de carga ---------- */
+.mr-intro {
+    margin: 0 0 16px;
+    color: #D1D5DB;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.mr-panel {
+    padding: 16px 20px;
+    border: 2px solid var(--mr-tinta);
+    border-radius: 14px;
+    background: var(--mr-papel);
+    box-shadow: 4px 4px 0 var(--mr-sombra);
+}
+
+.mr-panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px 12px;
+    font-size: 1.6rem;
+}
+
+.mr-dispo {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.mr-dispo img {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+}
+
+.mr-narrador {
+    margin: 2px 0 8px;
+    color: #5B6166;
+    font-size: 1.15rem;
+    line-height: 1.35;
+}
+
+.mr-sistemas {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mr-sistemas li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 2.5em minmax(8.5em, auto);
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    border-top: 2px dashed rgba(43, 47, 51, 0.35);
+    font-size: 1.35rem;
+    transition: opacity 0.2s ease;
+}
+
+.mr-costo {
+    text-align: right;
+}
+
+.mr-switch[aria-pressed="true"] {
+    background: var(--mr-on);
+}
+
+.mr-switch[aria-pressed="false"] {
+    background: var(--mr-off);
+}
+
+.mr-sistemas li.is-off > span {
+    opacity: 0.55;
+}
+
+.mr-switch:disabled {
+    cursor: default;
+}
+
+.mr-panel-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 16px;
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 2px solid var(--mr-tinta);
+    font-size: 1.35rem;
+}
+
+.mr-pedido.is-over {
+    color: #B23B2E;
+}
+
+.mr-confirmar:disabled {
+    box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.mr-panel.is-done .mr-confirmar {
+    background: var(--mr-on);
+    opacity: 1;
+    cursor: default;
+}
+
+/* ---------- Resultado ---------- */
+.mr-resultado:not([hidden]) {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 16px 20px;
+    border: 2px solid var(--mr-tinta);
+    border-radius: 14px;
+    background: var(--mr-papel);
+    box-shadow: 4px 4px 0 var(--mr-sombra);
+    animation: mr-aparece 0.3s ease-out;
+}
+
+@keyframes mr-aparece {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+}
+
+.mr-lirio {
+    width: 96px;
+    height: auto;
+    border-radius: 50%;
+    background: rgba(43, 47, 51, 0.06);
+}
+
+/* Brillo del lirio al mutar (#C9F27A, como en el juego) */
+@keyframes mr-brillo {
+    0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+    50% { filter: drop-shadow(0 0 10px var(--mr-alerta)); }
+}
+
+.mr-resultado.is-mutated .mr-lirio {
+    animation: mr-brillo 2.4s ease-in-out infinite;
+}
+
+.mr-alerta {
+    display: inline-block;
+    margin: 0 0 6px;
+    padding: 0 10px;
+    border: 2px solid var(--mr-tinta);
+    border-radius: 8px;
+    background: var(--mr-on);
+    font-size: 1.15rem;
+}
+
+.mr-resultado.is-mutated .mr-alerta {
+    background: var(--mr-alerta);
+}
+
+.mr-res-texto {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    line-height: 1.35;
+}
+
+.mr-consecuencias {
+    margin: 0 0 8px;
+    padding-left: 1.1em;
+    font-size: 1.15rem;
+    line-height: 1.35;
+}
+
+.mr-consecuencias li + li {
+    margin-top: 4px;
+}
+
+.mr-demo {
+    margin: 0 0 12px;
+    color: #5B6166;
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 480px) {
+    .mr-radio-set {
+        width: 84px;
+    }
+
+    .mr-panel,
+    .mr-resultado:not([hidden]) {
+        padding: 14px;
+    }
+
+    .mr-sistemas li {
+        grid-template-columns: minmax(0, 1fr) 1.8em minmax(7.5em, auto);
+        gap: 8px;
+        font-size: 1.2rem;
+    }
+
+    .mr-resultado:not([hidden]) {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .mr-lirio {
+        width: 64px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mr-radio.is-talking .mr-radio-set,
+    .mr-resultado.is-mutated .mr-lirio,
+    .mr-resultado:not([hidden]) {
+        animation: none;
+    }
+
+    .mr-radio-set:hover {
+        transform: none;
+    }
+
+    .mr-switch,
+    .mr-confirmar,
+    .mr-reintentar,
+    .mr-radio-next,
+    .mr-sistemas li {
+        transition: none;
+    }
+}

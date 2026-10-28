@@ -7,12 +7,19 @@
     <meta name="description" content="SIN GUARDAR: a cosmic horror narrative game in Java by Rogelio Emmanuel Ceja. 22 decision nodes, 3 endings and an Erosion system that changes how the game looks.">
     <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
     <link rel="canonical" href="https://rogelioemmanuel.com/sin-guardar">
+    <link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/sin-guardar">
+    <link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/sin-guardar">
+    <link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/sin-guardar">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_MX">
     <meta property="og:site_name" content="Rogelio Ceja">
     <meta property="og:title" content="SIN GUARDAR — Case study">
     <meta property="og:description" content="SIN GUARDAR: a cosmic horror narrative game in Java by Rogelio Emmanuel Ceja. 22 decision nodes, 3 endings and an Erosion system that changes how the game looks.">
     <meta property="og:url" content="https://rogelioemmanuel.com/sin-guardar">
     <meta property="og:image" content="https://rogelioemmanuel.com/assets/sin-guardar/video-hq.jpg">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="360">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -25,6 +32,32 @@
     <link rel="stylesheet" href="footer.css">
     <script src="layout.js" defer></script>
     <script src="project.js" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "SIN GUARDAR",
+        "url": "https://rogelioemmanuel.com/sin-guardar",
+        "description": "A cosmic horror narrative game in Java with 22 decision nodes, 3 endings and an Erosion system that changes how the game looks.",
+        "genre": ["Visual novel", "Cosmic horror"],
+        "gamePlatform": "PC",
+        "applicationCategory": "Game",
+        "inLanguage": "es",
+        "image": "https://rogelioemmanuel.com/assets/sin-guardar/video-hq.jpg",
+        "author": { "@type": "Person", "name": "Rogelio Emmanuel Ceja Acosta", "url": "https://rogelioemmanuel.com/" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rogelioemmanuel.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://rogelioemmanuel.com/projects" },
+            { "@type": "ListItem", "position": 3, "name": "SIN GUARDAR", "item": "https://rogelioemmanuel.com/sin-guardar" }
+        ]
+    }
+    </script>
 </head>
 <body data-nav="projects">
     <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
@@ -128,6 +161,14 @@
                 </aside>
             </div>
         </div>
+        <nav class="case-next" aria-label="Next project" data-i18n-attr="aria-label:case.nextProject">
+            <a href="/project-miralta">
+                <span class="case-next-label" data-i18n="case.nextProject">Next project</span>
+                <span class="case-next-title">Project Miralta</span>
+                <span class="case-next-text" data-i18n="pm.tagline">A cozy survival game where you tend a rooftop garden while the city runs out of water.</span>
+                <span class="case-next-arrow" aria-hidden="true">→</span>
+            </a>
+        </nav>
     </main>
 
     <footer data-layout="footer"></footer>

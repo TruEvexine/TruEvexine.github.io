@@ -31,6 +31,55 @@
     border: 0;
 }
 
+/* Varias tarjetas seguidas (Inicio y Proyectos) */
+.project-feature + .project-feature {
+    margin-top: 24px;
+}
+
+/* Espacio reservado para un video o captura que aún no se sube.
+   Ocupa el mismo 16:9 que el medio final, así no hay saltos al reemplazarlo. */
+.media-pending {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    border: 1px dashed rgba(243, 244, 246, 0.2);
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 40%, rgba(16, 185, 129, 0.08), transparent 70%), var(--skel-base);
+    color: #9CA3AF;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.media-pending strong {
+    color: #D1D5DB;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.media-pending-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border: 2px solid rgba(243, 244, 246, 0.25);
+    border-radius: 50%;
+}
+
+.media-pending-icon::before {
+    content: '';
+    margin-left: 4px;
+    border-style: solid;
+    border-width: 10px 0 10px 16px;
+    border-color: transparent transparent transparent rgba(243, 244, 246, 0.4);
+}
+
 .project-feature-body {
     display: flex;
     flex-direction: column;
@@ -163,6 +212,50 @@
     width: 64%;
 }
 
+/* ==========================================================================
+   Guiño de "Tanque de agua" (solo en la tarjeta de Project Miralta)
+   Al pasar el cursor o enfocar: cae lluvia ácida sobre el video y el
+   tanque se vacía y se enturbia. Usa la misma barra que la Erosión.
+   ========================================================================== */
+@keyframes acid-rain {
+    /* Solo se mueven las gotas; el tinte de abajo se queda fijo */
+    from { background-position: 0 0, 0 0; }
+    to { background-position: -40px 160px, 0 0; }
+}
+
+.rain-scan {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background:
+        repeating-linear-gradient(104deg, transparent 0 18px, rgba(190, 242, 100, 0.22) 18px 19px, transparent 19px 41px),
+        linear-gradient(180deg, rgba(120, 113, 80, 0.25), transparent 70%);
+    transition: opacity 0.4s ease;
+}
+
+.project-feature-media:has(iframe) .rain-scan {
+    display: none;
+}
+
+.water-bar > span {
+    width: 88%;
+    background: linear-gradient(90deg, #38BDF8, #10B981);
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease;
+}
+
+.water-card:hover .rain-scan,
+.water-card:focus-within .rain-scan {
+    opacity: 1;
+    animation: acid-rain 0.8s linear infinite;
+}
+
+.water-card:hover .water-bar > span,
+.water-card:focus-within .water-bar > span {
+    width: 18%;
+    filter: sepia(0.9) saturate(0.7);
+}
+
 /* ---------- Móvil ---------- */
 @media (max-width: 860px) {
     .project-feature {
@@ -185,7 +278,13 @@
         animation: none;
     }
 
+    .water-card:hover .rain-scan,
+    .water-card:focus-within .rain-scan {
+        animation: none;
+    }
+
     .erosion-scan,
+    .rain-scan,
     .erosion-bar > span {
         transition: none;
     }

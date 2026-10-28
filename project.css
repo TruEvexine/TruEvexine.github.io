@@ -270,6 +270,26 @@
     line-height: 1.65;
 }
 
+/* Idea central del proyecto, destacada bajo la introducción */
+.case-quote {
+    margin: 28px 0 0;
+    color: #D1D5DB;
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.65;
+}
+
+/* Raya de acento corta arriba, como la de "Sobre mí" */
+.case-quote::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin-bottom: 14px;
+    border-radius: 3px;
+    background: #10B981;
+}
+
 .case-stats {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -354,6 +374,28 @@
     line-height: 1.75;
 }
 
+.case-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+}
+
+.case-list li {
+    padding-left: 16px;
+    border-left: 2px solid rgba(16, 185, 129, 0.4);
+    color: #D1D5DB;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.case-list strong {
+    display: block;
+    color: #F3F4F6;
+}
+
 /* ---------- Apoyo / inversión ---------- */
 .case-invest {
     margin-top: 40px;
@@ -379,6 +421,67 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+/* ---------- Siguiente proyecto ---------- */
+.case-next {
+    width: min(100% - 48px, 1160px);
+    margin: 64px auto 0;
+}
+
+.case-next a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 4px 24px;
+    padding: 24px 28px;
+    border: 1px solid rgba(243, 244, 246, 0.1);
+    border-radius: var(--radius-card);
+    background: var(--surface-card);
+    color: #D1D5DB;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+}
+
+.case-next a:hover,
+.case-next a:focus-visible {
+    border-color: rgba(16, 185, 129, 0.55);
+}
+
+.case-next-label {
+    grid-column: 1;
+    color: #9CA3AF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.case-next-title {
+    grid-column: 1;
+    color: #F3F4F6;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.case-next-text {
+    grid-column: 1;
+    line-height: 1.6;
+}
+
+.case-next-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    color: #10B981;
+    font-size: 2rem;
+    transition: transform 0.2s ease;
+}
+
+.case-next a:hover .case-next-arrow,
+.case-next a:focus-visible .case-next-arrow {
+    transform: translateX(6px);
 }
 
 /* ---------- Imagen ampliada ---------- */
@@ -422,6 +525,11 @@
         position: static;
     }
 
+    .case-next {
+        width: min(100% - 40px, 680px);
+        margin-top: 48px;
+    }
+
     .case-hero {
         padding: 16px 20px 36px;
     }
@@ -445,7 +553,14 @@
     .slide,
     .slider-arrow,
     .slider-dots button,
-    .case-body summary::after {
+    .case-body summary::after,
+    .case-next a,
+    .case-next-arrow {
         transition: none;
+    }
+
+    .case-next a:hover .case-next-arrow,
+    .case-next a:focus-visible .case-next-arrow {
+        transform: none;
     }
 }

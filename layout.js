@@ -42,6 +42,7 @@ const translations = {
         "projects.nextText": "New projects are on the way. Check back soon.",
         "sg.documentTitle": "SIN GUARDAR — Case study · Rogelio Ceja",
         "sg.back": "All projects",
+        "case.nextProject": "Next project",
         "sg.tagline": "A cosmic horror visual novel where your choices change the story and how the game looks.",
         "sg.factsTitle": "At a glance",
         "sg.statNodes": "decision nodes",
@@ -54,6 +55,96 @@ const translations = {
         "sg.investTitle": "Help bring it to stores",
         "sg.invest": "SIN GUARDAR is being polished for a store release. If you'd like to support or invest in its development, I'd love to talk.",
         "sg.investCta": "Let's talk",
+        "projects.project2": "Project Miralta — Cozy survival game in Phaser",
+        "projects.project2Description": "A hand-drawn cozy survival game where you tend a rooftop garden while the city runs out of water. Scripted demo built on a custom scene engine with Phaser.",
+        "pm.documentTitle": "Project Miralta — Cozy survival game in Phaser · Rogelio Ceja",
+        "pm.tagline": "A cozy survival game where you tend a rooftop garden while the city runs out of water.",
+        "pm.status": "Preview demo",
+        "pm.gallery": "Project Miralta gallery",
+        "pm.playVideo": "Play the Project Miralta demo video",
+        "pm.videoPending": "Demo video coming soon",
+        "pm.shotPending": "Screenshot coming soon",
+        "pm.shot1": "Rooftop by day",
+        "pm.shot2": "Acid rain",
+        "pm.shot3": "Power load panel",
+        "pm.shot4": "Forum photo",
+        "pm.shot5": "Night map",
+        "pm.lead": "Project Miralta is a hand-drawn 2D game. You are stuck on the rooftop of a collapsing megacity and must collect water, generate power, grow plants and trade with the city's districts. Nothing explains the problem to you: you learn it when contaminated water makes your crops sick.",
+        "pm.idea": "The plants are the mechanism; the real subject is keeping a small ecosystem alive when the resource that sustains it is disappearing.",
+        "pm.statDays": "full in-game days",
+        "pm.statMinutes": "demo video",
+        "pm.statSystems": "systems on the power panel",
+        "pm.statKey": "key press per step",
+        "pm.concept": "Concept",
+        "pm.conceptContent": "A cozy survival and arcade botanical management game with a hand-drawn, comic-book look. I designed the concept, the systems and the scripted demo shown in the video, built on a custom scene engine with Phaser. The thread of the demo fits in one sentence: the player uses contaminated water out of necessity, a plant mutates, and that mutation changes a neighborhood.",
+        "pm.demo": "What the demo shows",
+        "pm.demoWaterTitle": "Water and its quality",
+        "pm.demoWater": "Day 1: state water delivery, then acid rain leaves the tank contaminated.",
+        "pm.demoCropsTitle": "Crops",
+        "pm.demoCrops": "Day 1: watering and harvesting bougainvillea and pitaya.",
+        "pm.demoChoiceTitle": "A choice with consequences",
+        "pm.demoChoice": "Day 1 afternoon: cover the plants or open the gutter.",
+        "pm.demoEconomyTitle": "Economy",
+        "pm.demoEconomy": "Day 1 night: a parody store on the computer and bartering in the Lower Districts.",
+        "pm.demoPowerTitle": "Power and priorities",
+        "pm.demoPower": "Day 2: a blackout and a load panel with 5 systems on a limited budget.",
+        "pm.demoMutationTitle": "Mutation",
+        "pm.demoMutation": "Day 2: the water lily mutates and filters the water.",
+        "pm.demoCityTitle": "A changing city",
+        "pm.demoCity": "Day 2 night: a night map with smog, lit windows and a green patch in the Lower Districts.",
+        "pm.demoWorldTitle": "World and humor",
+        "pm.demoWorld": "Radio Miralta, the Dunk Wall forum, Air Off parcel service and Sergio the neighbor.",
+        "pm.tech": "Technical Development",
+        "pm.techEngine": "Built with Phaser, using Vite as the development server. A director runs a system of beats that reads a script and executes actions such as changing state, switching the time of day, showing dialogue, zooming into a plant or opening a page. A single list of beats serves both a short and a long version of the demo.",
+        "pm.techState": "The game state is real, not pasted-on animation: water, power, mood and credits actually change; the script only decides who performs the action. The store, the parcel service and the forum are HTML pages mounted over the canvas, opened by a scripted cursor.",
+        "pm.techTests": "The demo used to get stuck on double and triple clicks. I wrote automated Playwright runs to measure how many key presses each beat needed, found three causes and brought it down to one press per step.",
+        "pm.art": "Art and Presentation",
+        "pm.artContent": "2D hand-drawn art in a comic and graphic novel style, with Patrick Hand as the typeface. The night map uses Phaser tweens and particles for smog, windows, smoke and the green patch; the forum photo is made with CSS blur, grain and vignette. A reduced-motion mode shows everything at once.",
+        "pm.statusTitle": "Project Status",
+        "pm.statusContent": "Version preview.0.0.1, presented at a conference from October 27 to 30, 2026. The video shows a scripted demo: the presenter advances with a single key and the engine performs the actions. Project Miralta is a codename; the final name is still to be decided.",
+        "pm.water": "Water",
+        "pm.investTitle": "Help it grow into a full game",
+        "pm.invest": "Project Miralta is a preview built for a conference. If you'd like to support, fund or collaborate on its full development, I'd love to talk.",
+        "pm.radioNext": "Next Radio Miralta bulletin",
+        "pm.radioTune": "Tune in",
+        "pm.radioWhen1": "Day 1 · 6:40 a.m.",
+        "pm.radioWhen2": "Day 2 · 7:10 a.m.",
+        "pm.radioWhen3": "Day 2 · night",
+        "pm.radio1": "Radio Miralta, ninety-eight point three. It's six forty, and the sky, like city hall, promises a lot and commits to nothing.",
+        "pm.radio2": "Forecast: clear until four. After that, rain is likely. Likely not the good kind.",
+        "pm.radio3": "State water delivery: your area is up today. It'll get there when it gets there.",
+        "pm.radio4": "Radio Miralta, ninety-eight point three. Today, heat. A lot. The heat island sends its regards, and so does evaporation.",
+        "pm.radio5": "Power outages are expected in parts of the city. No areas, times or reasons are given. Thank you for your understanding.",
+        "pm.radio6": "Radio Miralta, ninety-eight point three. That's all for today. Tomorrow, cloudy skies and water to be confirmed. Good night.",
+        "pm.panelSection": "Try the Day 2 blackout",
+        "pm.panelIntro": "The power is out. Sergio, the neighbor from 4B, hooks his batteries up to yours: you decide what stays on.",
+        "pm.panelTitle": "Blackout load",
+        "pm.available": "Available",
+        "pm.panelNarrator": "Five systems ask for 26 Sparks, and there are only 14. You have to choose.",
+        "pm.sysFridge": "Refrigerator",
+        "pm.sysPurifier": "Purifier",
+        "pm.sysPump": "Pump",
+        "pm.sysUv": "UV",
+        "pm.sysComputer": "Computer",
+        "pm.on": "✓ On",
+        "pm.off": "✕ Off",
+        "pm.requested": "Requested",
+        "pm.confirm": "Confirm",
+        "pm.confirmed": "✓ Done",
+        "pm.retry": "Try again",
+        "pm.resMutAlert": "Water lily: mutation",
+        "pm.resMut": "Something in the tub changed color. A scientist would call it phytoremediation. For now, you just see the water a little clearer.",
+        "pm.resMutNote": "This plant filters the water",
+        "pm.resCleanAlert": "Purifier on",
+        "pm.resClean": "The water comes out clean and the lily stays as it is. This time nothing mutates.",
+        "pm.offRefri": "Refrigerator off: food won't last long in this heat.",
+        "pm.offPurificador": "Purifier off: the tank stays cloudy.",
+        "pm.offBomba": "Pump off: water doesn't make it from the tank to the pots.",
+        "pm.offUv": "UV off: the water isn't disinfected.",
+        "pm.offComputadora": "Computer off: no RS Viewer this afternoon, so nobody in the Lower Districts asks you for anything.",
+        "pm.hijuelo": "That afternoon, the Lower Districts ask for a plant for their cistern. You send them a cutting of the lily.",
+        "pm.panelDemo": "In the demo: refrigerator, pump and computer stay on; purifier and UV go off.",
+        "pm.sameAsDemo": "You chose the same as the demo.",
         "nf.documentTitle": "Page not found — Rogelio Ceja",
         "nf.title": "This page wasn't saved",
         "nf.text": "The link may be broken or the page has moved.",
@@ -198,6 +289,7 @@ const translations = {
         "projects.nextText": "Pronto subiré nuevos proyectos.",
         "sg.documentTitle": "SIN GUARDAR — Caso de estudio · Rogelio Ceja",
         "sg.back": "Todos los proyectos",
+        "case.nextProject": "Siguiente proyecto",
         "sg.tagline": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y cómo se ve el juego.",
         "sg.factsTitle": "En resumen",
         "sg.statNodes": "nodos de decisión",
@@ -210,6 +302,96 @@ const translations = {
         "sg.investTitle": "Ayúdame a llevarlo a tiendas",
         "sg.invest": "SIN GUARDAR se está puliendo para publicarse en tiendas. Si te interesa apoyar o invertir en su desarrollo, me encantaría platicarlo.",
         "sg.investCta": "Hablemos",
+        "projects.project2": "Project Miralta — Cozy survival en Phaser",
+        "projects.project2Description": "Un cozy survival dibujado a mano donde mantienes un huerto en una azotea mientras la ciudad se queda sin agua. Demo guionada sobre un motor propio de escenas con Phaser.",
+        "pm.documentTitle": "Project Miralta — Videojuego cozy survival en Phaser · Rogelio Ceja",
+        "pm.tagline": "Videojuego cozy survival donde mantienes un huerto en una azotea mientras la ciudad se queda sin agua.",
+        "pm.status": "Demo preview",
+        "pm.gallery": "Galería de Project Miralta",
+        "pm.playVideo": "Reproducir el video de la demo de Project Miralta",
+        "pm.videoPending": "Video de la demo en camino",
+        "pm.shotPending": "Captura en camino",
+        "pm.shot1": "Azotea de día",
+        "pm.shot2": "Lluvia ácida",
+        "pm.shot3": "Panel de carga",
+        "pm.shot4": "Foto del foro",
+        "pm.shot5": "Mapa nocturno",
+        "pm.lead": "Project Miralta es un videojuego 2D dibujado a mano. Estás atrapado en la azotea de una megalópolis en colapso y debes recolectar agua, producir electricidad, cultivar y comerciar con los distritos de la ciudad. Nada te explica el problema: lo descubres cuando usas agua contaminada y tu cultivo se enferma.",
+        "pm.idea": "Las plantas son el mecanismo; el tema real es mantener vivo un pequeño ecosistema cuando el recurso que lo hace posible desaparece.",
+        "pm.statDays": "días completos de juego",
+        "pm.statMinutes": "de video de la demo",
+        "pm.statSystems": "sistemas en el panel de carga",
+        "pm.statKey": "pulsación por paso",
+        "pm.concept": "Concepto",
+        "pm.conceptContent": "Un cozy survival de gestión botánica arcade con estilo dibujado a mano, tipo cómic. Diseñé el concepto, los sistemas y la demo guionada que se ve en el video, construida sobre un motor propio de escenas con Phaser. El hilo de la demo cabe en una frase: el jugador usa agua contaminada por necesidad, una planta muta, y esa mutación cambia un barrio.",
+        "pm.demo": "Qué muestra la demo",
+        "pm.demoWaterTitle": "Agua y su calidad",
+        "pm.demoWater": "Día 1: reparto estatal y luego lluvia ácida que deja el tanque contaminado.",
+        "pm.demoCropsTitle": "Cultivo",
+        "pm.demoCrops": "Día 1: regar y cosechar bugambilia y pitayita.",
+        "pm.demoChoiceTitle": "Decisión con consecuencia",
+        "pm.demoChoice": "Día 1 por la tarde: cubrir las plantas o abrir la canaleta.",
+        "pm.demoEconomyTitle": "Economía",
+        "pm.demoEconomy": "Día 1 por la noche: tienda parodia en la computadora y trueque en Barrios Bajos.",
+        "pm.demoPowerTitle": "Electricidad y prioridades",
+        "pm.demoPower": "Día 2: apagón y panel de carga de 5 sistemas con presupuesto limitado.",
+        "pm.demoMutationTitle": "Mutación",
+        "pm.demoMutation": "Día 2: el lirio acuático muta y filtra el agua.",
+        "pm.demoCityTitle": "Una ciudad que cambia",
+        "pm.demoCity": "Día 2 por la noche: mapa nocturno con smog, ventanas encendidas y un parche verde en Barrios Bajos.",
+        "pm.demoWorldTitle": "Mundo y humor",
+        "pm.demoWorld": "Radio Miralta, el foro Dunk Wall, la paquetería Air Off y el vecino Sergio.",
+        "pm.tech": "Desarrollo técnico",
+        "pm.techEngine": "Construido con Phaser, con Vite como servidor de desarrollo. Un director ejecuta un sistema de beats que lee un guion y lanza acciones como cambiar el estado, cambiar el momento del día, mostrar diálogos, hacer zoom a una planta o abrir una página. Una sola lista de beats sirve para una versión corta y una larga de la demo.",
+        "pm.techState": "El estado del juego es real, no una animación pegada: el agua, la electricidad, el ánimo y los créditos cambian de verdad; el guion solo decide quién ejecuta la acción. La tienda, la paquetería y el foro son páginas HTML montadas sobre el canvas, que abre un cursor guionado.",
+        "pm.techTests": "La demo se atascaba con dobles y triples clics. Escribí recorridos automáticos con Playwright para medir cuántas pulsaciones pedía cada beat, encontré tres causas y lo reduje a una pulsación por paso.",
+        "pm.art": "Arte y presentación",
+        "pm.artContent": "Arte 2D dibujado a mano con estilo de cómic y novela gráfica, con Patrick Hand como tipografía. El mapa nocturno usa tweens y partículas de Phaser para el smog, las ventanas, el humo y el parche verde; la foto del foro se hace con CSS (desenfoque, grano y viñeta). Un modo de reducir movimiento muestra todo de golpe.",
+        "pm.statusTitle": "Estado del proyecto",
+        "pm.statusContent": "Versión preview.0.0.1, presentada en un congreso del 27 al 30 de octubre de 2026. El video muestra una demo guionada: el presentador avanza con una sola tecla y el motor ejecuta las acciones. Project Miralta es un nombre en clave; el nombre definitivo sigue pendiente.",
+        "pm.water": "Agua",
+        "pm.investTitle": "Ayúdame a convertirlo en un juego completo",
+        "pm.invest": "Project Miralta es una preview creada para un congreso. Si te interesa apoyar, financiar o colaborar en su desarrollo completo, me encantaría platicarlo.",
+        "pm.radioNext": "Siguiente boletín de Radio Miralta",
+        "pm.radioTune": "Sintonizar",
+        "pm.radioWhen1": "Día 1 · 6:40 a. m.",
+        "pm.radioWhen2": "Día 2 · 7:10 a. m.",
+        "pm.radioWhen3": "Día 2 · noche",
+        "pm.radio1": "Radio Miralta, noventa y ocho punto tres. Son las seis cuarenta y el cielo, como el ayuntamiento, promete mucho y no se compromete a nada.",
+        "pm.radio2": "Pronóstico: despejado hasta las cuatro. Después, probable lluvia. Probable que no sea de la buena.",
+        "pm.radio3": "Reparto estatal de agua: hoy toca en su zona. Llegará cuando llegue.",
+        "pm.radio4": "Radio Miralta, noventa y ocho punto tres. Hoy calor. Mucho. La isla de calor manda saludos, y la evaporación también.",
+        "pm.radio5": "Se prevé interrupción del suministro eléctrico en zonas de la ciudad. No se especifican zonas, ni horarios, ni motivos. Gracias por su comprensión.",
+        "pm.radio6": "Radio Miralta, noventa y ocho punto tres. Cerramos por hoy. Mañana, cielo nublado y agua por confirmar. Buenas noches.",
+        "pm.panelSection": "Prueba el apagón del Día 2",
+        "pm.panelIntro": "Se fue la luz. Sergio, el vecino del 4B, conecta sus baterías a las tuyas: tú decides qué se queda encendido.",
+        "pm.panelTitle": "Carga del apagón",
+        "pm.available": "Disponible",
+        "pm.panelNarrator": "Cinco sistemas piden 26 Chispas, y solo hay 14. Hay que elegir.",
+        "pm.sysFridge": "Refrigerador",
+        "pm.sysPurifier": "Purificador",
+        "pm.sysPump": "Bomba",
+        "pm.sysUv": "UV",
+        "pm.sysComputer": "Computadora",
+        "pm.on": "✓ Encendido",
+        "pm.off": "✕ Apagado",
+        "pm.requested": "Pedido",
+        "pm.confirm": "Confirmar",
+        "pm.confirmed": "✓ Listo",
+        "pm.retry": "Volver a intentar",
+        "pm.resMutAlert": "Lirio acuático: mutación",
+        "pm.resMut": "Algo en la tina cambió de color. Un científico lo llamaría fitorremediación. Tú, por ahora, solo ves el agua un poco más clara.",
+        "pm.resMutNote": "Esta planta filtra el agua",
+        "pm.resCleanAlert": "Purificador encendido",
+        "pm.resClean": "El agua sale limpia y el lirio sigue igual. Esta vez no muta nada.",
+        "pm.offRefri": "Refrigerador apagado: la comida aguanta poco con este calor.",
+        "pm.offPurificador": "Purificador apagado: la barra del tanque sigue turbia.",
+        "pm.offBomba": "Bomba apagada: el agua no sube del tanque a las macetas.",
+        "pm.offUv": "UV apagada: el agua no se desinfecta.",
+        "pm.offComputadora": "Computadora apagada: esta tarde no abres RS Viewer y nadie de Barrios Bajos te pide nada.",
+        "pm.hijuelo": "Por la tarde, Barrios Bajos te pide una planta para su cisterna. Le mandas un hijuelo del lirio.",
+        "pm.panelDemo": "En la demo: refrigerador, bomba y computadora encendidos; purificador y UV apagados.",
+        "pm.sameAsDemo": "Elegiste lo mismo que la demo.",
         "nf.documentTitle": "Página no encontrada — Rogelio Ceja",
         "nf.title": "Esta página no se guardó",
         "nf.text": "Puede que el enlace esté roto o que la página se haya movido.",
@@ -321,9 +503,13 @@ const translations = {
 
 window.translations = translations;
 
-// Idioma: el que eligió el visitante; si es su primera visita, el de su navegador
-let currentLanguage = localStorage.getItem("portfolio-language")
-    || ((navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en");
+// Idioma: lo decide la URL en las páginas que tienen versión /es/ (js-flag.js ya mandó a /es/ a quien prefiere
+// español). En el resto (cotizador, 404): el que eligió el visitante o, en su primera visita, el de su navegador.
+const isSpanishUrl = /^\/es(\/|$)/.test(location.pathname);
+let currentLanguage = isSpanishUrl ? "es"
+    : isLocalizedPage() ? "en"
+    : localStorage.getItem("portfolio-language")
+        || ((navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en");
 let scrollDirection = "down";
 let previousScrollY = window.scrollY;
 
@@ -420,17 +606,40 @@ function applyTranslations() {
 function initLanguageToggle() {
     document.querySelectorAll("[data-language-toggle]").forEach((button) => {
         button.addEventListener("click", () => {
-            currentLanguage = currentLanguage === "en" ? "es" : "en";
-            localStorage.setItem("portfolio-language", currentLanguage);
+            const next = currentLanguage === "en" ? "es" : "en";
+            localStorage.setItem("portfolio-language", next);
+            // Con versión en cada idioma se cambia de URL; si no, se traduce en el lugar
+            if (isLocalizedPage()) {
+                location.href = localizedUrl(currentPage(), next) + location.search + location.hash;
+                return;
+            }
+            currentLanguage = next;
             applyTranslations();
             document.dispatchEvent(new Event('languageChanged'));
         });
     });
 }
 
-// Nombre de página sin barras ni .html, para que "/cv" y "/cv.html" cuenten igual (la portada es "index")
+// Nombre de página sin barras, prefijo /es ni .html, para que "/cv", "/cv.html" y "/es/cv" cuenten igual (la portada es "index")
 function pageName(path) {
-    return path.split(/[?#]/)[0].replace(/^\/|\/$/g, '').replace(/\.html$/, '') || 'index';
+    return path.split(/[?#]/)[0].replace(/^\/(es(?:\/|$))?/, '').replace(/\/$/, '').replace(/\.html$/, '') || 'index';
+}
+
+function isLocalizedPage() {
+    return (window.localizedPages || []).includes(currentPage());
+}
+
+function localizedUrl(page, language) {
+    return `${language === "es" ? "/es" : ""}/${page === "index" ? "" : page}`;
+}
+
+// En /es/, los enlaces del header y el footer llevan a la versión en español de cada página
+function localizeLayoutLinks() {
+    if (!isSpanishUrl) return;
+    document.querySelectorAll('[data-layout] a[href^="/"]').forEach((link) => {
+        const page = pageName(link.getAttribute('href'));
+        if ((window.localizedPages || []).includes(page)) link.setAttribute('href', localizedUrl(page, "es"));
+    });
 }
 
 function currentPage() {
@@ -575,6 +784,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.classList.add("reveal-ready");
     loadLayouts()
         .then(() => {
+            localizeLayoutLinks();
             initLanguageToggle();
             initHamburgerMenu();
             initQuoteFab();

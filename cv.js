@@ -121,7 +121,7 @@
             return `
                 <article class="cv cv-visual">
                     <div class="v-side">
-                        ${p.photo ? `<img class="v-photo" src="${esc(p.photo)}" alt="">` : ''}
+                        ${p.photo ? `<img class="v-photo" src="${esc(/^(\/|https?:)/.test(p.photo) ? p.photo : `/${p.photo}`)}" alt="">` : ''}
                         <h1>${esc(p.name)}</h1>
                         <p class="v-title">${esc(tr(p.title))}</p>
                         <p class="v-location">${esc(tr(p.location))}</p>
@@ -151,7 +151,7 @@
     }
 
     function updateDownloads(L) {
-        const file = `assets/cv/Rogelio-Ceja-CV-${template === 'harvard' ? 'Harvard' : 'Visual'}-${L.toUpperCase()}.pdf`;
+        const file = `/assets/cv/Rogelio-Ceja-CV-${template === 'harvard' ? 'Harvard' : 'Visual'}-${L.toUpperCase()}.pdf`;
         document.querySelectorAll('[data-cv-download]').forEach((a) => {
             a.href = file;
             a.setAttribute('download', file.split('/').pop());
@@ -192,7 +192,7 @@
     if (mode === 'embed') {
         parent.postMessage({ type: 'cv-ready' }, location.origin);
     } else {
-        fetch('cv/cv.json', { cache: 'no-cache' })
+        fetch('/cv/cv.json', { cache: 'no-cache' })
             .then((r) => r.json())
             .then((json) => {
                 data = json;

@@ -96,7 +96,13 @@ for (const m of leer('cotizador.js').matchAll(/texto\(\s*['"]([^'"]+)['"]/g)) {
 }
 if (fallos === antesClaves) ok('mismas claves en español e inglés, y ninguna falta');
 
-// 6. Pruebas
+// 6. Versión en español (es/) al día con las páginas en inglés y los textos
+const { checkSpanishPages } = await import(`${pathToFileURL(resolve(raiz, '_dev/build-es.mjs')).href}`);
+const desactualizadas = await checkSpanishPages();
+if (desactualizadas.length) falla(`es/ desactualizado (${desactualizadas.join(', ')}): ejecuta npm run build:es`);
+else ok('es/ al día');
+
+// 7. Pruebas
 try {
     execSync('node --test _dev/tests/*.test.js', { cwd: raiz, stdio: 'inherit' });
     ok('pruebas');

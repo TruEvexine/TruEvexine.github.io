@@ -54,16 +54,18 @@
     document.body.appendChild(lightbox);
     slides.slice(1).forEach((slide) => {
         const img = slide.querySelector('img');
+        if (!img) return; // captura aún sin subir (.media-pending)
         img.addEventListener('click', () => {
             lightbox.replaceChildren(img.cloneNode());
             lightbox.showModal();
         });
     });
 
-    // Erosión: sube de 0 a 100 % conforme se lee la información
+    // Erosión: sube de 0 a 100 % conforme se lee la información (solo SIN GUARDAR)
     const page = document.querySelector('.case');
     const body = document.querySelector('.case-body');
     const value = document.querySelector('.case-erosion-value');
+    if (!value) return;
     let ticking = false;
 
     function updateErosion() {

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pm.documentTitle">Project Miralta — Cozy survival game in Phaser · Rogelio Ceja</title>
+    <meta name="description" content="Project Miralta, a hand-drawn cozy survival game by Rogelio Ceja: tend a rooftop garden while the city runs out of water. Built with Phaser and Vite.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <link rel="canonical" href="https://rogelioemmanuel.com/project-miralta">
+    <link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/project-miralta">
+    <link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/project-miralta">
+    <link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/project-miralta">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="Project Miralta — Cozy survival game in Phaser">
+    <meta property="og:description" content="Project Miralta, a hand-drawn cozy survival game by Rogelio Ceja: tend a rooftop garden while the city runs out of water. Built with Phaser and Vite.">
+    <meta property="og:url" content="https://rogelioemmanuel.com/project-miralta">
+    <!-- Cambiar por la miniatura del video cuando exista (assets/project-miralta/video-hq.jpg) -->
+    <meta property="og:image" content="https://rogelioemmanuel.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script src="js-flag.js"></script>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="project-card.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="miralta.css">
+    <script src="layout.js" defer></script>
+    <script src="project.js" defer></script>
+    <script src="miralta.js" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Project Miralta",
+        "url": "https://rogelioemmanuel.com/project-miralta",
+        "description": "Project Miralta, a hand-drawn cozy survival game by Rogelio Ceja: tend a rooftop garden while the city runs out of water. Built with Phaser and Vite.",
+        "genre": ["Cozy survival", "Management"],
+        "gamePlatform": "Web browser",
+        "applicationCategory": "Game",
+        "inLanguage": "es",
+        "creativeWorkStatus": "Preview",
+        "author": { "@type": "Person", "name": "Rogelio Emmanuel Ceja Acosta", "url": "https://rogelioemmanuel.com/" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rogelioemmanuel.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://rogelioemmanuel.com/projects" },
+            { "@type": "ListItem", "position": 3, "name": "Project Miralta", "item": "https://rogelioemmanuel.com/project-miralta" }
+        ]
+    }
+    </script>
+</head>
+<body data-nav="projects">
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
+    <header data-layout="header"></header>
+
+    <main class="case" id="main">
+        <div class="case-hero">
+            <a class="case-back" href="/projects">← <span data-i18n="sg.back">All projects</span></a>
+            <h1 class="case-title">Project Miralta</h1>
+            <p class="case-tagline" data-i18n="pm.tagline">A cozy survival game where you tend a rooftop garden while the city runs out of water.</p>
+            <div class="case-tags">
+                <span class="project-status" data-i18n="pm.status">Preview demo</span>
+                <ul class="chips"><li>Phaser</li><li>Vite</li><li>JavaScript</li><li>HTML/CSS</li><li>Playwright</li></ul>
+            </div>
+        </div>
+
+        <div class="case-grid">
+            <!-- Columna de medios: video y galería siempre a un lado de la información -->
+            <div class="case-media">
+                <div class="slider" role="region" aria-roledescription="carousel" aria-label="Project Miralta gallery" data-i18n-attr="aria-label:pm.gallery" tabindex="0">
+                    <div class="slider-track">
+                        <!-- Video: cuando esté en YouTube, reemplazar el .media-pending por
+                             <button type="button" class="yt-facade" data-yt="ID_DEL_VIDEO" aria-label="Play the Project Miralta demo video" data-i18n-attr="aria-label:pm.playVideo">
+                                 <img src="assets/project-miralta/video-max.jpg" data-fallback="assets/project-miralta/video-hq.jpg" alt="" width="1280" height="720" fetchpriority="high">
+                                 <span class="yt-play" aria-hidden="true"></span>
+                             </button>
+                             y agregar la clase skel al .slide -->
+                        <div class="slide is-active">
+                            <div class="media-pending">
+                                <span class="media-pending-icon" aria-hidden="true"></span>
+                                <span data-i18n="pm.videoPending">Demo video coming soon</span>
+                            </div>
+                        </div>
+                        <!-- Capturas: reemplazar cada .media-pending por
+                             <img src="assets/project-miralta/shotN.jpg" alt="…" data-i18n-attr="alt:pm.shotN" width="1920" height="1080" loading="lazy">
+                             y agregar la clase skel al .slide. Para más fotos, copiar un .slide completo. -->
+                        <div class="slide">
+                            <div class="media-pending">
+                                <span data-i18n="pm.shotPending">Screenshot coming soon</span>
+                                <strong data-i18n="pm.shot1">Rooftop by day</strong>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="media-pending">
+                                <span data-i18n="pm.shotPending">Screenshot coming soon</span>
+                                <strong data-i18n="pm.shot2">Acid rain</strong>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="media-pending">
+                                <span data-i18n="pm.shotPending">Screenshot coming soon</span>
+                                <strong data-i18n="pm.shot3">Power load panel</strong>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="media-pending">
+                                <span data-i18n="pm.shotPending">Screenshot coming soon</span>
+                                <strong data-i18n="pm.shot4">Forum photo</strong>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="media-pending">
+                                <span data-i18n="pm.shotPending">Screenshot coming soon</span>
+                                <strong data-i18n="pm.shot5">Night map</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="slider-arrow prev" aria-label="Previous" data-i18n-attr="aria-label:ui.prev">&#10094;</button>
+                    <button type="button" class="slider-arrow next" aria-label="Next" data-i18n-attr="aria-label:ui.next">&#10095;</button>
+                    <p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">6</span></p>
+                </div>
+                <div class="slider-dots" aria-hidden="true"></div>
+
+                <!-- Radio Miralta: boletines reales del guion (GUION 1.4-1.6, 5.3-5.4, 7.10); miralta.js los escribe letra por letra -->
+                <section class="mr-radio" aria-labelledby="mr-radio-title">
+                    <button type="button" class="mr-radio-set" aria-label="Next Radio Miralta bulletin" data-i18n-attr="aria-label:pm.radioNext">
+                        <img src="assets/project-miralta/radio.png" alt="" width="180" height="130">
+                    </button>
+                    <div class="mr-globo">
+                        <p class="mr-radio-head"><span id="mr-radio-title">Radio Miralta 98.3</span><span class="mr-radio-when">Day 1 · 6:40 a.m.</span></p>
+                        <p class="mr-radio-text" aria-live="polite">Radio Miralta, ninety-eight point three. It's six forty, and the sky, like city hall, promises a lot and commits to nothing.</p>
+                        <button type="button" class="mr-radio-next"><span data-i18n="pm.radioTune">Tune in</span> <span class="mr-radio-count">1 / 6</span></button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="case-body">
+                <p class="case-lead" data-i18n="pm.lead">Project Miralta is a hand-drawn 2D game. You are stuck on the rooftop of a collapsing megacity and must collect water, generate power, grow plants and trade with the city's districts. Nothing explains the problem to you: you learn it when contaminated water makes your crops sick.</p>
+
+                <blockquote class="case-quote" data-i18n="pm.idea">The plants are the mechanism; the real subject is keeping a small ecosystem alive when the resource that sustains it is disappearing.</blockquote>
+
+                <h2 data-i18n="sg.factsTitle">At a glance</h2>
+                <ul class="case-stats">
+                    <li><strong>2</strong><span data-i18n="pm.statDays">full in-game days</span></li>
+                    <li><strong>4 min</strong><span data-i18n="pm.statMinutes">demo video</span></li>
+                    <li><strong>5</strong><span data-i18n="pm.statSystems">systems on the power panel</span></li>
+                    <li><strong>1</strong><span data-i18n="pm.statKey">key press per step</span></li>
+                </ul>
+
+                <!-- Panel de carga del apagón: mismos sistemas, Chispas y presupuesto que el juego (GUION 6.8-6.10) -->
+                <h2 data-i18n="pm.panelSection">Try the Day 2 blackout</h2>
+                <p class="mr-intro" data-i18n="pm.panelIntro">The power is out. Sergio, the neighbor from 4B, hooks his batteries up to yours: you decide what stays on.</p>
+                <div class="mr-panel">
+                    <div class="mr-panel-head">
+                        <span data-i18n="pm.panelTitle">Blackout load</span>
+                        <span class="mr-dispo"><img src="assets/project-miralta/chispa.png" alt="" width="128" height="128"><span data-i18n="pm.available">Available</span>: 14</span>
+                    </div>
+                    <p class="mr-narrador" data-i18n="pm.panelNarrator">Five systems ask for 26 Sparks, and there are only 14. You have to choose.</p>
+                    <ul class="mr-sistemas">
+                        <li data-sistema="refri" data-chispas="7"><span data-i18n="pm.sysFridge">Refrigerator</span><span class="mr-costo">7</span><button type="button" class="mr-switch" aria-pressed="true">✓ On</button></li>
+                        <li data-sistema="purificador" data-chispas="6"><span data-i18n="pm.sysPurifier">Purifier</span><span class="mr-costo">6</span><button type="button" class="mr-switch" aria-pressed="true">✓ On</button></li>
+                        <li data-sistema="bomba" data-chispas="3"><span data-i18n="pm.sysPump">Pump</span><span class="mr-costo">3</span><button type="button" class="mr-switch" aria-pressed="true">✓ On</button></li>
+                        <li data-sistema="uv" data-chispas="6"><span data-i18n="pm.sysUv">UV</span><span class="mr-costo">6</span><button type="button" class="mr-switch" aria-pressed="true">✓ On</button></li>
+                        <li data-sistema="computadora" data-chispas="4"><span data-i18n="pm.sysComputer">Computer</span><span class="mr-costo">4</span><button type="button" class="mr-switch" aria-pressed="true">✓ On</button></li>
+                    </ul>
+                    <div class="mr-panel-foot">
+                        <span class="mr-pedido" aria-live="polite">Requested: 26 / 14 ⚠</span>
+                        <button type="button" class="mr-confirmar" data-i18n="pm.confirm" disabled>Confirm</button>
+                    </div>
+                </div>
+                <div class="mr-resultado" aria-live="polite" hidden>
+                    <img class="mr-lirio" src="assets/project-miralta/lirio-mutado.png" alt="" width="220" height="200" loading="lazy">
+                    <div>
+                        <p class="mr-alerta"></p>
+                        <p class="mr-res-texto"></p>
+                        <ul class="mr-consecuencias"></ul>
+                        <p class="mr-demo"></p>
+                        <button type="button" class="mr-reintentar" data-i18n="pm.retry">Try again</button>
+                    </div>
+                </div>
+
+                <h2 data-i18n="sg.detailsTitle">Behind the game</h2>
+                <details open>
+                    <summary data-i18n="pm.concept">Concept</summary>
+                    <p data-i18n="pm.conceptContent">A cozy survival and arcade botanical management game with a hand-drawn, comic-book look. I designed the concept, the systems and the scripted demo shown in the video, built on a custom scene engine with Phaser. The thread of the demo fits in one sentence: the player uses contaminated water out of necessity, a plant mutates, and that mutation changes a neighborhood.</p>
+                </details>
+                <details>
+                    <summary data-i18n="pm.demo">What the demo shows</summary>
+                    <ul class="case-list">
+                        <li><strong data-i18n="pm.demoWaterTitle">Water and its quality</strong> <span data-i18n="pm.demoWater">Day 1: state water delivery, then acid rain leaves the tank contaminated.</span></li>
+                        <li><strong data-i18n="pm.demoCropsTitle">Crops</strong> <span data-i18n="pm.demoCrops">Day 1: watering and harvesting bougainvillea and pitaya.</span></li>
+                        <li><strong data-i18n="pm.demoChoiceTitle">A choice with consequences</strong> <span data-i18n="pm.demoChoice">Day 1 afternoon: cover the plants or open the gutter.</span></li>
+                        <li><strong data-i18n="pm.demoEconomyTitle">Economy</strong> <span data-i18n="pm.demoEconomy">Day 1 night: a parody store on the computer and bartering in the Lower Districts.</span></li>
+                        <li><strong data-i18n="pm.demoPowerTitle">Power and priorities</strong> <span data-i18n="pm.demoPower">Day 2: a blackout and a load panel with 5 systems on a limited budget.</span></li>
+                        <li><strong data-i18n="pm.demoMutationTitle">Mutation</strong> <span data-i18n="pm.demoMutation">Day 2: the water lily mutates and filters the water.</span></li>
+                        <li><strong data-i18n="pm.demoCityTitle">A changing city</strong> <span data-i18n="pm.demoCity">Day 2 night: a night map with smog, lit windows and a green patch in the Lower Districts.</span></li>
+                        <li><strong data-i18n="pm.demoWorldTitle">World and humor</strong> <span data-i18n="pm.demoWorld">Radio Miralta, the Dunk Wall forum, Air Off parcel service and Sergio the neighbor.</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary data-i18n="pm.tech">Technical Development</summary>
+                    <p data-i18n="pm.techEngine">Built with Phaser, using Vite as the development server. A director runs a system of beats that reads a script and executes actions such as changing state, switching the time of day, showing dialogue, zooming into a plant or opening a page. A single list of beats serves both a short and a long version of the demo.</p>
+                    <p data-i18n="pm.techState">The game state is real, not pasted-on animation: water, power, mood and credits actually change; the script only decides who performs the action. The store, the parcel service and the forum are HTML pages mounted over the canvas, opened by a scripted cursor.</p>
+                    <p data-i18n="pm.techTests">The demo used to get stuck on double and triple clicks. I wrote automated Playwright runs to measure how many key presses each beat needed, found three causes and brought it down to one press per step.</p>
+                </details>
+                <details>
+                    <summary data-i18n="pm.art">Art and Presentation</summary>
+                    <p data-i18n="pm.artContent">2D hand-drawn art in a comic and graphic novel style, with Patrick Hand as the typeface. The night map uses Phaser tweens and particles for smog, windows, smoke and the green patch; the forum photo is made with CSS blur, grain and vignette. A reduced-motion mode shows everything at once.</p>
+                </details>
+                <details>
+                    <summary data-i18n="pm.statusTitle">Project Status</summary>
+                    <p data-i18n="pm.statusContent">Version preview.0.0.1, presented at a conference from October 27 to 30, 2026. The video shows a scripted demo: the presenter advances with a single key and the engine performs the actions. Project Miralta is a codename; the final name is still to be decided.</p>
+                </details>
+
+                <aside class="case-invest">
+                    <h2 data-i18n="pm.investTitle">Help it grow into a full game</h2>
+                    <p data-i18n="pm.invest">Project Miralta is a preview built for a conference. If you'd like to support, fund or collaborate on its full development, I'd love to talk.</p>
+                    <div class="case-invest-actions">
+                        <a class="btn btn-primary" href="/contact" data-i18n="sg.investCta">Let's talk</a>
+                        <a class="btn" href="https://wa.me/524523412556" data-i18n-attr="href:ui.waLink" target="_blank" rel="noopener noreferrer"><span class="icon icon-whatsapp"></span><span data-i18n="ui.whatsapp">Message on WhatsApp</span></a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <nav class="case-next" aria-label="Next project" data-i18n-attr="aria-label:case.nextProject">
+            <a href="/sin-guardar">
+                <span class="case-next-label" data-i18n="case.nextProject">Next project</span>
+                <span class="case-next-title">SIN GUARDAR</span>
+                <span class="case-next-text" data-i18n="sg.tagline">A cosmic horror visual novel where your choices change the story and how the game looks.</span>
+                <span class="case-next-arrow" aria-hidden="true">→</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>
