@@ -8,6 +8,10 @@
     const counter = slider.querySelector('.current-slide');
     const dots = document.querySelector('.slider-dots');
     slider.querySelector('.total-slides').textContent = slides.length;
+    // Con un solo slide no hay nada que recorrer: se ocultan flechas, contador y puntos
+    const single = slides.length < 2;
+    slider.classList.toggle('is-single', single);
+    dots.hidden = single;
     let index = 0;
 
     const dotButtons = slides.map((_, i) => {

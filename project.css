@@ -204,6 +204,13 @@
     background: #10B981;
 }
 
+/* Un solo slide (por ahora solo el video): sin controles de galería */
+.slider.is-single .slider-arrow,
+.slider.is-single .slider-counter,
+.slider-dots[hidden] {
+    display: none;
+}
+
 /* ---------- Medidor de Erosión ---------- */
 .case-erosion {
     padding: 14px 16px;

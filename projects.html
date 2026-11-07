@@ -61,12 +61,11 @@
         </article>
 
         <article class="project-feature water-card scroll-reveal">
-            <!-- Video: cuando esté en YouTube, reemplazar el .media-pending por el botón .yt-facade (ver project-miralta.html) y agregar la clase skel al contenedor -->
-            <div class="project-feature-media">
-                <div class="media-pending">
-                    <span class="media-pending-icon" aria-hidden="true"></span>
-                    <span data-i18n="pm.videoPending">Demo video coming soon</span>
-                </div>
+            <div class="project-feature-media skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
+                <button type="button" class="yt-facade" data-yt="G4njTeKtKIw" aria-label="Play the Project Miralta demo video" data-i18n-attr="aria-label:pm.playVideo">
+                    <img src="assets/project-miralta/video-max.jpg" data-fallback="assets/project-miralta/video-hq.jpg" alt="" width="1280" height="720">
+                    <span class="yt-play" aria-hidden="true"></span>
+                </button>
                 <span class="rain-scan" aria-hidden="true"></span>
             </div>
             <div class="project-feature-body">

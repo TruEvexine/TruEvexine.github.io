@@ -18,10 +18,9 @@
     <meta property="og:title" content="Project Miralta — Videojuego cozy survival en Phaser">
     <meta property="og:description" content="Project Miralta, un cozy survival dibujado a mano de Rogelio Ceja: cuida un huerto en una azotea mientras la ciudad se queda sin agua. Hecho con Phaser y Vite.">
     <meta property="og:url" content="https://rogelioemmanuel.com/es/project-miralta">
-    <!-- Cambiar por la miniatura del video cuando exista (assets/project-miralta/video-hq.jpg) -->
-    <meta property="og:image" content="https://rogelioemmanuel.com/assets/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://rogelioemmanuel.com/assets/project-miralta/video-max.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -105,55 +104,19 @@
             <div class="case-media">
                 <div class="slider" role="region" aria-roledescription="carousel" aria-label="Galería de Project Miralta" data-i18n-attr="aria-label:pm.gallery" tabindex="0">
                     <div class="slider-track">
-                        <!-- Video: cuando esté en YouTube, reemplazar el .media-pending por
-                             <button type="button" class="yt-facade" data-yt="ID_DEL_VIDEO" aria-label="Play the Project Miralta demo video" data-i18n-attr="aria-label:pm.playVideo">
-                                 <img src="assets/project-miralta/video-max.jpg" data-fallback="assets/project-miralta/video-hq.jpg" alt="" width="1280" height="720" fetchpriority="high">
-                                 <span class="yt-play" aria-hidden="true"></span>
-                             </button>
-                             y agregar la clase skel al .slide -->
-                        <div class="slide is-active">
-                            <div class="media-pending">
-                                <span class="media-pending-icon" aria-hidden="true"></span>
-                                <span data-i18n="pm.videoPending">Video de la demo en camino</span>
-                            </div>
-                        </div>
-                        <!-- Capturas: reemplazar cada .media-pending por
-                             <img src="assets/project-miralta/shotN.jpg" alt="…" data-i18n-attr="alt:pm.shotN" width="1920" height="1080" loading="lazy">
-                             y agregar la clase skel al .slide. Para más fotos, copiar un .slide completo. -->
-                        <div class="slide">
-                            <div class="media-pending">
-                                <span data-i18n="pm.shotPending">Captura en camino</span>
-                                <strong data-i18n="pm.shot1">Azotea de día</strong>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="media-pending">
-                                <span data-i18n="pm.shotPending">Captura en camino</span>
-                                <strong data-i18n="pm.shot2">Lluvia ácida</strong>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="media-pending">
-                                <span data-i18n="pm.shotPending">Captura en camino</span>
-                                <strong data-i18n="pm.shot3">Panel de carga</strong>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="media-pending">
-                                <span data-i18n="pm.shotPending">Captura en camino</span>
-                                <strong data-i18n="pm.shot4">Foto del foro</strong>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="media-pending">
-                                <span data-i18n="pm.shotPending">Captura en camino</span>
-                                <strong data-i18n="pm.shot5">Mapa nocturno</strong>
-                            </div>
+                        <!-- Capturas: cuando existan, agregar un .slide como el del video con
+                             <img src="assets/project-miralta/shotN.jpg" alt="…" width="1920" height="1080" loading="lazy">
+                             y la clase skel. Mientras haya un solo slide, flechas, puntos y contador se ocultan. -->
+                        <div class="slide skel is-active" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
+                            <button type="button" class="yt-facade" data-yt="G4njTeKtKIw" aria-label="Reproducir el video de la demo de Project Miralta" data-i18n-attr="aria-label:pm.playVideo">
+                                <img src="/assets/project-miralta/video-max.jpg" data-fallback="/assets/project-miralta/video-hq.jpg" alt="" width="1280" height="720" fetchpriority="high">
+                                <span class="yt-play" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </div>
                     <button type="button" class="slider-arrow prev" aria-label="Anterior" data-i18n-attr="aria-label:ui.prev">&#10094;</button>
                     <button type="button" class="slider-arrow next" aria-label="Siguiente" data-i18n-attr="aria-label:ui.next">&#10095;</button>
-                    <p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">6</span></p>
+                    <p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">1</span></p>
                 </div>
                 <div class="slider-dots" aria-hidden="true"></div>
 
@@ -245,7 +208,7 @@
                 </details>
                 <details>
                     <summary data-i18n="pm.statusTitle">Estado del proyecto</summary>
-                    <p data-i18n="pm.statusContent">Versión preview.0.0.1, presentada en un congreso del 27 al 30 de octubre de 2026. El video muestra una demo guionada: el presentador avanza con una sola tecla y el motor ejecuta las acciones. Project Miralta es un nombre en clave; el nombre definitivo sigue pendiente.</p>
+                    <p data-i18n="pm.statusContent">Versión preview.0.0.1, preparada como parte de un trabajo de investigación y presentación para el XXIV Congreso Nacional de Divulgación de la Ciencia y la Técnica («Rompamos Paradigmas»), celebrado en Morelia, Michoacán, del 27 al 30 de octubre de 2026, donde la presenté. El video muestra una demo guionada: el presentador avanza con una sola tecla y el motor ejecuta las acciones. Project Miralta es un nombre en clave; el nombre definitivo sigue pendiente.</p>
                 </details>
 
                 <aside class="case-invest">
