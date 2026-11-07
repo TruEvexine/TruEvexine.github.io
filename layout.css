@@ -536,3 +536,92 @@ footer[data-layout="footer"]:empty::before {
     color: #10B981;
     border-color: #10B981;
 }
+
+/* Sin recuadro azul al tocar o dar clic. El anillo de foco sigue apareciendo al navegar con teclado (:focus-visible) */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================================================
+   Respuesta al toque: todo lo que se puede presionar se hunde un poco y
+   cambia de color mientras está presionado. Se usa la propiedad scale (no
+   transform) para no pisar los transform que ya tienen algunos elementos.
+   ========================================================================== */
+
+/* Elementos compactos: botones, flechas, puntos, logo */
+.btn:active,
+.navbar button:active,
+.hamburger-menu:active,
+.quote-fab:active,
+.slider-arrow:active,
+.slider-dots button:active,
+.case-back:active,
+.segmented button:active,
+.icon-links a:active,
+.logo-section:active {
+    color: #10B981;
+}
+
+.btn-primary:active {
+    background-color: #0E9F6E;
+    border-color: #0E9F6E;
+    color: #0D0E15;
+}
+
+/* Enlaces de texto: solo color (un enlace en línea no se puede escalar) */
+.navbar ul li a:active,
+.copyright a:active,
+.contact-info a:active,
+.case-body a:active {
+    color: #10B981;
+}
+
+/* Secciones de texto desplegables (proyectos y preguntas frecuentes) */
+.case-body summary:active,
+.quote-faq summary:active {
+    color: #10B981;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Tarjetas que son enlace o control completo */
+.contact-link:active,
+.case-next a:active,
+.choice:active,
+.extra:active {
+    border-color: #10B981;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.yt-facade:active .yt-play {
+    filter: brightness(0.85);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .btn:active,
+    .navbar button:active,
+    .hamburger-menu:active,
+    .quote-fab:active,
+    .slider-arrow:active,
+    .slider-dots button:active,
+    .case-back:active,
+    .segmented button:active,
+    .icon-links a:active,
+    .logo-section:active {
+        scale: 0.94;
+    }
+
+    .contact-link:active,
+    .case-next a:active,
+    .choice:active,
+    .extra:active {
+        scale: 0.98;
+    }
+
+    .yt-facade:active .yt-play {
+        scale: 0.92;
+    }
+}

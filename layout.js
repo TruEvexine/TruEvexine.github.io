@@ -774,6 +774,9 @@ function onScroll() {
     header.classList.toggle('is-hidden', scrollDirection === "down" && y > 120 && !menuOpen);
 }
 
+// iOS Safari solo activa :active (respuesta al toque) si la página escucha algún evento táctil
+document.addEventListener("touchstart", () => {}, { passive: true });
+
 document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     applyTranslations(); // traduce el contenido antes de que llegue el header, evita el parpadeo de idioma

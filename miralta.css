@@ -393,3 +393,9 @@
         transition: none;
     }
 }
+
+/* Interruptores del panel de carga (la electricidad): se hunden al presionar, como los botones del juego */
+.mr-switch:not(:disabled):active {
+    transform: scale(0.94);
+    filter: brightness(0.93);
+}
