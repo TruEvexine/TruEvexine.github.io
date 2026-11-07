@@ -326,9 +326,11 @@ footer[data-layout="footer"]:empty::after {
     animation: skel-shimmer 1.4s ease-in-out infinite;
 }
 
+/* Header: bloques en su posición final. Tres variantes que siguen los cortes de header.css */
 header[data-layout="header"]:empty::before {
+    width: min(100% - 64px, 1136px);
     height: 60px;
-    /* nombre a la izquierda; 4 enlaces y el botón de idioma a la derecha */
+    /* escritorio: nombre a la izquierda; 4 enlaces y el botón de idioma a la derecha */
     background-image:
         linear-gradient(var(--skel-base), var(--skel-base)),
         linear-gradient(var(--skel-base), var(--skel-base)),
@@ -340,8 +342,69 @@ header[data-layout="header"]:empty::before {
     background-position: 0 50%, calc(100% - 394px) 50%, calc(100% - 312px) 50%, calc(100% - 220px) 50%, calc(100% - 132px) 50%, 100% 50%;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    header[data-layout="header"]:empty::before {
+        width: calc(100% - 48px);
+        background-position: 0 50%, calc(100% - 386px) 50%, calc(100% - 306px) 50%, calc(100% - 216px) 50%, calc(100% - 130px) 50%, 100% 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    header[data-layout="header"]:empty::before {
+        width: calc(100% - 40px);
+        /* móvil: nombre más corto y las tres barras del botón de menú */
+        background-image:
+            linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base)),
+        linear-gradient(var(--skel-base), var(--skel-base));
+        background-size: 190px 18px, 26px 3px, 26px 3px, 26px 3px;
+        background-position: 0 50%, 100% 21px, 100% 29px, 100% 37px;
+    }
+}
+
 footer[data-layout="footer"]:empty {
     background-color: #1D2D44;
+}
+
+/* Footer: dos columnas en escritorio y tablet, una columna en móvil (footer.css cambia a 640 px) */
+:root {
+    --skel-footer: rgba(255, 255, 255, 0.09);
+}
+
+footer[data-layout="footer"]:empty::before {
+    width: min(100%, 1100px);
+    height: 132px;
+    background-image:
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(var(--skel-footer), var(--skel-footer)),
+        linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35));
+    background-size: 150px 20px, 250px 12px, 70px 12px, 190px 20px, 250px 12px, 210px 12px, 200px 12px, 270px 12px, 1px 132px;
+    background-position: calc(25% - 37.5px) 0px, calc(25% - 62.5px) 38px, calc(25% - 17.5px) 62px, calc(75% + 47.5px) 0px, calc(75% + 62.5px) 38px, calc(75% + 52.5px) 62px, calc(75% + 50px) 86px, calc(75% + 67.5px) 110px, 50% 0;
+}
+
+@media (max-width: 640px) {
+    footer[data-layout="footer"]:empty::before {
+        height: 205px;
+        background-image:
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(var(--skel-footer), var(--skel-footer)),
+            linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35));
+        background-size: 130px 18px, 240px 11px, 60px 11px, 180px 18px, 260px 11px, 220px 11px, 210px 11px, 250px 11px, 100% 1px;
+        background-position: 50% 0px, 50% 30px, 50% 50px, 50% 100px, 50% 130px, 50% 150px, 50% 170px, 50% 190px, 50% 76px;
+    }
 }
 
 footer[data-layout="footer"]:empty::before {

@@ -470,9 +470,52 @@
     }
 }
 
-/* Skeleton de la hoja mientras llegan los datos */
+/* Skeleton de la hoja mientras llegan los datos: silueta de un CV (nombre, datos y cuatro secciones).
+   Los bloques usan % de la hoja, así que la misma silueta sirve en escritorio y en móvil. */
 .paper.skel {
-    --skel-base: #E5E7EB;
-    --skel-shine: #F9FAFB;
+    --skel-base: #EEF0F3;
+    --skel-shine: #FFFFFF;
     background-color: var(--skel-base);
+}
+
+.paper.skel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-image:
+        linear-gradient(rgba(17, 24, 39, 0.13), rgba(17, 24, 39, 0.13)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.13), rgba(17, 24, 39, 0.13)),
+        linear-gradient(rgba(17, 24, 39, 0.13), rgba(17, 24, 39, 0.13)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.13), rgba(17, 24, 39, 0.13)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.13), rgba(17, 24, 39, 0.13)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.13), rgba(17, 24, 39, 0.13)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07)),
+        linear-gradient(rgba(17, 24, 39, 0.07), rgba(17, 24, 39, 0.07));
+    background-size: 42% 2.8%, 30% 1.4%, 62% 1.2%, 84% 0.2%, 22% 1.6%, 84% 1.2%, 78% 1.2%, 82% 1.2%, 50% 1.2%, 22% 1.6%, 84% 1.2%, 78% 1.2%, 82% 1.2%, 50% 1.2%, 22% 1.6%, 84% 1.2%, 78% 1.2%, 82% 1.2%, 50% 1.2%, 22% 1.6%, 84% 1.2%, 78% 1.2%, 82% 1.2%;
+    background-position: 13.793% 5.144%, 11.429% 9.331%, 21.053% 11.943%, 50% 14.529%, 10.256% 17.785%, 50% 21.255%, 36.364% 24.291%, 44.444% 27.328%, 16% 30.364%, 10.256% 41.159%, 50% 44.534%, 36.364% 47.571%, 44.444% 50.607%, 16% 53.644%, 10.256% 63.516%, 50% 66.802%, 36.364% 69.838%, 44.444% 72.874%, 16% 75.911%, 10.256% 82.825%, 50% 86.032%, 36.364% 89.069%, 44.444% 92.105%;
+}
+
+/* Pantallas más angostas que la hoja: ocupa el ancho disponible con la misma proporción de carta */
+@media (max-width: 856px) {
+    .paper.skel {
+        width: 100%;
+        min-height: 0;
+        aspect-ratio: 8.5 / 11;
+    }
 }
