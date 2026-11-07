@@ -1,5 +1,5 @@
 # Regenera los PDF del CV cada vez que cambia su contenido o su diseño
-# (por ejemplo, al guardar desde admin.html).
+# (por ejemplo, al editar cv/cv.json).
 name: CV PDFs
 
 on:
