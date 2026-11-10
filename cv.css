@@ -300,15 +300,21 @@
 }
 
 .v-interests {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2px 0;
+    display: grid;
+    gap: 4px;
 }
 
-.v-interests li:not(:last-child)::after {
+/* Una por línea con su viñeta delante: así ningún separador queda suelto al final de una línea */
+.v-interests li {
+    display: flex;
+    gap: 8px;
+}
+
+.v-interests li::before {
     content: '·';
-    margin: 0 6px;
+    flex: none;
     color: #10B981;
+    font-weight: 700;
 }
 
 .v-main {
