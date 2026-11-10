@@ -30,14 +30,14 @@ export function cargarProyectos() {
 // Los textos fijos de la interfaz siguen en el diccionario de layout.js (son los mismos del resto del sitio)
 export function cargarDiccionarios() {
     globalThis.window = { translations: {} };
-    const bloque = leer('layout.js');
+    const bloque = leer('js/layout.js');
     const inicio = bloque.indexOf('const translations =');
     const fin = bloque.indexOf('window.translations = translations');
     return new Function(`${bloque.slice(inicio, fin)}; return translations;`)();
 }
 
 export function paginasLocalizadas() {
-    return JSON.parse(leer('js-flag.js').match(/localizedPages = (\[[^\]]*\])/)[1]);
+    return JSON.parse(leer('js/js-flag.js').match(/localizedPages = (\[[^\]]*\])/)[1]);
 }
 
 // Una página de proyecto es válida si el sitio la sirve en ambos idiomas: está en localizedPages y existe su HTML.

@@ -1,7 +1,7 @@
 // Rutas absolutas para que también funcionen desde la página 404 en cualquier URL
 const layouts = {
-    header: "/header",
-    footer: "/footer"
+    header: "/partials/header",
+    footer: "/partials/footer"
 };
 
 const translations = {
@@ -550,33 +550,21 @@ function initScrollReveal() {
         return;
     }
 
-    // Dos observadores con histéresis: aparece 10% dentro de la pantalla y se oculta al salir por completo.
-    // Con uno solo, el desplazamiento del propio efecto (translateY de 24px) la sacaba y la metía del
-    // umbral una y otra vez, y la sección parpadeaba aun estando a la vista.
+    // Cada sección aparece una sola vez (10% dentro de la pantalla) y se queda: al volver a subir, el
+    // contenido sigue ahí, y la impresión, el buscador de la página y los scrolls rápidos no ven huecos.
     const showObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
                 entry.target.dataset.revealDirection = scrollDirection;
                 entry.target.classList.add("is-visible");
+                showObserver.unobserve(entry.target);
             });
         },
         { rootMargin: "-10% 0px" }
     );
 
-    const hideObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) entry.target.classList.remove("is-visible");
-            });
-        },
-        { rootMargin: "0px" }
-    );
-
-    elements.forEach((element) => {
-        showObserver.observe(element);
-        hideObserver.observe(element);
-    });
+    elements.forEach((element) => showObserver.observe(element));
 }
 
 function applyTranslations() {

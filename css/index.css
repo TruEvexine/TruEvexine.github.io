@@ -3,13 +3,13 @@
    ========================================================================== */
 
 .main {
-    background-color: #0D0E15;
+    background-color: var(--bg-page);
     padding: 0 0 64px;
 }
 
 .main h2 {
     margin: 0 0 28px;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'Oswald', sans-serif;
     font-size: clamp(2rem, 4vw, 2.8rem);
     line-height: 1.1;
@@ -24,7 +24,7 @@
     align-items: center;
     gap: clamp(32px, 6vw, 80px);
     padding: clamp(48px, 9vh, 96px) max(24px, calc((100% - 1100px) / 2));
-    background: linear-gradient(160deg, #1D2D44 0%, #16233A 60%, #0D0E15 100%);
+    background: linear-gradient(160deg, var(--bg-surface) 0%, #16233A 60%, var(--bg-page) 100%);
 }
 
 .hero-text {
@@ -40,7 +40,7 @@
    así que 9cqi (≈1/11 del ancho disponible) siempre cabe con margen */
 .hero h1 {
     margin: 0;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: 2rem;
     font-size: min(3.6rem, 9cqi);
@@ -53,7 +53,7 @@
 
 .hero-role {
     margin: 0;
-    color: #10B981;
+    color: var(--brand-accent);
     font-family: 'Oswald', sans-serif;
     font-size: clamp(1.1rem, 1.8vw, 1.35rem);
     font-weight: 500;
@@ -109,7 +109,7 @@
     height: 4px;
     margin-top: 16px;
     border-radius: 2px;
-    background: #10B981;
+    background: var(--brand-accent);
 }
 
 .about-body {
@@ -122,7 +122,7 @@
 .about-body p {
     max-width: 65ch;
     margin: 0;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-size: 1.15rem;
     line-height: 1.65;
 }

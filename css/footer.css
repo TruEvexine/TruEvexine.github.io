@@ -1,8 +1,8 @@
 
 footer {
 
-    color: #F3F4F6;
-    background-color: #1D2D44;
+    color: var(--text-primary);
+    background-color: var(--bg-surface);
     padding: 28px 20px;
     width: 100%;
 }
@@ -32,7 +32,7 @@ footer {
     flex: 1;
     margin-top: 0;
     padding: 0 32px;
-    border-left: 1px solid #F3F4F6;
+    border-left: 1px solid var(--text-primary);
 }
 
 .copyright h2,
@@ -42,12 +42,16 @@ footer {
 
 .copyright p,
 .contact-info p {
-    margin: 5px 0;
+    margin: 0;
+    line-height: 24px;
 }
 
 .copyright a,
 .contact-info a {
-    color: #F3F4F6;
+    display: inline-block;
+    min-height: 24px;
+    line-height: 24px;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -58,12 +62,12 @@ footer {
 .copyright a:focus,
 .contact-info a:hover,
 .contact-info a:focus {
-    color: #10B981;
+    color: var(--brand-accent);
 }
 
 @media (max-width: 640px) {
     footer {
-        padding: 24px 20px;
+        padding: 24px 20px 88px; /* deja pasar el botón flotante */
     }
 
     .footer-content {
@@ -103,7 +107,7 @@ footer {
 
 @media (max-width: 480px) {
     footer {
-        padding: 20px 16px;
+        padding: 20px 16px 88px;
     }
 
     .copyright h2,

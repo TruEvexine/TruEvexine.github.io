@@ -1,5 +1,5 @@
 .contact-main {
-    background-color: #0D0E15;
+    background-color: var(--bg-page);
     padding: 0 0 56px;
 }
 
@@ -11,12 +11,12 @@
 .contact-hero {
     width: 100%;
     padding: clamp(32px, 6vh, 64px) 24px;
-    background-color: #1D2D44;
+    background-color: var(--bg-surface);
 }
 
 .contact-panel h1 {
     margin: 0;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(2.8rem, 7vw, 5rem);
     letter-spacing: var(--tracking-display);
@@ -51,7 +51,7 @@
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-card);
     background: var(--surface-card);
-    color: #F3F4F6;
+    color: var(--text-primary);
     text-decoration: none;
     transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
 }
@@ -63,7 +63,7 @@
 }
 
 .contact-link:focus-visible {
-    outline: 3px solid #10B981;
+    outline: 3px solid var(--brand-accent);
     outline-offset: 3px;
 }
 
@@ -89,7 +89,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #10B981;
+    color: var(--brand-accent);
     font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
@@ -113,15 +113,15 @@
 .contact-option-action {
     margin-top: 24px;
     padding-bottom: 3px;
-    border-bottom: 1px solid #10B981;
-    color: #F3F4F6;
+    border-bottom: 1px solid var(--brand-accent);
+    color: var(--text-primary);
     font-family: 'Arimo', sans-serif;
     font-weight: 700;
 }
 
 .contact-link:hover .contact-option-action,
 .contact-link:focus-visible .contact-option-action {
-    color: #10B981;
+    color: var(--brand-accent);
 }
 
 .contact-quote {

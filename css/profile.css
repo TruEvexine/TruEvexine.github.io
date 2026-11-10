@@ -3,20 +3,20 @@
    ========================================================================== */
 
 .profile-main {
-    background-color: #0D0E15;
+    background-color: var(--bg-page);
     padding-bottom: 72px;
 }
 
 /* Banda de título, mismo lenguaje que Proyectos */
 .profile-hero {
     padding: clamp(36px, 7vh, 64px) 24px;
-    background-color: #1D2D44;
+    background-color: var(--bg-surface);
     text-align: center;
 }
 
 .profile-hero h1 {
     margin: 0;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4rem);
     letter-spacing: var(--tracking-display);
@@ -40,7 +40,7 @@
 
 .profile-section h2 {
     margin: 0 0 28px;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'Oswald', sans-serif;
     font-size: clamp(1.9rem, 3.5vw, 2.6rem);
     letter-spacing: var(--tracking-heading);
@@ -60,7 +60,7 @@
 
 .stack-group h3 {
     margin: 0;
-    color: #10B981;
+    color: var(--brand-accent);
     font-family: 'Oswald', sans-serif;
     font-size: 1.3rem;
     font-weight: 600;
@@ -93,7 +93,7 @@
     width: 64px;
     height: 64px;
     border-radius: var(--radius-inner);
-    background: #F3F4F6;
+    background: var(--text-primary);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -105,7 +105,7 @@
 
 .stack-list li:hover .stack-logo {
     transform: translateY(-3px);
-    box-shadow: 0 0 0 2px #10B981;
+    box-shadow: 0 0 0 2px var(--brand-accent);
 }
 
 .stack-also {
@@ -172,7 +172,7 @@
 
 .traits h3 {
     margin: 0 0 8px;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'Oswald', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
@@ -192,7 +192,7 @@
     overflow: hidden;
     border: 1px solid rgba(243, 244, 246, 0.12);
     border-radius: var(--radius-card);
-    background: #1D2D44;
+    background: var(--bg-surface);
 }
 
 .edu-media {
@@ -215,7 +215,7 @@
 
 .edu-text h3 {
     margin: 0 0 8px;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'Oswald', sans-serif;
     font-size: 1.7rem;
     line-height: 1.2;
@@ -232,7 +232,7 @@
     padding: 6px 14px;
     border: 1px solid rgba(16, 185, 129, 0.5);
     border-radius: var(--radius-chip);
-    color: #10B981;
+    color: var(--brand-accent);
     font-size: 0.9rem;
     font-weight: 700;
 }

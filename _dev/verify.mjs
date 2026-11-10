@@ -17,8 +17,8 @@ const falla = (msg) => { fallos += 1; console.error(`✗ ${msg}`); };
 const ok = (msg) => console.log(`✓ ${msg}`);
 
 const paginas = ['cotizar.html', 'cv.html'];
-const hojas = ['cotizar.css'];
-const codigo = ['cotizador.js', 'cotizador-calc.js', 'precios.js', 'contacto.js', 'cotizar-textos.js', 'cv.js', 'cv-credentials.js'];
+const hojas = ['css/cotizar.css'];
+const codigo = ['js/cotizador.js', 'js/cotizador-calc.js', 'js/precios.js', 'js/contacto.js', 'js/cotizar-textos.js', 'js/cv.js', 'js/cv-credentials.js'];
 
 // 1. Código en línea (la CSP estricta no lo permite). El JSON-LD es dato, no se ejecuta.
 function codigoEnLinea(html) {
@@ -59,7 +59,7 @@ if (!fallos) ok('sin código en línea ni recursos externos');
 
 // 3. Prohibido insertar HTML desde datos
 const antes = fallos;
-for (const archivo of ['cotizador.js', 'cotizador-calc.js', 'cotizar-textos.js', 'cv-credentials.js']) {
+for (const archivo of ['js/cotizador.js', 'js/cotizador-calc.js', 'js/cotizar-textos.js', 'js/cv-credentials.js']) {
     const texto = leer(archivo);
     for (const prohibido of ['innerHTML', 'outerHTML', 'insertAdjacentHTML', 'document.write', 'eval(']) {
         if (texto.includes(prohibido)) falla(`${archivo}: usa ${prohibido}`);
@@ -69,7 +69,7 @@ if (fallos === antes) ok('sin innerHTML ni eval');
 
 // 4. Precios solo en precios.js: ni cantidades en pesos en el HTML ni en los textos
 const antesPrecios = fallos;
-for (const archivo of ['cotizar.html', 'cotizar-textos.js', 'cotizador.js', 'cotizador-calc.js']) {
+for (const archivo of ['cotizar.html', 'js/cotizar-textos.js', 'js/cotizador.js', 'js/cotizador-calc.js']) {
     const texto = leer(archivo);
     for (const m of texto.matchAll(/\$\s?\d[\d,.]*/g)) falla(`${archivo}: precio escrito a mano → ${m[0]}`);
 }
@@ -77,30 +77,30 @@ if (fallos === antesPrecios) ok('precios solo en precios.js');
 
 // 5. Claves de idioma: layout.js + cotizar-textos.js, mismas en es y en, y todas las usadas existen
 globalThis.window = { translations: {} };
-const bloque = leer('layout.js');
+const bloque = leer('js/layout.js');
 const inicio = bloque.indexOf('const translations =');
 const fin = bloque.indexOf('window.translations = translations');
 window.translations = new Function(`${bloque.slice(inicio, fin)}; return translations;`)();
-await import(`${pathToFileURL(resolve(raiz, 'cotizar-textos.js')).href}`);
+await import(`${pathToFileURL(resolve(raiz, 'js/cotizar-textos.js')).href}`);
 const { es, en } = window.translations;
 const antesClaves = fallos;
 Object.keys(es).filter((k) => !(k in en)).forEach((k) => falla(`falta en inglés: ${k}`));
 Object.keys(en).filter((k) => !(k in es)).forEach((k) => falla(`falta en español: ${k}`));
-for (const archivo of ['cotizar.html', 'contact.html', 'footer.html', 'cv.html']) {
+for (const archivo of ['cotizar.html', 'contact.html', 'partials/footer.html', 'cv.html']) {
     for (const m of leer(archivo).matchAll(/data-i18n(?:-html)?="([^"]+)"/g)) {
         if (!(m[1] in es) || !(m[1] in en)) falla(`${archivo}: clave sin traducir → ${m[1]}`);
     }
 }
-for (const m of leer('cotizador.js').matchAll(/texto\(\s*['"]([^'"]+)['"]/g)) {
+for (const m of leer('js/cotizador.js').matchAll(/texto\(\s*['"]([^'"]+)['"]/g)) {
     if (!(m[1] in es) || !(m[1] in en)) falla(`cotizador.js: clave sin traducir → ${m[1]}`);
 }
 if (fallos === antesClaves) ok('mismas claves en español e inglés, y ninguna falta');
 
-// 5b. CV: enlaces de proyecto y tarjetas de certificaciones (datos en cv/cv.json)
+// 5b. CV: enlaces de proyecto y tarjetas de certificaciones (datos en data/cv.json)
 {
     const antesCv = fallos;
-    const cv = JSON.parse(leer('cv/cv.json'));
-    const paginasLocales = JSON.parse(leer('js-flag.js').match(/localizedPages = (\[[^\]]*\])/)[1]);
+    const cv = JSON.parse(leer('data/cv.json'));
+    const paginasLocales = JSON.parse(leer('js/js-flag.js').match(/localizedPages = (\[[^\]]*\])/)[1]);
     if ('projects' in cv) falla('cv.json: los proyectos viven solo en data/projects.json');
     const catalogo = JSON.parse(leer('data/projects.json')).projects;
     const diccionarios = (await import(pathToFileURL(resolve(raiz, '_dev/projects-render.mjs')).href)).cargarDiccionarios();

@@ -570,7 +570,7 @@
 }
 
 @keyframes total-pop {
-    0% { transform: translateY(6px); opacity: 0.4; color: #10B981; }
+    0% { transform: translateY(6px); opacity: 0.4; color: var(--brand-accent); }
     100% { transform: none; opacity: 1; }
 }
 

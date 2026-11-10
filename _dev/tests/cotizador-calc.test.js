@@ -1,10 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { PRECIOS } from '../../precios.js';
+import { PRECIOS } from '../../js/precios.js';
 import {
     aplicarIva, calcular, recomendar, formatoMoneda, limpiarTexto,
     generarFolio, armarMensaje, enlaceWhatsApp, enlaceCorreo,
-} from '../../cotizador-calc.js';
+} from '../../js/cotizador-calc.js';
 
 const sinExtras = { cuidado: false, seoArranque: false, seoContinuo: false, whatsapp: false, kitNfc: false };
 

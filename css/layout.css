@@ -5,7 +5,7 @@
 /* Fuentes propias: el sitio no llama a Google Fonts */
 @font-face {
     font-family: 'Arimo';
-    src: url('assets/fonts/arimo-latin-400-normal.woff2') format('woff2');
+    src: url('/assets/fonts/arimo-latin-400-normal.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'Arimo';
-    src: url('assets/fonts/arimo-latin-700-normal.woff2') format('woff2');
+    src: url('/assets/fonts/arimo-latin-700-normal.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'Oswald';
-    src: url('assets/fonts/oswald-latin-500-normal.woff2') format('woff2');
+    src: url('/assets/fonts/oswald-latin-500-normal.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -29,7 +29,7 @@
 
 @font-face {
     font-family: 'Oswald';
-    src: url('assets/fonts/oswald-latin-600-normal.woff2') format('woff2');
+    src: url('/assets/fonts/oswald-latin-600-normal.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -37,7 +37,7 @@
 
 @font-face {
     font-family: 'Oswald';
-    src: url('assets/fonts/oswald-latin-700-normal.woff2') format('woff2');
+    src: url('/assets/fonts/oswald-latin-700-normal.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -46,7 +46,7 @@
 /* Fuente de títulos, declarada una sola vez para todas las páginas */
 @font-face {
     font-family: 'MiFuentePersonalizada';
-    src: url('assets/fonts/extension-regular.ttf') format('truetype');
+    src: url('/assets/fonts/extension-regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -66,8 +66,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Arimo', Arial, sans-serif;
-    color: #F3F4F6;
-    background-color: #0D0E15;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
 }
 
 img {
@@ -112,7 +112,7 @@ footer[data-layout="footer"] {
     padding: 10px 22px;
     border: 1px solid rgba(243, 244, 246, 0.35);
     border-radius: 999px;
-    color: #F3F4F6;
+    color: var(--text-primary);
     background: transparent;
     font-family: 'Arimo', sans-serif;
     font-size: 1rem;
@@ -124,14 +124,14 @@ footer[data-layout="footer"] {
 
 .btn:hover,
 .btn:focus-visible {
-    color: #10B981;
-    border-color: #10B981;
+    color: var(--brand-accent);
+    border-color: var(--brand-accent);
 }
 
 .btn-primary {
-    background-color: #10B981;
-    border-color: #10B981;
-    color: #0D0E15;
+    background-color: var(--brand-accent);
+    border-color: var(--brand-accent);
+    color: var(--bg-page);
 }
 
 .btn-primary:hover,
@@ -187,8 +187,8 @@ footer[data-layout="footer"] {
     z-index: 200;
     padding: 10px 16px;
     border-radius: 8px;
-    background: #10B981;
-    color: #0D0E15;
+    background: var(--brand-accent);
+    color: var(--bg-page);
     font-weight: 700;
     text-decoration: none;
 }
@@ -364,7 +364,7 @@ header[data-layout="header"]:empty::before {
 }
 
 footer[data-layout="footer"]:empty {
-    background-color: #1D2D44;
+    background-color: var(--bg-surface);
 }
 
 /* Footer: dos columnas en escritorio y tablet, una columna en móvil (footer.css cambia a 640 px) */
@@ -453,7 +453,7 @@ footer[data-layout="footer"]:empty::before {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #10B981;
+    background: var(--brand-accent);
 }
 
 .chips {
@@ -484,14 +484,14 @@ footer[data-layout="footer"]:empty::before {
     mask: var(--icon) center / contain no-repeat;
 }
 
-.icon-mail { --icon: url('assets/ui/mail.svg'); }
-.icon-phone { --icon: url('assets/ui/phone.svg'); }
-.icon-whatsapp { --icon: url('assets/ui/whatsapp.svg'); }
-.icon-github { --icon: url('assets/ui/github.svg'); }
-.icon-linkedin { --icon: url('assets/ui/linkedin.svg'); }
-.icon-copy { --icon: url('assets/ui/copy.svg'); }
-.icon-web { --icon: url('assets/ui/web.svg'); }
-.icon-arrow { --icon: url('assets/ui/arrow.svg'); }
+.icon-mail { --icon: url('/assets/ui/mail.svg'); }
+.icon-phone { --icon: url('/assets/ui/phone.svg'); }
+.icon-whatsapp { --icon: url('/assets/ui/whatsapp.svg'); }
+.icon-github { --icon: url('/assets/ui/github.svg'); }
+.icon-linkedin { --icon: url('/assets/ui/linkedin.svg'); }
+.icon-copy { --icon: url('/assets/ui/copy.svg'); }
+.icon-web { --icon: url('/assets/ui/web.svg'); }
+.icon-arrow { --icon: url('/assets/ui/arrow.svg'); }
 
 .icon-links {
     display: flex;
@@ -508,14 +508,14 @@ footer[data-layout="footer"]:empty::before {
     height: 44px;
     border: 1px solid rgba(243, 244, 246, 0.2);
     border-radius: 50%;
-    color: #F3F4F6;
+    color: var(--text-primary);
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .icon-links a:hover,
 .icon-links a:focus-visible {
-    color: #10B981;
-    border-color: #10B981;
+    color: var(--brand-accent);
+    border-color: var(--brand-accent);
 }
 
 .btn .icon {
@@ -569,13 +569,13 @@ footer[data-layout="footer"]:empty::before {
     top: 21px;
     border-style: solid;
     border-width: 14px 0 14px 22px;
-    border-color: transparent transparent transparent #F3F4F6;
+    border-color: transparent transparent transparent var(--text-primary);
 }
 
 .yt-facade:hover .yt-play,
 .yt-facade:focus-visible .yt-play {
     transform: scale(1.08);
-    background: #10B981;
+    background: var(--brand-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -596,8 +596,8 @@ footer[data-layout="footer"]:empty::before {
 
 /* Confirmación al copiar: el botón se pone verde mientras dice "Copiado" */
 .btn.is-copied {
-    color: #10B981;
-    border-color: #10B981;
+    color: var(--brand-accent);
+    border-color: var(--brand-accent);
 }
 
 /* Sin recuadro azul al tocar o dar clic. El anillo de foco sigue apareciendo al navegar con teclado (:focus-visible) */
@@ -626,13 +626,13 @@ footer[data-layout="footer"]:empty::before {
 .segmented button:active,
 .icon-links a:active,
 .logo-section:active {
-    color: #10B981;
+    color: var(--brand-accent);
 }
 
 .btn-primary:active {
     background-color: #0E9F6E;
     border-color: #0E9F6E;
-    color: #0D0E15;
+    color: var(--bg-page);
 }
 
 /* Enlaces de texto: solo color (un enlace en línea no se puede escalar) */
@@ -640,13 +640,13 @@ footer[data-layout="footer"]:empty::before {
 .copyright a:active,
 .contact-info a:active,
 .case-body a:active {
-    color: #10B981;
+    color: var(--brand-accent);
 }
 
 /* Secciones de texto desplegables (proyectos y preguntas frecuentes) */
 .case-body summary:active,
 .quote-faq summary:active {
-    color: #10B981;
+    color: var(--brand-accent);
     background-color: rgba(16, 185, 129, 0.1);
 }
 
@@ -655,7 +655,7 @@ footer[data-layout="footer"]:empty::before {
 .case-next a:active,
 .choice:active,
 .extra:active {
-    border-color: #10B981;
+    border-color: var(--brand-accent);
     background-color: rgba(16, 185, 129, 0.1);
 }
 

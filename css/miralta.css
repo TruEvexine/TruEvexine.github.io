@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'Patrick Hand';
-    src: url('assets/fonts/patrick-hand-latin-400-normal.woff2') format('woff2');
+    src: url('/assets/fonts/patrick-hand-latin-400-normal.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -65,7 +65,7 @@
 .mr-radio :focus-visible,
 .mr-panel :focus-visible,
 .mr-resultado :focus-visible {
-    outline: 3px solid #10B981;
+    outline: 3px solid var(--brand-accent);
     outline-offset: 3px;
 }
 

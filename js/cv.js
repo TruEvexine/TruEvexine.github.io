@@ -1,4 +1,4 @@
-// CV: se dibuja desde cv/cv.json en dos plantillas (Harvard y visual) y dos idiomas.
+// CV: se dibuja desde data/cv.json en dos plantillas (Harvard y visual) y dos idiomas.
 // Modos por URL:
 //   cv.html                         → página normal del sitio
 //   cv.html?print=1&t=harvard&lang=es → solo la hoja, para generar el PDF
@@ -169,6 +169,7 @@
         const paper = document.getElementById('cv-paper');
         const scale = Math.min(1, scaler.parentElement.clientWidth / paper.offsetWidth);
         paper.style.transform = scale < 1 ? `scale(${scale})` : '';
+        paper.classList.toggle('paper-scaled', scale < 1);
         scaler.style.height = `${paper.offsetHeight * scale}px`;
     }
 
@@ -216,7 +217,7 @@
     } else {
         // Los proyectos viven en data/projects.json (fuente única, también de las tarjetas del sitio);
         // al CV solo entran los marcados con cv.include
-        Promise.all(['/cv/cv.json', '/data/projects.json'].map((url) => fetch(url, { cache: 'no-cache' }).then((r) => r.json())))
+        Promise.all(['/data/cv.json', '/data/projects.json'].map((url) => fetch(url, { cache: 'no-cache' }).then((r) => r.json())))
             .then(([json, catalog]) => {
                 json.projects = cvProjects(catalog.projects, json.person.website);
                 data = json;

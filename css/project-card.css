@@ -101,7 +101,7 @@
 
 .project-feature-title {
     margin: 0;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'Oswald', sans-serif;
     font-size: clamp(1.5rem, 2.6vw, 2rem);
     font-weight: 700;
@@ -117,18 +117,18 @@
 }
 
 .project-title-link:hover {
-    color: #10B981;
+    color: var(--brand-accent);
 }
 
 .project-title-link:focus-visible {
-    color: #10B981;
-    outline: 2px solid #10B981;
+    color: var(--brand-accent);
+    outline: 2px solid var(--brand-accent);
     outline-offset: 4px;
     border-radius: 4px;
 }
 
 .project-title-link:active {
-    color: #10B981;
+    color: var(--brand-accent);
 }
 
 .project-feature-body > p:not(.project-meta) {
@@ -207,7 +207,7 @@
     display: block;
     width: 8%;
     height: 100%;
-    background: linear-gradient(90deg, #10B981, #EF4444);
+    background: linear-gradient(90deg, var(--brand-accent), #EF4444);
     transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -263,7 +263,7 @@
 
 .water-bar > span {
     width: 88%;
-    background: linear-gradient(90deg, #38BDF8, #10B981);
+    background: linear-gradient(90deg, #38BDF8, var(--brand-accent));
     transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease;
 }
 

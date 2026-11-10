@@ -1,6 +1,6 @@
 // Genera los 4 PDFs del CV (Harvard / Visual × ES / EN) a partir de cv.html.
 // Uso: node _dev/render-cv.mjs   (desde la raíz del repo; requiere el paquete "playwright")
-// Lo ejecuta la GitHub Action .github/workflows/cv-pdf.yml cada vez que cambia cv/cv.json.
+// Lo ejecuta la GitHub Action .github/workflows/cv-pdf.yml cada vez que cambia data/cv.json.
 import { createServer } from 'node:http';
 import { readFile, mkdir } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';

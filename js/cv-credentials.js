@@ -1,5 +1,5 @@
 // CV (solo web): tarjetas de certificaciones, diplomas y participaciones, con imágenes ampliables.
-// Los datos salen de "certifications" en cv/cv.json; cv.js los reparte con el evento "cv:data".
+// Los datos salen de "certifications" en data/cv.json; cv.js los reparte con el evento "cv:data".
 // No forma parte de la hoja del CV ni del PDF. Todo se arma con el DOM, sin insertar HTML.
 (() => {
     const section = document.querySelector('.cv-credentials');

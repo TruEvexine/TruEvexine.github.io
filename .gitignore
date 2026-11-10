@@ -1,29 +1,20 @@
-# Default ignored files
-/shelf/
-/.idea/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Ignored default folder with query files
-/queries/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-/assets/2d1339a590345af606dacc422f2ba73d0a3793e6-2040x2208.webp
-
-# IntelliJ IDEA / JetBrains
+# Editor / IDE
 .idea/
 *.iml
 *.iws
 out/
+.junie/
+.impeccable/
+
+# Herramientas locales
+node_modules/
+.wrangler/
+.env
+*.log
 
 # Sistema operativo
 .DS_Store
 Thumbs.db
-.env
-# Logs y temporales
-*.log
-.junie/
-node_modules/
-.impeccable/
 
-.wrangler/
+# Imagen suelta de trabajo (no se publica)
+/assets/2d1339a590345af606dacc422f2ba73d0a3793e6-2040x2208.webp

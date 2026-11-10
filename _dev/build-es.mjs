@@ -12,7 +12,7 @@ const leer = (archivo) => readFileSync(resolve(raiz, archivo), 'utf8');
 const SITIO = 'https://rogelioemmanuel.com';
 
 // Lista de páginas: la misma que usa js-flag.js para redirigir
-const PAGINAS = JSON.parse(leer('js-flag.js').match(/localizedPages = (\[[^\]]*\])/)[1]);
+const PAGINAS = JSON.parse(leer('js/js-flag.js').match(/localizedPages = (\[[^\]]*\])/)[1]);
 
 // SEO en español de cada página (la versión en inglés vive en su HTML)
 const SEO = {
@@ -58,7 +58,7 @@ const paginaDe = (ruta) => ruta.split(/[?#]/)[0].replace(/^\/(es(?:\/|$))?/, '')
 
 async function cargarTextos() {
     globalThis.window = { translations: {} };
-    const bloque = leer('layout.js');
+    const bloque = leer('js/layout.js');
     const inicio = bloque.indexOf('const translations =');
     const fin = bloque.indexOf('window.translations = translations');
     return new Function(`${bloque.slice(inicio, fin)}; return translations;`)().es;

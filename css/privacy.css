@@ -1,17 +1,17 @@
 .privacy-main {
-    background-color: #0D0E15;
+    background-color: var(--bg-page);
     padding: 0 0 72px;
 }
 
 .privacy-hero {
     padding: clamp(32px, 6vh, 64px) 24px;
-    background-color: #1D2D44;
+    background-color: var(--bg-surface);
     text-align: center;
 }
 
 .privacy-hero h1 {
     margin: 0;
-    color: #F3F4F6;
+    color: var(--text-primary);
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(2.6rem, 7vw, 5rem);
     letter-spacing: var(--tracking-display);
@@ -57,7 +57,7 @@
 }
 
 .privacy-facts strong {
-    color: #10B981;
+    color: var(--brand-accent);
     font-family: 'Oswald', sans-serif;
     font-size: 2.4rem;
     line-height: 1;
@@ -91,7 +91,7 @@
 
 .privacy-card h2 {
     margin: 0;
-    color: #10B981;
+    color: var(--brand-accent);
     font-family: 'Oswald', sans-serif;
     font-size: 1.3rem;
     font-weight: 600;

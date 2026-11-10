@@ -1,16 +1,16 @@
 # Regenera los PDF del CV cada vez que cambia su contenido o su diseño
-# (por ejemplo, al editar cv/cv.json).
+# (por ejemplo, al editar data/cv.json).
 name: CV PDFs
 
 on:
   push:
     branches: [main]
     paths:
-      - cv/cv.json
+      - data/cv.json
       - data/projects.json
       - cv.html
-      - cv.css
-      - cv.js
+      - css/cv.css
+      - js/cv.js
       - _dev/render-cv.mjs
       - .github/workflows/cv-pdf.yml
   workflow_dispatch:

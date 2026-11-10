@@ -37,7 +37,7 @@ Fuera de alcance: `/cotizar` (ya está en español y tiene sus propios textos), 
    - Una URL `/es/` siempre se muestra en español (la URL manda).
    - El botón de idioma ahora navega a la otra URL en lugar de traducir en el lugar (en `/cotizar` y `/404`
      sigue como hoy).
-4. **Rutas absolutas en JS** (`/cv/cv.json`, `/assets/...`) para que funcionen desde `/es/`. En la raíz
+4. **Rutas absolutas en JS** (`/data/cv.json`, `/assets/...`) para que funcionen desde `/es/`. En la raíz
    resuelven igual que ahora.
 5. `npm run verify` comprueba que `es/` está al día (si alguien cambia una página o un texto y no regenera,
    falla).
@@ -68,4 +68,4 @@ Fases 0-5 hechas. Prueba automática en Firefox (16 páginas): idioma por URL, t
 traducción en vivo, menú con `/es/`, botón ida y vuelta, redirección por preferencia y por navegador,
 cotizador sin cambios, CV para PDF y vista previa del admin sin redirección, descarga del CV, panel de
 Miralta, 404 bajo `/es/`, sin errores de consola ni recursos 404. Arreglo extra: la foto del CV
-(`cv/cv.json` guarda una ruta del repo) ahora se pide con ruta absoluta.
+(`data/cv.json` guarda una ruta del repo) ahora se pide con ruta absoluta.

@@ -9,7 +9,7 @@
 
 .nf .nf-code {
     margin: 0;
-    color: #1D2D44;
+    color: var(--bg-surface);
     font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(6rem, 22vw, 11rem);
     line-height: 1;
