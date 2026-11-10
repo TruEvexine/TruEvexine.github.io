@@ -46,6 +46,14 @@
         const range = (a, b) => `${month(a)} – ${month(b, T.present)}`;
         const p = data.person;
         const href = (url) => (/^https?:|^mailto:|^tel:/.test(url) ? url : `https://${url}`);
+        // Las entradas con pdf:false solo se muestran en la web (cv-credentials.js)
+        const inPdf = (c) => c.pdf !== false;
+        // El nombre del proyecto enlaza a su página solo en la web y solo si esa página existe (nunca en el PDF)
+        const hasPage = (pr) => mode === 'page' && typeof localizedUrl === 'function'
+            && !['index', 'cv'].includes(pr.page) && (window.localizedPages || []).includes(pr.page);
+        const projectName = (pr) => (hasPage(pr)
+            ? `<a class="cv-project-link" href="${esc(localizedUrl(pr.page, L))}">${esc(tr(pr.name))}</a>`
+            : esc(tr(pr.name)));
 
         const html = template === 'harvard' ? harvard() : visual();
         const paper = document.getElementById('cv-paper');
@@ -67,13 +75,13 @@
                 </div>`).join('');
             const projects = data.projects.map((pr) => `
                 <div class="h-entry">
-                    <div class="h-row"><strong>${esc(tr(pr.name))}</strong><span>${esc(month(pr.date))}</span></div>
+                    <div class="h-row"><strong>${projectName(pr)}</strong><span>${esc(month(pr.date))}</span></div>
                     <div class="h-row"><em>${esc((pr.stack || []).join(', '))}</em><span>${esc(pr.link || '')}</span></div>
                     <ul>${list(pr.bullets).map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
                 </div>`).join('');
             const skills = data.skills.map((s) => `<p><strong>${esc(tr(s.group))}:</strong> ${esc(s.items.join(', '))}</p>`).join('');
             const langs = data.languages.map((l) => `${esc(tr(l.name))} (${esc(tr(l.level))})`).join(', ');
-            const certs = data.certifications.map((c) => [tr(c.name), c.issuer, c.year].filter(Boolean).map(esc).join(', ')).join('; ');
+            const certs = data.certifications.filter(inPdf).map((c) => [tr(c.name), c.issuer, c.year].filter(Boolean).map(esc).join(', ')).join('; ');
             return `
                 <article class="cv cv-harvard">
                     <header class="h-head">
@@ -106,7 +114,7 @@
             const langs = data.languages.map((l) => `<li><span>${esc(tr(l.name))}</span><span>${esc(tr(l.level))}</span></li>`).join('');
             const projects = data.projects.map((pr) => `
                 <div class="v-entry">
-                    <div class="v-row"><h3>${esc(tr(pr.name))}</h3><span class="v-date">${esc(month(pr.date))}</span></div>
+                    <div class="v-row"><h3>${projectName(pr)}</h3><span class="v-date">${esc(month(pr.date))}</span></div>
                     <p class="v-stack">${esc((pr.stack || []).join(' · '))}</p>
                     <ul>${list(pr.bullets).map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
                 </div>`).join('');
@@ -116,7 +124,7 @@
                     <p class="v-stack">${esc(e.school)} · ${esc(tr(e.place))}</p>
                     ${list(e.details).length ? `<ul>${list(e.details).map((d) => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}
                 </div>`).join('');
-            const certs = data.certifications.map((c) => `
+            const certs = data.certifications.filter(inPdf).map((c) => `
                 <li><span>${esc([tr(c.name), c.issuer].filter(Boolean).join(' · '))}</span><span class="v-date">${esc(c.year)}</span></li>`).join('');
             return `
                 <article class="cv cv-visual">
@@ -138,6 +146,20 @@
                     </div>
                 </article>`;
         }
+    }
+
+    // Proyecto del catálogo → entrada del CV: título "Nombre — lema" y enlace de texto derivado de su página (lo imprime Harvard)
+    function cvProjects(projects, website) {
+        return projects.filter((p) => p.cv?.include)
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .map((p) => ({
+                name: Object.fromEntries(['es', 'en'].map((l) => [l, `${p.name} — ${p.tagline[l]}`])),
+                date: p.date,
+                stack: p.stack,
+                page: p.page,
+                link: p.page ? `${website}/${p.page}` : '',
+                bullets: p.cv.bullets
+            }));
     }
 
     // Escala la hoja (8.5 × 11 in) para que quepa en pantallas angostas
@@ -164,7 +186,7 @@
     if (mode !== 'page') {
         // Solo la hoja: sin header, footer ni controles
         document.documentElement.classList.add(`cv-${mode}`);
-        document.querySelectorAll('[data-layout], .skip-link, .cv-hero').forEach((el) => el.remove());
+        document.querySelectorAll('[data-layout], .skip-link, .cv-hero, .cv-credentials').forEach((el) => el.remove());
     }
 
     document.querySelectorAll('[data-cv-template]').forEach((button) => {
@@ -192,11 +214,15 @@
     if (mode === 'embed') {
         parent.postMessage({ type: 'cv-ready' }, location.origin);
     } else {
-        fetch('/cv/cv.json', { cache: 'no-cache' })
-            .then((r) => r.json())
-            .then((json) => {
+        // Los proyectos viven en data/projects.json (fuente única, también de las tarjetas del sitio);
+        // al CV solo entran los marcados con cv.include
+        Promise.all(['/cv/cv.json', '/data/projects.json'].map((url) => fetch(url, { cache: 'no-cache' }).then((r) => r.json())))
+            .then(([json, catalog]) => {
+                json.projects = cvProjects(catalog.projects, json.person.website);
                 data = json;
                 render();
+                // La sección web de certificaciones (cv-credentials.js) usa los mismos datos
+                document.dispatchEvent(new CustomEvent('cv:data', { detail: json }));
                 // Señal para el generador de PDF: fuentes e imágenes listas
                 const images = [...document.querySelectorAll('#cv-paper img')].map((img) => img.decode().catch(() => {}));
                 Promise.all([document.fonts.ready, ...images]).then(() => {

@@ -108,6 +108,29 @@
     line-height: 1.15;
 }
 
+/* El título enlaza al caso de estudio: se ve igual que el texto y marca hover y foco de teclado */
+.project-title-link {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.project-title-link:hover {
+    color: #10B981;
+}
+
+.project-title-link:focus-visible {
+    color: #10B981;
+    outline: 2px solid #10B981;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.project-title-link:active {
+    color: #10B981;
+}
+
 .project-feature-body > p:not(.project-meta) {
     margin: 0;
     color: #D1D5DB;

@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="footer.css">
     <script src="layout.js" defer></script>
     <script src="cv.js" defer></script>
+    <script src="cv-credentials.js" defer></script>
 </head>
 <body>
     <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
@@ -55,6 +56,12 @@
                 <div id="cv-paper" class="paper skel"></div>
             </div>
         </div>
+
+        <!-- Solo web: no entra en la hoja ni en los PDF. Las tarjetas las pinta cv-credentials.js desde cv/cv.json -->
+        <section class="cv-credentials" id="credentials" aria-labelledby="credentials-title" hidden>
+            <h2 id="credentials-title" data-i18n="cv.credentials.title">Certifications, diplomas &amp; participations</h2>
+            <ul class="cv-credentials-list"></ul>
+        </section>
     </main>
 
     <footer data-layout="footer"></footer>

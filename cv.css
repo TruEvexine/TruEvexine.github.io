@@ -441,7 +441,9 @@
 
     [data-layout],
     .skip-link,
-    .cv-hero {
+    .cv-hero,
+    .cv-credentials,
+    .cred-lightbox {
         display: none !important;
     }
 
@@ -464,10 +466,222 @@
         box-shadow: none !important;
     }
 
+    .paper a.cv-project-link {
+        color: inherit;
+        text-decoration: none;
+    }
+
     .cv-visual {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
+}
+
+/* ---------- Enlace del nombre de proyecto (solo en la web; en el PDF no hay enlaces) ---------- */
+.paper .cv-project-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(17, 24, 39, 0.35);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.paper .cv-project-link:hover,
+.paper .cv-project-link:focus-visible {
+    color: #047857;
+    text-decoration-color: currentColor;
+}
+
+.paper .cv-project-link:focus-visible {
+    outline: 2px solid #047857;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.paper .cv-project-link:active {
+    color: #047857;
+}
+
+/* ---------- Certificaciones, diplomas y participaciones (solo web, no entra en la hoja ni en el PDF) ---------- */
+.cv-credentials {
+    width: min(100% - 40px, 1100px);
+    margin: 72px auto 0;
+}
+
+.cv-credentials[hidden] {
+    display: none;
+}
+
+.cv-credentials h2 {
+    margin: 0 0 28px;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    letter-spacing: var(--tracking-heading);
+}
+
+.cv-credentials-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cred-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    background: var(--surface-card);
+}
+
+.cred-media {
+    display: grid;
+    gap: 8px;
+}
+
+.cred-media.is-multiple {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cred-thumb {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-inner);
+}
+
+.cred-zoom {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+}
+
+.cred-zoom:disabled {
+    cursor: default;
+}
+
+.cred-zoom img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cred-zoom:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: -2px;
+    border-radius: var(--radius-inner);
+}
+
+.cred-zoom:active img {
+    opacity: 0.8;
+}
+
+.cred-type {
+    margin: 0 0 6px;
+    color: var(--brand-accent-soft);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cred-title {
+    margin: 0 0 6px;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+}
+
+.cred-meta {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.cred-description {
+    margin: 10px 0 0;
+    color: var(--text-secondary);
+}
+
+/* Imagen ampliada: <dialog> a pantalla completa, igual que en las páginas de proyecto */
+.cred-lightbox {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 24px;
+    border: 0;
+    background: transparent;
+    cursor: zoom-out;
+}
+
+.cred-lightbox[open] {
+    display: grid;
+    place-items: center;
+}
+
+.cred-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.cred-figure {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+}
+
+.cred-figure img {
+    max-width: 100%;
+    max-height: calc(100vh - 120px);
+    border-radius: var(--radius-inner);
+    object-fit: contain;
+    cursor: default;
+}
+
+.cred-figure figcaption,
+.cred-lightbox-error {
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.cred-lightbox-error {
+    margin: 0;
+    padding: 48px 24px;
+}
+
+.cred-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border-card);
+    border-radius: 50%;
+    background: rgba(13, 14, 21, 0.8);
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cred-close:hover,
+.cred-close:focus-visible {
+    color: var(--brand-accent);
+    border-color: var(--brand-accent);
+}
+
+.cred-close:active {
+    color: var(--brand-accent);
 }
 
 /* Skeleton de la hoja mientras llegan los datos: silueta de un CV (nombre, datos y cuatro secciones).

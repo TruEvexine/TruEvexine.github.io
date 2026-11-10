@@ -1,0 +1,127 @@
+{
+  "projects": [
+    {
+      "id": "sin-guardar",
+      "name": "SIN GUARDAR",
+      "tagline": {
+        "es": "Videojuego narrativo en Java",
+        "en": "Narrative game in Java"
+      },
+      "date": "2026-05",
+      "stack": [
+        "Java 17",
+        "JavaFX",
+        "Swing",
+        "Maven"
+      ],
+      "page": "sin-guardar",
+      "statusKey": "projects.status",
+      "card": {
+        "theme": "erosion",
+        "description": {
+          "es": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y hasta la forma en que se ve el juego. Proyecto universitario individual en Java: empezó en Swing y se terminó en JavaFX.",
+          "en": "A cosmic horror visual novel where your choices reshape both the story and how the game looks. A solo university project in Java: started in Swing, finished in JavaFX."
+        },
+        "video": {
+          "id": "x4OkNthPtdE",
+          "start": 1,
+          "media": "assets/sin-guardar",
+          "labelKey": "ui.playVideo"
+        },
+        "meterKey": "projects.erosion"
+      },
+      "cv": {
+        "include": true,
+        "bullets": {
+          "es": [
+            "Desarrollé en Java un videojuego de horror cósmico con 22 nodos de decisión, 3 finales (uno secreto) y un sistema de Erosión que altera la narrativa y lo visual.",
+            "Implementé árboles hash para la toma de decisiones y un sistema de coordenadas que ubica los assets según la resolución de pantalla.",
+            "Programé guardado y carga de partidas, y opciones para personalizar la experiencia del jugador."
+          ],
+          "en": [
+            "Built a cosmic horror decision-driven game in Java with 22 decision nodes, 3 endings (one secret) and an Erosion system that alters narration and visuals.",
+            "Implemented hash trees for decision-making and a coordinate system that places assets according to screen resolution.",
+            "Programmed save/load and options to customize the player experience."
+          ]
+        }
+      }
+    },
+    {
+      "id": "project-miralta",
+      "name": "Project Miralta",
+      "tagline": {
+        "es": "Cozy survival en Phaser",
+        "en": "Cozy survival game in Phaser"
+      },
+      "date": "2026-10",
+      "stack": [
+        "Phaser",
+        "Vite",
+        "JavaScript",
+        "Playwright"
+      ],
+      "page": "project-miralta",
+      "statusKey": "pm.status",
+      "card": {
+        "theme": "water",
+        "description": {
+          "es": "Un cozy survival dibujado a mano donde mantienes un huerto en una azotea mientras la ciudad se queda sin agua. Demo guionada sobre un motor propio de escenas con Phaser.",
+          "en": "A hand-drawn cozy survival game where you tend a rooftop garden while the city runs out of water. Scripted demo built on a custom scene engine with Phaser."
+        },
+        "video": {
+          "id": "G4njTeKtKIw",
+          "media": "assets/project-miralta",
+          "labelKey": "pm.playVideo"
+        },
+        "meterKey": "pm.water"
+      },
+      "cv": {
+        "include": true,
+        "bullets": {
+          "es": [
+            "Desarrollé una demo guionada de un cozy survival dibujado a mano con Phaser y Vite, sobre un motor propio de escenas con un director que ejecuta beats.",
+            "Implementé un estado de juego real (agua, electricidad, ánimo y créditos) y páginas HTML sobre el canvas, abiertas por un cursor guionado.",
+            "Reduje a una pulsación por paso los atascos de la demo con recorridos automáticos de Playwright. La presenté en el XXIV Congreso Nacional de Divulgación de la Ciencia y la Técnica."
+          ],
+          "en": [
+            "Built a scripted demo of a hand-drawn cozy survival game with Phaser and Vite, on a custom scene engine with a director that runs beats.",
+            "Implemented real game state (water, power, mood and credits) and HTML pages mounted over the canvas, opened by a scripted cursor.",
+            "Cut the demo’s stalls down to one key press per step using automated Playwright runs. Presented it at the XXIV Congreso Nacional de Divulgación de la Ciencia y la Técnica."
+          ]
+        }
+      }
+    },
+    {
+      "id": "vissionary",
+      "name": "Project Vissionary",
+      "tagline": {
+        "es": "SaaS de gestión",
+        "en": "Management SaaS"
+      },
+      "date": "2026-06",
+      "stack": [
+        "Java",
+        "APIs",
+        "SQL",
+        "HTML"
+      ],
+      "cv": {
+        "include": true,
+        "bullets": {
+          "es": [
+            "Desarrollé en Java un SaaS para gestionar clientes, dispositivos, inventario y tareas, con base de datos, APIs e interfaz HTML.",
+            "Implementé roles (trabajador y administrador) con permisos configurables por el administrador.",
+            "Creé un módulo para ejecutar chequeos en otros dispositivos por código QR, app instalada o depuración USB.",
+            "Integré WhatsApp para alertas, cotizaciones y atención automatizada con IA."
+          ],
+          "en": [
+            "Built a Java SaaS to manage clients, devices, inventory and tasks, with a database, APIs and an HTML interface.",
+            "Implemented staff and admin roles with permissions the admin can configure.",
+            "Created a module to run device checks via QR code, an installed app or USB debugging.",
+            "Integrated WhatsApp for alerts, quotes and AI-automated support."
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths:
       - cv/cv.json
+      - data/projects.json
       - cv.html
       - cv.css
       - cv.js

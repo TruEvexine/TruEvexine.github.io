@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { insertarProyectos } from './projects-render.mjs';
 
 const raiz = resolve(import.meta.dirname, '..');
 const leer = (archivo) => readFileSync(resolve(raiz, archivo), 'utf8');
@@ -136,6 +137,8 @@ function generar(pagina, es, avisos) {
     let html = leer(archivo);
     const eol = html.includes('\r\n') ? '\r\n' : '\n';
     html = html.replace(/\r\n/g, '\n');
+    // Las tarjetas de proyecto salen de data/projects.json, ya en español
+    html = insertarProyectos(html, 'es');
 
     // Los comentarios (instrucciones para mí, plantillas) se dejan tal cual
     const comentarios = [];
