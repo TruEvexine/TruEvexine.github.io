@@ -12,6 +12,7 @@ on:
       - cv.css
       - cv.js
       - _dev/render-cv.mjs
+      - .github/workflows/cv-pdf.yml
   workflow_dispatch:
 
 permissions:
