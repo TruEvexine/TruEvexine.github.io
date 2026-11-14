@@ -193,6 +193,8 @@ const translations = {
         "privacy.c6.body": "Want to know more, or ask me to delete a message you sent me? Write to me.",
         "privacy.contact": "Get in touch",
         "footer.privacy": "Privacy",
+        "footer.cafe": "Buy me a coffee",
+        "projects.cafe": "If one of these helped you or you really liked it, buy me the next coffee.",
         "footer.contact": "Contact Information",
         "footer.email": "Email:",
         "footer.github": "GitHub:",
@@ -444,6 +446,8 @@ const translations = {
         "privacy.c6.body": "¿Quieres saber más o pedirme que borre un mensaje que me enviaste? Escríbeme.",
         "privacy.contact": "Escríbeme",
         "footer.privacy": "Privacidad",
+        "footer.cafe": "Invítame un café",
+        "projects.cafe": "Si alguno te sirvió o te gustó mucho, invítame el siguiente café.",
         "footer.contact": "Información de contacto",
         "footer.email": "Correo:",
         "footer.github": "GitHub:",
@@ -620,6 +624,11 @@ function applyTranslations() {
     document.querySelectorAll("[data-language-toggle]").forEach((button) => {
         button.textContent = dictionary["language.switch"];
         button.setAttribute("aria-label", dictionary["language.switch"]);
+    });
+
+    // El café se abre en el mismo idioma que el sitio, sin depender del idioma del navegador
+    document.querySelectorAll("[data-cafe]").forEach((link) => {
+        link.href = currentLanguage === "es" ? "https://cafe.rogelioemmanuel.com/?lang=es" : "https://cafe.rogelioemmanuel.com/en";
     });
 
     actualizarFechas();
