@@ -168,7 +168,7 @@ const translations = {
         "nav.contact": "Contact",
         "language.switch": "Español",
         "footer.copyright": "Rogelio Emmanuel Ceja",
-        "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. All rights reserved.",
+        "footer.rights": "&copy; <span data-year>2026</span> Rogelio Emmanuel Ceja. All rights reserved.",
         "privacy.documentTitle": "Privacy — Rogelio Ceja",
         "privacy.title": "Privacy",
         "privacy.intro": "Short version: I don't collect your data. Here is exactly what happens when you use this site.",
@@ -212,7 +212,7 @@ const translations = {
         "welcome.ctaProjects": "See my projects",
         "welcome.ctaContact": "Get in touch",
         "about.title": "About Me",
-        "about.intro": "I'm Rogelio, a 5th-semester Systems Engineering student at UVAQ. I care about the details that make a site feel clear, fast and easy to use.",
+        "about.intro": "I'm Rogelio, a <data data-sem=\"en\">5th</data>-semester Systems Engineering student at UVAQ. I care about the details that make a site feel clear, fast and easy to use.",
         "about.gaming": "I'm a gamer at heart: Resident Evil taught me tension, Pokémon taught me adventure. That's why I also build stories you can play.",
         "about.cta": "My skills & education",
         "profile.title": "Profile",
@@ -237,7 +237,7 @@ const translations = {
         "education.title": "Education",
         "education.degree": "B.S. in Computer Systems Engineering and Information Security",
         "education.school": "Universidad Vasco de Quiroga (UVAQ)",
-        "education.status": "In progress · 5th semester",
+        "education.status": "In progress · <data data-sem=\"en\">5th</data> semester",
         "projects.title": "My Projects",
         "projects.sin-guardar-intro": "SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.",
@@ -417,7 +417,7 @@ const translations = {
         "nav.contact": "Contacto",
         "language.switch": "English",
         "footer.copyright": "Rogelio Emmanuel Ceja",
-        "footer.rights": "&copy; 2026 Rogelio Emmanuel Ceja. Todos los derechos reservados.",
+        "footer.rights": "&copy; <span data-year>2026</span> Rogelio Emmanuel Ceja. Todos los derechos reservados.",
         "privacy.documentTitle": "Privacidad — Rogelio Ceja",
         "privacy.title": "Privacidad",
         "privacy.intro": "Versión corta: no recojo tus datos. Aquí está exactamente qué pasa cuando usas este sitio.",
@@ -461,7 +461,7 @@ const translations = {
         "welcome.ctaProjects": "Ver mis proyectos",
         "welcome.ctaContact": "Contáctame",
         "about.title": "Sobre mí",
-        "about.intro": "Soy Rogelio, estudiante de quinto semestre de Ingeniería en Sistemas en la UVAQ. Me importan los detalles que hacen que un sitio se sienta claro, rápido y fácil de usar.",
+        "about.intro": "Soy Rogelio, estudiante de <data data-sem=\"es\">quinto</data> semestre de Ingeniería en Sistemas en la UVAQ. Me importan los detalles que hacen que un sitio se sienta claro, rápido y fácil de usar.",
         "about.gaming": "Soy gamer de corazón: Resident Evil me enseñó la tensión y Pokémon, la aventura. Por eso también creo historias que se juegan.",
         "about.cta": "Mis habilidades y formación",
         "profile.title": "Perfil",
@@ -486,7 +486,7 @@ const translations = {
         "education.title": "Formación",
         "education.degree": "Ingeniería en Sistemas Computacionales y Seguridad Informática",
         "education.school": "Universidad Vasco de Quiroga (UVAQ)",
-        "education.status": "En curso · 5.º semestre",
+        "education.status": "En curso · <data data-sem=\"n\">5</data>.º semestre",
         "projects.title": "Mis Proyectos",
         "projects.sin-guardar-intro": "SIN GUARDAR es un videojuego narrativo de horror cósmico y metanarrativa desarrollado como proyecto universitario individual para la materia de Estructura de Datos en la Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "Esta versión corresponde a la primera versión funcional del proyecto, cuyo objetivo fue desarrollar una experiencia narrativa interactiva en la que las decisiones del jugador tuvieran consecuencias sobre el desarrollo de la historia y sobre la propia presentación del juego.",
@@ -567,6 +567,26 @@ function initScrollReveal() {
     elements.forEach((element) => showObserver.observe(element));
 }
 
+// semestre:inicio
+// Semestre en curso: 5.º desde agosto de 2026, uno más cada 6 meses, hasta el 9.º.
+// shortcut: la fecha de inicio es fija; si cambia el plan de estudios, se ajusta aquí.
+const SEMESTRES_ES = ["quinto", "sexto", "séptimo", "octavo", "noveno"];
+function semestreEnCurso(hoy = new Date()) {
+    const meses = (hoy.getFullYear() - 2026) * 12 + hoy.getMonth() - 7;
+    return Math.min(9, 5 + Math.max(0, Math.floor(meses / 6)));
+}
+// semestre:fin
+
+// El año del pie y el semestre se calculan al abrir la página (el texto fijo sirve de respaldo)
+function actualizarFechas() {
+    const hoy = new Date();
+    const n = semestreEnCurso(hoy);
+    document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = hoy.getFullYear(); });
+    document.querySelectorAll("[data-sem]").forEach((el) => {
+        el.textContent = { n, en: `${n}th`, es: SEMESTRES_ES[n - 5] }[el.dataset.sem];
+    });
+}
+
 function applyTranslations() {
     const dictionary = translations[currentLanguage];
     document.documentElement.lang = currentLanguage;
@@ -593,6 +613,8 @@ function applyTranslations() {
         button.textContent = dictionary["language.switch"];
         button.setAttribute("aria-label", dictionary["language.switch"]);
     });
+
+    actualizarFechas();
 }
 
 function initLanguageToggle() {

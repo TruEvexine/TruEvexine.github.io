@@ -39,8 +39,8 @@ const NOMBRES = {
         otro: 'Otro tipo de negocio',
     },
     concepto: {
-        paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Premium' },
-        cuidado: { esencial: 'Cuidado mensual Esencial', profesional: 'Cuidado mensual Profesional', especializado: 'Cuidado mensual Premium' },
+        paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Control Total' },
+        cuidado: { esencial: 'Cuidado mensual Esencial', profesional: 'Cuidado mensual Profesional', especializado: 'Cuidado mensual Control Total' },
         modulo: {
             calendario: 'Calendario de talleres con inscripción',
             formulario: 'Formulario de cotización o de apartar espacio',
@@ -101,7 +101,7 @@ export function calcular(seleccion) {
         if (seleccion.modulos?.[clave] && !incluidoEn.includes(paquete)) lineas.push(linea(`modulo.${clave}`, 'unico', PRECIOS.modulos[clave]));
     }
 
-    // El Plus reemplaza al cuidado normal (y no existe en Premium)
+    // El Plus reemplaza al cuidado normal (y no existe en Control Total)
     if (seleccion.cuidadoPlus && paquete !== 'especializado') lineas.push(linea('cuidadoPlus', 'mensual', PRECIOS.cuidadoPlus));
     else if (seleccion.cuidado) lineas.push(linea(`cuidado.${paquete}`, 'mensual', PRECIOS.cuidadoMensual[paquete]));
     if (seleccion.seoContinuo) lineas.push(linea('seoContinuo', 'mensual', PRECIOS.seoContinuo));
@@ -155,7 +155,7 @@ export function armarMensaje({ folio, seleccion, resultado, datos, idioma }) {
     filas.push(`Tipo de negocio: ${NOMBRES.negocio[datos.negocio] ?? NOMBRES.negocio.otro}`);
 
     if (resultado.aMedida) {
-        filas.push(`Proyecto: personalizado. Parte desde el ${nombreConcepto(`paquete.${resultado.desde}`)}: ${formatoMoneda(resultado.desdeMonto.base)} más IVA; las funciones específicas se evalúan por tiempo.`);
+        filas.push(`Proyecto: a tu medida. Parte desde el ${nombreConcepto(`paquete.${resultado.desde}`)}: ${formatoMoneda(resultado.desdeMonto.base)} más IVA; las funciones específicas se evalúan por tiempo.`);
         filas.push(`Tarifa de referencia: ${formatoMoneda(resultado.hora.base)} por hora, más IVA.`);
     } else {
         filas.push('', 'Lo que elegí:');

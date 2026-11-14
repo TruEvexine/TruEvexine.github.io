@@ -31,7 +31,7 @@ for (const paquete of ['esencial', 'profesional', 'especializado']) {
     });
 }
 
-test('cuidado mensual: $450 en Esencial y Profesional, más en Premium', () => {
+test('cuidado mensual: $450 en Esencial y Profesional, más en Control Total', () => {
     assert.equal(calcular({ paquete: 'esencial', ...sinExtras, cuidado: true }).mensual.total, 52200);
     assert.equal(calcular({ paquete: 'profesional', ...sinExtras, cuidado: true }).mensual.total, 52200);
     assert.equal(calcular({ paquete: 'especializado', ...sinExtras, cuidado: true }).mensual.total, 174000);
@@ -47,7 +47,7 @@ test('cada extra suma en su periodo', () => {
     assert.equal(wa.mensual.total, 69600);
 });
 
-test('Cuidado Plus reemplaza al cuidado normal y no aplica a Premium', () => {
+test('Cuidado Plus reemplaza al cuidado normal y no aplica a Control Total', () => {
     const plus = calcular({ paquete: 'profesional', ...sinExtras, cuidado: true, cuidadoPlus: true });
     assert.equal(plus.mensual.base, PRECIOS.cuidadoPlus);
     assert.equal(plus.lineas.filter((l) => l.periodo === 'mensual').length, 1);
@@ -86,7 +86,7 @@ test('con todo elegido, el total coincide con la suma de las líneas', () => {
     assert.equal(r.mensual.total, mensual);
 });
 
-test('personalizado parte del paquete de su tipo de negocio y evalúa lo demás por hora', () => {
+test('a tu medida parte del paquete de su tipo de negocio y evalúa lo demás por hora', () => {
     const r = calcular({ paquete: 'medida', ...sinExtras, negocio: 'barberia', cuidado: true });
     assert.equal(r.aMedida, true);
     assert.equal(r.unico, null);
@@ -135,10 +135,10 @@ test('el mensaje de WhatsApp trae lo elegido', () => {
     }
 });
 
-test('el mensaje personalizado no inventa totales', () => {
+test('el mensaje a tu medida no inventa totales', () => {
     const seleccion = { paquete: 'medida', ...sinExtras };
     const msg = armarMensaje({ folio: 'COT-1', seleccion, resultado: calcular(seleccion), idioma: 'en', datos: { negocio: 'otro' } });
-    assert.ok(msg.includes('personalizado'));
+    assert.ok(msg.includes('a tu medida'));
     assert.ok(msg.includes('Paquete Profesional: $9,500 más IVA'));
     assert.ok(!msg.includes('Pago único'));
     assert.ok(msg.includes('inglés'));

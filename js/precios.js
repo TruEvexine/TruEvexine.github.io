@@ -17,8 +17,8 @@ export const PRECIOS = {
         profesional: 45000,
         especializado: 150000,
     },
-    cuidadoPlus: 85000,         // mensual; 2 cambios al mes y reporte de visitas. Reemplaza al cuidado; no aplica a Premium
-    // Módulos sueltos (pago único). Calendario, formulario y SEO básico ya vienen en Profesional y Premium.
+    cuidadoPlus: 85000,         // mensual; 2 cambios al mes y reporte de visitas. Reemplaza al cuidado; no aplica a Control Total
+    // Módulos sueltos (pago único). Calendario, formulario y SEO básico ya vienen en Profesional y Control Total.
     modulos: {
         calendario: 200000,
         formulario: 150000,
