@@ -11,7 +11,7 @@ Sitio estático: HTML, CSS y JavaScript sin frameworks ni dependencias de ejecuc
 
 ## Users
 - **Reclutadores y equipos de contratación** que evalúan a Rogelio para prácticas, empleo o colaboraciones. Llegan desde el CV, LinkedIn o un mensaje, y quieren juzgar rápido nivel, estilo de trabajo y proyectos reales.
-- **Dueños de negocios locales** (barberías, consultorios, restaurantes, tiendas, oficios) que quieren saber cuánto costaría su sitio web. Usan el cotizador, ven el precio con IVA y cierran por WhatsApp, sin registrarse.
+- **Dueños de negocios locales** (barberías, consultorios, restaurantes, tiendas, oficios) que quieren saber cuánto costaría su sitio web. Usan el cotizador, ven el precio sin IVA (con factura se suma 16 %) y cierran por WhatsApp, sin registrarse.
 - Audiencias secundarias de los proyectos: jugadores y posibles colaboradores o financiadores de Project Miralta.
 
 ## Product Purpose
@@ -24,7 +24,7 @@ Cuidado por el detalle y sitios sin dependencias: HTML, CSS y JS propios, fuente
 - Dos idiomas: inglés en `/` y español en `/es/`; los textos viven en `js/layout.js` y las páginas en español se generan con `npm run build:es`.
 - El CV se dibuja desde `data/cv.json` en dos plantillas (Harvard y visual) y los PDFs se regeneran con una GitHub Action.
 - Las tarjetas de proyecto salen de `data/projects.json`.
-- Todos los precios del cotizador viven en `js/precios.js` y se muestran con IVA incluido (16 %).
+- Todos los precios del cotizador viven en `js/precios.js` y se muestran sin IVA; el total con factura (+16 %) aparece aparte.
 
 ## Capabilities and Constraints
 - Sin código en línea ni recursos externos: la CSP solo permite `'self'` (más YouTube sin cookies para el video).
@@ -45,7 +45,7 @@ Nombre "Rogelio Ceja" / "Rogelio Emmanuel Ceja". Tono cercano y directo, en prim
 1. Mostrar trabajo real antes que afirmaciones; nada inventado.
 2. El sitio demuestra lo que vende: rápido, sin dependencias, accesible y bilingüe.
 3. Un solo camino claro hacia el contacto (WhatsApp o correo) desde cualquier página.
-4. Precios y condiciones del cotizador transparentes, con IVA y sin pedir datos.
+4. Precios y condiciones del cotizador transparentes, sin IVA (con factura +16 %) y sin pedir datos.
 5. Cada cambio se verifica con `npm run verify` y las pruebas.
 
 ## Accessibility & Inclusion

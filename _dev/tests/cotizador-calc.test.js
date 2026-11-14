@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { PRECIOS } from '../../js/precios.js';
 import {
-    aplicarIva, calcular, recomendar, formatoMoneda, limpiarTexto,
+    aplicarIva, calcular, recomendar, MODULOS, formatoMoneda, limpiarTexto,
     generarFolio, armarMensaje, enlaceWhatsApp, enlaceCorreo,
 } from '../../js/cotizador-calc.js';
 
@@ -31,9 +31,9 @@ for (const paquete of ['esencial', 'profesional', 'especializado']) {
     });
 }
 
-test('cuidado mensual depende del paquete', () => {
+test('cuidado mensual: $450 en Esencial y Profesional, más en Premium', () => {
     assert.equal(calcular({ paquete: 'esencial', ...sinExtras, cuidado: true }).mensual.total, 52200);
-    assert.equal(calcular({ paquete: 'profesional', ...sinExtras, cuidado: true }).mensual.total, 98600);
+    assert.equal(calcular({ paquete: 'profesional', ...sinExtras, cuidado: true }).mensual.total, 52200);
     assert.equal(calcular({ paquete: 'especializado', ...sinExtras, cuidado: true }).mensual.total, 174000);
 });
 
@@ -45,6 +45,31 @@ test('cada extra suma en su periodo', () => {
     const wa = calcular({ ...base, whatsapp: true });
     assert.equal(wa.unico.total, 638000 + 406000);
     assert.equal(wa.mensual.total, 69600);
+});
+
+test('Cuidado Plus reemplaza al cuidado normal y no aplica a Premium', () => {
+    const plus = calcular({ paquete: 'profesional', ...sinExtras, cuidado: true, cuidadoPlus: true });
+    assert.equal(plus.mensual.base, PRECIOS.cuidadoPlus);
+    assert.equal(plus.lineas.filter((l) => l.periodo === 'mensual').length, 1);
+    const premium = calcular({ paquete: 'especializado', ...sinExtras, cuidadoPlus: true });
+    assert.equal(premium.mensual.base, 0);
+});
+
+test('los módulos suman al Esencial y los incluidos no se cobran en Profesional', () => {
+    const todos = Object.fromEntries(Object.keys(MODULOS).map((m) => [m, true]));
+    const esencial = calcular({ paquete: 'esencial', ...sinExtras, modulos: todos });
+    const suma = Object.values(PRECIOS.modulos).reduce((a, n) => a + n, 0);
+    assert.equal(esencial.unico.base, PRECIOS.paquetes.esencial + suma);
+    const profesional = calcular({ paquete: 'profesional', ...sinExtras, modulos: todos });
+    const incluidos = ['calendario', 'formulario', 'seoBasico'].reduce((a, m) => a + PRECIOS.modulos[m], 0);
+    assert.equal(profesional.unico.base, PRECIOS.paquetes.profesional + suma - incluidos);
+    assert.ok(!profesional.lineas.some((l) => l.id === 'modulo.calendario'));
+    assert.ok(profesional.lineas.some((l) => l.id === 'modulo.animacionLogo'));
+});
+
+test('Profesional cuesta menos que Esencial + sus tres módulos sueltos', () => {
+    const sueltos = PRECIOS.paquetes.esencial + ['calendario', 'formulario', 'seoBasico'].reduce((a, m) => a + PRECIOS.modulos[m], 0);
+    assert.ok(PRECIOS.paquetes.profesional < sueltos);
 });
 
 test('Especializado incluye el kit NFC básico y no lo cobra', () => {
@@ -61,11 +86,14 @@ test('con todo elegido, el total coincide con la suma de las líneas', () => {
     assert.equal(r.mensual.total, mensual);
 });
 
-test('a la medida no calcula: solo da la tarifa por hora', () => {
-    const r = calcular({ paquete: 'medida', ...sinExtras, cuidado: true });
+test('personalizado parte del paquete de su tipo de negocio y evalúa lo demás por hora', () => {
+    const r = calcular({ paquete: 'medida', ...sinExtras, negocio: 'barberia', cuidado: true });
     assert.equal(r.aMedida, true);
     assert.equal(r.unico, null);
-    assert.equal(r.hora.total, 46400);
+    assert.equal(r.desde, 'especializado');
+    assert.equal(r.desdeMonto.base, PRECIOS.paquetes.especializado);
+    assert.equal(r.hora.base, PRECIOS.horaDesarrollo);
+    assert.equal(calcular({ paquete: 'medida', ...sinExtras, negocio: 'servicios' }).desdeMonto.base, PRECIOS.paquetes.esencial);
 });
 
 test('un paquete desconocido falla', () => {
@@ -102,15 +130,16 @@ test('el mensaje de WhatsApp trae lo elegido', () => {
         datos: { negocio: 'restaurante', nombre: 'Ana', empresa: 'Café Sol', ciudad: 'Morelia', nota: 'Quiero menú digital' },
     });
     for (const texto of ['COT-261019-K7QF', 'Restaurante o cafetería', 'Paquete Profesional', 'Cuidado mensual Profesional',
-        'WhatsApp automático: instalación', 'Pago único: $15,080 (IVA incluido)', 'Mensualidad:', 'Ana', 'Café Sol', 'Morelia', 'Quiero menú digital']) {
+        'WhatsApp automático: instalación', 'Cuidado mensual Profesional: $450 al mes', 'Pago único: $13,000 más IVA (con factura: $15,080)', 'Mensualidad: $1,050 más IVA', 'Ana', 'Café Sol', 'Morelia', 'Quiero menú digital']) {
         assert.ok(msg.includes(texto), `falta: ${texto}`);
     }
 });
 
-test('el mensaje a la medida no inventa totales', () => {
+test('el mensaje personalizado no inventa totales', () => {
     const seleccion = { paquete: 'medida', ...sinExtras };
     const msg = armarMensaje({ folio: 'COT-1', seleccion, resultado: calcular(seleccion), idioma: 'en', datos: { negocio: 'otro' } });
-    assert.ok(msg.includes('a la medida'));
+    assert.ok(msg.includes('personalizado'));
+    assert.ok(msg.includes('Paquete Profesional: $9,500 más IVA'));
     assert.ok(!msg.includes('Pago único'));
     assert.ok(msg.includes('inglés'));
 });

@@ -4,6 +4,20 @@ import { SITIO } from './contacto.js';
 
 export const PAQUETES = ['esencial', 'profesional', 'especializado', 'medida'];
 
+// Módulos sueltos y en qué paquetes ya vienen incluidos
+export const MODULOS = {
+    calendario: ['profesional', 'especializado'],
+    formulario: ['profesional', 'especializado'],
+    seoBasico: ['profesional', 'especializado'],
+    animacionLogo: [],
+    menuHtml: [],
+    menuAnimado: [],
+    interactivo: [],
+    pedidoWhatsapp: [],
+    catalogo: [],
+    sucursales: [],
+};
+
 // Paquete que se recomienda según el tipo de negocio
 const RECOMENDADO = {
     barberia: 'especializado',
@@ -25,8 +39,21 @@ const NOMBRES = {
         otro: 'Otro tipo de negocio',
     },
     concepto: {
-        paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Especializado' },
-        cuidado: { esencial: 'Cuidado mensual Esencial', profesional: 'Cuidado mensual Profesional', especializado: 'Cuidado mensual Agenda' },
+        paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Premium' },
+        cuidado: { esencial: 'Cuidado mensual Esencial', profesional: 'Cuidado mensual Profesional', especializado: 'Cuidado mensual Premium' },
+        modulo: {
+            calendario: 'Calendario de talleres con inscripción',
+            formulario: 'Formulario de cotización o de apartar espacio',
+            seoBasico: 'SEO básico',
+            animacionLogo: 'Animación del logo al cargar',
+            menuHtml: 'Menú recreado en la página',
+            menuAnimado: 'Animaciones del menú o la marca',
+            interactivo: 'Módulo interactivo a la medida (desde)',
+            pedidoWhatsapp: 'Pedido por WhatsApp con carrito',
+            catalogo: 'Catálogo con filtros (desde)',
+            sucursales: 'Varias sucursales con horario',
+        },
+        cuidadoPlus: 'Cuidado mensual Plus',
         seoArranque: 'SEO local, arranque',
         seoContinuo: 'SEO continuo',
         whatsappInstalacion: 'WhatsApp automático: instalación',
@@ -50,14 +77,15 @@ function linea(id, periodo, base, extra = {}) {
     return { id, periodo, base, total: aplicarIva(base).total, ...extra };
 }
 
-// seleccion: { paquete, cuidado, seoArranque, seoContinuo, whatsapp, kitNfc }
+// seleccion: { paquete, negocio, cuidado, cuidadoPlus, seoArranque, seoContinuo, whatsapp, kitNfc, modulos: { calendario: true, ... } }
 export function calcular(seleccion) {
     const { paquete } = seleccion;
     if (!PAQUETES.includes(paquete)) throw new Error(`Paquete desconocido: ${paquete}`);
 
-    // Fuera de los paquetes no se calcula: se cotiza por hora
+    // Personalizado: parte del paquete que le toca a su tipo de negocio; las funciones específicas se evalúan por tiempo
     if (paquete === 'medida') {
-        return { aMedida: true, hora: aplicarIva(PRECIOS.horaDesarrollo), lineas: [], unico: null, mensual: null };
+        const desde = recomendar(seleccion.negocio);
+        return { aMedida: true, desde, desdeMonto: aplicarIva(PRECIOS.paquetes[desde]), hora: aplicarIva(PRECIOS.horaDesarrollo), lineas: [], unico: null, mensual: null };
     }
 
     const lineas = [linea(`paquete.${paquete}`, 'unico', PRECIOS.paquetes[paquete])];
@@ -69,7 +97,13 @@ export function calcular(seleccion) {
         lineas.push(linea('kitNfc', 'unico', PRECIOS.kitNfc));
     }
 
-    if (seleccion.cuidado) lineas.push(linea(`cuidado.${paquete}`, 'mensual', PRECIOS.cuidadoMensual[paquete]));
+    for (const [clave, incluidoEn] of Object.entries(MODULOS)) {
+        if (seleccion.modulos?.[clave] && !incluidoEn.includes(paquete)) lineas.push(linea(`modulo.${clave}`, 'unico', PRECIOS.modulos[clave]));
+    }
+
+    // El Plus reemplaza al cuidado normal (y no existe en Premium)
+    if (seleccion.cuidadoPlus && paquete !== 'especializado') lineas.push(linea('cuidadoPlus', 'mensual', PRECIOS.cuidadoPlus));
+    else if (seleccion.cuidado) lineas.push(linea(`cuidado.${paquete}`, 'mensual', PRECIOS.cuidadoMensual[paquete]));
     if (seleccion.seoContinuo) lineas.push(linea('seoContinuo', 'mensual', PRECIOS.seoContinuo));
     if (seleccion.whatsapp) lineas.push(linea('whatsappCuota', 'mensual', PRECIOS.whatsappCuota));
 
@@ -121,16 +155,16 @@ export function armarMensaje({ folio, seleccion, resultado, datos, idioma }) {
     filas.push(`Tipo de negocio: ${NOMBRES.negocio[datos.negocio] ?? NOMBRES.negocio.otro}`);
 
     if (resultado.aMedida) {
-        filas.push('Proyecto: a la medida (se cotiza por hora).');
-        filas.push(`Tarifa de referencia: ${formatoMoneda(resultado.hora.total)} por hora, IVA incluido.`);
+        filas.push(`Proyecto: personalizado. Parte desde el ${nombreConcepto(`paquete.${resultado.desde}`)}: ${formatoMoneda(resultado.desdeMonto.base)} más IVA; las funciones específicas se evalúan por tiempo.`);
+        filas.push(`Tarifa de referencia: ${formatoMoneda(resultado.hora.base)} por hora, más IVA.`);
     } else {
         filas.push('', 'Lo que elegí:');
         for (const l of resultado.lineas) {
-            const precio = l.incluido ? 'incluido' : `${formatoMoneda(l.total)}${l.periodo === 'mensual' ? ' al mes' : ''}`;
+            const precio = l.incluido ? 'incluido' : `${formatoMoneda(l.base)}${l.periodo === 'mensual' ? ' al mes' : ''}`;
             filas.push(`- ${nombreConcepto(l.id)}: ${precio}`);
         }
-        filas.push('', `Pago único: ${formatoMoneda(resultado.unico.total)} (IVA incluido)`);
-        if (resultado.mensual.base > 0) filas.push(`Mensualidad: ${formatoMoneda(resultado.mensual.total)} (IVA incluido)`);
+        filas.push('', `Pago único: ${formatoMoneda(resultado.unico.base)} más IVA (con factura: ${formatoMoneda(resultado.unico.total)})`);
+        if (resultado.mensual.base > 0) filas.push(`Mensualidad: ${formatoMoneda(resultado.mensual.base)} más IVA (con factura: ${formatoMoneda(resultado.mensual.total)})`);
     }
 
     const contacto = [];

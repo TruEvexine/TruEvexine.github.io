@@ -4,8 +4,8 @@
 import { PRECIOS, IVA_PORCENTAJE, VIGENCIA_DIAS } from './precios.js';
 import { CORREO, WHATSAPP, SITIO } from './contacto.js';
 import {
-    calcular, recomendar, formatoMoneda, aplicarIva, limpiarTexto, generarFolio,
-    armarMensaje, enlaceWhatsApp, enlaceCorreo,
+    calcular, recomendar, formatoMoneda, limpiarTexto, generarFolio,
+    armarMensaje, enlaceWhatsApp, enlaceCorreo, nombreConcepto, MODULOS,
 } from './cotizador-calc.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -30,14 +30,10 @@ function precioDe(ruta) {
     return ruta.split('.').reduce((nodo, clave) => nodo[clave], PRECIOS);
 }
 
-function precioConIva(centavos) {
-    return formatoMoneda(aplicarIva(centavos).total);
-}
-
 // ---------- Precios en la página (siempre vienen de precios.js) ----------
 function pintarPrecios() {
     document.querySelectorAll('[data-price]').forEach((el) => {
-        el.textContent = precioConIva(precioDe(el.dataset.price));
+        el.textContent = formatoMoneda(precioDe(el.dataset.price));
     });
     pintarPrecioCuidado();
 }
@@ -46,7 +42,10 @@ function leerSeleccion() {
     const dato = new FormData(form);
     return {
         paquete: dato.get('paquete') ?? 'profesional',
+        negocio: dato.get('negocio') ?? 'otro',
         cuidado: dato.has('cuidado'),
+        cuidadoPlus: dato.has('cuidadoPlus'),
+        modulos: Object.fromEntries(Object.keys(MODULOS).map((clave) => [clave, dato.has(`modulo-${clave}`)])),
         seoArranque: dato.has('seoArranque'),
         seoContinuo: dato.has('seoContinuo'),
         whatsapp: dato.has('whatsapp'),
@@ -58,37 +57,26 @@ function leerSeleccion() {
 function pintarPrecioCuidado() {
     const paquete = leerSeleccion().paquete;
     const el = $('[data-price-cuidado]');
-    el.textContent = paquete === 'medida' ? '' : precioConIva(PRECIOS.cuidadoMensual[paquete]);
+    el.textContent = paquete === 'medida' ? '' : formatoMoneda(PRECIOS.cuidadoMensual[paquete]);
 }
 
-// Según el paquete, algunos extras no aplican o ya vienen incluidos
+// Según el paquete, algunos extras ya vienen incluidos (data-included-in) o no aplican (data-not-in)
 function ajustarExtras() {
     const { paquete } = leerSeleccion();
-    const kit = $('#extra-kit');
-    const incluido = paquete === 'especializado';
-    const input = kit.querySelector('input');
-    kit.classList.toggle('is-included', incluido);
-    input.disabled = incluido;
-    if (incluido) input.checked = false;
-    kit.querySelector('.extra-price').replaceChildren(...(incluido ? [textoIncluido()] : precioKit()));
+    document.querySelectorAll('[data-included-in], [data-not-in]').forEach((extra) => {
+        const incluido = extra.dataset.includedIn?.split(' ').includes(paquete) ?? false;
+        const noAplica = extra.dataset.notIn?.split(' ').includes(paquete) ?? false;
+        const input = extra.querySelector('input');
+        extra.hidden = noAplica;
+        extra.classList.toggle('is-included', incluido);
+        input.disabled = incluido || noAplica;
+        if (incluido || noAplica) input.checked = false;
+        extra.querySelector('.extra-price').hidden = incluido;
+        const aviso = extra.querySelector('.extra-included');
+        if (aviso) aviso.hidden = !incluido;
+    });
     $('#extras-step').disabled = paquete === 'medida';
     pintarPrecioCuidado();
-}
-
-function textoIncluido() {
-    const aviso = document.createElement('span');
-    aviso.textContent = texto('quote.extra.kitNfcIncluded');
-    return aviso;
-}
-
-function precioKit() {
-    const monto = document.createElement('span');
-    monto.dataset.price = 'kitNfc';
-    monto.textContent = precioConIva(PRECIOS.kitNfc);
-    const nota = document.createElement('span');
-    nota.className = 'choice-note';
-    nota.textContent = ` ${texto('quote.once')}`;
-    return [monto, nota];
 }
 
 function marcarRecomendado(paquete) {
@@ -122,13 +110,14 @@ function lineaDelResultado(l) {
     precio.className = 'line-price';
     precio.textContent = l.incluido
         ? texto('quote.included')
-        : `${formatoMoneda(l.total)}${l.periodo === 'mensual' ? ` ${texto('quote.perMonth')}` : ''}`;
+        : `${formatoMoneda(l.base)}${l.periodo === 'mensual' ? ` ${texto('quote.perMonth')}` : ''}`;
     item.append(nombre, precio);
     return item;
 }
 
-function desglose({ base, iva }) {
-    return `${texto('quote.result.subtotal')} ${formatoMoneda(base)} + ${texto('quote.result.vat', { iva: IVA_PORCENTAJE })} ${formatoMoneda(iva)}`;
+// Los precios van sin IVA; esta nota dice cuánto sería si piden factura
+function notaFactura({ total }) {
+    return `${texto('quote.result.withInvoice', { iva: IVA_PORCENTAJE })} ${formatoMoneda(total)}`;
 }
 
 // Textos con marcas ({dias}) que no pueden ir directo en data-i18n
@@ -148,16 +137,18 @@ function pintarResultado() {
     $('#result-custom').hidden = !resultado.aMedida;
 
     if (resultado.aMedida) {
-        $('#total-hour').textContent = formatoMoneda(resultado.hora.total);
+        $('#total-from').textContent = formatoMoneda(resultado.desdeMonto.base);
+        $('#note-from').textContent = `${texto('quote.custom.basePackage')} ${texto(`quote.pkg.${resultado.desde}`)} · ${notaFactura(resultado.desdeMonto)}`;
+        $('#total-hour').textContent = formatoMoneda(resultado.hora.base);
         return;
     }
 
-    $('#total-once').textContent = formatoMoneda(resultado.unico.total);
-    $('#note-once').textContent = `${texto('quote.vatIncluded')} · ${desglose(resultado.unico)}`;
+    $('#total-once').textContent = formatoMoneda(resultado.unico.base);
+    $('#note-once').textContent = `${texto('quote.vatExtra')} · ${notaFactura(resultado.unico)}`;
     const hayMensual = resultado.mensual.base > 0;
-    $('#total-monthly').textContent = hayMensual ? formatoMoneda(resultado.mensual.total) : '—';
+    $('#total-monthly').textContent = hayMensual ? formatoMoneda(resultado.mensual.base) : '—';
     $('#note-monthly').textContent = hayMensual
-        ? `${texto('quote.vatIncluded')} · ${desglose(resultado.mensual)}`
+        ? `${texto('quote.vatExtra')} · ${notaFactura(resultado.mensual)}`
         : texto('quote.result.none');
     $('#result-lines').replaceChildren(...resultado.lineas.map(lineaDelResultado));
     pulsarTotales();
@@ -246,9 +237,9 @@ function agregarOfertasSeo() {
         priceCurrency: 'MXN',
         priceSpecification: {
             '@type': 'UnitPriceSpecification',
-            price: (aplicarIva(centavos).total / 100).toFixed(2),
+            price: (centavos / 100).toFixed(2),
             priceCurrency: 'MXN',
-            valueAddedTaxIncluded: true,
+            valueAddedTaxIncluded: false,
         },
     });
     const datos = {
@@ -257,7 +248,7 @@ function agregarOfertasSeo() {
         name: 'Paquetes de páginas web',
         url: `${SITIO}/cotizar`,
         itemListElement: ['esencial', 'profesional', 'especializado'].map((p) =>
-            oferta(`Paquete ${p.charAt(0).toUpperCase()}${p.slice(1)}`, PRECIOS.paquetes[p])),
+            oferta(nombreConcepto(`paquete.${p}`), PRECIOS.paquetes[p])),
     };
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -281,6 +272,8 @@ function iniciar() {
         } else if (name === 'paquete') {
             paqueteElegidoAMano = true;
             ajustarExtras();
+        } else if ((name === 'cuidado' || name === 'cuidadoPlus') && evento.target.checked) {
+            form.elements[name === 'cuidado' ? 'cuidadoPlus' : 'cuidado'].checked = false; // uno u otro
         }
     });
 
