@@ -31,7 +31,7 @@ for (const paquete of ['esencial', 'profesional', 'especializado']) {
     });
 }
 
-test('cuidado mensual: $450 en Esencial y Profesional, más en Control Total', () => {
+test('cuidado mensual: $450 en Esencial y Profesional, más en Empresarial', () => {
     assert.equal(calcular({ paquete: 'esencial', ...sinExtras, cuidado: true }).mensual.total, 52200);
     assert.equal(calcular({ paquete: 'profesional', ...sinExtras, cuidado: true }).mensual.total, 52200);
     assert.equal(calcular({ paquete: 'especializado', ...sinExtras, cuidado: true }).mensual.total, 174000);
@@ -47,7 +47,7 @@ test('cada extra suma en su periodo', () => {
     assert.equal(wa.mensual.total, 69600);
 });
 
-test('Cuidado Plus reemplaza al cuidado normal y no aplica a Control Total', () => {
+test('Cuidado Plus reemplaza al cuidado normal y no aplica a Empresarial', () => {
     const plus = calcular({ paquete: 'profesional', ...sinExtras, cuidado: true, cuidadoPlus: true });
     assert.equal(plus.mensual.base, PRECIOS.cuidadoPlus);
     assert.equal(plus.lineas.filter((l) => l.periodo === 'mensual').length, 1);

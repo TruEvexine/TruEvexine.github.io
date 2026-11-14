@@ -39,8 +39,8 @@ const NOMBRES = {
         otro: 'Otro tipo de negocio',
     },
     concepto: {
-        paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Control Total' },
-        cuidado: { esencial: 'Cuidado mensual Esencial', profesional: 'Cuidado mensual Profesional', especializado: 'Cuidado mensual Control Total' },
+        paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Empresarial' },
+        cuidado: { esencial: 'Cuidado mensual Esencial', profesional: 'Cuidado mensual Profesional', especializado: 'Cuidado mensual Empresarial' },
         modulo: {
             calendario: 'Calendario de talleres con inscripción',
             formulario: 'Formulario de cotización o de apartar espacio',
@@ -101,7 +101,7 @@ export function calcular(seleccion) {
         if (seleccion.modulos?.[clave] && !incluidoEn.includes(paquete)) lineas.push(linea(`modulo.${clave}`, 'unico', PRECIOS.modulos[clave]));
     }
 
-    // El Plus reemplaza al cuidado normal (y no existe en Control Total)
+    // El Plus reemplaza al cuidado normal (y no existe en Empresarial)
     if (seleccion.cuidadoPlus && paquete !== 'especializado') lineas.push(linea('cuidadoPlus', 'mensual', PRECIOS.cuidadoPlus));
     else if (seleccion.cuidado) lineas.push(linea(`cuidado.${paquete}`, 'mensual', PRECIOS.cuidadoMensual[paquete]));
     if (seleccion.seoContinuo) lineas.push(linea('seoContinuo', 'mensual', PRECIOS.seoContinuo));

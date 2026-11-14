@@ -238,6 +238,8 @@ const translations = {
         "education.degree": "B.S. in Computer Systems Engineering and Information Security",
         "education.school": "Universidad Vasco de Quiroga (UVAQ)",
         "education.status": "In progress · <data data-sem=\"en\">5th</data> semester",
+        "education.status.done": "Completed",
+        "about.intro.done": "I'm Rogelio, a Systems Engineering graduate from UVAQ. I care about the details that make a site feel clear, fast and easy to use.",
         "projects.title": "My Projects",
         "projects.sin-guardar-intro": "SIN GUARDAR is a cosmic horror narrative and meta-narrative game developed as an individual university project for the Data Structures course at Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "This version corresponds to the first functional version of the project, whose objective was to develop an interactive narrative experience where player decisions have consequences on the story development and on the game's own presentation.",
@@ -487,6 +489,8 @@ const translations = {
         "education.degree": "Ingeniería en Sistemas Computacionales y Seguridad Informática",
         "education.school": "Universidad Vasco de Quiroga (UVAQ)",
         "education.status": "En curso · <data data-sem=\"n\">5</data>.º semestre",
+        "education.status.done": "Concluida",
+        "about.intro.done": "Soy Rogelio, egresado de Ingeniería en Sistemas de la UVAQ. Me importan los detalles que hacen que un sitio se sienta claro, rápido y fácil de usar.",
         "projects.title": "Mis Proyectos",
         "projects.sin-guardar-intro": "SIN GUARDAR es un videojuego narrativo de horror cósmico y metanarrativa desarrollado como proyecto universitario individual para la materia de Estructura de Datos en la Universidad Vasco de Quiroga.",
         "projects.sin-guardar-version": "Esta versión corresponde a la primera versión funcional del proyecto, cuyo objetivo fue desarrollar una experiencia narrativa interactiva en la que las decisiones del jugador tuvieran consecuencias sobre el desarrollo de la historia y sobre la propia presentación del juego.",
@@ -568,12 +572,12 @@ function initScrollReveal() {
 }
 
 // semestre:inicio
-// Semestre en curso: 5.º desde agosto de 2026, uno más cada 6 meses, hasta el 9.º.
+// Semestre en curso: 5.º desde agosto de 2026, uno más cada 6 meses hasta el 9.º; después, 10 = carrera concluida.
 // shortcut: la fecha de inicio es fija; si cambia el plan de estudios, se ajusta aquí.
 const SEMESTRES_ES = ["quinto", "sexto", "séptimo", "octavo", "noveno"];
 function semestreEnCurso(hoy = new Date()) {
     const meses = (hoy.getFullYear() - 2026) * 12 + hoy.getMonth() - 7;
-    return Math.min(9, 5 + Math.max(0, Math.floor(meses / 6)));
+    return Math.min(10, 5 + Math.max(0, Math.floor(meses / 6)));
 }
 // semestre:fin
 
@@ -591,13 +595,17 @@ function applyTranslations() {
     const dictionary = translations[currentLanguage];
     document.documentElement.lang = currentLanguage;
 
+    // Con la carrera concluida, los textos del semestre usan su variante ".done"
+    const concluida = semestreEnCurso() > 9;
+    const variante = (key) => (concluida && `${key}.done` in dictionary ? `${key}.done` : key);
+
     document.querySelectorAll("[data-i18n]").forEach((element) => {
-        const key = element.dataset.i18n;
+        const key = variante(element.dataset.i18n);
         if (dictionary[key]) element.textContent = dictionary[key];
     });
 
     document.querySelectorAll("[data-i18n-html]").forEach((element) => {
-        const key = element.dataset.i18nHtml;
+        const key = variante(element.dataset.i18nHtml);
         if (dictionary[key]) element.innerHTML = dictionary[key];
     });
 
