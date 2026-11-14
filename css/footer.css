@@ -72,17 +72,18 @@ footer {
     }
 
     .footer-content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
         width: min(100%, 620px);
         text-align: left;
     }
 
     .copyright,
     .contact-info {
-        padding: 0;
         width: 100%;
+        padding: 0;
     }
 
     .copyright {
@@ -92,12 +93,11 @@ footer {
 
     .contact-info {
         border-left: 0;
-        border-top: 0;
     }
 
     .footer-content h2 {
         margin-bottom: 12px;
-        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-size: clamp(2rem, 7vw, 2.8rem);
         line-height: 1.1;
     }
 
@@ -198,11 +198,17 @@ footer {
 
 @media (max-width: 480px) {
     .quote-fab {
-        right: 14px;
-        bottom: 14px;
-        padding: 10px 16px;
-        min-width: 200px;
-        max-width: calc(100vw - 28px);
+        right: 50%;
+        left: 50%;
+        bottom: 16px;
+        width: min(100% - 30px, 420px);
+        transform: translateX(-50%) translateY(12px);
+        padding: 12px 18px;
+    }
+
+    .quote-fab.is-visible,
+    .quote-fab:focus-visible {
+        transform: translateX(-50%) translateY(0);
     }
 }
 
