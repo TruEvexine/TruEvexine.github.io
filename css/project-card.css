@@ -1,7 +1,8 @@
 /* ==========================================================================
    Tarjeta de proyecto destacada (Inicio y Proyectos)
    Video/galería a un lado de la información; en móvil, uno sobre otro.
-   ========================================================================== */
+   ==========================================================================
+*/
 
 .project-feature {
     display: grid;
@@ -163,11 +164,42 @@
     margin: 0;
 }
 
+.project-next a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.2rem 0.4rem;
+    color: var(--text-primary);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-next a:hover,
+.project-next a:focus-visible {
+    color: var(--brand-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    outline: none;
+}
+
+.project-next a:active {
+    color: var(--brand-accent);
+    transform: translateY(1px);
+}
+
 /* ==========================================================================
    Guiño de "Erosión" (solo en la tarjeta de SIN GUARDAR)
    Al pasar el cursor o enfocar: el título se distorsiona un instante, el
    video recibe líneas de escaneo y la barra de Erosión del juego se llena.
-   ========================================================================== */
+   ==========================================================================
+*/
 .erosion-scan {
     position: absolute;
     inset: 0;
@@ -239,7 +271,8 @@
    Guiño de "Tanque de agua" (solo en la tarjeta de Project Miralta)
    Al pasar el cursor o enfocar: cae lluvia ácida sobre el video y el
    tanque se vacía y se enturbia. Usa la misma barra que la Erosión.
-   ========================================================================== */
+   ==========================================================================
+*/
 @keyframes acid-rain {
     /* Solo se mueven las gotas; el tinte de abajo se queda fijo */
     from { background-position: 0 0, 0 0; }
@@ -292,6 +325,11 @@
 
     .project-next {
         width: min(100% - 40px, 640px);
+    }
+
+    .project-next a {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+        text-align: center;
     }
 }
 
