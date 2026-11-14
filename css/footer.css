@@ -1,6 +1,4 @@
-
 footer {
-
     color: var(--text-primary);
     background-color: var(--bg-surface);
     padding: 28px 20px;
@@ -16,10 +14,13 @@ footer {
     margin: 0 auto;
     text-align: center;
 }
-.footer-content h2{
+
+.footer-content h2 {
     font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.02em;
 }
-.footer-content p{
+
+.footer-content p {
     font-family: 'Arimo', sans-serif;
 }
 
@@ -32,7 +33,7 @@ footer {
     flex: 1;
     margin-top: 0;
     padding: 0 32px;
-    border-left: 1px solid var(--text-primary);
+    border-left: 1px solid rgba(243, 244, 246, 0.2);
 }
 
 .copyright h2,
@@ -67,30 +68,48 @@ footer {
 
 @media (max-width: 640px) {
     footer {
-        padding: 24px 20px 88px; /* deja pasar el botón flotante */
+        padding: 24px 20px 88px;
     }
 
     .footer-content {
-        flex-direction: column;
-        gap: 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: min(100%, 620px);
+        text-align: left;
+    }
+
+    .copyright,
+    .contact-info {
+        padding: 0;
+        width: 100%;
     }
 
     .copyright {
-        padding: 0 0 24px;
-        border-bottom: 1px solid #E5E7EB;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(243, 244, 246, 0.16);
     }
 
     .contact-info {
-        padding: 0;
         border-left: 0;
+        border-top: 0;
     }
 
     .footer-content h2 {
-        font-size: 1.2rem;
+        margin-bottom: 12px;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        line-height: 1.1;
     }
 
     .footer-content p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .copyright a,
+    .contact-info a {
+        display: inline;
+        line-height: 1.5;
     }
 }
 
@@ -112,18 +131,19 @@ footer {
 
     .copyright h2,
     .contact-info h2 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .copyright p,
     .contact-info p {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 }
 
 /* ==========================================================================
    Botón flotante al cotizador: aparece al pasar la portada
-   ========================================================================== */
+   ==========================================================================
+*/
 .quote-fab {
     position: fixed;
     right: 20px;
@@ -131,6 +151,7 @@ footer {
     z-index: 90;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     min-height: 48px;
     padding: 10px 20px;
@@ -142,7 +163,6 @@ footer {
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-    /* Oculto sin salir del orden de tabulación: al enfocarlo con teclado aparece */
     opacity: 0;
     transform: translateY(12px);
     pointer-events: none;
@@ -181,6 +201,8 @@ footer {
         right: 14px;
         bottom: 14px;
         padding: 10px 16px;
+        min-width: 200px;
+        max-width: calc(100vw - 28px);
     }
 }
 
