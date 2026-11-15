@@ -40,7 +40,7 @@
     <main class="projects-main" id="main">
         <div class="projects-hero">
             <h1 data-i18n="projects.title">Mis Proyectos</h1>
-            <p data-i18n="projects.intro">Lo que he construido, de la idea a la versión funcional.</p>
+            <p data-i18n="projects.intro">Lo que he armado, de la primera idea al día en que por fin funcionó.</p>
         </div>
 
         <!-- projects:start variant=page (generado por _dev/build-projects.mjs desde data/projects.json; no editar a mano) -->
@@ -84,8 +84,21 @@
         <aside class="project-next">
             <h2 data-i18n="projects.next">Siguiente proyecto en camino</h2>
             <p data-i18n="projects.nextText">Pronto subiré nuevos proyectos.</p>
-            <p><a href="https://cafe.rogelioemmanuel.com/en" rel="noopener" data-cafe data-i18n="projects.cafe">Si alguno te sirvió o te gustó mucho, invítame el siguiente café.</a></p>
         </aside>
+
+        <a class="cafe-card" href="https://cafe.rogelioemmanuel.com/en" rel="noopener" data-cafe>
+            <svg class="cafe-cup" viewBox="0 0 96 96" aria-hidden="true">
+                <g class="cafe-cup-steam"><path d="M34 30c-5-5 5-9 0-15"/><path d="M46 28c-5-5 5-9 0-15"/><path d="M58 30c-5-5 5-9 0-15"/></g>
+                <path d="M69 48h6a9 9 0 0 1 0 18h-9"/>
+                <path d="M20 44v10a24 24 0 0 0 48 0V44"/>
+                <ellipse class="cafe-cup-coffee" cx="44" cy="44" rx="24" ry="6"/>
+                <path d="M14 86h60"/>
+            </svg>
+            <span class="cafe-card-text">
+                <span class="cafe-card-title" data-i18n="projects.cafe">Si alguno te sirvió o te gustó mucho, invítame el siguiente café.</span>
+                <span class="cafe-card-cta"><span data-i18n="projects.cafeCta">Ir al café</span><span class="icon icon-arrow" aria-hidden="true"></span></span>
+            </span>
+        </a>
     </main>
 
     <footer data-layout="footer"></footer>

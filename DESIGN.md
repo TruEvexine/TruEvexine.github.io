@@ -182,6 +182,12 @@ Botones en píldora (999 px). Tarjetas de 16 px, medios y bloques internos de 12
 ### Slider de casos de estudio
 - Galería con flechas, contador y barras de página de 28 × 6 px dibujadas dentro de un botón de 28 × 24 px; la activa va en esmeralda.
 
+### Lámpara de disponibilidad
+- Lámpara de escritorio en SVG (34 px) con su luz en esmeralda al 30 %, seguida de "Abierto a prácticas y colaboraciones". Se enciende una vez al cargar; con `prefers-reduced-motion` aparece encendida. Va en la portada y en Contacto.
+
+### Tarjeta del café
+- Enlace de ancho completo a `cafe.rogelioemmanuel.com` (`data-cafe` lo apunta al idioma del sitio). Taza SVG que humea sola; al pasar, enfocar o tocar, la taza se inclina, el café se mueve y el borde pasa a esmeralda.
+
 ### Botón flotante "Cotiza tu sitio"
 - Píldora esmeralda fija abajo a la derecha; aparece después de bajar ~60 % de la pantalla.
 

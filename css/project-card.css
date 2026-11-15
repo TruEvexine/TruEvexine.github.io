@@ -164,34 +164,143 @@
     margin: 0;
 }
 
-.project-next a {
-    display: inline-flex;
+/* Tarjeta del café: el enlace a mi página de apoyo. La taza humea sola y reacciona al tocarla */
+.cafe-card {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0.2rem 0.4rem;
+    gap: clamp(16px, 4vw, 32px);
+    width: min(100% - 48px, 1100px);
+    margin: 24px auto 0;
+    padding: 24px clamp(20px, 4vw, 40px);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    background: var(--surface-card);
     color: var(--text-primary);
+    text-decoration: none;
+    transition: border-color 0.25s ease;
+}
+
+.cafe-card:hover,
+.cafe-card:focus-visible,
+.cafe-card:active {
+    border-color: var(--brand-accent);
+}
+
+.cafe-card:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 3px;
+}
+
+.cafe-cup {
+    flex: none;
+    width: 104px;
+    height: 104px;
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cafe-cup-coffee {
+    fill: var(--brand-accent-tint);
+    stroke: var(--brand-accent);
+}
+
+.cafe-cup-steam path {
+    stroke: var(--text-muted);
+    stroke-width: 3;
+    transition: stroke 0.25s ease;
+}
+
+.cafe-card:hover .cafe-cup-steam path,
+.cafe-card:focus-visible .cafe-cup-steam path,
+.cafe-card:active .cafe-cup-steam path {
+    stroke: var(--brand-accent-soft);
+}
+
+.cafe-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.cafe-card-title {
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    text-wrap: balance;
 }
 
-.project-next a:hover,
-.project-next a:focus-visible {
+.cafe-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--brand-accent);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    outline: none;
+    font-size: 0.95rem;
+    font-weight: 700;
 }
 
-.project-next a:active {
-    color: var(--brand-accent);
-    transform: translateY(1px);
+.cafe-card-cta .icon {
+    width: 18px;
+    height: 18px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .cafe-cup {
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .cafe-cup-steam path {
+        transform-box: fill-box;
+        transform-origin: 50% 100%;
+        animation: cafe-steam 3.6s ease-in-out infinite;
+    }
+
+    .cafe-cup-steam path:nth-child(2) { animation-delay: 1.2s; }
+    .cafe-cup-steam path:nth-child(3) { animation-delay: 2.4s; }
+
+    /* Al acercarte, la taza se inclina hacia ti y el café se mueve */
+    .cafe-card:hover .cafe-cup,
+    .cafe-card:focus-visible .cafe-cup {
+        transform: translateY(-4px) rotate(-7deg);
+    }
+
+    .cafe-card:hover .cafe-cup-coffee,
+    .cafe-card:focus-visible .cafe-cup-coffee {
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        animation: cafe-ripple 0.7s ease-out;
+    }
+
+    .cafe-card:hover .cafe-card-cta .icon,
+    .cafe-card:focus-visible .cafe-card-cta .icon {
+        transform: translateX(4px);
+    }
+
+    .cafe-card-cta .icon {
+        transition: transform 0.25s ease;
+    }
+
+    /* Al tocar: la taza se hunde un poco, como un botón de verdad */
+    .cafe-card:active .cafe-cup {
+        transform: translateY(0) rotate(-7deg) scale(0.94);
+    }
+}
+
+@keyframes cafe-steam {
+    0% { opacity: 0; transform: translateY(6px) scaleY(0.7); }
+    35% { opacity: 0.85; }
+    100% { opacity: 0; transform: translateY(-10px) scaleY(1.15); }
+}
+
+@keyframes cafe-ripple {
+    0%, 100% { transform: scaleX(1) scaleY(1); }
+    30% { transform: scaleX(1.05) scaleY(1.35); }
+    60% { transform: scaleX(0.97) scaleY(0.85); }
 }
 
 /* ==========================================================================
@@ -323,13 +432,14 @@
         padding: 4px;
     }
 
-    .project-next {
+    .project-next,
+    .cafe-card {
         width: min(100% - 40px, 640px);
     }
 
-    .project-next a {
-        font-size: clamp(1.1rem, 4vw, 1.5rem);
-        text-align: center;
+    .cafe-cup {
+        width: 64px;
+        height: 64px;
     }
 }
 
