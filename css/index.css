@@ -101,17 +101,6 @@
     margin: 80px auto 0;
 }
 
-/* Filete de acento: ancla el título y hace que el espacio bajo él se lea como intencional */
-.about h2::after {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 4px;
-    margin-top: 16px;
-    border-radius: 2px;
-    background: var(--brand-accent);
-}
-
 .about-body {
     display: flex;
     flex-direction: column;
