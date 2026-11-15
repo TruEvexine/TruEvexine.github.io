@@ -154,6 +154,10 @@
     .contact-option {
         padding: 24px;
     }
+
+    .contact-option:not(.contact-link):not(.contact-quote) .contact-option-value {
+        font-size: clamp(1.05rem, 5.4vw, 1.5rem);
+    }
 }
 
 @media (max-width: 480px) {

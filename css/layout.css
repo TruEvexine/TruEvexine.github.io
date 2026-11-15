@@ -440,16 +440,17 @@ footer[data-layout="footer"]:empty::before {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin: 0;
-    color: var(--brand-accent-soft);
+    margin: 6px 0;
+    color: var(--text-primary);
     font-size: 0.95rem;
     font-weight: 700;
 }
 
 .lamp {
     flex: none;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
+    color: var(--brand-accent-soft);
     fill: none;
     stroke: currentColor;
     stroke-width: 1.6;
@@ -476,6 +477,28 @@ footer[data-layout="footer"]:empty::before {
     34% { opacity: 1; }
     42% { opacity: 0.5; }
     54%, 100% { opacity: 1; }
+}
+
+/* Filete de acento bajo los títulos de sección (Sobre mí, Perfil, casos de estudio); "Mis proyectos" va centrado y sin filete */
+.about h2::after,
+.profile-section h2::after,
+.case-body h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-top: 16px;
+    border-radius: 2px;
+    background: var(--brand-accent);
+}
+
+/* Párrafos cortos sin palabras sueltas en la última línea */
+.hero-copy,
+.contact-intro,
+.contact-option-description,
+.projects-hero p,
+.profile-hero p {
+    text-wrap: balance;
 }
 
 .chips {
