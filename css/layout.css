@@ -433,27 +433,49 @@ footer[data-layout="footer"]:empty::before {
 }
 
 /* ==========================================================================
-   Piezas compartidas: insignia de disponibilidad, chips e iconos
+   Piezas compartidas: lámpara de disponibilidad, chips e iconos
    ========================================================================== */
+/* La lámpara del "escritorio de noche" se enciende una vez al cargar: abierto a ofertas */
 .availability {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 14px 6px 12px;
-    border: 1px solid rgba(16, 185, 129, 0.45);
-    border-radius: var(--radius-chip);
-    background: rgba(16, 185, 129, 0.08);
-    color: #A7F3D0;
-    font-size: 0.9rem;
+    gap: 8px;
+    margin: 0;
+    color: var(--brand-accent-soft);
+    font-size: 0.95rem;
     font-weight: 700;
 }
 
-.availability::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--brand-accent);
+.lamp {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.lamp-light {
+    fill: var(--brand-accent);
+    fill-opacity: 0.3;
+    stroke: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .lamp-light {
+        animation: lamp-on 1.2s steps(1, end) 0.5s both;
+    }
+}
+
+@keyframes lamp-on {
+    0% { opacity: 0; }
+    12% { opacity: 1; }
+    22% { opacity: 0.15; }
+    34% { opacity: 1; }
+    42% { opacity: 0.5; }
+    54%, 100% { opacity: 1; }
 }
 
 .chips {
