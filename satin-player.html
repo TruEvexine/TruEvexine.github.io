@@ -6,8 +6,6 @@
     <title data-i18n="sp.documentTitle">Satin Player — Local-first music player · Rogelio Ceja</title>
     <meta name="description" content="Satin Player, a music player by Rogelio Ceja that plays the audio files already on your device: FLAC, equalizer, playlists and nothing uploaded. Built with React, TypeScript and Vite.">
     <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
-    <!-- Borrador: sin indexar y fuera del sitemap hasta que se publique. Para publicarla, quita esta línea y agrega la página al sitemap. -->
-    <meta name="robots" content="noindex">
     <link rel="canonical" href="https://rogelioemmanuel.com/satin-player">
     <link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/satin-player">
     <link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/satin-player">
@@ -49,106 +47,46 @@
 <body data-nav="projects">
     <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
     <header data-layout="header"></header>
-
     <main class="case" id="main">
         <div class="case-hero">
             <a class="case-back" href="/projects">← <span data-i18n="sg.back">All projects</span></a>
             <h1 class="case-title case-title-satin"><img src="assets/satin-player/satin-simbolo-oro.svg" alt="" width="256" height="256">Satin Player</h1>
             <p class="case-tagline" data-i18n="sp.tagline">A music player for the files you already own: the comfort of a streaming app, with nothing uploaded.</p>
-            <div class="case-tags">
-                <span class="project-status" data-i18n="projects.status">In development</span>
-                <ul class="chips"><li>React</li><li>TypeScript</li><li>Vite</li><li>IndexedDB</li><li>Supabase</li></ul>
-            </div>
+            <div class="case-tags"><span class="project-status" data-i18n="projects.status">In development</span><ul class="chips"><li>React</li><li>TypeScript</li><li>Vite</li><li>IndexedDB</li><li>Supabase</li></ul></div>
         </div>
-
         <div class="case-grid">
             <div class="case-media">
-                <div class="slider slider-tall" role="region" aria-roledescription="carousel" aria-label="Satin Player gallery" data-i18n-attr="aria-label:sp.gallery" tabindex="0">
-                    <div class="slider-track">
-                        <div class="slide skel is-active" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
-                            <img src="assets/satin-player/landing_esc.png" alt="Satin Player landing page" data-i18n-attr="alt:sp.shotLanding" width="1280" height="720" fetchpriority="high">
-                        </div>
-                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
-                            <img src="assets/satin-player/biblioteca.webp" alt="The library view, with tabs for songs, albums and artists and a search bar" data-i18n-attr="alt:sp.shotLibrary" width="390" height="844" loading="lazy">
-                        </div>
-                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
-                            <img src="assets/satin-player/reproductor.webp" alt="The expanded player: cover art across the full width, quality label and transport controls" data-i18n-attr="alt:sp.shotPlayer" width="390" height="844" loading="lazy">
-                        </div>
-                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
-                            <img src="assets/satin-player/ecualizador.webp" alt="The equalizer sheet with seven presets and ten frequency bands" data-i18n-attr="alt:sp.shotEq" width="390" height="844" loading="lazy">
-                        </div>
-                        <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError">
-                            <img src="assets/satin-player/reproductor_esc_opc.png" alt="The expanded player with options sheet open" data-i18n-attr="alt:sp.shotOptions" width="1280" height="720" loading="lazy">
-                        </div>
-                    </div>
-                    <button type="button" class="slider-arrow prev" aria-label="Previous" data-i18n-attr="aria-label:ui.prev">&#10094;</button>
-                    <button type="button" class="slider-arrow next" aria-label="Next" data-i18n-attr="aria-label:ui.next">&#10095;</button>
-                    <p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">5</span></p>
-                </div>
+                <div class="slider slider-tall" role="region" aria-roledescription="carousel" aria-label="Satin Player gallery" data-i18n-attr="aria-label:sp.gallery" tabindex="0"><div class="slider-track">
+                    <div class="slide skel is-active" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError"><img src="assets/satin-player/landing_esc.png" alt="Satin Player landing page" data-i18n-attr="alt:sp.shotLanding" width="1280" height="720" fetchpriority="high"></div>
+                    <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError"><img src="assets/satin-player/biblioteca.webp" alt="The library view, with tabs for songs, albums and artists and a search bar" data-i18n-attr="alt:sp.shotLibrary" width="1280" height="720" loading="lazy"></div>
+                    <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError"><img src="assets/satin-player/reproductor.webp" alt="The expanded player: cover art across the full width, quality label and transport controls" data-i18n-attr="alt:sp.shotPlayer" width="1280" height="720" loading="lazy"></div>
+                    <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError"><img src="assets/satin-player/ecualizador.webp" alt="The equalizer sheet with seven presets and ten frequency bands" data-i18n-attr="alt:sp.shotEq" width="390" height="844" loading="lazy"></div>
+                    <div class="slide skel" data-error="Image unavailable" data-i18n-attr="data-error:ui.mediaError"><img src="assets/satin-player/reproductor_esc_opc.png" alt="The expanded player with options sheet open" data-i18n-attr="alt:sp.shotOptions" width="1280" height="720" loading="lazy"></div>
+                </div><button type="button" class="slider-arrow prev" aria-label="Previous" data-i18n-attr="aria-label:ui.prev">&#10094;</button><button type="button" class="slider-arrow next" aria-label="Next" data-i18n-attr="aria-label:ui.next">&#10095;</button><p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">5</span></p></div>
                 <div class="slider-dots" aria-hidden="true"></div>
                 <p class="case-shots-note" data-i18n="sp.shotsNote">Screenshots of the real app, still in development.</p>
             </div>
-
             <div class="case-body">
-                <p class="case-lead" data-i18n="sp.lead">Satin Player is a web music player for people who keep their own library of audio files. You import a folder, the library is saved on your device, and everything plays without an account and without a connection.</p>
-
+                <p class="case-lead" data-i18n="sp.lead">Satin Player is a web music player for people who keep their own library of audio files. You import a folder, the library is saved on your device, and you can listen without uploading a single track.</p>
                 <blockquote class="case-quote" data-i18n="sp.idea">Your music is yours: the app can only talk to its own domain and to the accounts server, so your files never leave the device.</blockquote>
-
                 <h2 data-i18n="sg.factsTitle">At a glance</h2>
-                <ul class="case-stats">
-                    <li><strong>10</strong><span data-i18n="sp.statBands">equalizer bands, ±12 dB</span></li>
-                    <li><strong>7</strong><span data-i18n="sp.statPresets">equalizer presets</span></li>
-                    <li><strong>5,000</strong><span data-i18n="sp.statTracks">tracks in performance tests</span></li>
-                    <li><strong>2</strong><span data-i18n="sp.statReplay">ReplayGain modes: track or album</span></li>
-                </ul>
-
+                <ul class="case-stats"><li><strong>10</strong><span data-i18n="sp.statBands">equalizer bands, ±12 dB</span></li><li><strong>7</strong><span data-i18n="sp.statPresets">equalizer presets</span></li><li><strong>5,000</strong><span data-i18n="sp.statTracks">tracks in performance tests</span></li><li><strong>2</strong><span data-i18n="sp.statReplay">ReplayGain modes: track or album</span></li></ul>
                 <h2 data-i18n="case.detailsTitle">Behind the project</h2>
-                <details open>
-                    <summary data-i18n="sp.whatTitle">What it does</summary>
-                    <ul class="case-list">
-                        <li><strong data-i18n="sp.whatLibraryTitle">Your library</strong> <span data-i18n="sp.whatLibrary">Import files or a whole folder. Tags, covers and the quality of each file are read in the browser, and the library is saved in IndexedDB.</span></li>
-                        <li><strong data-i18n="sp.whatSoundTitle">Sound</strong> <span data-i18n="sp.whatSound">FLAC and other formats, ReplayGain, a ten-band equalizer, crossfade, shuffle, repeat, synced lyrics and a sleep timer.</span></li>
-                        <li><strong data-i18n="sp.whatQueueTitle">Queue and playlists</strong> <span data-i18n="sp.whatQueue">Drag to reorder, multi-select with batch editing, a history of what already played, and saving the queue as a playlist.</span></li>
-                        <li><strong data-i18n="sp.whatLookTitle">Look</strong> <span data-i18n="sp.whatLook">The accent comes from the cover that is playing. Four backgrounds: Cover, Rhythm, Still and AMOLED.</span></li>
-                        <li><strong data-i18n="sp.whatAccountTitle">Optional account</strong> <span data-i18n="sp.whatAccount">It only syncs your playlists. Without an account you still have everything else.</span></li>
-                    </ul>
-                </details>
-                <details>
-                    <summary data-i18n="sp.tech">Technical Development</summary>
-                    <p data-i18n="sp.techStack">Built with React 19, TypeScript and Vite. The library lives in IndexedDB and is rescanned by differences, with the metadata read in a worker so the interface never waits for it.</p>
-                    <p data-i18n="sp.techCsp">The content security policy is closed: fonts and assets are self-hosted and the app can only connect to its own domain and to the accounts server. Animations only touch transform and opacity.</p>
-                    <p data-i18n="sp.techList">Queue and playlists stay virtualized even while you drag: the lifted row follows the pointer outside React and only its transform changes each frame.</p>
-                    <p data-i18n="sp.techTests">Unit tests with Vitest cover the audio, queue and library logic, and browser scripts walk the real flows: lists, drag and drop, and mobile gestures.</p>
-                </details>
-                <details>
-                    <summary data-i18n="sp.design">Design</summary>
-                    <p data-i18n="sp.designContent">The expanded player puts the cover across the full width and lets its color flood the background. The interface has no fixed brand color; the logo, in sand gold on warm black, avoids the category's clichés: no sound waves, headphones or musical notes.</p>
-                </details>
-                <details>
-                    <summary data-i18n="sp.statusTitle">Project Status</summary>
-                    <p data-i18n="sp.statusContent">The web app is running on a preview deployment while I refine the experience and prepare it for a public launch. Android and iPhone versions are planned, and the core features that run on your device will remain free and ad-free.</p>
-                </details>
-
-                <aside class="case-invest">
-                    <h2 data-i18n="sp.investTitle">Want to try it or talk about it?</h2>
-                    <p data-i18n="sp.invest">The web app is available to try now. If you give it a spin, I'd love to hear what works well and what could be better.</p>
-                    <div class="case-invest-actions">
-                        <a class="btn btn-primary" href="/contact" data-i18n="sg.investCta">Let's talk</a>
-                        <a class="btn" href="https://music-reproductor-ten.vercel.app/" target="_blank" rel="noopener noreferrer" data-i18n="sp.demo">Try Satin Player</a>
-                    </div>
-                </aside>
+                <details open><summary data-i18n="sp.whatTitle">What it does</summary><ul class="case-list">
+                    <li><strong data-i18n="sp.whatLibraryTitle">Your library</strong> <span data-i18n="sp.whatLibrary">Import files or a whole folder. Tags, covers and the quality of each file appear together, and changes are rescanned without reimporting.</span></li>
+                    <li><strong data-i18n="sp.whatSoundTitle">Sound</strong> <span data-i18n="sp.whatSound">FLAC and other formats, ReplayGain, a ten-band equalizer, crossfade, shuffle, repeat and gapless playback.</span></li>
+                    <li><strong data-i18n="sp.whatQueueTitle">Queue and playlists</strong> <span data-i18n="sp.whatQueue">Drag to reorder, multi-select with batch editing, a history of what you heard and playlists kept on your device.</span></li>
+                    <li><strong data-i18n="sp.whatLookTitle">Look</strong> <span data-i18n="sp.whatLook">The accent comes from the cover that is playing. Four backgrounds: Cover, Rhythm, Static and Blur.</span></li>
+                    <li><strong data-i18n="sp.whatAccountTitle">Optional account</strong> <span data-i18n="sp.whatAccount">It only syncs your playlists. Without an account you still have everything else.</span></li>
+                </ul></details>
+                <details><summary data-i18n="sp.tech">Technical Development</summary><p data-i18n="sp.techStack">Built with React 19, TypeScript and Vite. The library lives in IndexedDB and is rescanned by differences, with the metadata read in a worker so the interface stays responsive.</p><p data-i18n="sp.techCsp">The content security policy is closed: fonts and assets are self-hosted and the app can only connect to its own domain and to the accounts server. Audio stays local.</p><p data-i18n="sp.techList">Queue and playlists stay virtualized even while you drag: the lifted row follows the pointer outside React and only its transform changes each frame.</p><p data-i18n="sp.techTests">Unit tests with Vitest cover the audio, queue and library logic, and browser scripts walk the real flows: lists, drag and drop, and mobile gestures.</p></details>
+                <details><summary data-i18n="sp.design">Design</summary><p data-i18n="sp.designContent">The expanded player puts the cover across the full width and lets its color flood the background. The interface has no fixed brand color; the sound and the album art set its character.</p></details>
+                <details><summary data-i18n="sp.statusTitle">Project Status</summary><p data-i18n="sp.statusContent">The web app is running on a preview deployment while I refine the experience and prepare it for a public launch. Android and iPhone versions are also planned.</p></details>
+                <aside class="case-invest"><h2 data-i18n="sp.investTitle">Want to try it or talk about it?</h2><p data-i18n="sp.invest">The web app is available to try now. If you give it a spin, I'd love to hear what works well and what could be better.</p><div class="case-invest-actions"><a class="btn btn-primary" href="/contact" data-i18n="sg.investCta">Let's talk</a><a class="btn" href="https://music-reproductor-ten.vercel.app/" target="_blank" rel="noopener noreferrer" data-i18n="sp.demo">Try Satin Player</a></div></aside>
             </div>
         </div>
-        <nav class="case-next" aria-label="Next project" data-i18n-attr="aria-label:case.nextProject">
-            <a href="/undefeated-stars">
-                <span class="case-next-label" data-i18n="case.nextProject">Next project</span>
-                <span class="case-next-title">Undefeated Stars</span>
-                <span class="case-next-text" data-i18n="us.tagline">An online store for trading card games and collectibles in Mexico, built from the catalog all the way to the payment.</span>
-                <span class="case-next-arrow" aria-hidden="true">→</span>
-            </a>
-        </nav>
+        <nav class="case-next" aria-label="Next project" data-i18n-attr="aria-label:case.nextProject"><a href="/undefeated-stars"><span class="case-next-label" data-i18n="case.nextProject">Next project</span><span class="case-next-title">Undefeated Stars</span><span class="case-next-text" data-i18n="us.tagline">An online store for trading card games and collectibles in Mexico, built from the catalog all the way to the payment.</span><span class="case-next-arrow" aria-hidden="true">→</span></a></nav>
     </main>
-
     <footer data-layout="footer"></footer>
 </body>
 </html>
