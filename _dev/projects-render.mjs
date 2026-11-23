@@ -18,6 +18,7 @@ const VARIANTES = {
 const TEMAS = {
     erosion: { card: 'erosion-card', scan: 'erosion-scan', titleClass: ' erosion-title', barClass: '' },
     water: { card: 'water-card', scan: 'rain-scan', titleClass: '', barClass: ' water-bar' },
+    satin: { card: 'satin-card', titleClass: '', barClass: '' },
 };
 
 const escaparTexto = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -59,14 +60,19 @@ function tarjeta(p, lang, variante, textos, locales) {
     const titulo = escaparTexto(`${p.name} — ${p.tagline[lang]}`);
     const v = p.card.video;
     const ruta = `/${p.page}`;
+    const media = p.card.image
+        ? [`        <img class="project-feature-image" src="${escaparAtributo(p.card.image)}" alt="" width="1280" height="720"${lazy ? ' loading="lazy"' : ''}>`]
+        : [
+            `        <button type="button" class="yt-facade" data-yt="${v.id}"${v.start ? ` data-start="${v.start}"` : ''} aria-label="${escaparAtributo(en[v.labelKey])}" data-i18n-attr="aria-label:${v.labelKey}">`,
+            `            <img src="${v.media}/video-max.jpg" data-fallback="${v.media}/video-hq.jpg" alt="" width="1280" height="720"${lazy ? ' loading="lazy"' : ''}>`,
+            '            <span class="yt-play" aria-hidden="true"></span>',
+            '        </button>',
+        ];
     return [
         `<article class="project-feature ${tema.card}${reveal ? ' scroll-reveal' : ''}">`,
         `    <div class="project-feature-media skel" data-error="${escaparAtributo(en['ui.mediaError'])}" data-i18n-attr="data-error:ui.mediaError">`,
-        `        <button type="button" class="yt-facade" data-yt="${v.id}"${v.start ? ` data-start="${v.start}"` : ''} aria-label="${escaparAtributo(en[v.labelKey])}" data-i18n-attr="aria-label:${v.labelKey}">`,
-        `            <img src="${v.media}/video-max.jpg" data-fallback="${v.media}/video-hq.jpg" alt="" width="1280" height="720"${lazy ? ' loading="lazy"' : ''}>`,
-        '            <span class="yt-play" aria-hidden="true"></span>',
-        '        </button>',
-        `        <span class="${tema.scan}" aria-hidden="true"></span>`,
+        ...media,
+        ...(tema.scan ? [`        <span class="${tema.scan}" aria-hidden="true"></span>`] : []),
         '    </div>',
         '    <div class="project-feature-body">',
         // El título enlaza al caso de estudio solo si esa página existe; si no, queda como texto
@@ -75,7 +81,7 @@ function tarjeta(p, lang, variante, textos, locales) {
         `        <p>${escaparTexto(p.card.description[lang])}</p>`,
         `        <ul class="chips">${p.stack.map((s) => `<li>${escaparTexto(s)}</li>`).join('')}</ul>`,
         ...(valida ? [`        <a class="btn btn-primary" href="${ruta}" data-i18n="projects.caseStudy">${t('projects.caseStudy')}</a>`] : []),
-        `        <div class="erosion-meter" aria-hidden="true"><span data-i18n="${p.card.meterKey}">${t(p.card.meterKey)}</span><span class="erosion-bar${tema.barClass}"><span></span></span></div>`,
+        ...(p.card.meterKey ? [`        <div class="erosion-meter" aria-hidden="true"><span data-i18n="${p.card.meterKey}">${t(p.card.meterKey)}</span><span class="erosion-bar${tema.barClass}"><span></span></span></div>`] : []),
         '    </div>',
         '</article>',
     ];

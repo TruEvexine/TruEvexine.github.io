@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="us.documentTitle">Undefeated Stars — Online store for TCGs and collectibles · Rogelio Ceja</title>
+    <meta name="description" content="Undefeated Stars, an online store for trading card games and collectibles in Mexico by Rogelio Ceja. Node, Express, PostgreSQL and Mercado Pago, with a liquid glass look.">
+    <meta name="author" content="Rogelio Emmanuel Ceja Acosta">
+    <!-- Borrador: sin indexar y fuera del sitemap hasta que se publique. Para publicarla, quita esta línea y agrega la página al sitemap. -->
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://rogelioemmanuel.com/undefeated-stars">
+    <link rel="alternate" hreflang="en" href="https://rogelioemmanuel.com/undefeated-stars">
+    <link rel="alternate" hreflang="es" href="https://rogelioemmanuel.com/es/undefeated-stars">
+    <link rel="alternate" hreflang="x-default" href="https://rogelioemmanuel.com/undefeated-stars">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:site_name" content="Rogelio Ceja">
+    <meta property="og:title" content="Undefeated Stars — Online store for TCGs and collectibles">
+    <meta property="og:description" content="Undefeated Stars, an online store for trading card games and collectibles in Mexico by Rogelio Ceja. Node, Express, PostgreSQL and Mercado Pago, with a liquid glass look.">
+    <meta property="og:url" content="https://rogelioemmanuel.com/undefeated-stars">
+    <meta property="og:image" content="https://rogelioemmanuel.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0D0E15">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script src="js/js-flag.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/project-card.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="js/layout.js" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rogelioemmanuel.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://rogelioemmanuel.com/projects" },
+            { "@type": "ListItem", "position": 3, "name": "Undefeated Stars", "item": "https://rogelioemmanuel.com/undefeated-stars" }
+        ]
+    }
+    </script>
+</head>
+<body data-nav="projects">
+    <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
+    <header data-layout="header"></header>
+
+    <main class="case" id="main">
+        <div class="case-hero">
+            <a class="case-back" href="/projects">← <span data-i18n="sg.back">All projects</span></a>
+            <h1 class="case-title">Undefeated Stars</h1>
+            <p class="case-tagline" data-i18n="us.tagline">An online store for trading card games and collectibles in Mexico, built from the catalog to the payment webhook.</p>
+            <div class="case-tags">
+                <span class="project-status" data-i18n="projects.status">In development</span>
+                <ul class="chips"><li>JavaScript</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Supabase</li><li>Mercado Pago</li></ul>
+            </div>
+        </div>
+
+        <!-- Sin capturas todavía: la columna de texto ocupa el ancho. Cuando haya imágenes, agrega un <div class="case-media"> y quita is-text. -->
+        <div class="case-grid is-text">
+            <div class="case-body">
+                <p class="case-lead" data-i18n="us.lead">Undefeated Stars is an online store for trading card games and collectibles aimed at the Mexican market, with a “liquid glass” look: translucent surfaces, soft blur and thin borders that catch the light. The first phase is a complete store: catalog, cart, checkout, accounts, points for discounts and a basic admin panel.</p>
+
+                <blockquote class="case-quote" data-i18n="us.idea">The store never trusts the browser: prices, totals, discounts and stock are recalculated on the server from the database, and only a verified Mercado Pago webhook can mark an order as paid.</blockquote>
+
+                <h2 data-i18n="sg.factsTitle">At a glance</h2>
+                <ul class="case-stats">
+                    <li><strong>17</strong><span data-i18n="us.statPages">pages: catalog, product, cart, checkout, account, admin…</span></li>
+                    <li><strong>24</strong><span data-i18n="us.statTables">tables in the database schema</span></li>
+                    <li><strong>19</strong><span data-i18n="us.statTests">automated test files</span></li>
+                    <li><strong>3</strong><span data-i18n="us.statPay">payment methods planned: card, OXXO and SPEI</span></li>
+                </ul>
+
+                <h2 data-i18n="case.detailsTitle">Behind the project</h2>
+                <details open>
+                    <summary data-i18n="us.whatTitle">What it covers</summary>
+                    <ul class="case-list">
+                        <li><strong data-i18n="us.whatShopTitle">Storefront</strong> <span data-i18n="us.whatShop">Catalog, product pages, a cart and checkout, all sharing one header, footer and product card.</span></li>
+                        <li><strong data-i18n="us.whatAccountsTitle">Accounts</strong> <span data-i18n="us.whatAccounts">Sign up, log in and password recovery with Supabase Auth, plus a profile and saved addresses.</span></li>
+                        <li><strong data-i18n="us.whatPayTitle">Payments</strong> <span data-i18n="us.whatPay">The server creates a Mercado Pago Checkout Pro preference from database prices and stock. A signed webhook, checked against the Mercado Pago API, confirms the payment and turns the stock reservation into a sale.</span></li>
+                        <li><strong data-i18n="us.whatStockTitle">Inventory</strong> <span data-i18n="us.whatStock">Stock is reserved while a payment is pending, and every movement is recorded.</span></li>
+                        <li><strong data-i18n="us.whatAdminTitle">Admin panel</strong> <span data-i18n="us.whatAdmin">Product and order management for the store owners, with an audit log of what each admin changed.</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary data-i18n="us.tech">Technical Development</summary>
+                    <p data-i18n="us.techFront">The frontend is plain HTML, CSS and JavaScript, with no frameworks or bundlers: a deliberate choice to learn the fundamentals before reaching for tools. Design values live in one tokens file, so changing the brand means editing one place.</p>
+                    <p data-i18n="us.techBack">The backend is Node.js with Express, and PostgreSQL runs on Supabase. Only Express talks to the database, with parameterized queries; the browser never reads a table directly. Row Level Security is on for every table.</p>
+                    <p data-i18n="us.techEdge">A Cloudflare Worker serves the static site and forwards /api requests to Express, so the browser sees a single origin and session cookies stay first-party.</p>
+                    <p data-i18n="us.techTests">Tests run with Node's built-in test runner and cover checkout, the Mercado Pago webhook, authentication, the cart and the proxy.</p>
+                </details>
+                <details>
+                    <summary data-i18n="us.rules">Rules it is built on</summary>
+                    <ul class="case-list">
+                        <li><strong data-i18n="us.rulePriceTitle">Never trust the client</strong> <span data-i18n="us.rulePrice">Price, total, discount and stock sent by the browser are ignored; the server recomputes them.</span></li>
+                        <li><strong data-i18n="us.ruleCostTitle">Cost stays private</strong> <span data-i18n="us.ruleCost">Public endpoints list their columns explicitly, so what a piece cost the store never leaves the server.</span></li>
+                        <li><strong data-i18n="us.ruleTxTitle">All or nothing</strong> <span data-i18n="us.ruleTx">Creating an order, handling a payment webhook or issuing a refund runs inside a database transaction.</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary data-i18n="us.statusTitle">Project Status</summary>
+                    <p data-i18n="us.statusContent">In development, and only phase one. The store is not public yet, and the payment flow has not been validated end to end: the webhook has only been simulated locally. Digital packs and an in-app economy are designed but deliberately not started. The source code is private.</p>
+                </details>
+
+                <aside class="case-invest">
+                    <h2 data-i18n="us.investTitle">Curious about how it works?</h2>
+                    <p data-i18n="us.invest">The code is private while the store is being built, but I'm happy to walk you through the architecture and the decisions behind it.</p>
+                    <div class="case-invest-actions">
+                        <a class="btn btn-primary" href="/contact" data-i18n="sg.investCta">Let's talk</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <nav class="case-next" aria-label="Next project" data-i18n-attr="aria-label:case.nextProject">
+            <a href="/sin-guardar">
+                <span class="case-next-label" data-i18n="case.nextProject">Next project</span>
+                <span class="case-next-title">SIN GUARDAR</span>
+                <span class="case-next-text" data-i18n="sg.tagline">A cosmic horror visual novel where your choices change the story and how the game looks.</span>
+                <span class="case-next-arrow" aria-hidden="true">→</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer data-layout="footer"></footer>
+</body>
+</html>

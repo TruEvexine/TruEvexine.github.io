@@ -44,6 +44,19 @@
         calc(var(--erosion) * 4px) 0 rgba(16, 185, 129, 0.55);
 }
 
+.case-title-satin {
+    display: flex;
+    align-items: center;
+    gap: 0.22em;
+}
+
+.case-title-satin img {
+    flex: none;
+    width: clamp(42px, 7vw, 72px);
+    height: auto;
+    filter: drop-shadow(0 0 16px rgba(230, 198, 134, 0.18));
+}
+
 .case-tagline {
     max-width: 640px;
     margin: 16px 0 0;
@@ -68,10 +81,10 @@
 /* ---------- Rejilla: medios | información ---------- */
 .case-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
     align-items: start;
     gap: clamp(28px, 4vw, 56px);
-    width: min(100% - 48px, 1160px);
+    width: min(100% - 48px, 1320px);
     margin: 40px auto 0;
 }
 
@@ -81,6 +94,39 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+}
+
+/* Sin medios (aún no hay capturas): una sola columna de lectura, centrada */
+.case-grid.is-text {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100% - 48px, 760px);
+}
+
+/* ---------- Capturas de app móvil: tres pantallas en fila, sin recortar ---------- */
+.case-shots {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.case-shots img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    /* Contorno blanco al 10 % (el sitio es solo oscuro) para separar la captura del fondo */
+    outline: 1px solid oklch(1 0 0 / 0.1);
+    outline-offset: -1px;
+}
+
+.case-shots-note {
+    margin: 0;
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    text-align: center;
 }
 
 /* ---------- Galería ---------- */
@@ -128,7 +174,7 @@
     object-fit: cover;
 }
 
-.slide:not(:first-child) img {
+.slide > img {
     cursor: zoom-in;
 }
 
@@ -503,7 +549,8 @@
 /* ---------- Imagen ampliada ---------- */
 .lightbox {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh; /* en móvil 100vh incluye la barra del navegador y desborda */
     max-width: none;
     max-height: none;
     margin: 0;
@@ -511,11 +558,20 @@
     border: 0;
     background: transparent;
     cursor: zoom-out;
+    overflow: hidden;
+    overscroll-behavior: contain;
 }
 
+/* Fila de alto definido: sin esto el max-height de la imagen no se aplica y crece hasta su tamaño real */
 .lightbox[open] {
     display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
     place-items: center;
+}
+
+/* Con la ampliación abierta la página de fondo no se desplaza */
+html:has(.lightbox[open]) {
+    overflow: hidden;
 }
 
 .lightbox::backdrop {
@@ -523,10 +579,45 @@
 }
 
 .lightbox img {
+    width: auto;
+    height: auto; /* anula los atributos width/height del HTML */
     max-width: 100%;
     max-height: 100%;
     border-radius: 12px;
     object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: max(16px, env(safe-area-inset-top));
+    right: max(16px, env(safe-area-inset-right));
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0 0 3px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(13, 14, 21, 0.7);
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    color: var(--brand-accent);
+    border-color: var(--brand-accent);
+}
+
+/* Escritorio: la galería de capturas de app (verticales) crece con la ventana en vez de quedarse en 16:9 */
+@media (min-width: 901px) {
+    .slider-tall .slider-track {
+        aspect-ratio: auto;
+        height: clamp(420px, calc(100vh - 190px), 780px);
+    }
 }
 
 /* ---------- Móvil ---------- */
@@ -539,6 +630,24 @@
 
     .case-media {
         position: static;
+    }
+
+    .case-grid.is-text {
+        width: min(100% - 40px, 680px);
+    }
+
+    /* Las capturas pasan a un carril deslizable para que cada una se vea grande */
+    .case-shots {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: min(62%, 240px);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+    }
+
+    .case-shots li {
+        scroll-snap-align: start;
     }
 
     .case-next {
@@ -568,6 +677,7 @@
 
     .slide,
     .slider-arrow,
+    .lightbox-close,
     .slider-dots button::before,
     .case-body summary::after,
     .case-next a,

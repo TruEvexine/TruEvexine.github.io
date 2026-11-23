@@ -55,12 +55,20 @@
     const lightbox = document.createElement('dialog');
     lightbox.className = 'lightbox';
     lightbox.addEventListener('click', () => lightbox.close());
+    // Botón visible para cerrar: tocar la imagen funciona, pero nadie lo adivina
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'lightbox-close';
+    closeBtn.setAttribute('aria-label', document.documentElement.lang === 'es' ? 'Cerrar' : 'Close');
+    closeBtn.innerHTML = '&times;';
     document.body.appendChild(lightbox);
-    slides.slice(1).forEach((slide) => {
+    slides.forEach((slide) => {
         const img = slide.querySelector('img');
-        if (!img) return; // captura aún sin subir (.media-pending)
+        if (!img || img.closest('.yt-facade')) return; // No ampliar miniaturas de video.
         img.addEventListener('click', () => {
-            lightbox.replaceChildren(img.cloneNode());
+            const big = img.cloneNode();
+            big.loading = 'eager'; // la copia hereda loading="lazy" y podría no cargar dentro del diálogo
+            lightbox.replaceChildren(big, closeBtn);
             lightbox.showModal();
         });
     });

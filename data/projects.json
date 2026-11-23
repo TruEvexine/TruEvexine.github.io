@@ -92,6 +92,55 @@
       }
     },
     {
+      "id": "satin-player",
+      "name": "Satin Player",
+      "tagline": {
+        "es": "Reproductor de música local",
+        "en": "Local-first music player"
+      },
+      "date": "2026-09",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "IndexedDB",
+        "Supabase"
+      ],
+      "page": "satin-player",
+      "statusKey": "sp.cardStatus",
+      "card": {
+        "theme": "satin",
+        "description": {
+          "es": "Un reproductor web para tu propia biblioteca de música: importa tus archivos, organiza tus playlists y escucha todo desde tu dispositivo.",
+          "en": "A web player for your personal music library: import your files, organize playlists and listen right from your device."
+        },
+        "image": "assets/satin-player/landing_esc.png"
+      },
+      "cv": {
+        "include": false
+      }
+    },
+    {
+      "id": "undefeated-stars",
+      "name": "Undefeated Stars",
+      "tagline": {
+        "es": "Tienda en línea de TCG y coleccionables",
+        "en": "Online store for TCGs and collectibles"
+      },
+      "date": "2026-09",
+      "stack": [
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Mercado Pago"
+      ],
+      "page": "undefeated-stars",
+      "cv": {
+        "include": false
+      }
+    },
+    {
       "id": "vissionary",
       "name": "Project Vissionary",
       "tagline": {

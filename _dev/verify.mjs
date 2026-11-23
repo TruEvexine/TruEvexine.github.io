@@ -118,11 +118,17 @@ if (fallos === antesClaves) ok('mismas claves en español e inglés, y ninguna f
         if (pr.card) {
             if (!pr.page) falla(`${quien}: una tarjeta necesita page (el título y el botón enlazan al caso de estudio)`);
             for (const l of ['es', 'en']) if (!pr.card.description?.[l]) falla(`${quien}: falta card.description.${l}`);
-            for (const clave of [pr.statusKey, pr.card.meterKey, pr.card.video?.labelKey]) {
+            for (const clave of [pr.statusKey, pr.card.meterKey, pr.card.video?.labelKey].filter(Boolean)) {
                 if (!(clave in diccionarios.es) || !(clave in diccionarios.en)) falla(`${quien}: clave sin traducir ${clave}`);
             }
-            for (const archivo of ['video-max.jpg', 'video-hq.jpg']) {
-                if (!existsSync(resolve(raiz, pr.card.video.media, archivo))) falla(`${quien}: falta ${pr.card.video.media}/${archivo}`);
+            if (pr.card.image) {
+                if (!existsSync(resolve(raiz, pr.card.image))) falla(`${quien}: falta ${pr.card.image}`);
+            } else if (pr.card.video) {
+                for (const archivo of ['video-max.jpg', 'video-hq.jpg']) {
+                    if (!existsSync(resolve(raiz, pr.card.video.media, archivo))) falla(`${quien}: falta ${pr.card.video.media}/${archivo}`);
+                }
+            } else {
+                falla(`${quien}: la tarjeta necesita una imagen o un video`);
             }
         }
         if (pr.cv?.include) {

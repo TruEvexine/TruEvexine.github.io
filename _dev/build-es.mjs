@@ -36,6 +36,14 @@ const SEO = {
         ogTitle: 'Project Miralta — Videojuego cozy survival en Phaser',
         description: 'Project Miralta, un cozy survival dibujado a mano de Rogelio Ceja: cuida un huerto en una azotea mientras la ciudad se queda sin agua. Hecho con Phaser y Vite.',
     },
+    'satin-player': {
+        ogTitle: 'Satin Player — Reproductor de música local',
+        description: 'Satin Player, un reproductor de música de Rogelio Ceja que reproduce los archivos de audio que ya tienes en tu dispositivo: FLAC, ecualizador, playlists y nada se sube. Hecho con React, TypeScript y Vite.',
+    },
+    'undefeated-stars': {
+        ogTitle: 'Undefeated Stars — Tienda en línea de TCG y coleccionables',
+        description: 'Undefeated Stars, una tienda en línea de juegos de cartas coleccionables y coleccionables en México, de Rogelio Ceja. Node, Express, PostgreSQL y Mercado Pago, con estilo liquid glass.',
+    },
     cv: {
         ogTitle: 'CV — Rogelio Ceja',
         description: 'CV de Rogelio Emmanuel Ceja Acosta, estudiante de Ingeniería en Sistemas Computacionales en la UVAQ. Descárgalo en formato Harvard (ATS) o visual, en español o inglés.',

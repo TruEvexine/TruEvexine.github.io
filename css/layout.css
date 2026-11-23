@@ -74,8 +74,8 @@ img {
     max-width: 100%;
 }
 
-/* Header siempre presente (las reglas de ocultar/compactar están en header.css) */
-header,
+/* Header siempre presente (las reglas de ocultar/compactar están en header.css).
+   Solo el del sitio: el <header class="h-head"> de la hoja Harvard no debe quedarse pegado. */
 header[data-layout="header"] {
     position: sticky;
     top: 0;

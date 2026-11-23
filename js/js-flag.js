@@ -1,7 +1,7 @@
 document.documentElement.classList.add("js");
 
 // Páginas con versión en español en /es/ (las genera _dev/build-es.mjs)
-window.localizedPages = ["index", "profile", "projects", "sin-guardar", "project-miralta", "cv", "contact", "privacidad"];
+window.localizedPages = ["index", "profile", "projects", "sin-guardar", "project-miralta", "satin-player", "undefeated-stars", "cv", "contact", "privacidad"];
 
 // Quien eligió español (o tiene el navegador en español y aún no elige) va directo a /es/, antes de pintar.
 // Las URL /es/ nunca redirigen; tampoco la hoja del CV para PDF ni la vista previa del admin.
