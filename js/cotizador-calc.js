@@ -149,6 +149,45 @@ export function nombreConcepto(id) {
     return clave ? NOMBRES.concepto[grupo][clave] : NOMBRES.concepto[id];
 }
 
+// ---------- Enlace que recupera una cotización ----------
+// Va después del # (no llega al servidor) y solo lleva opciones y folio: ni datos personales ni precios.
+// Los extras se guardan como bits en este orden: solo se puede AÑADIR al final, o los enlaces viejos cambiarían.
+export const EXTRAS_ENLACE = [
+    'cuidado', 'cuidadoPlus', 'seoArranque', 'seoContinuo', 'whatsapp', 'kitNfc',
+    'modulo-calendario', 'modulo-formulario', 'modulo-seoBasico', 'modulo-animacionLogo', 'modulo-menuHtml',
+    'modulo-menuAnimado', 'modulo-interactivo', 'modulo-pedidoWhatsapp', 'modulo-catalogo', 'modulo-sucursales',
+];
+const FOLIO_VALIDO = /^COT-(\d{2})(\d{2})(\d{2})-[A-Z2-9]{4}$/;
+
+const elegido = (seleccion, extra) => Boolean(extra.startsWith('modulo-') ? seleccion.modulos?.[extra.slice(7)] : seleccion[extra]);
+
+export function enlaceCotizacion(seleccion, folio) {
+    const bits = EXTRAS_ENLACE.reduce((suma, extra, n) => (elegido(seleccion, extra) ? suma + 2 ** n : suma), 0);
+    const datos = new URLSearchParams({ p: seleccion.paquete, x: bits.toString(36), f: folio });
+    if (NOMBRES.negocio[seleccion.negocio]) datos.set('n', seleccion.negocio);
+    return `${SITIO}/cotizar#${datos}`;
+}
+
+// Lo que llega en la dirección lo pudo escribir cualquiera: solo se acepta lo conocido
+export function leerEnlaceCotizacion(hash) {
+    const datos = new URLSearchParams(String(hash ?? '').replace(/^#/, ''));
+    const paquete = datos.get('p');
+    const codigo = datos.get('x') ?? '';
+    const folio = datos.get('f') ?? '';
+    const fecha = folio.match(FOLIO_VALIDO);
+    if (!PAQUETES.includes(paquete) || !/^[0-9a-z]{1,4}$/.test(codigo) || !fecha) return null;
+    const bits = parseInt(codigo, 36);
+    if (bits >= 2 ** EXTRAS_ENLACE.length) return null;
+    const negocio = datos.get('n') ?? '';
+    return {
+        paquete,
+        negocio: Object.hasOwn(NOMBRES.negocio, negocio) ? negocio : '',
+        extras: EXTRAS_ENLACE.filter((_, n) => Math.floor(bits / 2 ** n) % 2 === 1),
+        folio,
+        fecha: `${fecha[3]}/${fecha[2]}/20${fecha[1]}`,
+    };
+}
+
 // datos: { negocio, nombre, empresa, ciudad, nota }  (todo opcional salvo negocio)
 export function armarMensaje({ folio, seleccion, resultado, datos, idioma }) {
     const filas = [`Hola Rogelio, quiero una cotización formal. (Folio ${folio})`, ''];
@@ -174,6 +213,7 @@ export function armarMensaje({ folio, seleccion, resultado, datos, idioma }) {
     if (datos.nota) contacto.push(`Comentarios: ${datos.nota}`);
     if (contacto.length) filas.push('', ...contacto);
 
+    filas.push('', `Ver esta selección: ${enlaceCotizacion({ ...seleccion, negocio: datos.negocio }, folio)}`);
     filas.push('', `Estimado informativo de ${SITIO.replace('https://', '')}/cotizar, vigencia ${VIGENCIA_DIAS} días. Idioma del visitante: ${idioma === 'en' ? 'inglés' : 'español'}.`);
     return filas.join('\n');
 }

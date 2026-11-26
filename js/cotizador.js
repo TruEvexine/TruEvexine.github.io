@@ -6,6 +6,7 @@ import { CORREO, WHATSAPP, SITIO } from './contacto.js';
 import {
     calcular, recomendar, formatoMoneda, limpiarTexto, generarFolio,
     armarMensaje, enlaceWhatsApp, enlaceCorreo, nombreConcepto, MODULOS,
+    enlaceCotizacion, leerEnlaceCotizacion, EXTRAS_ENLACE,
 } from './cotizador-calc.js';
 
 const $ = (selector) => document.querySelector(selector);
@@ -15,6 +16,7 @@ const panelResultado = $('#quote-result');
 let ultimo = null;          // { seleccion, resultado, datos } de la última cotización
 let paqueteElegidoAMano = false;
 let folio = null;
+let recuperada = null;      // { folio, fecha } si se abrió desde un enlace de cotización
 
 const idioma = () => (document.documentElement.lang === 'en' ? 'en' : 'es');
 
@@ -154,6 +156,9 @@ function pintarResultado() {
 
     $('#result-package').textContent = `${texto('quote.result.package')}: ${texto(`quote.pkg.${seleccion.paquete}`)}`;
     $('#result-legend').textContent = texto('quote.legend', { dias: VIGENCIA_DIAS });
+    $('#result-folio').textContent = `${texto('quote.result.folio')}: ${folio}`;
+    $('#result-restored').hidden = !recuperada;
+    if (recuperada) $('#result-restored').textContent = texto('quote.result.restored', { fecha: recuperada.fecha });
 
     $('#result-totals').hidden = resultado.aMedida;
     $('#result-detail').hidden = resultado.aMedida;
@@ -203,10 +208,11 @@ function nuevoFolio() {
     return generarFolio(new Date(), Array.from(azar, (n) => letras[n % letras.length]).join(''));
 }
 
-function mostrarResultado() {
+function mostrarResultado(desdeEnlace = null) {
     const seleccion = leerSeleccion();
     const resultado = calcular(seleccion);
-    folio = nuevoFolio();
+    recuperada = desdeEnlace;
+    folio = desdeEnlace?.folio ?? nuevoFolio();
     ultimo = { seleccion, resultado, datos: leerDatos() };
     pintarResultado();
     prepararEnlaces();
@@ -229,18 +235,20 @@ function empezarDeCero() {
     marcarRecomendado('');
     ['#field-name', '#field-business', '#field-city', '#field-note'].forEach((id) => { $(id).value = ''; });
     ultimo = null;
+    recuperada = null;
+    // Si se llegó desde un enlace, se quita de la dirección para que recargar no lo vuelva a aplicar
+    if (leerEnlaceCotizacion(location.hash)) history.replaceState(history.state, '', location.pathname + location.search);
     ajustarExtras();
     pintarTotalEnVivo();
     volverAlFormulario();
 }
 
-async function copiarResumen() {
-    const mensaje = mensajeActual();
-    const etiqueta = $('#action-copy-label');
+async function copiar(contenido, selectorEtiqueta, claveNormal) {
+    const etiqueta = $(selectorEtiqueta);
     try {
-        await navigator.clipboard.writeText(mensaje);
+        await navigator.clipboard.writeText(contenido);
     } catch {
-        window.prompt('', mensaje); // navegadores sin acceso al portapapeles
+        window.prompt('', contenido); // navegadores sin acceso al portapapeles
         return;
     }
     const boton = etiqueta.closest('button');
@@ -248,9 +256,32 @@ async function copiarResumen() {
     boton.classList.add('is-copied');
     clearTimeout(etiqueta.timer);
     etiqueta.timer = setTimeout(() => {
-        etiqueta.textContent = texto('quote.next.copy');
+        etiqueta.textContent = texto(claveNormal);
         boton.classList.remove('is-copied');
     }, 2000);
+}
+
+const copiarResumen = () => copiar(mensajeActual(), '#action-copy-label', 'quote.next.copy');
+const copiarEnlace = () => copiar(enlaceCotizacion(ultimo.seleccion, folio), '#action-link-label', 'quote.next.link');
+
+// ---------- Cotización recibida por enlace ----------
+// Se marcan las opciones y se calcula con los precios actuales
+function abrirDesdeEnlace() {
+    const guardada = leerEnlaceCotizacion(location.hash);
+    if (!guardada) return;
+    form.reset();
+    const radio = (nombre, valor) => form.querySelector(`input[name="${nombre}"][value="${valor}"]`);
+    if (guardada.negocio) radio('negocio', guardada.negocio).checked = true;
+    radio('paquete', guardada.paquete).checked = true;
+    paqueteElegidoAMano = true;
+    marcarRecomendado(guardada.negocio ? recomendar(guardada.negocio) : '');
+    ajustarExtras();
+    for (const extra of EXTRAS_ENLACE) {
+        const control = form.elements[extra];
+        if (!control.disabled) control.checked = guardada.extras.includes(extra);
+    }
+    pintarTotalEnVivo();
+    mostrarResultado(guardada);
 }
 
 // ---------- Datos estructurados: las ofertas salen de precios.js ----------
@@ -307,6 +338,7 @@ function iniciar() {
         evento.preventDefault();
         mostrarResultado();
     });
+    $('#action-link').addEventListener('click', copiarEnlace);
 
     // Los datos opcionales actualizan el mensaje al momento de enviarlo
     ['#action-whatsapp', '#action-email'].forEach((id) => {
@@ -326,4 +358,8 @@ function iniciar() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', iniciar);
+document.addEventListener('DOMContentLoaded', () => {
+    iniciar();
+    abrirDesdeEnlace();
+    window.addEventListener('hashchange', abrirDesdeEnlace); // pegar otro enlace en la misma pestaña
+});

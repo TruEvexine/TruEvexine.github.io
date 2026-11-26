@@ -5,6 +5,7 @@ import { PRECIOS } from '../../js/precios.js';
 import {
     aplicarIva, calcular, recomendar, MODULOS, formatoMoneda, limpiarTexto,
     generarFolio, armarMensaje, enlaceWhatsApp, enlaceCorreo,
+    enlaceCotizacion, leerEnlaceCotizacion, EXTRAS_ENLACE,
 } from '../../js/cotizador-calc.js';
 
 const sinExtras = { cuidado: false, seoArranque: false, seoContinuo: false, whatsapp: false, kitNfc: false };
@@ -164,6 +165,25 @@ test('cada tipo de negocio del formulario tiene nombre en el mensaje', () => {
         const msg = armarMensaje({ folio: 'COT-1', seleccion, resultado: calcular(seleccion), idioma: 'es', datos: { negocio } });
         assert.ok(!msg.includes('Tipo de negocio: No especificado'), `sin nombre: ${negocio}`);
     }
+});
+
+test('el enlace de cotización recupera la misma selección', () => {
+    const seleccion = { paquete: 'esencial', negocio: 'otro', ...sinExtras, cuidado: true, whatsapp: true, modulos: { calendario: true, sucursales: true } };
+    const enlace = enlaceCotizacion(seleccion, 'COT-261126-AB23');
+    const leido = leerEnlaceCotizacion(new URL(enlace).hash);
+    assert.deepEqual(leido, { paquete: 'esencial', negocio: 'otro', extras: ['cuidado', 'whatsapp', 'modulo-calendario', 'modulo-sucursales'], folio: 'COT-261126-AB23', fecha: '26/11/2026' });
+    assert.ok(!enlace.includes('$') && enlace.length < 130);
+    const todo = Object.fromEntries(EXTRAS_ENLACE.filter((e) => !e.startsWith('modulo-')).map((e) => [e, true]));
+    todo.modulos = Object.fromEntries(Object.keys(MODULOS).map((m) => [m, true]));
+    assert.equal(leerEnlaceCotizacion(new URL(enlaceCotizacion({ paquete: 'medida', ...todo }, 'COT-261126-AB23')).hash).extras.length, EXTRAS_ENLACE.length);
+    assert.equal(EXTRAS_ENLACE.filter((e) => e.startsWith('modulo-')).length, Object.keys(MODULOS).length);
+});
+
+test('un enlace de cotización alterado no se aplica', () => {
+    for (const malo of ['', '#main', '#p=gratis&x=0&f=COT-261126-AB23', '#p=esencial&x=zzzz&f=COT-261126-AB23', '#p=esencial&x=-1&f=COT-261126-AB23', '#p=esencial&x=1&f=<script>', '#p=esencial&x=1']) {
+        assert.equal(leerEnlaceCotizacion(malo), null, malo);
+    }
+    assert.equal(leerEnlaceCotizacion('#p=esencial&x=1&f=COT-261126-AB23&n=__proto__').negocio, '');
 });
 
 test('los enlaces codifican el mensaje', () => {

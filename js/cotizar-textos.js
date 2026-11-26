@@ -77,6 +77,8 @@ const es = {
     "quote.submit": "Ver mi cotización",
 
     "quote.result.title": "Tu cotización estimada",
+    "quote.result.folio": "Folio",
+    "quote.result.restored": "Cotización recuperada de un enlace creado el {fecha}. Los montos usan los precios actuales.",
     "quote.result.package": "Paquete",
     "quote.result.once": "Pago único",
     "quote.result.monthly": "Mensualidad",
@@ -106,6 +108,7 @@ const es = {
     "quote.next.emailTitle": "Prefiero escribirlo con calma",
     "quote.next.email": "Enviar por correo",
     "quote.next.copy": "Copiar resumen",
+    "quote.next.link": "Copiar enlace de esta cotización",
     "quote.next.copied": "¡Copiado!",
     "quote.next.edit": "Cambiar algo",
     "quote.next.reset": "Empezar de cero",
@@ -239,6 +242,8 @@ const en = {
     "quote.submit": "See my quote",
 
     "quote.result.title": "Your estimated quote",
+    "quote.result.folio": "Reference",
+    "quote.result.restored": "Quote opened from a link created on {fecha} (day/month/year). Amounts use current prices.",
     "quote.result.package": "Package",
     "quote.result.once": "One-time payment",
     "quote.result.monthly": "Monthly fee",
@@ -268,6 +273,7 @@ const en = {
     "quote.next.emailTitle": "I'd rather write it calmly",
     "quote.next.email": "Send by email",
     "quote.next.copy": "Copy summary",
+    "quote.next.link": "Copy a link to this quote",
     "quote.next.copied": "Copied!",
     "quote.next.edit": "Change something",
     "quote.next.reset": "Start over",

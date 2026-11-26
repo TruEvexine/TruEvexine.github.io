@@ -665,6 +665,20 @@ html:has(.quote-form:not([hidden])) {
     margin: 24px 0 12px !important;
 }
 
+.quote-folio {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.quote-restored {
+    margin: 12px 0 0;
+    padding: 10px 14px;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-inner);
+    color: var(--text-secondary);
+}
+
 .quote-faq details {
     border-bottom: 1px solid var(--border-subtle);
 }
