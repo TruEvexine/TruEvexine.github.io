@@ -17,7 +17,8 @@ const PAGINAS = JSON.parse(leer('js/js-flag.js').match(/localizedPages = (\[[^\]
 const DATOS = { cv: ['data/cv.json', 'data/projects.json'], cotizar: ['js/precios.js', 'js/cotizar-textos.js'] };
 
 export function huella(html) {
-    const limpio = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<svg[\s\S]*?<\/svg>/g, '');
+    const limpio = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<svg[\s\S]*?<\/svg>/g, '')
+        .replace(/<(header|footer) data-layout=[\s\S]*?<\/\1>/g, ''); // iguales en todas las páginas
     const datos = [...limpio.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]);
     const cuerpo = limpio.slice(limpio.indexOf('<body'));
     const atributos = [...cuerpo.matchAll(/\s(?:href|src|alt|data-yt)="([^"]+)"/g)].map((m) => m[1]);

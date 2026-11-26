@@ -64,7 +64,7 @@ const rutaEn = (pagina) => `/${pagina === 'index' ? '' : pagina}`;
 const rutaEs = (pagina) => `/es/${pagina === 'index' ? '' : pagina}`;
 const paginaDe = (ruta) => ruta.split(/[?#]/)[0].replace(/^\/(es(?:\/|$))?/, '').replace(/\/$/, '').replace(/\.html$/, '') || 'index';
 
-async function cargarTextos() {
+export async function cargarTextos() {
     globalThis.window = { translations: {} };
     const bloque = leer('js/layout.js');
     const inicio = bloque.indexOf('const translations =');
@@ -75,7 +75,7 @@ async function cargarTextos() {
 const escaparTexto = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const escaparAtributo = (s) => escaparTexto(s).replace(/"/g, '&quot;');
 
-function traducir(html, es, avisos, archivo) {
+export function traducir(html, es, avisos, archivo) {
     const texto = (clave, original) => {
         if (clave in es) return es[clave];
         avisos.push(`${archivo}: sin traducción para ${clave}`);

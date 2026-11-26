@@ -62,7 +62,28 @@
 </head>
 <body data-nav="projects">
     <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to content</a>
-    <header data-layout="header"></header>
+    <header data-layout="header">
+        <div class="header-container">
+            <a class="logo-section" href="/">Rogelio Emmanuel Ceja</a>
+
+            <button class="hamburger-menu" type="button" aria-label="Menu" data-i18n-attr="aria-label:ui.menu" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navbar" id="site-nav">
+                <ul>
+                    <li><a href="/" data-i18n="nav.home">Home</a></li>
+                    <li><a href="/profile" data-i18n="nav.profile">Profile</a></li>
+                    <li><a href="/projects" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="/cv" data-i18n="nav.cv">CV</a></li>
+                    <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+                    <li><button type="button" data-language-toggle>Español</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main class="case" id="main">
         <div class="case-hero">
@@ -182,6 +203,25 @@
         </nav>
     </main>
 
-    <footer data-layout="footer"></footer>
+    <footer data-layout="footer">
+        <div class="footer-content">
+            <div class="copyright">
+                <h2 data-i18n="footer.copyright">Rogelio Emmanuel Ceja</h2>
+                <p data-i18n-html="footer.rights">&copy; <span data-year>2026</span> Rogelio Emmanuel Ceja. All rights reserved.</p>
+                <p><a href="/privacidad" data-i18n="footer.privacy">Privacy</a></p>
+                <p><a href="https://cafe.rogelioemmanuel.com/en" rel="noopener" data-cafe data-i18n="footer.cafe">Buy me a coffee</a></p>
+            </div>
+
+            <div class="contact-info">
+                <h2 data-i18n="footer.contact">Contact Information</h2>
+                <p><span data-i18n="footer.email">Email:</span> <a href="mailto:rogelioemmanuelceja@gmail.com">rogelioemmanuelceja@gmail.com</a></p>
+                <p><span data-i18n="footer.phone">WhatsApp:</span> <a href="https://wa.me/524523412556" target="_blank" rel="noopener noreferrer">+52 452 341 2556</a></p>
+                <p><span data-i18n="footer.github">GitHub:</span> <a href="https://github.com/TruEvexine">TruEvexine</a></p>
+                <p><span data-i18n="footer.linkedin">LinkedIn:</span> <a href="https://www.linkedin.com/in/rogelio-emmanuel-ceja-acosta-6aa659231/">Rogelio Emmanuel Ceja</a></p>
+            </div>
+        </div>
+
+        <a class="quote-fab" href="/cotizar"><span data-i18n="quote.fab">Price your site</span><span class="icon icon-arrow" aria-hidden="true"></span></a>
+    </footer>
 </body>
 </html>

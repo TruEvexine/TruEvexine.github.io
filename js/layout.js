@@ -1,9 +1,3 @@
-// Rutas absolutas para que también funcionen desde la página 404 en cualquier URL
-const layouts = {
-    header: "/partials/header",
-    footer: "/partials/footer"
-};
-
 const translations = {
     en: {
         "nav.home": "Home",
@@ -694,34 +688,6 @@ let currentLanguage = isSpanishUrl ? "es"
 let scrollDirection = "down";
 let previousScrollY = window.scrollY;
 
-async function loadLayout(element, file) {
-    const response = await fetch(file);
-
-    if (!response.ok) {
-        throw new Error(`No se pudo cargar ${file}: ${response.status}`);
-    }
-
-    element.innerHTML = await response.text();
-}
-
-async function loadLayouts() {
-    const elements = document.querySelectorAll("[data-layout]");
-
-    await Promise.all(Array.from(elements).map(async (element) => {
-        const file = layouts[element.dataset.layout];
-
-        if (!file) {
-            throw new Error(`Layout desconocido: ${element.dataset.layout}`);
-        }
-
-        try {
-            await loadLayout(element, file);
-        } catch (error) {
-            console.error(`No se pudo cargar ${file}:`, error);
-        }
-    }));
-}
-
 function initScrollReveal() {
     const elements = document.querySelectorAll(".scroll-reveal");
     if (!elements.length) return;
@@ -1001,16 +967,10 @@ document.addEventListener("DOMContentLoaded", () => {
     initCopyButtons();
     initScrollReveal();
     document.documentElement.classList.add("reveal-ready");
-    loadLayouts()
-        .then(() => {
-            localizeLayoutLinks();
-            initLanguageToggle();
-            initHamburgerMenu();
-            initQuoteFab();
-            markCurrentPage();
-            applyTranslations();
-        })
-        .catch((error) => {
-            console.error("No se pudieron cargar los elementos compartidos:", error);
-        });
+    // El header y el footer ya vienen en el HTML (_dev/build-layout.mjs)
+    localizeLayoutLinks();
+    initLanguageToggle();
+    initHamburgerMenu();
+    initQuoteFab();
+    markCurrentPage();
 });

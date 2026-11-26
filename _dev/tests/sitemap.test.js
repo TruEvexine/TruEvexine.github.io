@@ -12,6 +12,11 @@ test('estilos, íconos y comentarios no cambian la fecha', () => {
     assert.ok(!cambia('<p>', '<!-- nota --><p>'));
 });
 
+test('el header y el footer compartidos no cambian la fecha', () => {
+    const conPie = (texto) => huella(pagina.replace('</body>', `<footer data-layout="footer"><p>${texto}</p></footer></body>`));
+    assert.equal(conPie('uno'), conPie('dos'));
+});
+
 test('texto, enlaces y título sí cambian la fecha', () => {
     assert.ok(cambia('>Hola<', '>Adiós<'));
     assert.ok(cambia('href="/cotizar"', 'href="/contacto"'));

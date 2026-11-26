@@ -170,6 +170,12 @@ if (fallos === antesClaves) ok('mismas claves en español e inglés, y ninguna f
     if (fallos === antesCv) ok('proyectos: fuente única, enlaces, tarjetas y CV válidos');
 }
 
+// El header y el footer de cada página salen de partials/
+const { checkLayout } = await import(`${pathToFileURL(resolve(raiz, '_dev/build-layout.mjs')).href}`);
+const sinLayout = await checkLayout();
+if (sinLayout.length) falla(`header o footer desactualizados (${sinLayout.join(', ')}): ejecuta npm run build`);
+else ok('header y footer al día');
+
 // 6. Versión en español (es/) al día con las páginas en inglés y los textos
 const { checkSpanishPages } = await import(`${pathToFileURL(resolve(raiz, '_dev/build-es.mjs')).href}`);
 const desactualizadas = await checkSpanishPages();

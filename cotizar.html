@@ -21,6 +21,7 @@
     <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <script src="js/js-flag.js"></script>
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/cotizar.css">
     <link rel="stylesheet" href="css/header.css">
@@ -62,7 +63,28 @@
 </head>
 <body>
     <a class="skip-link" href="#main" data-i18n="ui.skip">Saltar al contenido</a>
-    <header data-layout="header"></header>
+    <header data-layout="header">
+        <div class="header-container">
+            <a class="logo-section" href="/">Rogelio Emmanuel Ceja</a>
+
+            <button class="hamburger-menu" type="button" aria-label="Menú" data-i18n-attr="aria-label:ui.menu" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navbar" id="site-nav">
+                <ul>
+                    <li><a href="/" data-i18n="nav.home">Inicio</a></li>
+                    <li><a href="/profile" data-i18n="nav.profile">Perfil</a></li>
+                    <li><a href="/projects" data-i18n="nav.projects">Proyectos</a></li>
+                    <li><a href="/cv" data-i18n="nav.cv">CV</a></li>
+                    <li><a href="/contact" data-i18n="nav.contact">Contacto</a></li>
+                    <li><button type="button" data-language-toggle>Español</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main class="quote-main" id="main">
         <section class="quote-hero" aria-labelledby="quote-title">
@@ -442,6 +464,25 @@
         </div>
     </main>
 
-    <footer data-layout="footer"></footer>
+    <footer data-layout="footer">
+        <div class="footer-content">
+            <div class="copyright">
+                <h2 data-i18n="footer.copyright">Rogelio Emmanuel Ceja</h2>
+                <p data-i18n-html="footer.rights">&copy; <span data-year>2026</span> Rogelio Emmanuel Ceja. Todos los derechos reservados.</p>
+                <p><a href="/privacidad" data-i18n="footer.privacy">Privacidad</a></p>
+                <p><a href="https://cafe.rogelioemmanuel.com/en" rel="noopener" data-cafe data-i18n="footer.cafe">Invítame un café</a></p>
+            </div>
+
+            <div class="contact-info">
+                <h2 data-i18n="footer.contact">Información de contacto</h2>
+                <p><span data-i18n="footer.email">Correo:</span> <a href="mailto:rogelioemmanuelceja@gmail.com">rogelioemmanuelceja@gmail.com</a></p>
+                <p><span data-i18n="footer.phone">WhatsApp:</span> <a href="https://wa.me/524523412556" target="_blank" rel="noopener noreferrer">+52 452 341 2556</a></p>
+                <p><span data-i18n="footer.github">GitHub:</span> <a href="https://github.com/TruEvexine">TruEvexine</a></p>
+                <p><span data-i18n="footer.linkedin">LinkedIn:</span> <a href="https://www.linkedin.com/in/rogelio-emmanuel-ceja-acosta-6aa659231/">Rogelio Emmanuel Ceja</a></p>
+            </div>
+        </div>
+
+        <a class="quote-fab" href="/cotizar"><span data-i18n="quote.fab">Cotiza tu sitio</span><span class="icon icon-arrow" aria-hidden="true"></span></a>
+    </footer>
 </body>
 </html>

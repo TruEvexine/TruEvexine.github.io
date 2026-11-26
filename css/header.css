@@ -186,6 +186,40 @@ header[data-layout="header"].is-scrolled {
     }
 }
 
+/* Sin JavaScript no hay botón de menú que funcione: los enlaces se muestran siempre */
+@media (max-width: 768px) {
+    html:not(.js) .header-container {
+        flex-wrap: wrap;
+        height: auto;
+        padding-block: 12px;
+    }
+
+    html:not(.js) .hamburger-menu,
+    html:not(.js) [data-language-toggle] {
+        display: none;
+    }
+
+    html:not(.js) .navbar {
+        position: static;
+        padding: 8px 0 0;
+        border: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    html:not(.js) .navbar ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0 4px;
+    }
+
+    html:not(.js) .navbar ul li a {
+        padding: 8px 10px 8px 0;
+        font-size: 1.05rem;
+    }
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
     .header-container {
         padding: 0 24px;
