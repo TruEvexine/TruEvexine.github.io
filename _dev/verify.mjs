@@ -220,6 +220,38 @@ for (const archivo of [...listarHtml(raiz), 'partials/footer.html']) {
 }
 if (fallos === antesImagenes) ok('imágenes, textos de respaldo y sitemap válidos');
 
+// 6c. Los otros respaldos (HTML interior y atributos), los recursos del dominio propio y lo que git no rastrea
+const antesRecursos = fallos;
+for (const archivo of [...listarHtml(raiz), 'partials/footer.html']) {
+    const html = leer(archivo).replace(/<!--[\s\S]*?-->/g, '');
+    const idioma = html.match(/<html\b[^>]*\blang=["'](en|es)["']/i)?.[1].toLowerCase() ?? 'en';
+    const comparar = (clave, valor) => {
+        const traduccion = window.translations[idioma]?.[clave];
+        if (traduccion !== undefined && textoPlano(valor) !== textoPlano(traduccion)) falla(`${archivo}: respaldo no coincide con ${idioma}.${clave}`);
+    };
+    for (const m of html.matchAll(/<(\w+)\b[^>]*\sdata-i18n-html="([^"]+)"[^>]*>([\s\S]*?)<\/\1>/g)) comparar(m[2], m[3]);
+    for (const m of html.matchAll(/<\w+\b[^>]*\sdata-i18n-attr="([^"]+)"[^>]*>/g)) {
+        for (const par of m[1].split(';')) {
+            const [attr, clave] = par.split(':').map((p) => p.trim());
+            const valor = m[0].match(new RegExp(`\\s${attr}="([^"]*)"`))?.[1];
+            if (valor !== undefined && attr !== 'href') comparar(clave, valor);
+        }
+    }
+    for (const m of html.matchAll(/https:\/\/rogelioemmanuel\.com\/(assets\/[^"'?#\s]+)/g)) {
+        if (!existsSync(resolve(raiz, m[1]))) falla(`${archivo}: falta ${m[1]}`);
+    }
+}
+if (existsSync(resolve(raiz, '.git'))) {
+    const rastreados = new Set(execSync('git ls-files', { cwd: raiz, encoding: 'utf8' }).split(/\r?\n/));
+    const fuentes = [...listarHtml(raiz), 'data/projects.json', 'data/cv.json', ...readdirSync(resolve(raiz, 'css')).map((n) => `css/${n}`)];
+    for (const archivo of fuentes) {
+        for (const m of leer(archivo).matchAll(/assets\/[\w\-./]+\.(?:png|jpe?g|webp|avif|svg|pdf|woff2|ttf)/g)) {
+            if (existsSync(resolve(raiz, m[0])) && !rastreados.has(m[0])) falla(`${archivo}: ${m[0]} existe pero git no lo rastrea (git add)`);
+        }
+    }
+}
+if (fallos === antesRecursos) ok('respaldos con formato y atributos, imágenes sociales y recursos rastreados por git');
+
 // 7. Pruebas
 try {
     execSync('node --test _dev/tests/*.test.js', { cwd: raiz, stdio: 'inherit' });
