@@ -74,7 +74,16 @@ function ajustarExtras() {
         extra.hidden = noAplica;
         extra.classList.toggle('is-included', incluido);
         input.disabled = incluido || noAplica;
-        if (incluido || noAplica) input.checked = false;
+        // Lo que se había elegido se recuerda mientras el paquete no lo permite, y vuelve al regresar
+        if (input.disabled && input.checked) {
+            input.dataset.recordado = '';
+            input.checked = false;
+        } else if (!input.disabled && 'recordado' in input.dataset) {
+            delete input.dataset.recordado;
+            input.checked = true;
+            // Cuidado y Cuidado Plus son uno u otro: al volver el Plus, sale el normal
+            if (input.name === 'cuidadoPlus') form.elements.cuidado.checked = false;
+        }
         extra.querySelector('.extra-price').hidden = incluido;
         const aviso = extra.querySelector('.extra-included');
         if (aviso) aviso.hidden = !incluido;
@@ -229,8 +238,13 @@ function volverAlFormulario() {
     form.querySelector('input:checked')?.focus();
 }
 
+function olvidarExtras() {
+    form.querySelectorAll('[data-recordado]').forEach((input) => { delete input.dataset.recordado; });
+}
+
 function empezarDeCero() {
     form.reset();
+    olvidarExtras();
     paqueteElegidoAMano = false;
     marcarRecomendado('');
     ['#field-name', '#field-business', '#field-city', '#field-note'].forEach((id) => { $(id).value = ''; });
@@ -270,6 +284,7 @@ function abrirDesdeEnlace() {
     const guardada = leerEnlaceCotizacion(location.hash);
     if (!guardada) return;
     form.reset();
+    olvidarExtras();
     const radio = (nombre, valor) => form.querySelector(`input[name="${nombre}"][value="${valor}"]`);
     if (guardada.negocio) radio('negocio', guardada.negocio).checked = true;
     radio('paquete', guardada.paquete).checked = true;
