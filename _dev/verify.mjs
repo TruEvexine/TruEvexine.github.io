@@ -176,6 +176,11 @@ const desactualizadas = await checkSpanishPages();
 if (desactualizadas.length) falla(`es/ desactualizado (${desactualizadas.join(', ')}): ejecuta npm run build:es`);
 else ok('es/ al día');
 
+// El sitemap sale de las páginas: si cambió su contenido, hay que regenerarlo
+const { checkSitemap } = await import(`${pathToFileURL(resolve(raiz, '_dev/build-sitemap.mjs')).href}`);
+if (checkSitemap().length) falla('sitemap desactualizado: ejecuta npm run build');
+else ok('sitemap al día');
+
 // 6b. Todas las imágenes locales referenciadas por páginas HTML deben existir.
 function listarHtml(dir, relativo = '') {
     return readdirSync(dir, { withFileTypes: true }).flatMap((entrada) => {

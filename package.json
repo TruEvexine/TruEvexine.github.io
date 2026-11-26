@@ -8,6 +8,7 @@
     "verify": "node _dev/verify.mjs",
     "build:projects": "node _dev/build-projects.mjs",
     "build:es": "node _dev/build-es.mjs",
-    "build": "node _dev/build-projects.mjs && node _dev/build-es.mjs"
+    "build:sitemap": "node _dev/build-sitemap.mjs",
+    "build": "node _dev/build-projects.mjs && node _dev/build-es.mjs && node _dev/build-sitemap.mjs"
   }
 }
