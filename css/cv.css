@@ -89,6 +89,42 @@
     position: relative;
 }
 
+.cv-mobile-contacts {
+    display: none;
+}
+
+.cv-mobile-contacts ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cv-mobile-contacts a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid rgba(243, 244, 246, 0.18);
+    border-radius: var(--radius-inner);
+    color: #F3F4F6;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.cv-mobile-contacts a:focus-visible {
+    outline: 3px solid var(--brand-accent);
+    outline-offset: 3px;
+}
+
+.cv-mobile-contacts h2 {
+    margin: 0 0 8px;
+    color: #F3F4F6;
+    font-size: 1rem;
+}
+
 /* ---------- Hoja ---------- */
 .paper {
     width: 8.5in;
@@ -456,7 +492,8 @@ html:not(.cv-print):not(.cv-embed) .paper:not(.paper-scaled) .v-contact li {
     .skip-link,
     .cv-hero,
     .cv-credentials,
-    .cred-lightbox {
+    .cred-lightbox,
+    .cv-mobile-contacts {
         display: none !important;
     }
 
@@ -740,9 +777,18 @@ html:not(.cv-print):not(.cv-embed) .paper:not(.paper-scaled) .v-contact li {
 
 /* Pantallas más angostas que la hoja: ocupa el ancho disponible con la misma proporción de carta */
 @media (max-width: 856px) {
+    .cv-mobile-contacts {
+        display: block;
+        margin-bottom: 16px;
+    }
+
     .paper.skel {
         width: 100%;
         min-height: 0;
         aspect-ratio: 8.5 / 11;
     }
+}
+
+.cv-mobile-contacts[hidden] {
+    display: none !important;
 }

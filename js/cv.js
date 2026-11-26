@@ -60,6 +60,7 @@
         paper.innerHTML = html;
         paper.className = `paper paper-${template}`;
         document.documentElement.lang = L;
+        renderMobileContacts(paper, L);
         fitPaper();
         updateDownloads(L);
 
@@ -173,6 +174,29 @@
         scaler.style.height = `${paper.offsetHeight * scale}px`;
     }
 
+    function renderMobileContacts(paper, language) {
+        const section = document.querySelector('.cv-mobile-contacts');
+        if (!section) return;
+        if (mode !== 'page') {
+            section.hidden = true;
+            return;
+        }
+        const list = section.querySelector('ul');
+        const links = template === 'visual' ? [...paper.querySelectorAll('.v-contact a')] : [];
+        section.hidden = links.length === 0;
+        list.replaceChildren(...links.map((source) => {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = source.href;
+            link.textContent = source.textContent;
+            item.append(link);
+            return item;
+        }));
+        const label = language === 'es' ? 'Contacto' : 'Contact';
+        section.setAttribute('aria-label', label);
+        section.querySelector('h2').textContent = label;
+    }
+
     function updateDownloads(L) {
         const file = `/assets/cv/Rogelio-Ceja-CV-${template === 'harvard' ? 'Harvard' : 'Visual'}-${L.toUpperCase()}.pdf`;
         document.querySelectorAll('[data-cv-download]').forEach((a) => {
@@ -230,6 +254,11 @@
                     fitPaper();
                     document.documentElement.classList.add('cv-rendered');
                 });
+            })
+            .catch((error) => {
+                console.error('No se pudieron cargar los datos del CV:', error);
+                const message = document.querySelector('[data-cv-error]');
+                if (message) message.hidden = false;
             });
     }
 })();

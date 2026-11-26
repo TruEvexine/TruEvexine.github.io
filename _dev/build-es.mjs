@@ -26,7 +26,7 @@ const SEO = {
     },
     projects: {
         ogTitle: 'Proyectos — Rogelio Ceja',
-        description: 'SIN GUARDAR, un videojuego narrativo de horror cósmico en Java, y Project Miralta, un cozy survival en Phaser, de Rogelio Emmanuel Ceja.',
+        description: 'Proyectos de Rogelio Ceja: SIN GUARDAR, Project Miralta, Satin Player y Undefeated Stars.',
     },
     'sin-guardar': {
         ogTitle: 'SIN GUARDAR — Caso de estudio',
@@ -109,6 +109,8 @@ function ajustarRutas(html) {
     return html.replace(/(\s(?:src|href|data-fallback)=")([^"]*)"/g, (m, attr, valor) => {
         if (/^(https?:|mailto:|tel:|data:|#|\/\/)/.test(valor) || valor === '') return m;
         if (!valor.startsWith('/')) return `${attr}/${valor}"`;
+        // El cotizador tiene una sola URL: se le avisa que quien llega venía leyendo en español
+        if (valor === '/cotizar') return `${attr}/cotizar?lang=es"`;
         const pagina = paginaDe(valor);
         if (PAGINAS.includes(pagina) && !/^\/es(\/|$)/.test(valor)) {
             const resto = valor.match(/[?#].*$/)?.[0] ?? '';

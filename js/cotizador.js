@@ -42,7 +42,7 @@ function leerSeleccion() {
     const dato = new FormData(form);
     return {
         paquete: dato.get('paquete') ?? 'profesional',
-        negocio: dato.get('negocio') ?? 'otro',
+        negocio: dato.get('negocio') ?? '',
         cuidado: dato.has('cuidado'),
         cuidadoPlus: dato.has('cuidadoPlus'),
         modulos: Object.fromEntries(Object.keys(MODULOS).map((clave) => [clave, dato.has(`modulo-${clave}`)])),
@@ -63,6 +63,8 @@ function pintarPrecioCuidado() {
 // Según el paquete, algunos extras ya vienen incluidos (data-included-in) o no aplican (data-not-in)
 function ajustarExtras() {
     const { paquete } = leerSeleccion();
+    const aMedida = paquete === 'medida';
+    const extrasStep = $('#extras-step');
     document.querySelectorAll('[data-included-in], [data-not-in]').forEach((extra) => {
         const incluido = extra.dataset.includedIn?.split(' ').includes(paquete) ?? false;
         const noAplica = extra.dataset.notIn?.split(' ').includes(paquete) ?? false;
@@ -75,7 +77,9 @@ function ajustarExtras() {
         const aviso = extra.querySelector('.extra-included');
         if (aviso) aviso.hidden = !incluido;
     });
-    $('#extras-step').disabled = paquete === 'medida';
+    extrasStep.disabled = aMedida;
+    extrasStep.querySelector('.quote-extras-disabled').hidden = !aMedida;
+    extrasStep.querySelector('[name="cuidado"]').closest('.extra').querySelector('.extra-price').hidden = aMedida;
     pintarPrecioCuidado();
 }
 
@@ -94,7 +98,7 @@ function elegirPaquete(paquete) {
 // ---------- Resultado ----------
 function leerDatos() {
     return {
-        negocio: new FormData(form).get('negocio') ?? 'otro',
+        negocio: new FormData(form).get('negocio') ?? '',
         nombre: limpiarTexto($('#field-name').value, 60),
         empresa: limpiarTexto($('#field-business').value, 80),
         ciudad: limpiarTexto($('#field-city').value, 60),

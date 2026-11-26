@@ -237,7 +237,7 @@
 }
 
 .mr-sistemas li.is-off > span {
-    opacity: 0.55;
+    color: #5B6166;
 }
 
 .mr-switch:disabled {
@@ -359,9 +359,18 @@
     }
 
     .mr-sistemas li {
-        grid-template-columns: minmax(0, 1fr) 1.8em minmax(7.5em, auto);
+        grid-template-columns: minmax(0, 1fr) 1.8em minmax(0, 5em);
         gap: 8px;
         font-size: 1.2rem;
+    }
+
+    .mr-sistemas li > span:first-child {
+        overflow-wrap: anywhere;
+    }
+
+    .mr-switch {
+        min-width: 0;
+        padding-inline: 4px;
     }
 
     .mr-resultado:not([hidden]) {

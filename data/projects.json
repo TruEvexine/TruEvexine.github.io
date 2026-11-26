@@ -114,7 +114,9 @@
           "es": "Un reproductor web para tu propia biblioteca de música: importa tus archivos, organiza tus playlists y escucha todo desde tu dispositivo.",
           "en": "A web player for your personal music library: import your files, organize playlists and listen right from your device."
         },
-        "image": "assets/satin-player/landing_esc.png"
+        "image": "assets/satin-player/landing_esc.webp",
+        "imageWidth": 1440,
+        "imageHeight": 900
       },
       "cv": {
         "include": false
@@ -136,13 +138,24 @@
         "Mercado Pago"
       ],
       "page": "undefeated-stars",
+      "statusKey": "projects.status",
+      "card": {
+        "theme": "stars",
+        "description": {
+          "es": "Una tienda en línea de TCG y coleccionables para México, con una vitrina liquid glass y pagos verificados en el servidor.",
+          "en": "An online store for TCGs and collectibles in Mexico, with a liquid-glass storefront and server-verified payments."
+        },
+        "image": "assets/undefeated-stars/cover.svg",
+        "imageWidth": 1200,
+        "imageHeight": 675
+      },
       "cv": {
         "include": false
       }
     },
     {
       "id": "vissionary",
-      "name": "Project Vissionary",
+      "name": "Project Visionary",
       "tagline": {
         "es": "SaaS de gestión",
         "en": "Management SaaS"

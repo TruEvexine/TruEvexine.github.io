@@ -34,56 +34,146 @@
     <script src="/js/project.js" defer></script>
     <script src="/js/layout.js" defer></script>
     <script type="application/ld+json">
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://rogelioemmanuel.com/es/" },
-        { "@type": "ListItem", "position": 2, "name": "Proyectos", "item": "https://rogelioemmanuel.com/es/projects" },
-        { "@type": "ListItem", "position": 3, "name": "Satin Player", "item": "https://rogelioemmanuel.com/es/satin-player" }
-    ] }
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://rogelioemmanuel.com/es/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Proyectos",
+                "item": "https://rogelioemmanuel.com/es/projects"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Satin Player",
+                "item": "https://rogelioemmanuel.com/es/satin-player"
+            }
+        ]
+    }
     </script>
 </head>
 <body data-nav="projects">
     <a class="skip-link" href="#main" data-i18n="ui.skip">Saltar al contenido</a>
     <header data-layout="header"></header>
+
     <main class="case" id="main">
         <div class="case-hero">
             <a class="case-back" href="/es/projects">← <span data-i18n="sg.back">Todos los proyectos</span></a>
             <h1 class="case-title case-title-satin"><img src="/assets/satin-player/satin-simbolo-oro.svg" alt="" width="256" height="256">Satin Player</h1>
             <p class="case-tagline" data-i18n="sp.tagline">Un reproductor para los archivos de música que ya tienes: la comodidad de un servicio de streaming, sin subir nada.</p>
-            <div class="case-tags"><span class="project-status" data-i18n="projects.status">En desarrollo</span><ul class="chips"><li>React</li><li>TypeScript</li><li>Vite</li><li>IndexedDB</li><li>Supabase</li></ul></div>
+            <div class="case-tags">
+                <span class="project-status" data-i18n="projects.status">En desarrollo</span>
+                <ul class="chips"><li>React</li><li>TypeScript</li><li>Vite</li><li>IndexedDB</li><li>Supabase</li></ul>
+            </div>
         </div>
+
         <div class="case-grid">
             <div class="case-media">
-                <div class="slider slider-tall" role="region" aria-roledescription="carousel" aria-label="Galería de Satin Player" data-i18n-attr="aria-label:sp.gallery" tabindex="0"><div class="slider-track">
-                    <div class="slide skel is-active" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError"><img src="/assets/satin-player/landing_esc.png" alt="Página de inicio de Satin Player" data-i18n-attr="alt:sp.shotLanding" width="1280" height="720" fetchpriority="high"></div>
-                    <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError"><img src="/assets/satin-player/biblioteca.webp" alt="La biblioteca, con pestañas de canciones, álbumes y artistas y una barra de búsqueda" data-i18n-attr="alt:sp.shotLibrary" width="1280" height="720" loading="lazy"></div>
-                    <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError"><img src="/assets/satin-player/reproductor.webp" alt="El reproductor expandido: portada a todo el ancho, etiqueta de calidad y controles" data-i18n-attr="alt:sp.shotPlayer" width="1280" height="720" loading="lazy"></div>
-                    <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError"><img src="/assets/satin-player/ecualizador.webp" alt="La hoja del ecualizador con siete ajustes y diez bandas de frecuencia" data-i18n-attr="alt:sp.shotEq" width="390" height="844" loading="lazy"></div>
-                    <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError"><img src="/assets/satin-player/reproductor_esc_opc.png" alt="El reproductor expandido con el menú de opciones abierto" data-i18n-attr="alt:sp.shotOptions" width="1280" height="720" loading="lazy"></div>
-                </div><button type="button" class="slider-arrow prev" aria-label="Anterior" data-i18n-attr="aria-label:ui.prev">&#10094;</button><button type="button" class="slider-arrow next" aria-label="Siguiente" data-i18n-attr="aria-label:ui.next">&#10095;</button><p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">5</span></p></div>
+                <div class="slider slider-tall" role="region" aria-roledescription="carrusel" aria-label="Galería de Satin Player" data-i18n-attr="aria-label:sp.gallery; aria-roledescription:ui.carousel" tabindex="0">
+                    <div class="slider-track">
+                        <div class="slide skel is-active" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="/assets/satin-player/landing_esc.webp" alt="Página de inicio de Satin Player" data-i18n-attr="alt:sp.shotLanding" width="1440" height="900" fetchpriority="high">
+                        </div>
+                        <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="/assets/satin-player/biblioteca.webp" alt="La biblioteca, con pestañas de canciones, álbumes y artistas y una barra de búsqueda" data-i18n-attr="alt:sp.shotLibrary" width="390" height="844" loading="lazy">
+                        </div>
+                        <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="/assets/satin-player/reproductor.avif" alt="El reproductor expandido: portada a todo el ancho, etiqueta de calidad y controles" data-i18n-attr="alt:sp.shotPlayer" width="780" height="1688" loading="lazy">
+                        </div>
+                        <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="/assets/satin-player/ecualizador.webp" alt="La hoja del ecualizador con siete ajustes y diez bandas de frecuencia" data-i18n-attr="alt:sp.shotEq" width="390" height="844" loading="lazy">
+                        </div>
+                        <div class="slide skel" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
+                            <img src="/assets/satin-player/reproductor_esc_opc.webp" alt="Satin Player muestra el menú mientras reproduce I Used to Love Hip-Hop de Audiobinger" data-i18n-attr="alt:sp.shotOptions" width="1280" height="664" loading="lazy">
+                        </div>
+                    </div>
+                    <button type="button" class="slider-arrow prev" aria-label="Anterior" data-i18n-attr="aria-label:ui.prev">&#10094;</button>
+                    <button type="button" class="slider-arrow next" aria-label="Siguiente" data-i18n-attr="aria-label:ui.next">&#10095;</button>
+                    <p class="slider-counter" aria-live="polite"><span class="current-slide">1</span> / <span class="total-slides">5</span></p>
+                </div>
                 <div class="slider-dots" aria-hidden="true"></div>
                 <p class="case-shots-note" data-i18n="sp.shotsNote">Capturas de la app real, sigue en desarrollo</p>
+                <p class="case-attribution" data-i18n="sp.musicAttribution">Música de muestra en interfaz: "I Used to Love Hip-Hop" por Audiobinger (del álbum Quarantine Beats Vol. 1 en Bandcamp), bajo licencia CC BY-NC 4.0.</p>
             </div>
+
             <div class="case-body">
-                <p class="case-lead" data-i18n="sp.lead">Satin Player es un reproductor de música web para quien tiene su propia biblioteca de archivos de audio. Importas una carpeta, la biblioteca se guarda en tu dispositivo y puedes escuchar sin subir una sola canción.</p>
+                <p class="case-lead" data-i18n="sp.lead">Satin Player es un reproductor de música web para quien tiene su propia biblioteca de archivos de audio. Importas una carpeta, la biblioteca se guarda en tu dispositivo y todo suena sin cuenta y sin conexión.</p>
+
                 <blockquote class="case-quote" data-i18n="sp.idea">Tu música es tuya: la app solo puede hablar con su propio dominio y con el servidor de cuentas, así que tus archivos nunca salen del dispositivo.</blockquote>
+
                 <h2 data-i18n="sg.factsTitle">En resumen</h2>
-                <ul class="case-stats"><li><strong>10</strong><span data-i18n="sp.statBands">bandas de ecualizador, ±12 dB</span></li><li><strong>7</strong><span data-i18n="sp.statPresets">ajustes de ecualizador</span></li><li><strong>5,000</strong><span data-i18n="sp.statTracks">canciones en las pruebas de rendimiento</span></li><li><strong>2</strong><span data-i18n="sp.statReplay">modos de ReplayGain: por pista o por álbum</span></li></ul>
+                <ul class="case-stats">
+                    <li><strong>10</strong><span data-i18n="sp.statBands">bandas de ecualizador, ±12 dB</span></li>
+                    <li><strong>7</strong><span data-i18n="sp.statPresets">ajustes de ecualizador</span></li>
+                    <li><strong>5,000</strong><span data-i18n="sp.statTracks">canciones en las pruebas de rendimiento</span></li>
+                    <li><strong>2</strong><span data-i18n="sp.statReplay">modos de ReplayGain: por pista o por álbum</span></li>
+                </ul>
+
                 <h2 data-i18n="case.detailsTitle">Detrás del proyecto</h2>
-                <details open><summary data-i18n="sp.whatTitle">Qué hace</summary><ul class="case-list">
-                    <li><strong data-i18n="sp.whatLibraryTitle">Tu biblioteca</strong> <span data-i18n="sp.whatLibrary">Importa archivos o una carpeta completa. Las etiquetas, las portadas y la calidad de cada archivo aparecen juntas, y los cambios se vuelven a analizar sin importar todo de nuevo.</span></li>
-                    <li><strong data-i18n="sp.whatSoundTitle">Sonido</strong> <span data-i18n="sp.whatSound">FLAC y otros formatos, ReplayGain, ecualizador de diez bandas, crossfade, reproducción aleatoria, repetición y sin pausas.</span></li>
-                    <li><strong data-i18n="sp.whatQueueTitle">Cola y playlists</strong> <span data-i18n="sp.whatQueue">Arrastrar para reordenar, selección múltiple con edición en lote, historial de lo escuchado y playlists guardadas en el dispositivo.</span></li>
-                    <li><strong data-i18n="sp.whatLookTitle">Apariencia</strong> <span data-i18n="sp.whatLook">El acento sale de la portada que suena. Cuatro fondos: Portada, Ritmo, Estático y Desenfoque.</span></li>
-                    <li><strong data-i18n="sp.whatAccountTitle">Cuenta opcional</strong> <span data-i18n="sp.whatAccount">Solo sincroniza tus playlists. Sin cuenta tienes todo lo demás.</span></li>
-                </ul></details>
-                <details><summary data-i18n="sp.tech">Desarrollo técnico</summary><p data-i18n="sp.techStack">Construido con React 19, TypeScript y Vite. La biblioteca vive en IndexedDB y se vuelve a escanear por diferencias, con los metadatos leídos en un worker para que la interfaz siga respondiendo.</p><p data-i18n="sp.techCsp">La política de seguridad de contenido es cerrada: las fuentes y los recursos son propios y la app solo puede conectarse a su dominio y al servidor de cuentas. El audio se queda local.</p><p data-i18n="sp.techList">La cola y las playlists siguen virtualizadas incluso al arrastrar: la fila levantada sigue al puntero fuera de React y en cada cuadro solo cambia su transformación.</p><p data-i18n="sp.techTests">Pruebas unitarias con Vitest cubren la lógica de audio, cola y biblioteca, y scripts de navegador recorren los flujos reales: listas, arrastrar y soltar, y gestos móviles.</p></details>
-                <details><summary data-i18n="sp.design">Diseño</summary><p data-i18n="sp.designContent">El reproductor expandido pone la portada a todo lo ancho y deja que su color inunde el fondo. La interfaz no tiene un color de marca fijo; el sonido y la portada le dan su carácter.</p></details>
-                <details><summary data-i18n="sp.statusTitle">Estado del proyecto</summary><p data-i18n="sp.statusContent">La aplicación web está en un despliegue de prueba mientras termino de pulir la experiencia y preparo su lanzamiento público. También planeo versiones para Android y iPhone.</p></details>
-                <aside class="case-invest"><h2 data-i18n="sp.investTitle">¿Quieres probarlo o platicarlo?</h2><p data-i18n="sp.invest">La aplicación web ya se puede probar. Si la usas, me encantaría saber qué te funciona y qué podría mejorar.</p><div class="case-invest-actions"><a class="btn btn-primary" href="/es/contact" data-i18n="sg.investCta">Hablemos</a><a class="btn" href="https://music-reproductor-ten.vercel.app/" target="_blank" rel="noopener noreferrer" data-i18n="sp.demo">Probar Satin Player</a></div></aside>
+                <details open>
+                    <summary data-i18n="sp.whatTitle">Qué hace</summary>
+                    <ul class="case-list">
+                        <li><strong data-i18n="sp.whatLibraryTitle">Tu biblioteca</strong> <span data-i18n="sp.whatLibrary">Importa archivos o una carpeta completa. Las etiquetas, las portadas y la calidad de cada archivo se leen en el navegador, y la biblioteca se guarda en IndexedDB.</span></li>
+                        <li><strong data-i18n="sp.whatSoundTitle">Sonido</strong> <span data-i18n="sp.whatSound">FLAC y otros formatos, ReplayGain, ecualizador de diez bandas, crossfade, aleatorio, repetición, letras sincronizadas y temporizador de sueño.</span></li>
+                        <li><strong data-i18n="sp.whatQueueTitle">Cola y playlists</strong> <span data-i18n="sp.whatQueue">Arrastrar para reordenar, selección múltiple con edición en lote, historial de lo que ya sonó y guardar la cola como playlist.</span></li>
+                        <li><strong data-i18n="sp.whatLookTitle">Apariencia</strong> <span data-i18n="sp.whatLook">El acento sale de la portada que suena. Cuatro fondos: Portada, Ritmo, Estático y AMOLED.</span></li>
+                        <li><strong data-i18n="sp.whatAccountTitle">Cuenta opcional</strong> <span data-i18n="sp.whatAccount">Solo sincroniza tus playlists. Sin cuenta tienes todo lo demás.</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary data-i18n="sp.tech">Desarrollo técnico</summary>
+                    <p data-i18n="sp.techStack">Construido con React 19, TypeScript y Vite. La biblioteca vive en IndexedDB y se vuelve a escanear por diferencias, con los metadatos leídos en un worker para que la interfaz nunca los espere.</p>
+                    <p data-i18n="sp.techCsp">La política de seguridad de contenido es cerrada: las fuentes y los recursos son propios y la app solo puede conectarse a su dominio y al servidor de cuentas. Las animaciones solo tocan transform y opacity.</p>
+                    <p data-i18n="sp.techList">La cola y las playlists siguen virtualizadas incluso al arrastrar: la fila levantada sigue al puntero fuera de React y en cada cuadro solo cambia su transform.</p>
+                    <p data-i18n="sp.techTests">Pruebas unitarias con Vitest cubren la lógica de audio, cola y biblioteca, y scripts de navegador recorren los flujos reales: listas, arrastrar y soltar, y gestos en móvil.</p>
+                </details>
+                <details>
+                    <summary data-i18n="sp.design">Diseño</summary>
+                    <p data-i18n="sp.designContent">El reproductor expandido pone la portada a todo el ancho y deja que su color inunde el fondo. La interfaz no tiene un color de marca fijo; el logo, en oro arena sobre negro cálido, evita los clichés de la categoría: nada de ondas de audio, auriculares ni notas musicales.</p>
+                </details>
+                <details>
+                    <summary data-i18n="sp.statusTitle">Estado del proyecto</summary>
+                    <p data-i18n="sp.statusContent">La aplicación web está en un despliegue de prueba mientras termino de pulir la experiencia y preparo su lanzamiento público. También planeo versiones para Android y iPhone; las funciones principales que se ejecutan en tu dispositivo seguirán siendo gratis y sin anuncios.</p>
+                </details>
+
+                <aside class="case-invest">
+                    <h2 data-i18n="sp.investTitle">¿Quieres probarlo o platicarlo?</h2>
+                    <p data-i18n="sp.invest">La aplicación web ya se puede probar. Si la usas, me encantaría saber qué te funciona y qué podría mejorar.</p>
+                    <div class="case-invest-actions">
+                        <a class="btn btn-primary" href="/es/contact" data-i18n="sg.investCta">Hablemos</a>
+                        <a class="btn" href="https://music-reproductor-ten.vercel.app/" target="_blank" rel="noopener noreferrer" data-i18n="sp.demo">Probar Satin Player</a>
+                    </div>
+                </aside>
             </div>
         </div>
-        <nav class="case-next" aria-label="Siguiente proyecto" data-i18n-attr="aria-label:case.nextProject"><a href="/es/undefeated-stars"><span class="case-next-label" data-i18n="case.nextProject">Siguiente proyecto</span><span class="case-next-title">Undefeated Stars</span><span class="case-next-text" data-i18n="us.tagline">Una tienda en línea de juegos de cartas coleccionables en México, construida desde el catálogo hasta el pago.</span><span class="case-next-arrow" aria-hidden="true">→</span></a></nav>
+        <nav class="case-project-nav" aria-label="Navegación entre proyectos" data-i18n-attr="aria-label:case.projectNavigation">
+            <a class="case-project-link case-project-link-prev" href="/es/project-miralta">
+                <span class="case-project-arrow" aria-hidden="true">←</span>
+                <span class="case-project-content">
+                    <span class="case-project-label" data-i18n="case.previousProject">Proyecto anterior</span>
+                    <span class="case-project-title">Project Miralta</span>
+                    <span class="case-project-text" data-i18n="pm.tagline">Videojuego cozy survival donde mantienes un huerto en una azotea mientras la ciudad se queda sin agua.</span>
+                </span>
+            </a>
+            <a class="case-project-link case-project-link-next" href="/es/undefeated-stars">
+                <span class="case-project-content">
+                    <span class="case-project-label" data-i18n="case.nextProject">Siguiente proyecto</span>
+                    <span class="case-project-title">Undefeated Stars</span>
+                    <span class="case-project-text" data-i18n="us.tagline">Una tienda en línea de juegos de cartas coleccionables en México, construida desde el catálogo hasta el pago.</span>
+                </span>
+                <span class="case-project-arrow" aria-hidden="true">→</span>
+            </a>
+        </nav>
     </main>
+
     <footer data-layout="footer"></footer>
 </body>
 </html>

@@ -13,5 +13,10 @@ CNAME
 .idea
 .impeccable
 .junie
+.env
+.env.*
+*.log
+*.local
+assets/2d1339a590345af606dacc422f2ba73d0a3793e6-2040x2208.webp
 DESIGN.md
 PRODUCT.md

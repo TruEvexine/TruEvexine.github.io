@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="background" x1="120" y1="48" x2="1058" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27233E"/>
+      <stop offset="1" stop-color="#0B0D13"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="668" y1="95" x2="1033" y2="551" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#A9B6FF" stop-opacity=".035"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="687" y1="106" x2="1017" y2="552" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#A9B6FF" stop-opacity=".13"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(1 385 -462 1 1019 67)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8777FF" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#8777FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="581" y="46" width="526" height="580" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="20"/>
+      <feOffset dy="16"/>
+      <feColorMatrix values="0 0 0 0 0.02 0 0 0 0 0.02 0 0 0 0 0.05 0 0 0 .45 0"/>
+      <feBlend in2="SourceGraphic" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1200v675H0z"/>
+  <path fill="url(#glow)" d="M0 0h1200v675H0z"/>
+  <circle cx="993" cy="96" r="2" fill="#FFF" fill-opacity=".72"/>
+  <circle cx="1090" cy="239" r="3" fill="#F5D17A" fill-opacity=".8"/>
+  <circle cx="828" cy="585" r="2" fill="#FFF" fill-opacity=".6"/>
+  <g filter="url(#shadow)" transform="rotate(10 846 338)">
+    <rect x="650" y="117" width="290" height="416" rx="26" fill="#171923" stroke="#FFF" stroke-opacity=".2" stroke-width="2"/>
+    <rect x="674" y="141" width="242" height="247" rx="16" fill="#38315D"/>
+    <path d="M674 329c46-81 85-91 124-54 31 30 55 27 118-63v160H674v-43Z" fill="#8C79FF" fill-opacity=".65"/>
+    <path d="M674 357c46-51 88-57 127-24 35 29 65 16 115-35v90H674v-31Z" fill="#F2C66D" fill-opacity=".82"/>
+    <circle cx="796" cy="245" r="47" fill="#F5D17A" fill-opacity=".86"/>
+    <path d="m796 212 9 23 25 2-19 16 6 25-21-14-21 14 6-25-19-16 25-2 9-23Z" fill="#382B52"/>
+    <rect x="677" y="412" width="105" height="9" rx="4.5" fill="#FFF" fill-opacity=".83"/>
+    <rect x="677" y="434" width="191" height="7" rx="3.5" fill="#FFF" fill-opacity=".3"/>
+    <rect x="677" y="454" width="162" height="7" rx="3.5" fill="#FFF" fill-opacity=".22"/>
+    <rect x="677" y="490" width="74" height="22" rx="11" fill="#F5D17A" fill-opacity=".2"/>
+    <circle cx="898" cy="505" r="13" fill="#8C79FF" fill-opacity=".75"/>
+  </g>
+  <g transform="rotate(-8 937 328)">
+    <rect x="793" y="106" width="292" height="438" rx="28" fill="url(#glass)" stroke="url(#edge)" stroke-width="2"/>
+    <rect x="816" y="130" width="246" height="285" rx="18" fill="#151723" fill-opacity=".62" stroke="#FFF" stroke-opacity=".13"/>
+    <path d="M816 338c53-16 77-91 119-93 52-2 68 66 127 17v153H816v-77Z" fill="#9A8AFF" fill-opacity=".48"/>
+    <path d="M816 368c59-47 77-37 117-9 43 29 79 16 129-27v70H816v-34Z" fill="#F4CE77" fill-opacity=".8"/>
+    <path d="m938 177 10 24 26 2-20 17 6 26-22-15-22 15 7-26-20-17 26-2 9-24Z" fill="#FFF" fill-opacity=".9"/>
+    <rect x="817" y="438" width="145" height="9" rx="4.5" fill="#FFF" fill-opacity=".9"/>
+    <rect x="817" y="461" width="211" height="7" rx="3.5" fill="#FFF" fill-opacity=".35"/>
+    <rect x="817" y="481" width="181" height="7" rx="3.5" fill="#FFF" fill-opacity=".24"/>
+    <rect x="817" y="508" width="91" height="22" rx="11" fill="#F5D17A" fill-opacity=".24"/>
+  </g>
+  <text x="78" y="278" fill="#FFF" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">TRADING CARDS · COLLECTIBLES</text>
+  <text x="72" y="362" fill="#FFF" font-family="Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="1">UNDEFEATED</text>
+  <text x="76" y="428" fill="#F5D17A" font-family="Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="9">STARS</text>
+  <path d="M79 467h390" stroke="#FFF" stroke-opacity=".22" stroke-width="2"/>
+  <text x="80" y="507" fill="#D4D4E1" font-family="Arial, sans-serif" font-size="21">A glass-fronted marketplace built for collectors.</text>
+</svg>

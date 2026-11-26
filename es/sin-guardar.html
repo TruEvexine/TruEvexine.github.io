@@ -18,9 +18,9 @@
     <meta property="og:title" content="SIN GUARDAR — Caso de estudio">
     <meta property="og:description" content="SIN GUARDAR: videojuego de horror cósmico en Java de Rogelio Ceja. 22 nodos de decisión, 3 finales y una Erosión que cambia cómo se ve el juego.">
     <meta property="og:url" content="https://rogelioemmanuel.com/es/sin-guardar">
-    <meta property="og:image" content="https://rogelioemmanuel.com/assets/sin-guardar/video-hq.jpg">
-    <meta property="og:image:width" content="480">
-    <meta property="og:image:height" content="360">
+    <meta property="og:image" content="https://rogelioemmanuel.com/assets/sin-guardar/video-max.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#0D0E15">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -100,7 +100,7 @@
         <div class="case-grid">
             <!-- Columna de medios: video y galería siempre a un lado de la información -->
             <div class="case-media">
-                <div class="slider" role="region" aria-roledescription="carousel" aria-label="Galería de SIN GUARDAR" data-i18n-attr="aria-label:ui.gallery" tabindex="0">
+                <div class="slider" role="region" aria-roledescription="carrusel" aria-label="Galería de SIN GUARDAR" data-i18n-attr="aria-label:ui.gallery; aria-roledescription:ui.carousel" tabindex="0">
                     <div class="slider-track">
                         <div class="slide skel is-active" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
                             <button type="button" class="yt-facade" data-yt="x4OkNthPtdE" data-start="1" aria-label="Reproducir el video de gameplay de SIN GUARDAR" data-i18n-attr="aria-label:ui.playVideo">
@@ -184,12 +184,22 @@
                 </aside>
             </div>
         </div>
-        <nav class="case-next" aria-label="Siguiente proyecto" data-i18n-attr="aria-label:case.nextProject">
-            <a href="/es/project-miralta">
-                <span class="case-next-label" data-i18n="case.nextProject">Siguiente proyecto</span>
-                <span class="case-next-title">Project Miralta</span>
-                <span class="case-next-text" data-i18n="pm.tagline">Videojuego cozy survival donde mantienes un huerto en una azotea mientras la ciudad se queda sin agua.</span>
-                <span class="case-next-arrow" aria-hidden="true">→</span>
+        <nav class="case-project-nav" aria-label="Navegación entre proyectos" data-i18n-attr="aria-label:case.projectNavigation">
+            <a class="case-project-link case-project-link-prev" href="/es/undefeated-stars">
+                <span class="case-project-arrow" aria-hidden="true">←</span>
+                <span class="case-project-content">
+                    <span class="case-project-label" data-i18n="case.previousProject">Proyecto anterior</span>
+                    <span class="case-project-title">Undefeated Stars</span>
+                    <span class="case-project-text" data-i18n="us.tagline">Una tienda en línea de juegos de cartas coleccionables en México, construida desde el catálogo hasta el pago.</span>
+                </span>
+            </a>
+            <a class="case-project-link case-project-link-next" href="/es/project-miralta">
+                <span class="case-project-content">
+                    <span class="case-project-label" data-i18n="case.nextProject">Siguiente proyecto</span>
+                    <span class="case-project-title">Project Miralta</span>
+                    <span class="case-project-text" data-i18n="pm.tagline">Videojuego cozy survival donde mantienes un huerto en una azotea mientras la ciudad se queda sin agua.</span>
+                </span>
+                <span class="case-project-arrow" aria-hidden="true">→</span>
             </a>
         </nav>
     </main>

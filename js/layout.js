@@ -21,12 +21,14 @@ const translations = {
         "cv.credentials.participation": "Participation",
         "cv.credentials.zoom": "Enlarge image:",
         "cv.credentials.close": "Close image",
+        "cv.mobileContact": "Contact",
+        "cv.loadError": "The CV could not be loaded. Please reload the page to try again.",
         "about.cv": "View my CV",
         "ui.skip": "Skip to content",
         "quote.fab": "Price your site",
         "contact.quoteTitle": "Quote calculator",
         "contact.quoteValue": "Price your website",
-        "contact.quoteDescription": "Own a business in Morelia? Build your quote in a couple of minutes, Prices before VAT.",
+        "contact.quoteDescription": "Own a business in Morelia? Build your quote in a couple of minutes. Prices before VAT.",
         "contact.quoteAction": "Get a quote",
         "ui.copied": "Copied!",
         "ui.copyEmail": "Copy email",
@@ -36,6 +38,7 @@ const translations = {
         "ui.mediaError": "Image unavailable",
         "ui.playVideo": "Play the SIN GUARDAR gameplay video",
         "ui.gallery": "SIN GUARDAR gallery",
+        "ui.carousel": "carousel",
         "availability": "Open to internships and collaborations",
         "hero.role": "Systems Engineering student · Web & narrative game developer",
         "hero.text": "I build websites for local businesses, games that stay with you after you've played them, personal projects and other ideas I'm exploring.",
@@ -49,6 +52,8 @@ const translations = {
         "projects.nextText": "I'll be posting new projects soon.",
         "sg.documentTitle": "SIN GUARDAR — Case study · Rogelio Ceja",
         "sg.back": "All projects",
+        "case.projectNavigation": "Project navigation",
+        "case.previousProject": "Previous project",
         "case.nextProject": "Next project",
         "case.detailsTitle": "Behind the project",
         "sg.tagline": "A cosmic horror visual novel where your choices change the story and how the game looks.",
@@ -115,9 +120,10 @@ const translations = {
         "sp.shotPlayer": "The expanded player: cover art across the full width, quality label and transport controls",
         "sp.shotEq": "The equalizer sheet with seven presets and ten frequency bands",
         "sp.shotLanding": "Satin Player landing page",
-        "sp.shotOptions": "The expanded player with the options menu open",
+        "sp.shotOptions": "Satin Player showing the menu while playing I Used to Love Hip-Hop by Audiobinger",
         "sp.gallery": "Satin Player gallery",
         "sp.shotsNote": "Screenshots of the real app, still in development.",
+        "sp.musicAttribution": "Music sample in interface: \"I Used to Love Hip-Hop\" by Audiobinger (from Quarantine Beats Vol. 1 on Bandcamp), licensed under CC BY-NC 4.0.",
         "sp.lead": "Satin Player is a web music player for people who keep their own library of audio files. You import a folder, the library is saved on your device, and everything plays without an account and without a connection.",
         "sp.idea": "Your music is yours: the app can only talk to its own domain and to the accounts server, so your files never leave the device.",
         "sp.statBands": "equalizer bands, ±12 dB",
@@ -186,6 +192,7 @@ const translations = {
         "pm.invest": "Project Miralta is a preview built for a conference. If you'd like to support, fund or collaborate on its full development, I'd love to talk.",
         "pm.radioNext": "Next Radio Miralta bulletin",
         "pm.radioTune": "Tune in",
+        "pm.radioInitial": "Radio Miralta, ninety-eight point three. It's six forty, and the sky, like city hall, promises a lot and commits to nothing.",
         "pm.radioWhen1": "Day 1 · 6:40 a.m.",
         "pm.radioWhen2": "Day 2 · 7:10 a.m.",
         "pm.radioWhen3": "Day 2 · night",
@@ -261,7 +268,7 @@ const translations = {
         "privacy.c3.title": "Email and WhatsApp",
         "privacy.c3.body": "If you write to me, the message goes through your email provider or WhatsApp and reaches me with whatever you decide to include. Their own privacy policies apply.",
         "privacy.c4.title": "Gameplay video",
-        "privacy.c4.body": "The SIN GUARDAR video loads from YouTube only when you press play, using its privacy-enhanced mode. Until then, YouTube receives nothing from you.",
+        "privacy.c4.body": "The SIN GUARDAR and Project Miralta videos load from YouTube only when you press play, using its privacy-enhanced mode. Until then, YouTube receives nothing from you.",
         "privacy.c5.title": "Hosting",
         "privacy.c5.body": "Like any host, Cloudflare processes technical data of each visit, such as the IP address, to deliver and protect the site. I don't use that data to track you.",
         "privacy.c6.title": "Questions",
@@ -350,6 +357,8 @@ const translations = {
         "cv.credentials.participation": "Participación",
         "cv.credentials.zoom": "Ampliar imagen:",
         "cv.credentials.close": "Cerrar imagen",
+        "cv.mobileContact": "Contacto",
+        "cv.loadError": "No se pudo cargar el CV. Recarga la página para volver a intentarlo.",
         "about.cv": "Ver mi CV",
         "ui.skip": "Saltar al contenido",
         "quote.fab": "Cotiza tu sitio",
@@ -365,6 +374,7 @@ const translations = {
         "ui.mediaError": "Imagen no disponible",
         "ui.playVideo": "Reproducir el video de gameplay de SIN GUARDAR",
         "ui.gallery": "Galería de SIN GUARDAR",
+        "ui.carousel": "carrusel",
         "availability": "Abierto a prácticas y colaboraciones",
         "hero.role": "Estudiante de Ingeniería en Sistemas · Desarrollo web y videojuegos narrativos",
         "hero.text": "Hago sitios web para negocios locales, juegos que se quedan contigo después de jugarlos, algunos proyectos personales y otras ideas que voy explorando.",
@@ -378,6 +388,8 @@ const translations = {
         "projects.nextText": "Pronto subiré nuevos proyectos.",
         "sg.documentTitle": "SIN GUARDAR — Caso de estudio · Rogelio Ceja",
         "sg.back": "Todos los proyectos",
+        "case.projectNavigation": "Navegación entre proyectos",
+        "case.previousProject": "Proyecto anterior",
         "case.nextProject": "Siguiente proyecto",
         "case.detailsTitle": "Detrás del proyecto",
         "sg.tagline": "Una novela visual de horror cósmico donde tus decisiones cambian la historia y cómo se ve el juego.",
@@ -444,9 +456,10 @@ const translations = {
         "sp.shotPlayer": "El reproductor expandido: portada a todo el ancho, etiqueta de calidad y controles",
         "sp.shotEq": "La hoja del ecualizador con siete ajustes y diez bandas de frecuencia",
         "sp.shotLanding": "Página de inicio de Satin Player",
-        "sp.shotOptions": "El reproductor expandido con el menú de opciones abierto",
+        "sp.shotOptions": "Satin Player muestra el menú mientras reproduce I Used to Love Hip-Hop de Audiobinger",
         "sp.gallery": "Galería de Satin Player",
         "sp.shotsNote": "Capturas de la app real, sigue en desarrollo",
+        "sp.musicAttribution": "Música de muestra en interfaz: \"I Used to Love Hip-Hop\" por Audiobinger (del álbum Quarantine Beats Vol. 1 en Bandcamp), bajo licencia CC BY-NC 4.0.",
         "sp.lead": "Satin Player es un reproductor de música web para quien tiene su propia biblioteca de archivos de audio. Importas una carpeta, la biblioteca se guarda en tu dispositivo y todo suena sin cuenta y sin conexión.",
         "sp.idea": "Tu música es tuya: la app solo puede hablar con su propio dominio y con el servidor de cuentas, así que tus archivos nunca salen del dispositivo.",
         "sp.statBands": "bandas de ecualizador, ±12 dB",
@@ -515,6 +528,7 @@ const translations = {
         "pm.invest": "Project Miralta es una preview creada para un congreso. Si te interesa apoyar, financiar o colaborar en su desarrollo completo, me encantaría platicarlo.",
         "pm.radioNext": "Siguiente boletín de Radio Miralta",
         "pm.radioTune": "Sintonizar",
+        "pm.radioInitial": "Radio Miralta, noventa y ocho punto tres. Son las seis cuarenta y el cielo, como el ayuntamiento, promete mucho y no se compromete a nada.",
         "pm.radioWhen1": "Día 1 · 6:40 a. m.",
         "pm.radioWhen2": "Día 2 · 7:10 a. m.",
         "pm.radioWhen3": "Día 2 · noche",
@@ -590,7 +604,7 @@ const translations = {
         "privacy.c3.title": "Correo y WhatsApp",
         "privacy.c3.body": "Si me escribes, el mensaje pasa por tu proveedor de correo o por WhatsApp y me llega con lo que tú decidas incluir. Aplican las políticas de privacidad de cada uno.",
         "privacy.c4.title": "Video del juego",
-        "privacy.c4.body": "El video de SIN GUARDAR se carga desde YouTube solo cuando le das reproducir, en su modo de privacidad mejorada. Hasta entonces, YouTube no recibe nada tuyo.",
+        "privacy.c4.body": "Los videos de SIN GUARDAR y Project Miralta se cargan desde YouTube solo cuando les das reproducir, en su modo de privacidad mejorada. Hasta entonces, YouTube no recibe nada tuyo.",
         "privacy.c5.title": "Hosting",
         "privacy.c5.body": "Como cualquier hosting, Cloudflare procesa datos técnicos de cada visita, como la dirección IP, para entregar y proteger el sitio. Yo no uso esos datos para rastrearte.",
         "privacy.c6.title": "Dudas",
@@ -670,9 +684,14 @@ window.translations = translations;
 // Idioma: lo decide la URL en las páginas que tienen versión /es/ (js-flag.js ya mandó a /es/ a quien prefiere
 // español). En el resto (cotizador, 404): el que eligió el visitante o, en su primera visita, el de su navegador.
 const isSpanishUrl = /^\/es(\/|$)/.test(location.pathname);
+const languageParam = new URLSearchParams(location.search).get("lang");
+const getSavedLanguage = () => {
+    try { return localStorage.getItem("portfolio-language"); }
+    catch { return null; }
+};
 let currentLanguage = isSpanishUrl ? "es"
     : isLocalizedPage() ? "en"
-    : localStorage.getItem("portfolio-language")
+    : (languageParam === "es" || languageParam === "en" ? languageParam : getSavedLanguage())
         || ((navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en");
 let scrollDirection = "down";
 let previousScrollY = window.scrollY;
@@ -690,14 +709,18 @@ async function loadLayout(element, file) {
 async function loadLayouts() {
     const elements = document.querySelectorAll("[data-layout]");
 
-    await Promise.all(Array.from(elements).map((element) => {
+    await Promise.all(Array.from(elements).map(async (element) => {
         const file = layouts[element.dataset.layout];
 
         if (!file) {
             throw new Error(`Layout desconocido: ${element.dataset.layout}`);
         }
 
-        return loadLayout(element, file);
+        try {
+            await loadLayout(element, file);
+        } catch (error) {
+            console.error(`No se pudo cargar ${file}:`, error);
+        }
     }));
 }
 
@@ -790,11 +813,18 @@ function initLanguageToggle() {
     document.querySelectorAll("[data-language-toggle]").forEach((button) => {
         button.addEventListener("click", () => {
             const next = currentLanguage === "en" ? "es" : "en";
-            localStorage.setItem("portfolio-language", next);
+            try { localStorage.setItem("portfolio-language", next); }
+            catch { /* el cambio de idioma sigue funcionando sin persistencia */ }
             // Con versión en cada idioma se cambia de URL; si no, se traduce en el lugar
             if (isLocalizedPage()) {
                 location.href = localizedUrl(currentPage(), next) + location.search + location.hash;
                 return;
+            }
+            // Si se llegó con ?lang=, se actualiza: si no, al recargar pisaría lo que se acaba de elegir
+            const url = new URL(location.href);
+            if (url.searchParams.has("lang")) {
+                url.searchParams.set("lang", next);
+                history.replaceState(history.state, "", url);
             }
             currentLanguage = next;
             applyTranslations();
@@ -822,6 +852,11 @@ function localizeLayoutLinks() {
     document.querySelectorAll('[data-layout] a[href^="/"]').forEach((link) => {
         const page = pageName(link.getAttribute('href'));
         if ((window.localizedPages || []).includes(page)) link.setAttribute('href', localizedUrl(page, "es"));
+        else if (page === "cotizar") {
+            const url = new URL(link.href, location.origin);
+            url.searchParams.set("lang", "es");
+            link.href = `${url.pathname}${url.search}${url.hash}`;
+        }
     });
 }
 

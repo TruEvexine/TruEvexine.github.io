@@ -56,8 +56,10 @@
     transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
 }
 
-.contact-link:hover,
-.contact-link:focus-visible {
+/* Todas las tarjetas responden igual: al cursor y al foco de teclado, propio o de sus botones */
+.contact-option:hover,
+.contact-option:focus-visible,
+.contact-option:has(:focus-visible) {
     transform: translateY(-5px);
     border-color: rgba(16, 185, 129, 0.65);
 }
@@ -204,8 +206,9 @@
         transition: none;
     }
 
-    .contact-link:hover,
-    .contact-link:focus-visible {
+    .contact-option:hover,
+    .contact-option:focus-visible,
+    .contact-option:has(:focus-visible) {
         transform: none;
     }
 }

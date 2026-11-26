@@ -19,6 +19,7 @@ const TEMAS = {
     erosion: { card: 'erosion-card', scan: 'erosion-scan', titleClass: ' erosion-title', barClass: '' },
     water: { card: 'water-card', scan: 'rain-scan', titleClass: '', barClass: ' water-bar' },
     satin: { card: 'satin-card', titleClass: '', barClass: '' },
+    stars: { card: 'stars-card', titleClass: '', barClass: '' },
 };
 
 const escaparTexto = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -61,7 +62,7 @@ function tarjeta(p, lang, variante, textos, locales) {
     const v = p.card.video;
     const ruta = `/${p.page}`;
     const media = p.card.image
-        ? [`        <img class="project-feature-image" src="${escaparAtributo(p.card.image)}" alt="" width="1280" height="720"${lazy ? ' loading="lazy"' : ''}>`]
+        ? [`        <img class="project-feature-image" src="${escaparAtributo(p.card.image)}" alt="" width="${p.card.imageWidth || 1280}" height="${p.card.imageHeight || 720}"${lazy ? ' loading="lazy"' : ''}>`]
         : [
             `        <button type="button" class="yt-facade" data-yt="${v.id}"${v.start ? ` data-start="${v.start}"` : ''} aria-label="${escaparAtributo(en[v.labelKey])}" data-i18n-attr="aria-label:${v.labelKey}">`,
             `            <img src="${v.media}/video-max.jpg" data-fallback="${v.media}/video-hq.jpg" alt="" width="1280" height="720"${lazy ? ' loading="lazy"' : ''}>`,

@@ -36,7 +36,6 @@ const NOMBRES = {
         restaurante: 'Restaurante o cafetería',
         comercio: 'Tienda o comercio',
         servicios: 'Servicios u oficios',
-        otro: 'Otro tipo de negocio',
     },
     concepto: {
         paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Empresarial' },
@@ -152,7 +151,7 @@ export function nombreConcepto(id) {
 // datos: { negocio, nombre, empresa, ciudad, nota }  (todo opcional salvo negocio)
 export function armarMensaje({ folio, seleccion, resultado, datos, idioma }) {
     const filas = [`Hola Rogelio, quiero una cotización formal. (Folio ${folio})`, ''];
-    filas.push(`Tipo de negocio: ${NOMBRES.negocio[datos.negocio] ?? NOMBRES.negocio.otro}`);
+    filas.push(`Tipo de negocio: ${NOMBRES.negocio[datos.negocio] ?? 'No especificado'}`);
 
     if (resultado.aMedida) {
         filas.push(`Proyecto: a tu medida. Parte desde el ${nombreConcepto(`paquete.${resultado.desde}`)}: ${formatoMoneda(resultado.desdeMonto.base)} más IVA; las funciones específicas se evalúan por tiempo.`);

@@ -39,7 +39,7 @@ for (const template of ['harvard', 'visual']) {
             warnings++;
             console.warn(`⚠ ${file}: el contenido ocupa ${pages} páginas`);
         }
-        await page.pdf({ path: join(root, file), preferCSSPageSize: true, printBackground: true });
+        await page.pdf({ path: join(root, file), preferCSSPageSize: true, printBackground: true, tagged: true });
         console.log(`✔ ${file}`);
     }
 }

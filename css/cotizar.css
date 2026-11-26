@@ -118,6 +118,36 @@
     border-color: rgba(16, 185, 129, 0.5);
 }
 
+.quote-step:disabled .extra {
+    cursor: not-allowed;
+    opacity: 0.62;
+}
+
+/* El input invisible cubre la tarjeta: el cursor que se ve es el suyo */
+.quote-step:disabled .choice-input {
+    cursor: not-allowed;
+}
+
+/* Desactivado no se ve elegido ni responde; la selección se conserva para al volver a un paquete */
+.quote-step:disabled .extra:hover,
+.quote-step:disabled .extra:active,
+.quote-step:disabled .extra:has(.choice-input:checked) {
+    border-color: var(--border-card);
+    background: var(--surface-card);
+    scale: none;
+}
+
+.quote-step:disabled .extra:has(.choice-input:checked)::before {
+    border-color: var(--border-subtle);
+    background: none;
+}
+
+.quote-extras-disabled {
+    margin: 0 0 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
 /* El control real cubre toda la tarjeta: se puede tocar y enfocar con teclado */
 .choice-input {
     position: absolute;

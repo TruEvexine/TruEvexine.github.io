@@ -80,7 +80,7 @@
                     <legend><h2 data-i18n="quote.step1">¿Qué tipo de negocio tienes?</h2></legend>
                     <div class="choice-grid choice-grid-3">
                         <label class="choice">
-                            <input class="choice-input" type="radio" name="negocio" value="barberia">
+                            <input class="choice-input" type="radio" name="negocio" value="barberia" required>
                             <span class="choice-body">
                                 <span class="choice-title" data-i18n="quote.biz.barberia">Barbería o salón</span>
                                 <span class="choice-hint" data-i18n="quote.biz.barberiaHint">Barbería, salón, spa, estética</span>
@@ -167,6 +167,7 @@
 
                 <fieldset class="quote-step" id="extras-step">
                     <legend><h2 data-i18n="quote.step3">Agrega lo que necesites</h2></legend>
+                    <p class="quote-extras-disabled" data-i18n="quote.custom.extrasDisabled" hidden>Los extras de los paquetes no aplican a proyectos a tu medida; se definen en la cotización formal.</p>
                     <div class="extras">
                         <label class="extra">
                             <input class="choice-input" type="checkbox" name="cuidado" checked>
@@ -406,7 +407,7 @@
                 </details>
                 <details>
                     <summary data-i18n="quote.faq.q5">¿Y si mi proyecto no encaja en un paquete?</summary>
-                    <p data-i18n="quote.faq.a5">Elige "A la medida": se cotiza por hora y lo platicamos por WhatsApp o correo.</p>
+                    <p data-i18n="quote.faq.a5">Elige "A tu medida": parte del paquete recomendado para tu negocio y las funciones específicas se cotizan por hora. Lo platicamos por WhatsApp o correo.</p>
                 </details>
             </section>
         </div>

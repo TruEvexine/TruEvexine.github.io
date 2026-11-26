@@ -18,7 +18,7 @@
 
 .nf h1 {
     margin: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'MiFuentePersonalizada', 'Oswald', sans-serif;
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -34,7 +34,7 @@
 
 /* El 404 "pierde" su guardado un instante, como la Erosión de SIN GUARDAR */
 .nf .nf-code {
-    animation: nf-glitch 5s steps(1) infinite;
+    animation: nf-glitch 5s steps(1);
 }
 
 @keyframes nf-glitch {

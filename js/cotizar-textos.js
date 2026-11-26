@@ -91,6 +91,7 @@ const es = {
     "quote.custom.from": "Parte desde",
     "quote.custom.basePackage": "Paquete base:",
     "quote.custom.rate": "Tarifa de referencia por hora",
+    "quote.custom.extrasDisabled": "Los extras de los paquetes no aplican a proyectos a tu medida; se definen en la cotización formal.",
 
     "quote.next.title": "Ya tienes la cifra. Ahora hazla real.",
     "quote.next.realTitle": "Hacerlo realidad",
@@ -124,7 +125,7 @@ const es = {
     "quote.faq.q4": "¿Guardan mis datos?",
     "quote.faq.a4": "No. El cotizador no guarda nada ni usa formularios con servidor: el mensaje se arma en tu dispositivo y tú decides si lo envías.",
     "quote.faq.q5": "¿Y si mi proyecto no encaja en un paquete?",
-    "quote.faq.a5": "Elige \"A tu medida\": parte de un precio base y las funciones específicas se evalúan según el tiempo que lleven. Lo platicamos por WhatsApp o correo.",
+    "quote.faq.a5": "Elige \"A tu medida\": parte del paquete recomendado para tu negocio y las funciones específicas se cotizan por hora. Lo platicamos por WhatsApp o correo.",
 
     "quote.line.paquete.esencial": "Paquete Esencial",
     "quote.line.paquete.profesional": "Paquete Profesional",
@@ -240,6 +241,7 @@ const en = {
     "quote.custom.from": "Starts at",
     "quote.custom.basePackage": "Base package:",
     "quote.custom.rate": "Reference hourly rate",
+    "quote.custom.extrasDisabled": "Package extras do not apply to tailor-made projects; we will define them in the formal quote.",
 
     "quote.next.title": "You have the number. Now make it real.",
     "quote.next.realTitle": "Make it real",
@@ -273,7 +275,7 @@ const en = {
     "quote.faq.q4": "Do you store my data?",
     "quote.faq.a4": "No. The calculator stores nothing and uses no server forms: the message is built on your device and you decide whether to send it.",
     "quote.faq.q5": "What if my project doesn't fit a package?",
-    "quote.faq.a5": "Choose \"Tailor-made\": it starts from a base price and specific features are priced by the time they take. We talk it through on WhatsApp or email.",
+    "quote.faq.a5": "Choose \"Tailor-made\": it starts from the package recommended for your business, and specific features are priced by the hour. We talk it through on WhatsApp or email.",
 
     "quote.line.paquete.esencial": "Essential package",
     "quote.line.paquete.profesional": "Professional package",

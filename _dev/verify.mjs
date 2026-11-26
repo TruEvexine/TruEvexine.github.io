@@ -5,7 +5,7 @@
 // - precios solo en precios.js
 // - pruebas de cálculo
 import { execSync } from 'node:child_process';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 
@@ -123,6 +123,9 @@ if (fallos === antesClaves) ok('mismas claves en español e inglés, y ninguna f
             }
             if (pr.card.image) {
                 if (!existsSync(resolve(raiz, pr.card.image))) falla(`${quien}: falta ${pr.card.image}`);
+                if (!Number.isInteger(pr.card.imageWidth) || !Number.isInteger(pr.card.imageHeight) || pr.card.imageWidth <= 0 || pr.card.imageHeight <= 0) {
+                    falla(`${quien}: card.image necesita imageWidth e imageHeight válidos`);
+                }
             } else if (pr.card.video) {
                 for (const archivo of ['video-max.jpg', 'video-hq.jpg']) {
                     if (!existsSync(resolve(raiz, pr.card.video.media, archivo))) falla(`${quien}: falta ${pr.card.video.media}/${archivo}`);
@@ -170,6 +173,52 @@ const { checkSpanishPages } = await import(`${pathToFileURL(resolve(raiz, '_dev/
 const desactualizadas = await checkSpanishPages();
 if (desactualizadas.length) falla(`es/ desactualizado (${desactualizadas.join(', ')}): ejecuta npm run build:es`);
 else ok('es/ al día');
+
+// 6b. Todas las imágenes locales referenciadas por páginas HTML deben existir.
+function listarHtml(dir, relativo = '') {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entrada) => {
+        if (entrada.isDirectory() && !['.git', '.idea', '.wrangler', 'node_modules'].includes(entrada.name)) {
+            return listarHtml(resolve(dir, entrada.name), `${relativo}${entrada.name}/`);
+        }
+        return entrada.isFile() && entrada.name.endsWith('.html') ? [`${relativo}${entrada.name}`] : [];
+    });
+}
+const antesImagenes = fallos;
+const sitemap = leer('sitemap.xml');
+for (const archivo of listarHtml(raiz)) {
+    const html = leer(archivo);
+    if (/<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*\bnoindex\b)[^>]*>/i.test(html)) {
+        const canonical = html.match(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*\bhref=["']([^"']+)["'][^>]*>/i)?.[1];
+        if (canonical && sitemap.includes(`<loc>${canonical}</loc>`)) falla(`${archivo}: página noindex incluida en sitemap.xml`);
+    }
+    for (const match of html.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)) {
+        const src = match[1].split(/[?#]/, 1)[0];
+        if (!src || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(src)) continue;
+        const ruta = src.startsWith('/')
+            ? resolve(raiz, `.${src}`)
+            : resolve(raiz, archivo, '..', src);
+        if (!existsSync(ruta)) falla(`${archivo}: falta la imagen ${src}`);
+    }
+}
+function textoPlano(texto) {
+    return texto
+        .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
+}
+for (const archivo of [...listarHtml(raiz), 'partials/footer.html']) {
+    const html = leer(archivo);
+    const idioma = archivo === 'partials/footer.html'
+        ? 'en'
+        : html.match(/<html\b[^>]*\blang=["'](en|es)["']/i)?.[1].toLowerCase() ?? 'en';
+    for (const match of html.matchAll(/<([a-z][\w-]*)\b([^>]*\bdata-i18n="([^"]+)"[^>]*)>([^<]*)<\/\1>/gi)) {
+        const [ , , , clave, texto] = match;
+        const traduccion = window.translations[idioma]?.[clave];
+        if (traduccion !== undefined && textoPlano(texto) !== textoPlano(traduccion)) {
+            falla(`${archivo}: texto inicial no coincide con ${idioma}.${clave}`);
+        }
+    }
+}
+if (fallos === antesImagenes) ok('imágenes, textos de respaldo y sitemap válidos');
 
 // 7. Pruebas
 try {

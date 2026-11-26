@@ -41,19 +41,26 @@
         if (e.key === 'ArrowRight') show(index + 1);
     });
 
-    let touchX = null;
-    slider.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    let touchStart = null;
+    slider.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        touchStart = { x: touch.clientX, y: touch.clientY };
+    }, { passive: true });
     slider.addEventListener('touchend', (e) => {
-        if (touchX === null) return;
-        const dx = e.changedTouches[0].clientX - touchX;
-        if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
-        touchX = null;
+        if (touchStart === null) return;
+        const touch = e.changedTouches[0];
+        const dx = touch.clientX - touchStart.x;
+        const dy = touch.clientY - touchStart.y;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(index + (dx < 0 ? 1 : -1));
+        touchStart = null;
     });
+    slider.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
     show(0);
 
     // Imagen ampliada con <dialog>: Esc y foco los resuelve el navegador
     const lightbox = document.createElement('dialog');
     lightbox.className = 'lightbox';
+    lightbox.setAttribute('aria-label', document.documentElement.lang === 'es' ? 'Captura ampliada' : 'Image preview');
     lightbox.addEventListener('click', () => lightbox.close());
     // Botón visible para cerrar: tocar la imagen funciona, pero nadie lo adivina
     const closeBtn = document.createElement('button');
@@ -65,11 +72,19 @@
     slides.forEach((slide) => {
         const img = slide.querySelector('img');
         if (!img || img.closest('.yt-facade')) return; // No ampliar miniaturas de video.
-        img.addEventListener('click', () => {
+        const openImage = () => {
             const big = img.cloneNode();
             big.loading = 'eager'; // la copia hereda loading="lazy" y podría no cargar dentro del diálogo
             lightbox.replaceChildren(big, closeBtn);
             lightbox.showModal();
+        };
+        img.setAttribute('role', 'button');
+        img.tabIndex = 0;
+        img.addEventListener('click', openImage);
+        img.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            openImage();
         });
     });
 

@@ -12,10 +12,45 @@
     width: min(100% - 48px, 1100px);
     margin: 0 auto;
     padding: clamp(16px, 2vw, 24px);
-    border: 1px solid rgba(243, 244, 246, 0.1);
+    border: 1px solid rgba(var(--card-edge, 243, 244, 246), 0.2);
     border-radius: var(--radius-card);
-    background: linear-gradient(135deg, rgba(29, 45, 68, 0.7), rgba(13, 14, 21, 0.4));
+    background: linear-gradient(135deg, rgba(var(--card-wash, 29, 45, 68), 0.68), rgba(13, 14, 21, 0.5));
     text-align: left;
+    transition: border-color 0.25s ease;
+}
+
+.project-feature:hover,
+.project-feature:focus-within {
+    border-color: rgba(var(--card-edge, 243, 244, 246), 0.55);
+}
+
+/* La entrada al hacer scroll define su propia transición: aquí se le suma la del borde */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal-ready .project-feature.scroll-reveal {
+        transition: opacity 0.65s ease, transform 0.65s ease, border-color 0.25s ease;
+    }
+}
+
+/* Un color por proyecto, tomado de sus propias piezas: borde (--card-edge) y fondo (--card-wash).
+   Rojo de la barra de Erosión, azul del tanque de agua, dorado de Satin y violeta de la portada de la tienda. */
+.erosion-card {
+    --card-edge: 239, 68, 68;
+    --card-wash: 56, 27, 33;
+}
+
+.water-card {
+    --card-edge: 56, 189, 248;
+    --card-wash: 22, 45, 60;
+}
+
+.satin-card {
+    --card-edge: 230, 198, 134;
+    --card-wash: 54, 43, 28;
+}
+
+.stars-card {
+    --card-edge: 140, 121, 255;
+    --card-wash: 41, 35, 66;
 }
 
 .project-feature-media {
@@ -40,63 +75,9 @@
     background: #0D0E15;
 }
 
-.satin-card {
-    border-color: rgba(230, 198, 134, 0.2);
-    background: linear-gradient(135deg, rgba(54, 43, 28, 0.68), rgba(13, 14, 21, 0.5));
-}
-
-.satin-card:hover,
-.satin-card:focus-within {
-    border-color: rgba(230, 198, 134, 0.48);
-}
-
 /* Varias tarjetas seguidas (Inicio y Proyectos) */
 .project-feature + .project-feature {
     margin-top: 24px;
-}
-
-/* Espacio reservado para un video o captura que aún no se sube.
-   Ocupa el mismo 16:9 que el medio final, así no hay saltos al reemplazarlo. */
-.media-pending {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    border: 1px dashed rgba(243, 244, 246, 0.2);
-    border-radius: inherit;
-    background: radial-gradient(circle at 50% 40%, rgba(16, 185, 129, 0.08), transparent 70%), var(--skel-base);
-    color: #9CA3AF;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-align: center;
-}
-
-.media-pending strong {
-    color: #D1D5DB;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-}
-
-.media-pending-icon {
-    display: grid;
-    place-items: center;
-    width: 56px;
-    height: 56px;
-    border: 2px solid rgba(243, 244, 246, 0.25);
-    border-radius: 50%;
-}
-
-.media-pending-icon::before {
-    content: '';
-    margin-left: 4px;
-    border-style: solid;
-    border-width: 10px 0 10px 16px;
-    border-color: transparent transparent transparent rgba(243, 244, 246, 0.4);
 }
 
 .project-feature-body {
@@ -272,19 +253,17 @@
         transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    .cafe-cup-steam path {
-        transform-box: fill-box;
-        transform-origin: 50% 100%;
-        animation: cafe-steam 3.6s ease-in-out infinite;
-    }
-
-    .cafe-cup-steam path:nth-child(2) { animation-delay: 1.2s; }
-    .cafe-cup-steam path:nth-child(3) { animation-delay: 2.4s; }
-
     /* Al acercarte, la taza se inclina hacia ti y el café se mueve */
     .cafe-card:hover .cafe-cup,
     .cafe-card:focus-visible .cafe-cup {
         transform: translateY(-4px) rotate(-7deg);
+    }
+
+    .cafe-card:hover .cafe-cup-steam path,
+    .cafe-card:focus-visible .cafe-cup-steam path {
+        transform-box: fill-box;
+        transform-origin: 50% 100%;
+        animation: cafe-steam 3.6s ease-in-out;
     }
 
     .cafe-card:hover .cafe-cup-coffee,

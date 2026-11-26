@@ -144,6 +144,16 @@ test('el mensaje a tu medida no inventa totales', () => {
     assert.ok(msg.includes('inglés'));
 });
 
+test('el mensaje no inventa un tipo de negocio', () => {
+    const seleccion = { paquete: 'profesional', ...sinExtras };
+    const msg = armarMensaje({
+        folio: 'COT-1', seleccion, resultado: calcular(seleccion), idioma: 'es',
+        datos: { negocio: '' },
+    });
+    assert.ok(msg.includes('Tipo de negocio: No especificado'));
+    assert.ok(!msg.includes('Otro tipo de negocio'));
+});
+
 test('los enlaces codifican el mensaje', () => {
     assert.equal(enlaceWhatsApp('5211', 'hola & adiós\nok'), 'https://wa.me/5211?text=hola%20%26%20adi%C3%B3s%0Aok');
     assert.equal(enlaceCorreo('a@b.c', 'Hola', 'x y'), 'mailto:a@b.c?subject=Hola&body=x%20y');

@@ -38,3 +38,10 @@
         margin-bottom: 32px;
     }
 }
+
+@media (max-width: 480px) {
+    .projects-hero h1 {
+        font-size: clamp(2rem, 10vw, 3.2rem);
+        overflow-wrap: anywhere;
+    }
+}

@@ -19,6 +19,7 @@
     ];
     const MS_LETRA = 24;
     const texto = radio.querySelector('.mr-radio-text');
+    const anuncio = radio.querySelector('.mr-radio-announcement');
     const cuando = radio.querySelector('.mr-radio-when');
     const cuenta = radio.querySelector('.mr-radio-count');
     let actual = 0;
@@ -28,6 +29,7 @@
         if (!escribiendo) return;
         clearInterval(escribiendo.timer);
         texto.textContent = escribiendo.frase;
+        anuncio.textContent = escribiendo.frase;
         escribiendo = null;
         radio.classList.remove('is-talking');
     }
@@ -41,10 +43,12 @@
         const frase = t(clave);
         if (!animar || reduceMotion.matches) {
             texto.textContent = frase;
+            anuncio.textContent = frase;
             return;
         }
         let n = 0;
         texto.textContent = '';
+        anuncio.textContent = '';
         radio.classList.add('is-talking');
         escribiendo = {
             frase,
@@ -133,6 +137,7 @@
         pintarPanel();
         pintarResultado();
         resultado.hidden = false;
+        resultado.querySelector('.mr-reintentar').focus();
         // Al cerrar el día, la radio da su último boletín (GUION 7.10)
         sintonizar(BOLETINES.length - 1, true);
     });

@@ -102,7 +102,7 @@
         <div class="case-grid">
             <!-- Columna de medios: video y galería siempre a un lado de la información -->
             <div class="case-media">
-                <div class="slider" role="region" aria-roledescription="carousel" aria-label="Galería de Project Miralta" data-i18n-attr="aria-label:pm.gallery" tabindex="0">
+                <div class="slider" role="region" aria-roledescription="carrusel" aria-label="Galería de Project Miralta" data-i18n-attr="aria-label:pm.gallery; aria-roledescription:ui.carousel" tabindex="0">
                     <div class="slider-track">
                         <div class="slide skel is-active" data-error="Imagen no disponible" data-i18n-attr="data-error:ui.mediaError">
                             <button type="button" class="yt-facade" data-yt="G4njTeKtKIw" aria-label="Reproducir el video de la demo de Project Miralta" data-i18n-attr="aria-label:pm.playVideo">
@@ -124,7 +124,8 @@
                     </button>
                     <div class="mr-globo">
                         <p class="mr-radio-head"><span id="mr-radio-title">Radio Miralta 98.3</span><span class="mr-radio-when">Day 1 · 6:40 a.m.</span></p>
-                        <p class="mr-radio-text" aria-live="polite">Radio Miralta, ninety-eight point three. It's six forty, and the sky, like city hall, promises a lot and commits to nothing.</p>
+                        <p class="mr-radio-text" aria-live="off" data-i18n="pm.radioInitial">Radio Miralta, noventa y ocho punto tres. Son las seis cuarenta y el cielo, como el ayuntamiento, promete mucho y no se compromete a nada.</p>
+                        <p class="sr-only mr-radio-announcement" aria-live="polite" aria-atomic="true"></p>
                         <button type="button" class="mr-radio-next"><span data-i18n="pm.radioTune">Sintonizar</span> <span class="mr-radio-count">1 / 6</span></button>
                     </div>
                 </section>
@@ -218,12 +219,22 @@
                 </aside>
             </div>
         </div>
-        <nav class="case-next" aria-label="Siguiente proyecto" data-i18n-attr="aria-label:case.nextProject">
-            <a href="/es/satin-player">
-                <span class="case-next-label" data-i18n="case.nextProject">Siguiente proyecto</span>
-                <span class="case-next-title">Satin Player</span>
-                <span class="case-next-text" data-i18n="sp.tagline">Un reproductor para los archivos de música que ya tienes: la comodidad de un servicio de streaming, sin subir nada.</span>
-                <span class="case-next-arrow" aria-hidden="true">→</span>
+        <nav class="case-project-nav" aria-label="Navegación entre proyectos" data-i18n-attr="aria-label:case.projectNavigation">
+            <a class="case-project-link case-project-link-prev" href="/es/sin-guardar">
+                <span class="case-project-arrow" aria-hidden="true">←</span>
+                <span class="case-project-content">
+                    <span class="case-project-label" data-i18n="case.previousProject">Proyecto anterior</span>
+                    <span class="case-project-title">SIN GUARDAR</span>
+                    <span class="case-project-text" data-i18n="sg.tagline">Una novela visual de horror cósmico donde tus decisiones cambian la historia y cómo se ve el juego.</span>
+                </span>
+            </a>
+            <a class="case-project-link case-project-link-next" href="/es/satin-player">
+                <span class="case-project-content">
+                    <span class="case-project-label" data-i18n="case.nextProject">Siguiente proyecto</span>
+                    <span class="case-project-title">Satin Player</span>
+                    <span class="case-project-text" data-i18n="sp.tagline">Un reproductor para los archivos de música que ya tienes: la comodidad de un servicio de streaming, sin subir nada.</span>
+                </span>
+                <span class="case-project-arrow" aria-hidden="true">→</span>
             </a>
         </nav>
     </main>
