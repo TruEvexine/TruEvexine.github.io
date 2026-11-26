@@ -182,6 +182,10 @@ Botones en píldora (999 px). Tarjetas de 16 px, medios y bloques internos de 12
 ### Slider de casos de estudio
 - Galería con flechas, contador y barras de página de 28 × 6 px dibujadas dentro de un botón de 28 × 24 px; la activa va en esmeralda.
 
+### Tarjetas de proyecto (Inicio y Proyectos)
+- Cada proyecto tiene su color, tomado de sus propias piezas: borde tenue y fondo oscuro en reposo; el borde se ilumina al pasar el cursor o enfocar. SIN GUARDAR rojo (barra de Erosión), Project Miralta azul (tanque de agua), Satin Player dorado, Undefeated Stars violeta (portada). Es la excepción acordada a "sin salir de la paleta": el color solo vive en la tarjeta y en su imagen para compartir; botones y enlaces siguen en esmeralda.
+- Se definen con `--card-edge` y `--card-wash` en `css/project-card.css`; `_dev/render-og.mjs` usa los mismos.
+
 ### Lámpara de disponibilidad
 - Lámpara de escritorio en SVG (34 px) con su luz en esmeralda al 30 %, seguida de "Abierto a prácticas y colaboraciones". Se enciende una vez al cargar; con `prefers-reduced-motion` aparece encendida. Va en la portada y en Contacto.
 

@@ -7,7 +7,7 @@
 web
 
 ## Stack
-Sitio estático: HTML, CSS y JavaScript sin frameworks ni dependencias de ejecución. Se publica en Cloudflare Pages (`wrangler`) y GitHub Pages bajo `rogelioemmanuel.com`. `_dev/` solo contiene scripts de build, verificación y pruebas con `node:test`.
+Sitio estático: HTML, CSS y JavaScript sin frameworks ni dependencias de ejecución. Se publica en Cloudflare como Worker con assets estáticos (`wrangler`) en `rogelioemmanuel.com`; ahí se aplican las cabeceras de `_headers`. Al 26 de noviembre de 2026 GitHub Pages sigue activo en `truevexine.github.io`, sin esas cabeceras (el plan del cotizador lo daba por apagado). `_dev/` solo contiene scripts de build, verificación y pruebas con `node:test`.
 
 ## Users
 - **Reclutadores y equipos de contratación** que evalúan a Rogelio para prácticas, empleo o colaboraciones. Llegan desde el CV, LinkedIn o un mensaje, y quieren juzgar rápido nivel, estilo de trabajo y proyectos reales.
@@ -15,7 +15,7 @@ Sitio estático: HTML, CSS y JavaScript sin frameworks ni dependencias de ejecuc
 - Audiencias secundarias de los proyectos: jugadores y posibles colaboradores o financiadores de Project Miralta.
 
 ## Product Purpose
-Portafolio personal de Rogelio Emmanuel Ceja Acosta, estudiante de Ingeniería en Sistemas en la UVAQ que construye sitios web y videojuegos narrativos. Presenta su perfil, su CV, sus proyectos (SIN GUARDAR y Project Miralta) y un cotizador de sitios web. Éxito: que lo contacten por WhatsApp o correo, sea por una oferta de prácticas o empleo, por un cliente del cotizador o por una colaboración. Los tres objetivos pesan igual.
+Portafolio personal de Rogelio Emmanuel Ceja Acosta, estudiante de Ingeniería en Sistemas en la UVAQ que construye sitios web y videojuegos narrativos. Presenta su perfil, su CV, sus proyectos (SIN GUARDAR, Project Miralta, Satin Player y Undefeated Stars) y un cotizador de sitios web. Éxito: que lo contacten por WhatsApp o correo, sea por una oferta de prácticas o empleo, por un cliente del cotizador o por una colaboración. Los tres objetivos pesan igual.
 
 ## Positioning
 Cuidado por el detalle y sitios sin dependencias: HTML, CSS y JS propios, fuentes e íconos alojados en el mismo sitio, CSP estricta, bilingüe (español e inglés con URLs reales) y accesible. Eso mismo es lo que ofrece a sus clientes.
@@ -36,7 +36,7 @@ Cuidado por el detalle y sitios sin dependencias: HTML, CSS y JS propios, fuente
 Nombre "Rogelio Ceja" / "Rogelio Emmanuel Ceja". Tono cercano y directo, en primera persona. Paleta, tipografías y reglas visuales en `DESIGN.md`. Cada proyecto conserva su propio guiño visual.
 
 ## Evidence on Hand
-- Casos de estudio reales: SIN GUARDAR y Project Miralta (`assets/sin-guardar`, `assets/project-miralta`), con capturas y video.
+- Casos de estudio reales: SIN GUARDAR y Project Miralta (`assets/sin-guardar`, `assets/project-miralta`), con capturas y video; Satin Player, con capturas de la app; Undefeated Stars, en desarrollo y todavía sin capturas (su portada es una ilustración provisional).
 - CV con educación, certificaciones y proyectos (`data/cv.json`, PDFs en `assets/cv`).
 - Foto personal y de la UVAQ (`assets/YO.webp`, `assets/me-at-uvaq.webp`).
 - No hay testimonios ni clientes publicados: no inventarlos. Project Miralta es una demo (preview) creada para un congreso, no un juego terminado.
