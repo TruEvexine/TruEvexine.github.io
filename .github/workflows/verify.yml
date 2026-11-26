@@ -1,0 +1,21 @@
+# Revisa el sitio en cada push y pull request: pruebas, es/ al día, textos, imágenes y sitemap
+name: Verificar
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm run verify
