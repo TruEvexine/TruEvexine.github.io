@@ -164,6 +164,9 @@ function generar(pagina, es, avisos) {
         [/(<meta name="description" content=")[^"]*(")/, `$1${escaparAtributo(seo.description)}$2`],
         [/(<meta property="og:description" content=")[^"]*(")/, `$1${escaparAtributo(seo.description)}$2`],
         [/(<meta property="og:title" content=")[^"]*(")/, `$1${escaparAtributo(seo.ogTitle)}$2`],
+        // Imagen social: cada página tiene su versión en español, con el mismo texto alternativo que el título
+        [/(<meta property="og:image" content="[^"]*\/assets\/og\/[\w-]+)-en(\.jpg")/, `$1-es$2`],
+        [/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${escaparAtributo(seo.ogTitle)}$2`],
         [/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`],
         [/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`],
         [/(<meta property="og:locale" content=")en_US(")/, `$1es_MX$2`],
