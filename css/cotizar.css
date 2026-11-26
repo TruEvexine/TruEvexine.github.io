@@ -509,6 +509,92 @@
     line-height: 1.7;
 }
 
+/* Comparación de paquetes: en pantallas angostas la tabla se desliza dentro de su caja */
+.quote-compare {
+    margin-top: 24px;
+    overflow-x: auto;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+}
+
+.quote-compare:focus-visible {
+    outline: 3px solid var(--brand-accent);
+    outline-offset: 3px;
+}
+
+.quote-compare table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.quote-compare caption {
+    padding: 14px 16px;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+.quote-compare th,
+.quote-compare td {
+    padding: 12px 14px;
+    border-top: 1px solid var(--border-card);
+    line-height: 1.4;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.quote-compare thead th {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.quote-compare tr > th:first-child {
+    width: 34%;
+    text-align: left;
+}
+
+.quote-compare tbody th {
+    font-weight: 400;
+}
+
+.quote-compare .is-included {
+    color: var(--brand-accent-soft);
+    font-weight: 700;
+}
+
+.quote-compare .is-missing {
+    color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+    .quote-compare table {
+        min-width: 0;
+        table-layout: fixed;
+        font-size: 0.78rem;
+    }
+
+    .quote-compare th,
+    .quote-compare td {
+        padding: 10px 3px;
+    }
+
+    .quote-compare thead th {
+        font-size: 0.82rem;
+    }
+
+    .quote-compare tr > th:first-child {
+        width: 31%;
+        padding-left: 10px;
+    }
+}
+
+.quote-demo {
+    margin: 24px 0 12px !important;
+}
+
 .quote-faq details {
     border-bottom: 1px solid var(--border-subtle);
 }
