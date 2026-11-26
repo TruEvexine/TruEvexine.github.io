@@ -305,7 +305,11 @@
                     </div>
                 </fieldset>
 
-                <button class="btn btn-primary quote-submit" type="submit" data-i18n="quote.submit">Ver mi cotización</button>
+                <!-- Total en vivo: lo rellena cotizador.js con el mismo cálculo del resultado -->
+                <div class="quote-bar">
+                    <p class="quote-running" aria-live="polite" aria-atomic="true"></p>
+                    <button class="btn btn-primary quote-submit" type="submit" data-i18n="quote.submit">Ver mi cotización</button>
+                </div>
             </form>
 
             <section class="quote-result" id="quote-result" aria-labelledby="result-title" tabindex="-1" hidden>

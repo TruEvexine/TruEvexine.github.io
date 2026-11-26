@@ -301,8 +301,78 @@
     opacity: 0.8;
 }
 
-.quote-submit {
+/* Barra fija con el total: acompaña mientras se eligen opciones y se queda al final del formulario */
+.quote-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 24px;
     margin-top: 36px;
+    padding: 14px 0 max(14px, env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border-card);
+    background: var(--bg-page);
+}
+
+.quote-running {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 20px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.quote-running strong {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.quote-running small {
+    flex-basis: 100%;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* Al enfocar con teclado, el navegador deja libre el alto de la barra para que no tape el control */
+html:has(.quote-form:not([hidden])) {
+    scroll-padding-bottom: 170px;
+}
+
+@media (max-width: 480px) {
+    .quote-bar {
+        gap: 6px;
+        padding-top: 8px;
+    }
+
+    .quote-running {
+        column-gap: 16px;
+        font-size: 0.9rem;
+    }
+
+    .quote-running strong {
+        font-size: 1.15rem;
+    }
+
+    .quote-bar .quote-submit {
+        min-height: 44px;
+    }
+}
+
+/* En pantallas muy bajas (teléfono en horizontal) la barra no se queda fija: taparía demasiado */
+@media (max-height: 520px) {
+    .quote-bar {
+        position: static;
+    }
+}
+
+.quote-submit {
     min-height: 52px;
     padding: 12px 36px;
     font-size: 1.1rem;

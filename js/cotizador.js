@@ -95,6 +95,25 @@ function elegirPaquete(paquete) {
     ajustarExtras();
 }
 
+// ---------- Total en vivo ----------
+function pintarTotalEnVivo() {
+    const resultado = calcular(leerSeleccion());
+    const parte = (etiqueta, centavos, sufijo = '') => {
+        const caja = document.createElement('span');
+        const monto = document.createElement('strong');
+        monto.textContent = formatoMoneda(centavos);
+        caja.append(`${etiqueta} `, monto, sufijo && ` ${sufijo}`);
+        return caja;
+    };
+    const partes = resultado.aMedida
+        ? [parte(texto('quote.custom.from'), resultado.desdeMonto.base)]
+        : [parte(texto('quote.result.once'), resultado.unico.base)];
+    if (!resultado.aMedida && resultado.mensual.base > 0) partes.push(parte(texto('quote.result.monthly'), resultado.mensual.base));
+    const nota = document.createElement('small');
+    nota.textContent = texto('quote.vatExtra');
+    $('.quote-running').replaceChildren(...partes, nota);
+}
+
 // ---------- Resultado ----------
 function leerDatos() {
     return {
@@ -211,6 +230,7 @@ function empezarDeCero() {
     ['#field-name', '#field-business', '#field-city', '#field-note'].forEach((id) => { $(id).value = ''; });
     ultimo = null;
     ajustarExtras();
+    pintarTotalEnVivo();
     volverAlFormulario();
 }
 
@@ -279,7 +299,9 @@ function iniciar() {
         } else if ((name === 'cuidado' || name === 'cuidadoPlus') && evento.target.checked) {
             form.elements[name === 'cuidado' ? 'cuidadoPlus' : 'cuidado'].checked = false; // uno u otro
         }
+        pintarTotalEnVivo();
     });
+    pintarTotalEnVivo();
 
     form.addEventListener('submit', (evento) => {
         evento.preventDefault();
@@ -299,6 +321,7 @@ function iniciar() {
     document.addEventListener('languageChanged', () => {
         ajustarExtras();
         pintarTextosConMarcas();
+        pintarTotalEnVivo();
         pintarResultado();
     });
 }
