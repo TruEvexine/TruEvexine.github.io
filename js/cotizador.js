@@ -339,6 +339,7 @@ function iniciar() {
         mostrarResultado();
     });
     $('#action-link').addEventListener('click', copiarEnlace);
+    $('#action-print').addEventListener('click', () => window.print()); // el navegador ofrece «Guardar como PDF»
 
     // Los datos opcionales actualizan el mensaje al momento de enviarlo
     ['#action-whatsapp', '#action-email'].forEach((id) => {

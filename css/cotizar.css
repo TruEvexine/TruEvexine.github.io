@@ -779,3 +779,47 @@ html:has(.quote-form:not([hidden])) {
         animation: none;
     }
 }
+
+/* Impresión y «Guardar como PDF»: solo la cotización, en tinta sobre blanco */
+@media print {
+    @page {
+        margin: 16mm;
+    }
+
+    body:has(#quote-result:not([hidden])) > :not(main),
+    body:has(#quote-result:not([hidden])) .quote-main > :not(:has(#quote-result)),
+    body:has(#quote-result:not([hidden])) :has(> #quote-result) > :not(#quote-result),
+    body:has(#quote-result:not([hidden])) .quote-next {
+        display: none !important;
+    }
+
+    body:has(#quote-result:not([hidden])),
+    body:has(#quote-result:not([hidden])) .quote-main {
+        padding: 0;
+        background: #fff;
+    }
+
+    body:has(#quote-result:not([hidden])) #quote-result {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: #fff;
+        box-shadow: none;
+    }
+
+    body:has(#quote-result:not([hidden])) #quote-result * {
+        border-color: #bbb;
+        background: transparent;
+        color: #111;
+        animation: none;
+    }
+
+    body:has(#quote-result:not([hidden])) #quote-result::before {
+        content: 'Rogelio Emmanuel Ceja · rogelioemmanuel.com/cotizar';
+        display: block;
+        margin-bottom: 16px;
+        color: #111;
+        font-weight: 700;
+    }
+}
