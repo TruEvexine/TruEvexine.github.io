@@ -60,7 +60,6 @@
         paper.innerHTML = html;
         paper.className = `paper paper-${template}`;
         document.documentElement.lang = L;
-        renderMobileContacts(paper, L);
         fitPaper();
         updateDownloads(L);
 
@@ -163,38 +162,26 @@
             }));
     }
 
-    // Escala la hoja (8.5 × 11 in) para que quepa en pantallas angostas
+    // Pantallas más angostas que la hoja (8.5 in = 816 px): en la página se acomoda en una columna con texto
+    // legible; la vista previa del admin la sigue reduciendo. El PDF no pasa por aquí.
+    const ANCHO_HOJA = 816;
+
     function fitPaper() {
         const scaler = document.querySelector('.cv-scale');
         if (!scaler || mode === 'print') return;
         const paper = document.getElementById('cv-paper');
+        const fluida = mode === 'page' && scaler.parentElement.clientWidth < ANCHO_HOJA;
+        paper.classList.toggle('paper-fluid', fluida);
+        if (fluida) {
+            paper.style.transform = '';
+            paper.classList.remove('paper-scaled');
+            scaler.style.height = '';
+            return;
+        }
         const scale = Math.min(1, scaler.parentElement.clientWidth / paper.offsetWidth);
         paper.style.transform = scale < 1 ? `scale(${scale})` : '';
         paper.classList.toggle('paper-scaled', scale < 1);
         scaler.style.height = `${paper.offsetHeight * scale}px`;
-    }
-
-    function renderMobileContacts(paper, language) {
-        const section = document.querySelector('.cv-mobile-contacts');
-        if (!section) return;
-        if (mode !== 'page') {
-            section.hidden = true;
-            return;
-        }
-        const list = section.querySelector('ul');
-        const links = template === 'visual' ? [...paper.querySelectorAll('.v-contact a')] : [];
-        section.hidden = links.length === 0;
-        list.replaceChildren(...links.map((source) => {
-            const item = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = source.href;
-            link.textContent = source.textContent;
-            item.append(link);
-            return item;
-        }));
-        const label = language === 'es' ? 'Contacto' : 'Contact';
-        section.setAttribute('aria-label', label);
-        section.querySelector('h2').textContent = label;
     }
 
     function updateDownloads(L) {

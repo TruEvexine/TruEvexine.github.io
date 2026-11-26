@@ -89,42 +89,6 @@
     position: relative;
 }
 
-.cv-mobile-contacts {
-    display: none;
-}
-
-.cv-mobile-contacts ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.cv-mobile-contacts a {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 8px 12px;
-    border: 1px solid rgba(243, 244, 246, 0.18);
-    border-radius: var(--radius-inner);
-    color: #F3F4F6;
-    font-size: 0.9rem;
-    overflow-wrap: anywhere;
-}
-
-.cv-mobile-contacts a:focus-visible {
-    outline: 3px solid var(--brand-accent);
-    outline-offset: 3px;
-}
-
-.cv-mobile-contacts h2 {
-    margin: 0 0 8px;
-    color: #F3F4F6;
-    font-size: 1rem;
-}
-
 /* ---------- Hoja ---------- */
 .paper {
     width: 8.5in;
@@ -492,8 +456,7 @@ html:not(.cv-print):not(.cv-embed) .paper:not(.paper-scaled) .v-contact li {
     .skip-link,
     .cv-hero,
     .cv-credentials,
-    .cred-lightbox,
-    .cv-mobile-contacts {
+    .cred-lightbox {
         display: none !important;
     }
 
@@ -777,11 +740,6 @@ html:not(.cv-print):not(.cv-embed) .paper:not(.paper-scaled) .v-contact li {
 
 /* Pantallas más angostas que la hoja: ocupa el ancho disponible con la misma proporción de carta */
 @media (max-width: 856px) {
-    .cv-mobile-contacts {
-        display: block;
-        margin-bottom: 16px;
-    }
-
     .paper.skel {
         width: 100%;
         min-height: 0;
@@ -789,6 +747,95 @@ html:not(.cv-print):not(.cv-embed) .paper:not(.paper-scaled) .v-contact li {
     }
 }
 
-.cv-mobile-contacts[hidden] {
-    display: none !important;
+/* ---------- Hoja en una columna (pantallas angostas) ----------
+   Solo en pantalla: el PDF y la impresión usan la hoja carta de siempre. */
+@media screen and (max-width: 856px) {
+    .paper.paper-fluid {
+        width: 100%;
+        min-height: 0;
+    }
+
+    .paper-fluid .cv-visual {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        font-size: 1rem;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+    }
+
+    .paper-fluid .v-side,
+    .paper-fluid .v-main {
+        padding: 28px 20px;
+    }
+
+    .paper-fluid .v-side h1 {
+        font-size: 1.7rem;
+    }
+
+    .paper-fluid .v-side h2,
+    .paper-fluid .v-main h2 {
+        font-size: 1.15rem;
+    }
+
+    .paper-fluid .v-side h3,
+    .paper-fluid .v-location,
+    .paper-fluid .v-chips li,
+    .paper-fluid .v-date,
+    .paper-fluid .v-stack {
+        font-size: 0.85rem;
+    }
+
+    .paper-fluid .v-summary p,
+    .paper-fluid .v-entry h3,
+    .paper-fluid .v-contact li {
+        font-size: 1rem;
+    }
+
+    .paper-fluid .v-contact a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .paper-fluid .v-contact li {
+        margin-bottom: 0;
+    }
+
+    .paper-fluid .v-row {
+        flex-wrap: wrap;
+        gap: 2px 12px;
+    }
+
+    .paper-fluid .cv-project-link {
+        display: inline-block;
+        padding: 4px 0;
+    }
+
+    .paper-fluid .cv-harvard {
+        padding: 24px 18px;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .paper-fluid .h-head h1 {
+        font-size: 1.6rem;
+    }
+
+    .paper-fluid .h-head p,
+    .paper-fluid .cv-harvard h2 {
+        font-size: 0.95rem;
+    }
+
+    .paper-fluid .h-row {
+        flex-wrap: wrap;
+        gap: 0 12px;
+    }
+
+    .paper-fluid .h-row span {
+        flex-shrink: 1;
+        text-align: left;
+    }
 }
