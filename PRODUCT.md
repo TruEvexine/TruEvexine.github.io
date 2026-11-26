@@ -7,7 +7,7 @@
 web
 
 ## Stack
-Sitio estático: HTML, CSS y JavaScript sin frameworks ni dependencias de ejecución. Se publica en Cloudflare como Worker con assets estáticos (`wrangler`) en `rogelioemmanuel.com`; ahí se aplican las cabeceras de `_headers`. Al 26 de noviembre de 2026 GitHub Pages sigue activo en `truevexine.github.io`, sin esas cabeceras (el plan del cotizador lo daba por apagado). `_dev/` solo contiene scripts de build, verificación y pruebas con `node:test`.
+Sitio estático: HTML, CSS y JavaScript sin frameworks ni dependencias de ejecución. Se publica en Cloudflare como Worker con assets estáticos (`wrangler`) en `rogelioemmanuel.com`; ahí se aplican las cabeceras de `_headers`. Desde el 26 de noviembre de 2026 GitHub Pages ya no publica con cada push (su fuente es GitHub Actions y no hay workflow de despliegue). `_dev/` solo contiene scripts de build, verificación y pruebas con `node:test`.
 
 ## Users
 - **Reclutadores y equipos de contratación** que evalúan a Rogelio para prácticas, empleo o colaboraciones. Llegan desde el CV, LinkedIn o un mensaje, y quieren juzgar rápido nivel, estilo de trabajo y proyectos reales.
