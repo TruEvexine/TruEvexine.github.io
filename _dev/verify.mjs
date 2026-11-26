@@ -83,6 +83,8 @@ const fin = bloque.indexOf('window.translations = translations');
 window.translations = new Function(`${bloque.slice(inicio, fin)}; return translations;`)();
 await import(`${pathToFileURL(resolve(raiz, 'js/cotizar-textos.js')).href}`);
 const { es, en } = window.translations;
+// build-es.mjs (paso 6) reemplaza window: se guarda la referencia para las comprobaciones posteriores
+const textos = window.translations;
 const antesClaves = fallos;
 Object.keys(es).filter((k) => !(k in en)).forEach((k) => falla(`falta en inglés: ${k}`));
 Object.keys(en).filter((k) => !(k in es)).forEach((k) => falla(`falta en español: ${k}`));
@@ -205,14 +207,14 @@ function textoPlano(texto) {
         .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
         .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
 }
-for (const archivo of [...listarHtml(raiz), 'partials/footer.html']) {
+for (const archivo of listarHtml(raiz)) {
     const html = leer(archivo);
     const idioma = archivo === 'partials/footer.html'
         ? 'en'
         : html.match(/<html\b[^>]*\blang=["'](en|es)["']/i)?.[1].toLowerCase() ?? 'en';
     for (const match of html.matchAll(/<([a-z][\w-]*)\b([^>]*\bdata-i18n="([^"]+)"[^>]*)>([^<]*)<\/\1>/gi)) {
         const [ , , , clave, texto] = match;
-        const traduccion = window.translations[idioma]?.[clave];
+        const traduccion = textos[idioma][clave];
         if (traduccion !== undefined && textoPlano(texto) !== textoPlano(traduccion)) {
             falla(`${archivo}: texto inicial no coincide con ${idioma}.${clave}`);
         }
@@ -222,11 +224,11 @@ if (fallos === antesImagenes) ok('imágenes, textos de respaldo y sitemap válid
 
 // 6c. Los otros respaldos (HTML interior y atributos), los recursos del dominio propio y lo que git no rastrea
 const antesRecursos = fallos;
-for (const archivo of [...listarHtml(raiz), 'partials/footer.html']) {
+for (const archivo of listarHtml(raiz)) {
     const html = leer(archivo).replace(/<!--[\s\S]*?-->/g, '');
     const idioma = html.match(/<html\b[^>]*\blang=["'](en|es)["']/i)?.[1].toLowerCase() ?? 'en';
     const comparar = (clave, valor) => {
-        const traduccion = window.translations[idioma]?.[clave];
+        const traduccion = textos[idioma][clave];
         if (traduccion !== undefined && textoPlano(valor) !== textoPlano(traduccion)) falla(`${archivo}: respaldo no coincide con ${idioma}.${clave}`);
     };
     for (const m of html.matchAll(/<(\w+)\b[^>]*\sdata-i18n-html="([^"]+)"[^>]*>([\s\S]*?)<\/\1>/g)) comparar(m[2], m[3]);
