@@ -142,8 +142,8 @@
       "card": {
         "theme": "stars",
         "description": {
-          "es": "Una tienda en línea de TCG y coleccionables para México, con una vitrina liquid glass y pagos verificados en el servidor.",
-          "en": "An online store for TCGs and collectibles in Mexico, with a liquid-glass storefront and server-verified payments."
+          "es": "Una tienda en línea de TCG y coleccionables para México, con una vitrina liquid glass y pagos diseñados para verificarse en el servidor.",
+          "en": "An online store for TCGs and collectibles in Mexico, with a liquid-glass storefront and payments designed to be verified on the server."
         },
         "image": "assets/undefeated-stars/cover.svg",
         "imageWidth": 1200,

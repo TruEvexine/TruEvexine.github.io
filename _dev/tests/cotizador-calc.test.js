@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { PRECIOS } from '../../js/precios.js';
 import {
     aplicarIva, calcular, recomendar, MODULOS, formatoMoneda, limpiarTexto,
@@ -152,6 +153,17 @@ test('el mensaje no inventa un tipo de negocio', () => {
     });
     assert.ok(msg.includes('Tipo de negocio: No especificado'));
     assert.ok(!msg.includes('Otro tipo de negocio'));
+});
+
+test('cada tipo de negocio del formulario tiene nombre en el mensaje', () => {
+    const html = readFileSync(new URL('../../cotizar.html', import.meta.url), 'utf8');
+    const valores = [...html.matchAll(/name="negocio" value="([^"]+)"/g)].map((m) => m[1]);
+    assert.ok(valores.length >= 6);
+    const seleccion = { paquete: 'profesional', ...sinExtras };
+    for (const negocio of valores) {
+        const msg = armarMensaje({ folio: 'COT-1', seleccion, resultado: calcular(seleccion), idioma: 'es', datos: { negocio } });
+        assert.ok(!msg.includes('Tipo de negocio: No especificado'), `sin nombre: ${negocio}`);
+    }
 });
 
 test('los enlaces codifican el mensaje', () => {

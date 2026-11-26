@@ -36,6 +36,7 @@ const NOMBRES = {
         restaurante: 'Restaurante o cafetería',
         comercio: 'Tienda o comercio',
         servicios: 'Servicios u oficios',
+        otro: 'Otro tipo de negocio',
     },
     concepto: {
         paquete: { esencial: 'Paquete Esencial', profesional: 'Paquete Profesional', especializado: 'Paquete Empresarial' },
